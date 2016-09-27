@@ -1,0 +1,1 @@
+This folder should be used to store training projects. Create a directory with your name in the format "LastName_FirstName". So mine would be "Kummer_Fred".
