@@ -2903,8 +2903,7 @@ You are welcome to use this library for commercial purposes. For attribution, we
 <part name="C2" library="SparkFun-Passives" deviceset="CAP" device="PTH" value="10n"/>
 <part name="LED1" library="adafruit" deviceset="LED" device="5MM" value="RED"/>
 <part name="9V" library="adafruit" deviceset="1X2" device="-3.5MM" value="VCC+"/>
-<part name="R3" library="SparkFun-Resistors" deviceset="RESISTOR" device="AXIAL-0.3" value="
-                                                                                            "/>
+<part name="R3" library="SparkFun-Resistors" deviceset="RESISTOR" device="AXIAL-0.3" value="510"/>
 <part name="GND1" library="SparkFun-Aesthetics" deviceset="GND" device=""/>
 <part name="SUPPLY1" library="SparkFun-Aesthetics" deviceset="VCC" device="" value="9V"/>
 </parts>
