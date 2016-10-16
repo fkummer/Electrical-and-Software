@@ -2060,18 +2060,6 @@ Source: http://www.osram.convergy.de/ ... LO_LS_LY L89K.pdf</description>
 <text x="1.73" y="-2.178" size="1.016" layer="21" font="vector">A</text>
 <text x="-2.938" y="-2.178" size="1.016" layer="21" font="vector">K</text>
 </package>
-<package name="1X2-3.5MM">
-<wire x1="-3.4" y1="3.4" x2="-3.4" y2="-2.2" width="0.127" layer="21"/>
-<wire x1="-3.4" y1="-2.2" x2="-3.4" y2="-3.6" width="0.127" layer="21"/>
-<wire x1="-3.4" y1="-3.6" x2="3.6" y2="-3.6" width="0.127" layer="21"/>
-<wire x1="3.6" y1="-3.6" x2="3.6" y2="-2.2" width="0.127" layer="21"/>
-<wire x1="3.6" y1="-2.2" x2="3.6" y2="3.4" width="0.127" layer="21"/>
-<wire x1="3.6" y1="3.4" x2="-3.4" y2="3.4" width="0.127" layer="21"/>
-<wire x1="-3.4" y1="-2.2" x2="3.6" y2="-2.2" width="0.127" layer="21"/>
-<pad name="1" x="1.8" y="0" drill="1" diameter="2.1844"/>
-<pad name="2" x="-1.7" y="0" drill="1" diameter="2.1844"/>
-<text x="3" y="5" size="1.27" layer="25" rot="R180">&gt;NAME</text>
-</package>
 </packages>
 <symbols>
 <symbol name="LED">
@@ -2098,14 +2086,6 @@ Source: http://www.osram.convergy.de/ ... LO_LS_LY L89K.pdf</description>
 <vertex x="-2.921" y="-2.413"/>
 <vertex x="-2.413" y="-2.921"/>
 </polygon>
-</symbol>
-<symbol name="1X2">
-<wire x1="-2.54" y1="5.08" x2="-2.54" y2="-2.54" width="0.254" layer="94"/>
-<wire x1="-2.54" y1="-2.54" x2="5.08" y2="-2.54" width="0.254" layer="94"/>
-<wire x1="5.08" y1="-2.54" x2="5.08" y2="5.08" width="0.254" layer="94"/>
-<wire x1="5.08" y1="5.08" x2="-2.54" y2="5.08" width="0.254" layer="94"/>
-<pin name="1" x="-5.08" y="2.54" visible="pin" length="middle" direction="pas"/>
-<pin name="2" x="-5.08" y="0" visible="pin" length="middle" direction="pas"/>
 </symbol>
 </symbols>
 <devicesets>
@@ -2448,24 +2428,6 @@ Source: http://www.osram.convergy.de/</description>
 <connects>
 <connect gate="G$1" pin="A" pad="A"/>
 <connect gate="G$1" pin="C" pad="K"/>
-</connects>
-<technologies>
-<technology name=""/>
-</technologies>
-</device>
-</devices>
-</deviceset>
-<deviceset name="1X2" prefix="J">
-<description>3.5mm Terminal block
-&lt;p&gt;http://www.ladyada.net/library/pcb/eaglelibrary.html&lt;p&gt;</description>
-<gates>
-<gate name="G$1" symbol="1X2" x="0" y="0"/>
-</gates>
-<devices>
-<device name="-3.5MM" package="1X2-3.5MM">
-<connects>
-<connect gate="G$1" pin="1" pad="1"/>
-<connect gate="G$1" pin="2" pad="2"/>
 </connects>
 <technologies>
 <technology name=""/>
@@ -2849,6 +2811,58 @@ Standard 0603 ceramic capacitor, and 0.1" leaded capacitor.</description>
 </deviceset>
 </devicesets>
 </library>
+<library name="SparkFun-Aesthetics">
+<description>&lt;h3&gt;SparkFun Electronics' preferred foot prints&lt;/h3&gt;
+In this library you'll find non-functional items- supply symbols, logos, notations, frame blocks, etc.&lt;br&gt;&lt;br&gt;
+We've spent an enormous amount of time creating and checking these footprints and parts, but it is the end user's responsibility to ensure correctness and suitablity for a given componet or application. If you enjoy using this library, please buy one of our products at www.sparkfun.com.
+&lt;br&gt;&lt;br&gt;
+&lt;b&gt;Licensing:&lt;/b&gt; Creative Commons ShareAlike 4.0 International - https://creativecommons.org/licenses/by-sa/4.0/ 
+&lt;br&gt;&lt;br&gt;
+You are welcome to use this library for commercial purposes. For attribution, we ask that when you begin to sell your device using our footprint, you email us with a link to the product being sold. We want bragging rights that we helped (in a very small part) to create your 8th world wonder. We would like the opportunity to feature your device on our homepage.</description>
+<packages>
+</packages>
+<symbols>
+<symbol name="VCC">
+<wire x1="0.762" y1="1.27" x2="0" y2="2.54" width="0.254" layer="94"/>
+<wire x1="0" y1="2.54" x2="-0.762" y2="1.27" width="0.254" layer="94"/>
+<text x="-1.016" y="3.556" size="1.778" layer="96">&gt;VALUE</text>
+<pin name="VCC" x="0" y="0" visible="off" length="short" direction="sup" rot="R90"/>
+</symbol>
+<symbol name="DGND">
+<wire x1="-1.905" y1="0" x2="1.905" y2="0" width="0.254" layer="94"/>
+<text x="-2.54" y="-2.54" size="1.778" layer="96">&gt;VALUE</text>
+<pin name="GND" x="0" y="2.54" visible="off" length="short" direction="sup" rot="R270"/>
+</symbol>
+</symbols>
+<devicesets>
+<deviceset name="VCC" prefix="SUPPLY">
+<description>&lt;b&gt;SUPPLY SYMBOL&lt;/b&gt;</description>
+<gates>
+<gate name="G$1" symbol="VCC" x="0" y="0"/>
+</gates>
+<devices>
+<device name="">
+<technologies>
+<technology name=""/>
+</technologies>
+</device>
+</devices>
+</deviceset>
+<deviceset name="GND" prefix="GND">
+<description>&lt;b&gt;SUPPLY SYMBOL&lt;/b&gt;</description>
+<gates>
+<gate name="1" symbol="DGND" x="0" y="0"/>
+</gates>
+<devices>
+<device name="">
+<technologies>
+<technology name=""/>
+</technologies>
+</device>
+</devices>
+</deviceset>
+</devicesets>
+</library>
 </libraries>
 <attributes>
 </attributes>
@@ -2865,7 +2879,9 @@ Standard 0603 ceramic capacitor, and 0.1" leaded capacitor.</description>
 <part name="C1" library="SparkFun-Passives" deviceset="CAP_POL" device="PTH2" value="5.6u"/>
 <part name="LED1" library="adafruit" deviceset="LED" device="5MM"/>
 <part name="C2" library="SparkFun-Capacitors" deviceset="CAP" device="PTH" value="10n"/>
-<part name="J1" library="adafruit" deviceset="1X2" device="-3.5MM"/>
+<part name="R3" library="SparkFun-Resistors" deviceset="RESISTOR" device="AXIAL-0.3" value="470"/>
+<part name="SUPPLY1" library="SparkFun-Aesthetics" deviceset="VCC" device="" value="5V VCC+"/>
+<part name="GND1" library="SparkFun-Aesthetics" deviceset="GND" device=""/>
 </parts>
 <sheets>
 <sheet>
@@ -2876,30 +2892,15 @@ Standard 0603 ceramic capacitor, and 0.1" leaded capacitor.</description>
 <instance part="R1" gate="G$1" x="10.16" y="83.82" rot="R90"/>
 <instance part="R2" gate="G$1" x="10.16" y="68.58" rot="R90"/>
 <instance part="C1" gate="G$1" x="10.16" y="55.88"/>
-<instance part="LED1" gate="G$1" x="58.42" y="66.04"/>
+<instance part="LED1" gate="G$1" x="58.42" y="55.88"/>
 <instance part="C2" gate="G$1" x="48.26" y="60.96"/>
-<instance part="J1" gate="G$1" x="-2.54" y="99.06" rot="R180"/>
+<instance part="R3" gate="G$1" x="58.42" y="66.04" rot="R90"/>
+<instance part="SUPPLY1" gate="G$1" x="0" y="99.06"/>
+<instance part="GND1" gate="1" x="0" y="93.98"/>
 </instances>
 <busses>
 </busses>
 <nets>
-<net name="VCC+" class="0">
-<segment>
-<pinref part="J1" gate="G$1" pin="2"/>
-<wire x1="2.54" y1="99.06" x2="10.16" y2="99.06" width="0.1524" layer="91"/>
-<wire x1="10.16" y1="99.06" x2="48.26" y2="99.06" width="0.1524" layer="91"/>
-<wire x1="48.26" y1="99.06" x2="48.26" y2="83.82" width="0.1524" layer="91"/>
-<pinref part="IC2" gate="G$1" pin="VCC+"/>
-<wire x1="48.26" y1="83.82" x2="43.18" y2="83.82" width="0.1524" layer="91"/>
-<pinref part="IC2" gate="G$1" pin="/RES"/>
-<wire x1="43.18" y1="81.28" x2="48.26" y2="81.28" width="0.1524" layer="91"/>
-<wire x1="48.26" y1="81.28" x2="48.26" y2="83.82" width="0.1524" layer="91"/>
-<junction x="48.26" y="83.82"/>
-<pinref part="R1" gate="G$1" pin="2"/>
-<wire x1="10.16" y1="88.9" x2="10.16" y2="99.06" width="0.1524" layer="91"/>
-<junction x="10.16" y="99.06"/>
-</segment>
-</net>
 <net name="N$2" class="0">
 <segment>
 <pinref part="R1" gate="G$1" pin="1"/>
@@ -2938,8 +2939,6 @@ Standard 0603 ceramic capacitor, and 0.1" leaded capacitor.</description>
 </net>
 <net name="GND" class="0">
 <segment>
-<pinref part="J1" gate="G$1" pin="1"/>
-<wire x1="2.54" y1="96.52" x2="5.08" y2="96.52" width="0.1524" layer="91"/>
 <wire x1="5.08" y1="96.52" x2="5.08" y2="45.72" width="0.1524" layer="91"/>
 <pinref part="C2" gate="G$1" pin="2"/>
 <wire x1="5.08" y1="45.72" x2="10.16" y2="45.72" width="0.1524" layer="91"/>
@@ -2953,17 +2952,43 @@ Standard 0603 ceramic capacitor, and 0.1" leaded capacitor.</description>
 <wire x1="10.16" y1="50.8" x2="10.16" y2="45.72" width="0.1524" layer="91"/>
 <junction x="10.16" y="45.72"/>
 <pinref part="LED1" gate="G$1" pin="C"/>
-<wire x1="58.42" y1="60.96" x2="58.42" y2="45.72" width="0.1524" layer="91"/>
+<wire x1="58.42" y1="50.8" x2="58.42" y2="45.72" width="0.1524" layer="91"/>
 <wire x1="58.42" y1="45.72" x2="48.26" y2="45.72" width="0.1524" layer="91"/>
 <junction x="48.26" y="45.72"/>
+<pinref part="GND1" gate="1" pin="GND"/>
+<wire x1="5.08" y1="96.52" x2="0" y2="96.52" width="0.1524" layer="91"/>
 </segment>
 </net>
-<net name="N$6" class="0">
+<net name="N$1" class="0">
 <segment>
 <pinref part="IC2" gate="G$1" pin="OUT"/>
-<pinref part="LED1" gate="G$1" pin="A"/>
+<pinref part="R3" gate="G$1" pin="2"/>
 <wire x1="43.18" y1="76.2" x2="58.42" y2="76.2" width="0.1524" layer="91"/>
-<wire x1="58.42" y1="76.2" x2="58.42" y2="68.58" width="0.1524" layer="91"/>
+<wire x1="58.42" y1="76.2" x2="58.42" y2="71.12" width="0.1524" layer="91"/>
+</segment>
+</net>
+<net name="N$5" class="0">
+<segment>
+<pinref part="R3" gate="G$1" pin="1"/>
+<pinref part="LED1" gate="G$1" pin="A"/>
+<wire x1="58.42" y1="60.96" x2="58.42" y2="58.42" width="0.1524" layer="91"/>
+</segment>
+</net>
+<net name="VCC+" class="0">
+<segment>
+<wire x1="10.16" y1="99.06" x2="48.26" y2="99.06" width="0.1524" layer="91"/>
+<wire x1="48.26" y1="99.06" x2="48.26" y2="83.82" width="0.1524" layer="91"/>
+<pinref part="IC2" gate="G$1" pin="VCC+"/>
+<wire x1="48.26" y1="83.82" x2="43.18" y2="83.82" width="0.1524" layer="91"/>
+<pinref part="IC2" gate="G$1" pin="/RES"/>
+<wire x1="43.18" y1="81.28" x2="48.26" y2="81.28" width="0.1524" layer="91"/>
+<wire x1="48.26" y1="81.28" x2="48.26" y2="83.82" width="0.1524" layer="91"/>
+<junction x="48.26" y="83.82"/>
+<pinref part="R1" gate="G$1" pin="2"/>
+<wire x1="10.16" y1="88.9" x2="10.16" y2="99.06" width="0.1524" layer="91"/>
+<pinref part="SUPPLY1" gate="G$1" pin="VCC"/>
+<wire x1="0" y1="99.06" x2="10.16" y2="99.06" width="0.1524" layer="91"/>
+<junction x="10.16" y="99.06"/>
 </segment>
 </net>
 </nets>
