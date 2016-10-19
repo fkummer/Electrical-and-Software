@@ -1,0 +1,2 @@
+EEPROM, 2MB, by Atmel
+http://www.atmel.com/devices/AT24CM02.aspx
