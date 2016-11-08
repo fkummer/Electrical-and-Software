@@ -8123,9 +8123,9 @@ W = angled&lt;p&gt;
 <label x="86.36" y="50.8" size="1.27" layer="95" xref="yes"/>
 </segment>
 <segment>
-<pinref part="IC1" gate="1" pin="RXD"/>
-<wire x1="142.24" y1="40.64" x2="144.78" y2="40.64" width="0.1524" layer="91"/>
-<label x="144.78" y="40.64" size="1.27" layer="95" xref="yes"/>
+<pinref part="IC1" gate="1" pin="TXD"/>
+<wire x1="142.24" y1="43.18" x2="144.78" y2="43.18" width="0.1524" layer="91"/>
+<label x="144.78" y="43.18" size="1.27" layer="95" xref="yes"/>
 </segment>
 </net>
 <net name="TX" class="0">
@@ -8135,9 +8135,9 @@ W = angled&lt;p&gt;
 <label x="86.36" y="48.26" size="1.27" layer="95" xref="yes"/>
 </segment>
 <segment>
-<pinref part="IC1" gate="1" pin="TXD"/>
-<wire x1="142.24" y1="43.18" x2="144.78" y2="43.18" width="0.1524" layer="91"/>
-<label x="144.78" y="43.18" size="1.27" layer="95" xref="yes"/>
+<pinref part="IC1" gate="1" pin="RXD"/>
+<wire x1="142.24" y1="40.64" x2="144.78" y2="40.64" width="0.1524" layer="91"/>
+<label x="144.78" y="40.64" size="1.27" layer="95" xref="yes"/>
 </segment>
 </net>
 <net name="INT" class="0">

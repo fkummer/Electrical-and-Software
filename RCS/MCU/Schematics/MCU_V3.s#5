@@ -7804,7 +7804,7 @@ W = angled&lt;p&gt;
 <parts>
 <part name="SUPPLY1" library="SparkFun-Aesthetics" deviceset="VDD" device=""/>
 <part name="R1" library="resistor" deviceset="R-US_" device="R0805" value="10k"/>
-<part name="Q1" library="adafruit" deviceset="CRYSTAL" device="HC33U-V" value="8 MHz"/>
+<part name="Q1" library="adafruit" deviceset="CRYSTAL" device="HC33U-V"/>
 <part name="C1" library="capacitor-wima" deviceset="C" device="2,5-3" value="22 pF"/>
 <part name="C2" library="capacitor-wima" deviceset="C" device="2,5-3" value="22 pF"/>
 <part name="GND1" library="supply1" deviceset="GND" device=""/>
@@ -7822,6 +7822,7 @@ W = angled&lt;p&gt;
 <part name="GND6" library="supply1" deviceset="GND" device=""/>
 <part name="GND7" library="supply1" deviceset="GND" device=""/>
 <part name="C5" library="capacitor-wima" deviceset="C" device="2,5-3" value=".1 uF"/>
+<part name="SUPPLY2" library="SparkFun-Aesthetics" deviceset="VDD" device=""/>
 <part name="R2" library="resistor" deviceset="R-US_" device="R0805" value="10k"/>
 <part name="R3" library="resistor" deviceset="R-US_" device="R0805" value="10k"/>
 <part name="SUPPLY3" library="SparkFun-Aesthetics" deviceset="VDD" device=""/>
@@ -7855,11 +7856,12 @@ W = angled&lt;p&gt;
 <instance part="GND6" gate="1" x="144.78" y="-10.16"/>
 <instance part="GND7" gate="1" x="-12.7" y="50.8"/>
 <instance part="C5" gate="G$1" x="33.02" y="78.74" rot="R180"/>
+<instance part="SUPPLY2" gate="VDD" x="106.68" y="45.72"/>
 <instance part="R2" gate="G$1" x="154.94" y="71.12" rot="R90"/>
 <instance part="R3" gate="G$1" x="170.18" y="71.12" rot="R90"/>
 <instance part="SUPPLY3" gate="VDD" x="162.56" y="83.82"/>
-<instance part="GND8" gate="1" x="147.32" y="68.58"/>
-<instance part="GND9" gate="1" x="147.32" y="96.52"/>
+<instance part="GND8" gate="1" x="144.78" y="68.58"/>
+<instance part="GND9" gate="1" x="144.78" y="96.52"/>
 <instance part="U1" gate="U$1" x="60.96" y="43.18"/>
 <instance part="SV1" gate="G$1" x="-12.7" y="78.74"/>
 </instances>
@@ -7979,30 +7981,29 @@ W = angled&lt;p&gt;
 </segment>
 <segment>
 <pinref part="FLIGHT-DATA-STORAGE" gate="G$1" pin="A0"/>
-<wire x1="139.7" y1="71.12" x2="142.24" y2="71.12" width="0.1524" layer="91"/>
-<wire x1="142.24" y1="71.12" x2="147.32" y2="71.12" width="0.1524" layer="91"/>
-<wire x1="147.32" y1="71.12" x2="147.32" y2="73.66" width="0.1524" layer="91"/>
+<wire x1="139.7" y1="71.12" x2="144.78" y2="71.12" width="0.1524" layer="91"/>
+<wire x1="144.78" y1="71.12" x2="144.78" y2="73.66" width="0.1524" layer="91"/>
 <pinref part="FLIGHT-DATA-STORAGE" gate="G$1" pin="A2"/>
-<wire x1="147.32" y1="73.66" x2="147.32" y2="76.2" width="0.1524" layer="91"/>
-<wire x1="147.32" y1="76.2" x2="139.7" y2="76.2" width="0.1524" layer="91"/>
+<wire x1="144.78" y1="73.66" x2="144.78" y2="76.2" width="0.1524" layer="91"/>
+<wire x1="144.78" y1="76.2" x2="139.7" y2="76.2" width="0.1524" layer="91"/>
 <pinref part="FLIGHT-DATA-STORAGE" gate="G$1" pin="A1"/>
-<wire x1="139.7" y1="73.66" x2="147.32" y2="73.66" width="0.1524" layer="91"/>
-<junction x="147.32" y="73.66"/>
+<wire x1="139.7" y1="73.66" x2="144.78" y2="73.66" width="0.1524" layer="91"/>
+<junction x="144.78" y="73.66"/>
 <pinref part="GND8" gate="1" pin="GND"/>
-<junction x="147.32" y="71.12"/>
-<pinref part="FLIGHT-DATA-STORAGE" gate="G$1" pin="WP"/>
-<wire x1="139.7" y1="66.04" x2="142.24" y2="66.04" width="0.1524" layer="91"/>
-<wire x1="142.24" y1="66.04" x2="142.24" y2="71.12" width="0.1524" layer="91"/>
-<junction x="142.24" y="71.12"/>
+<junction x="144.78" y="71.12"/>
 </segment>
 <segment>
 <pinref part="FLIGHT-STATE-TABLE" gate="G$1" pin="A0"/>
-<wire x1="139.7" y1="99.06" x2="147.32" y2="99.06" width="0.1524" layer="91"/>
-<wire x1="147.32" y1="99.06" x2="147.32" y2="101.6" width="0.1524" layer="91"/>
+<wire x1="139.7" y1="99.06" x2="144.78" y2="99.06" width="0.1524" layer="91"/>
+<wire x1="144.78" y1="99.06" x2="144.78" y2="101.6" width="0.1524" layer="91"/>
+<pinref part="FLIGHT-STATE-TABLE" gate="G$1" pin="A2"/>
+<wire x1="144.78" y1="101.6" x2="144.78" y2="104.14" width="0.1524" layer="91"/>
+<wire x1="144.78" y1="104.14" x2="139.7" y2="104.14" width="0.1524" layer="91"/>
 <pinref part="FLIGHT-STATE-TABLE" gate="G$1" pin="A1"/>
-<wire x1="139.7" y1="101.6" x2="147.32" y2="101.6" width="0.1524" layer="91"/>
+<wire x1="139.7" y1="101.6" x2="144.78" y2="101.6" width="0.1524" layer="91"/>
+<junction x="144.78" y="101.6"/>
 <pinref part="GND9" gate="1" pin="GND"/>
-<junction x="147.32" y="99.06"/>
+<junction x="144.78" y="99.06"/>
 </segment>
 </net>
 <net name="VDD" class="0">
@@ -8014,6 +8015,16 @@ W = angled&lt;p&gt;
 <wire x1="5.08" y1="96.52" x2="5.08" y2="101.6" width="0.1524" layer="91"/>
 <wire x1="5.08" y1="101.6" x2="20.32" y2="101.6" width="0.1524" layer="91"/>
 <junction x="20.32" y="101.6"/>
+</segment>
+<segment>
+<pinref part="IC1" gate="1" pin="VCC"/>
+<wire x1="114.3" y1="43.18" x2="106.68" y2="43.18" width="0.1524" layer="91"/>
+<wire x1="106.68" y1="43.18" x2="106.68" y2="45.72" width="0.1524" layer="91"/>
+<pinref part="SUPPLY2" gate="VDD" pin="VDD"/>
+<pinref part="IC1" gate="1" pin="VCCIO"/>
+<wire x1="114.3" y1="40.64" x2="106.68" y2="40.64" width="0.1524" layer="91"/>
+<wire x1="106.68" y1="40.64" x2="106.68" y2="43.18" width="0.1524" layer="91"/>
+<junction x="106.68" y="43.18"/>
 </segment>
 <segment>
 <pinref part="R2" gate="G$1" pin="2"/>
@@ -8079,6 +8090,44 @@ W = angled&lt;p&gt;
 <wire x1="-5.08" y1="78.74" x2="0" y2="78.74" width="0.1524" layer="91"/>
 </segment>
 </net>
+<net name="N$9" class="0">
+<segment>
+<pinref part="FLIGHT-STATE-TABLE" gate="G$1" pin="WP"/>
+<wire x1="139.7" y1="93.98" x2="152.4" y2="93.98" width="0.1524" layer="91"/>
+<wire x1="152.4" y1="93.98" x2="152.4" y2="111.76" width="0.1524" layer="91"/>
+<wire x1="152.4" y1="111.76" x2="116.84" y2="111.76" width="0.1524" layer="91"/>
+<pinref part="R1" gate="G$1" pin="2"/>
+<wire x1="35.56" y1="68.58" x2="33.02" y2="68.58" width="0.1524" layer="91"/>
+<wire x1="33.02" y1="68.58" x2="12.7" y2="68.58" width="0.1524" layer="91"/>
+<wire x1="12.7" y1="68.58" x2="12.7" y2="86.36" width="0.1524" layer="91"/>
+<wire x1="12.7" y1="86.36" x2="20.32" y2="86.36" width="0.1524" layer="91"/>
+<wire x1="33.02" y1="68.58" x2="33.02" y2="66.04" width="0.1524" layer="91"/>
+<junction x="33.02" y="68.58"/>
+<wire x1="33.02" y1="66.04" x2="35.56" y2="66.04" width="0.1524" layer="91"/>
+<pinref part="F1" gate="1" pin="1"/>
+<wire x1="20.32" y1="86.36" x2="20.32" y2="88.9" width="0.1524" layer="91"/>
+<junction x="20.32" y="86.36"/>
+<wire x1="20.32" y1="88.9" x2="20.32" y2="91.44" width="0.1524" layer="91"/>
+<wire x1="20.32" y1="88.9" x2="101.6" y2="88.9" width="0.1524" layer="91"/>
+<wire x1="101.6" y1="88.9" x2="101.6" y2="104.14" width="0.1524" layer="91"/>
+<junction x="20.32" y="88.9"/>
+<pinref part="FLIGHT-STATE-TABLE" gate="G$1" pin="VCC"/>
+<wire x1="101.6" y1="104.14" x2="116.84" y2="104.14" width="0.1524" layer="91"/>
+<pinref part="FLIGHT-DATA-STORAGE" gate="G$1" pin="VCC"/>
+<wire x1="116.84" y1="104.14" x2="119.38" y2="104.14" width="0.1524" layer="91"/>
+<wire x1="119.38" y1="76.2" x2="101.6" y2="76.2" width="0.1524" layer="91"/>
+<wire x1="101.6" y1="76.2" x2="101.6" y2="88.9" width="0.1524" layer="91"/>
+<junction x="101.6" y="88.9"/>
+<wire x1="116.84" y1="111.76" x2="116.84" y2="104.14" width="0.1524" layer="91"/>
+<junction x="116.84" y="104.14"/>
+<pinref part="U1" gate="U$1" pin="VCC@4"/>
+<pinref part="U1" gate="U$1" pin="AVCC"/>
+<wire x1="33.02" y1="66.04" x2="33.02" y2="63.5" width="0.1524" layer="91"/>
+<junction x="33.02" y="66.04"/>
+<pinref part="U1" gate="U$1" pin="VCC@6"/>
+<wire x1="33.02" y1="63.5" x2="35.56" y2="63.5" width="0.1524" layer="91"/>
+</segment>
+</net>
 <net name="DM" class="0">
 <segment>
 <pinref part="X1" gate="G$1" pin="D-"/>
@@ -8140,6 +8189,13 @@ W = angled&lt;p&gt;
 <label x="144.78" y="43.18" size="1.27" layer="95" xref="yes"/>
 </segment>
 </net>
+<net name="N$4" class="0">
+<segment>
+<pinref part="IC1" gate="1" pin="3V3OUT"/>
+<wire x1="106.68" y1="15.24" x2="114.3" y2="15.24" width="0.1524" layer="91"/>
+<pinref part="C3" gate="G$1" pin="2"/>
+</segment>
+</net>
 <net name="INT" class="0">
 <segment>
 <pinref part="U1" gate="U$1" pin="PD2(INT0)"/>
@@ -8150,73 +8206,6 @@ W = angled&lt;p&gt;
 <pinref part="SV1" gate="G$1" pin="1"/>
 <wire x1="-5.08" y1="76.2" x2="0" y2="76.2" width="0.1524" layer="91"/>
 <label x="0" y="76.2" size="1.27" layer="95" xref="yes"/>
-</segment>
-</net>
-<net name="N$5" class="0">
-<segment>
-<pinref part="FLIGHT-STATE-TABLE" gate="G$1" pin="A2"/>
-<wire x1="147.32" y1="104.14" x2="139.7" y2="104.14" width="0.1524" layer="91"/>
-<wire x1="147.32" y1="104.14" x2="147.32" y2="111.76" width="0.1524" layer="91"/>
-<pinref part="FLIGHT-STATE-TABLE" gate="G$1" pin="WP"/>
-<wire x1="139.7" y1="93.98" x2="152.4" y2="93.98" width="0.1524" layer="91"/>
-<wire x1="152.4" y1="93.98" x2="152.4" y2="111.76" width="0.1524" layer="91"/>
-<wire x1="152.4" y1="111.76" x2="147.32" y2="111.76" width="0.1524" layer="91"/>
-<pinref part="R1" gate="G$1" pin="2"/>
-<wire x1="147.32" y1="111.76" x2="116.84" y2="111.76" width="0.1524" layer="91"/>
-<wire x1="35.56" y1="68.58" x2="33.02" y2="68.58" width="0.1524" layer="91"/>
-<wire x1="33.02" y1="68.58" x2="12.7" y2="68.58" width="0.1524" layer="91"/>
-<wire x1="12.7" y1="68.58" x2="12.7" y2="86.36" width="0.1524" layer="91"/>
-<wire x1="12.7" y1="86.36" x2="20.32" y2="86.36" width="0.1524" layer="91"/>
-<wire x1="33.02" y1="68.58" x2="33.02" y2="66.04" width="0.1524" layer="91"/>
-<junction x="33.02" y="68.58"/>
-<wire x1="33.02" y1="66.04" x2="35.56" y2="66.04" width="0.1524" layer="91"/>
-<pinref part="F1" gate="1" pin="1"/>
-<wire x1="20.32" y1="86.36" x2="20.32" y2="88.9" width="0.1524" layer="91"/>
-<junction x="20.32" y="86.36"/>
-<wire x1="20.32" y1="88.9" x2="20.32" y2="91.44" width="0.1524" layer="91"/>
-<wire x1="20.32" y1="88.9" x2="101.6" y2="88.9" width="0.1524" layer="91"/>
-<wire x1="101.6" y1="88.9" x2="101.6" y2="104.14" width="0.1524" layer="91"/>
-<junction x="20.32" y="88.9"/>
-<pinref part="FLIGHT-STATE-TABLE" gate="G$1" pin="VCC"/>
-<wire x1="101.6" y1="104.14" x2="116.84" y2="104.14" width="0.1524" layer="91"/>
-<pinref part="FLIGHT-DATA-STORAGE" gate="G$1" pin="VCC"/>
-<wire x1="116.84" y1="104.14" x2="119.38" y2="104.14" width="0.1524" layer="91"/>
-<wire x1="119.38" y1="76.2" x2="101.6" y2="76.2" width="0.1524" layer="91"/>
-<wire x1="101.6" y1="76.2" x2="101.6" y2="88.9" width="0.1524" layer="91"/>
-<junction x="101.6" y="88.9"/>
-<wire x1="116.84" y1="111.76" x2="116.84" y2="104.14" width="0.1524" layer="91"/>
-<junction x="116.84" y="104.14"/>
-<pinref part="U1" gate="U$1" pin="VCC@4"/>
-<pinref part="U1" gate="U$1" pin="AVCC"/>
-<wire x1="33.02" y1="66.04" x2="33.02" y2="63.5" width="0.1524" layer="91"/>
-<junction x="33.02" y="66.04"/>
-<pinref part="U1" gate="U$1" pin="VCC@6"/>
-<wire x1="33.02" y1="63.5" x2="35.56" y2="63.5" width="0.1524" layer="91"/>
-<junction x="147.32" y="111.76"/>
-</segment>
-</net>
-<net name="USBVDD" class="0">
-<segment>
-<pinref part="X1" gate="G$1" pin="VBUS"/>
-<wire x1="-15.24" y1="66.04" x2="-12.7" y2="66.04" width="0.1524" layer="91"/>
-<label x="-12.7" y="66.04" size="1.27" layer="95" xref="yes"/>
-</segment>
-<segment>
-<pinref part="IC1" gate="1" pin="VCC"/>
-<wire x1="114.3" y1="43.18" x2="106.68" y2="43.18" width="0.1524" layer="91"/>
-<label x="106.68" y="43.18" size="1.27" layer="95" rot="R180" xref="yes"/>
-</segment>
-</net>
-<net name="N$7" class="0">
-<segment>
-<pinref part="IC1" gate="1" pin="VCCIO"/>
-<wire x1="114.3" y1="40.64" x2="109.22" y2="40.64" width="0.1524" layer="91"/>
-<pinref part="IC1" gate="1" pin="3V3OUT"/>
-<wire x1="106.68" y1="15.24" x2="109.22" y2="15.24" width="0.1524" layer="91"/>
-<pinref part="C3" gate="G$1" pin="2"/>
-<wire x1="109.22" y1="15.24" x2="114.3" y2="15.24" width="0.1524" layer="91"/>
-<wire x1="109.22" y1="40.64" x2="109.22" y2="15.24" width="0.1524" layer="91"/>
-<junction x="109.22" y="15.24"/>
 </segment>
 </net>
 </nets>
