@@ -566,7 +566,7 @@ http://www.bourns.com/data/global/pdfs/7914.pdf</description>
 <sheets>
 <sheet>
 <plain>
-<text x="99.06" y="55.88" size="1.778" layer="91">Overvoltage Protection</text>
+<text x="99.06" y="53.34" size="1.778" layer="91">Overvoltage Protection</text>
 <rectangle x1="93.98" y1="35.56" x2="127" y2="68.58" layer="94"/>
 </plain>
 <instances>
@@ -576,7 +576,9 @@ http://www.bourns.com/data/global/pdfs/7914.pdf</description>
 <instance part="3.7V" gate="G$1" x="17.78" y="73.66"/>
 <instance part="GND-ISO2" gate="G$1" x="71.12" y="40.64"/>
 <instance part="3.7V1" gate="G$1" x="71.12" y="68.58"/>
-<instance part="U$1" gate="G$1" x="81.28" y="60.96"/>
+<instance part="U$1" gate="G$1" x="81.28" y="60.96" smashed="yes">
+<attribute name="NAME" x="77.216" y="66.548" size="1.778" layer="95"/>
+</instance>
 </instances>
 <busses>
 </busses>
