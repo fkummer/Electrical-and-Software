@@ -7822,7 +7822,6 @@ W = angled&lt;p&gt;
 <part name="GND6" library="supply1" deviceset="GND" device=""/>
 <part name="GND7" library="supply1" deviceset="GND" device=""/>
 <part name="C5" library="capacitor-wima" deviceset="C" device="2,5-3" value=".1 uF"/>
-<part name="SUPPLY2" library="SparkFun-Aesthetics" deviceset="VDD" device=""/>
 <part name="R2" library="resistor" deviceset="R-US_" device="R0805" value="10k"/>
 <part name="R3" library="resistor" deviceset="R-US_" device="R0805" value="10k"/>
 <part name="SUPPLY3" library="SparkFun-Aesthetics" deviceset="VDD" device=""/>
@@ -7856,7 +7855,6 @@ W = angled&lt;p&gt;
 <instance part="GND6" gate="1" x="144.78" y="-10.16"/>
 <instance part="GND7" gate="1" x="-12.7" y="50.8"/>
 <instance part="C5" gate="G$1" x="33.02" y="78.74" rot="R180"/>
-<instance part="SUPPLY2" gate="VDD" x="106.68" y="45.72"/>
 <instance part="R2" gate="G$1" x="154.94" y="71.12" rot="R90"/>
 <instance part="R3" gate="G$1" x="170.18" y="71.12" rot="R90"/>
 <instance part="SUPPLY3" gate="VDD" x="162.56" y="83.82"/>
@@ -8018,16 +8016,6 @@ W = angled&lt;p&gt;
 <junction x="20.32" y="101.6"/>
 </segment>
 <segment>
-<pinref part="IC1" gate="1" pin="VCC"/>
-<wire x1="114.3" y1="43.18" x2="106.68" y2="43.18" width="0.1524" layer="91"/>
-<wire x1="106.68" y1="43.18" x2="106.68" y2="45.72" width="0.1524" layer="91"/>
-<pinref part="SUPPLY2" gate="VDD" pin="VDD"/>
-<pinref part="IC1" gate="1" pin="VCCIO"/>
-<wire x1="114.3" y1="40.64" x2="106.68" y2="40.64" width="0.1524" layer="91"/>
-<wire x1="106.68" y1="40.64" x2="106.68" y2="43.18" width="0.1524" layer="91"/>
-<junction x="106.68" y="43.18"/>
-</segment>
-<segment>
 <pinref part="R2" gate="G$1" pin="2"/>
 <wire x1="154.94" y1="76.2" x2="154.94" y2="78.74" width="0.1524" layer="91"/>
 <wire x1="154.94" y1="78.74" x2="162.56" y2="78.74" width="0.1524" layer="91"/>
@@ -8152,13 +8140,6 @@ W = angled&lt;p&gt;
 <label x="144.78" y="43.18" size="1.27" layer="95" xref="yes"/>
 </segment>
 </net>
-<net name="N$4" class="0">
-<segment>
-<pinref part="IC1" gate="1" pin="3V3OUT"/>
-<wire x1="106.68" y1="15.24" x2="114.3" y2="15.24" width="0.1524" layer="91"/>
-<pinref part="C3" gate="G$1" pin="2"/>
-</segment>
-</net>
 <net name="INT" class="0">
 <segment>
 <pinref part="U1" gate="U$1" pin="PD2(INT0)"/>
@@ -8212,6 +8193,30 @@ W = angled&lt;p&gt;
 <pinref part="U1" gate="U$1" pin="VCC@6"/>
 <wire x1="33.02" y1="63.5" x2="35.56" y2="63.5" width="0.1524" layer="91"/>
 <junction x="147.32" y="111.76"/>
+</segment>
+</net>
+<net name="USBVDD" class="0">
+<segment>
+<pinref part="X1" gate="G$1" pin="VBUS"/>
+<wire x1="-15.24" y1="66.04" x2="-12.7" y2="66.04" width="0.1524" layer="91"/>
+<label x="-12.7" y="66.04" size="1.27" layer="95" xref="yes"/>
+</segment>
+<segment>
+<pinref part="IC1" gate="1" pin="VCC"/>
+<wire x1="114.3" y1="43.18" x2="106.68" y2="43.18" width="0.1524" layer="91"/>
+<label x="106.68" y="43.18" size="1.27" layer="95" rot="R180" xref="yes"/>
+</segment>
+</net>
+<net name="N$7" class="0">
+<segment>
+<pinref part="IC1" gate="1" pin="VCCIO"/>
+<wire x1="114.3" y1="40.64" x2="109.22" y2="40.64" width="0.1524" layer="91"/>
+<pinref part="IC1" gate="1" pin="3V3OUT"/>
+<wire x1="106.68" y1="15.24" x2="109.22" y2="15.24" width="0.1524" layer="91"/>
+<pinref part="C3" gate="G$1" pin="2"/>
+<wire x1="109.22" y1="15.24" x2="114.3" y2="15.24" width="0.1524" layer="91"/>
+<wire x1="109.22" y1="40.64" x2="109.22" y2="15.24" width="0.1524" layer="91"/>
+<junction x="109.22" y="15.24"/>
 </segment>
 </net>
 </nets>

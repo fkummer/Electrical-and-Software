@@ -11266,7 +11266,6 @@ W = angled&lt;p&gt;
 <parts>
 <part name="SUPPLY1" library="SparkFun-Aesthetics" deviceset="VDD" device="" value="3.3 V"/>
 <part name="R1" library="resistor" deviceset="R-US_" device="R0805" value="10k"/>
-<part name="Q1" library="adafruit" deviceset="CRYSTAL" device="HC33U-V" value="8 MHz"/>
 <part name="C1" library="capacitor-wima" deviceset="C" device="2,5-3" value="22 pF"/>
 <part name="C2" library="capacitor-wima" deviceset="C" device="2,5-3" value="22 pF"/>
 <part name="GND1" library="supply1" deviceset="GND" device=""/>
@@ -11298,12 +11297,13 @@ W = angled&lt;p&gt;
 <part name="R4" library="resistor" deviceset="R-US_" device="R0805" value="100"/>
 <part name="R5" library="resistor" deviceset="R-US_" device="R0805" value="100"/>
 <part name="R6" library="resistor" deviceset="R-US_" device="R0805" value="100"/>
-<part name="LED4" library="adafruit" deviceset="LED" device="5MM" value="Blue"/>
 <part name="R7" library="resistor" deviceset="R-US_" device="R0805" value="100"/>
 <part name="GND11" library="supply1" deviceset="GND" device=""/>
 <part name="C4" library="adafruit" deviceset="C-US" device="025-024X044" value="10 uF"/>
 <part name="C6" library="capacitor-wima" deviceset="C" device="2,5-3" value="0.1 uF"/>
 <part name="GND12" library="supply1" deviceset="GND" device=""/>
+<part name="LED4" library="adafruit" deviceset="LED" device="" value="Green"/>
+<part name="Q2" library="adafruit" deviceset="CRYSTAL" device="HC49S" value="8 MHz"/>
 </parts>
 <sheets>
 <sheet>
@@ -11312,7 +11312,6 @@ W = angled&lt;p&gt;
 <instances>
 <instance part="SUPPLY1" gate="VDD" x="20.32" y="104.14"/>
 <instance part="R1" gate="G$1" x="20.32" y="81.28" rot="R90"/>
-<instance part="Q1" gate="G$1" x="17.78" y="45.72" rot="R90"/>
 <instance part="C1" gate="G$1" x="7.62" y="40.64" rot="R90"/>
 <instance part="C2" gate="G$1" x="7.62" y="50.8" rot="R90"/>
 <instance part="GND1" gate="1" x="33.02" y="2.54"/>
@@ -11344,12 +11343,13 @@ W = angled&lt;p&gt;
 <instance part="R4" gate="G$1" x="10.16" y="88.9" rot="R90"/>
 <instance part="R5" gate="G$1" x="162.56" y="22.86" rot="R90"/>
 <instance part="R6" gate="G$1" x="172.72" y="22.86" rot="R90"/>
-<instance part="LED4" gate="G$1" x="91.44" y="33.02"/>
 <instance part="R7" gate="G$1" x="91.44" y="20.32" rot="R90"/>
 <instance part="GND11" gate="1" x="91.44" y="10.16"/>
 <instance part="C4" gate="G$1" x="-17.78" y="60.96"/>
 <instance part="C6" gate="G$1" x="-7.62" y="60.96"/>
 <instance part="GND12" gate="1" x="-12.7" y="48.26"/>
+<instance part="LED4" gate="G$1" x="91.44" y="33.02"/>
+<instance part="Q2" gate="G$1" x="17.78" y="45.72" rot="R90"/>
 </instances>
 <busses>
 </busses>
@@ -11368,24 +11368,24 @@ W = angled&lt;p&gt;
 </net>
 <net name="N$2" class="0">
 <segment>
-<pinref part="Q1" gate="G$1" pin="2"/>
 <wire x1="35.56" y1="48.26" x2="17.78" y2="48.26" width="0.1524" layer="91"/>
 <pinref part="C2" gate="G$1" pin="2"/>
 <wire x1="17.78" y1="48.26" x2="17.78" y2="50.8" width="0.1524" layer="91"/>
 <wire x1="17.78" y1="50.8" x2="12.7" y2="50.8" width="0.1524" layer="91"/>
-<junction x="17.78" y="48.26"/>
 <pinref part="U1" gate="U$1" pin="PB6(XTAL1/TOSC1)"/>
+<pinref part="Q2" gate="G$1" pin="2"/>
+<junction x="17.78" y="48.26"/>
 </segment>
 </net>
 <net name="N$3" class="0">
 <segment>
-<pinref part="Q1" gate="G$1" pin="1"/>
 <wire x1="35.56" y1="43.18" x2="17.78" y2="43.18" width="0.1524" layer="91"/>
 <pinref part="C1" gate="G$1" pin="2"/>
 <wire x1="17.78" y1="43.18" x2="17.78" y2="40.64" width="0.1524" layer="91"/>
 <wire x1="17.78" y1="40.64" x2="12.7" y2="40.64" width="0.1524" layer="91"/>
-<junction x="17.78" y="43.18"/>
 <pinref part="U1" gate="U$1" pin="PB7(XTAL2/TOSC2)"/>
+<pinref part="Q2" gate="G$1" pin="1"/>
+<junction x="17.78" y="43.18"/>
 </segment>
 </net>
 <net name="GND" class="0">
@@ -11782,9 +11782,9 @@ W = angled&lt;p&gt;
 <net name="N$4" class="0">
 <segment>
 <pinref part="U1" gate="U$1" pin="PD3(INT1)"/>
-<pinref part="LED4" gate="G$1" pin="A"/>
 <wire x1="83.82" y1="43.18" x2="91.44" y2="43.18" width="0.1524" layer="91"/>
 <wire x1="91.44" y1="43.18" x2="91.44" y2="35.56" width="0.1524" layer="91"/>
+<pinref part="LED4" gate="G$1" pin="A"/>
 </segment>
 </net>
 <net name="N$8" class="0">
