@@ -887,6 +887,7 @@ Big oval pads</description>
 <part name="R2" library="SparkFun-Passives" deviceset="RESISTOR" device="EZ" value="10k"/>
 <part name="T1" library="adafruit" deviceset="2N2222" device=""/>
 <part name="GND2" library="SparkFun-Aesthetics" deviceset="GND" device=""/>
+<part name="R3" library="SparkFun-Passives" deviceset="RESISTOR" device="EZ" value="10k"/>
 </parts>
 <sheets>
 <sheet>
@@ -900,6 +901,7 @@ Big oval pads</description>
 <instance part="R2" gate="G$1" x="48.26" y="83.82" rot="R90"/>
 <instance part="T1" gate="G$1" x="45.72" y="68.58"/>
 <instance part="GND2" gate="1" x="48.26" y="38.1"/>
+<instance part="R3" gate="G$1" x="27.94" y="86.36" rot="R90"/>
 </instances>
 <busses>
 </busses>
@@ -941,23 +943,14 @@ Big oval pads</description>
 </net>
 <net name="N$3" class="0">
 <segment>
-<pinref part="R2" gate="G$1" pin="1"/>
-<pinref part="T1" gate="G$1" pin="C"/>
-<wire x1="48.26" y1="78.74" x2="48.26" y2="76.2" width="0.1524" layer="91"/>
-<pinref part="M1" gate="G$1" pin="SIG"/>
-<wire x1="48.26" y1="76.2" x2="48.26" y2="73.66" width="0.1524" layer="91"/>
-<wire x1="68.58" y1="60.96" x2="60.96" y2="60.96" width="0.1524" layer="91"/>
-<wire x1="60.96" y1="60.96" x2="60.96" y2="76.2" width="0.1524" layer="91"/>
-<wire x1="60.96" y1="76.2" x2="48.26" y2="76.2" width="0.1524" layer="91"/>
-<junction x="48.26" y="76.2"/>
 <pinref part="OPTOISOLATOR" gate="G$1" pin="3"/>
 <wire x1="12.7" y1="66.04" x2="12.7" y2="68.58" width="0.1524" layer="91"/>
 <wire x1="12.7" y1="68.58" x2="27.94" y2="68.58" width="0.1524" layer="91"/>
 <pinref part="T1" gate="G$1" pin="B"/>
 <wire x1="27.94" y1="68.58" x2="43.18" y2="68.58" width="0.1524" layer="91"/>
-<wire x1="48.26" y1="76.2" x2="27.94" y2="76.2" width="0.1524" layer="91"/>
-<wire x1="27.94" y1="76.2" x2="27.94" y2="68.58" width="0.1524" layer="91"/>
+<wire x1="27.94" y1="81.28" x2="27.94" y2="68.58" width="0.1524" layer="91"/>
 <junction x="27.94" y="68.58"/>
+<pinref part="R3" gate="G$1" pin="1"/>
 </segment>
 </net>
 <net name="TO_POWERMOD" class="0">
@@ -971,6 +964,24 @@ Big oval pads</description>
 <wire x1="48.26" y1="91.44" x2="48.26" y2="88.9" width="0.1524" layer="91"/>
 <wire x1="48.26" y1="91.44" x2="63.5" y2="91.44" width="0.1524" layer="91"/>
 <junction x="63.5" y="91.44"/>
+</segment>
+<segment>
+<pinref part="R3" gate="G$1" pin="2"/>
+<wire x1="27.94" y1="91.44" x2="27.94" y2="99.06" width="0.1524" layer="91"/>
+<label x="22.86" y="99.06" size="1.778" layer="95"/>
+</segment>
+</net>
+<net name="N$2" class="0">
+<segment>
+<pinref part="T1" gate="G$1" pin="C"/>
+<pinref part="R2" gate="G$1" pin="1"/>
+<wire x1="48.26" y1="78.74" x2="48.26" y2="76.2" width="0.1524" layer="91"/>
+<wire x1="48.26" y1="76.2" x2="48.26" y2="73.66" width="0.1524" layer="91"/>
+<junction x="48.26" y="76.2"/>
+<wire x1="60.96" y1="76.2" x2="48.26" y2="76.2" width="0.1524" layer="91"/>
+<pinref part="M1" gate="G$1" pin="SIG"/>
+<wire x1="68.58" y1="60.96" x2="60.96" y2="60.96" width="0.1524" layer="91"/>
+<wire x1="60.96" y1="60.96" x2="60.96" y2="76.2" width="0.1524" layer="91"/>
 </segment>
 </net>
 </nets>

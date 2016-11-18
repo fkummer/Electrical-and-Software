@@ -413,19 +413,20 @@ You are welcome to use this library for commercial purposes. For attribution, we
 </classes>
 <parts>
 <part name="M1" library="SparkFun-Electromechanical" deviceset="SMALL_SERVO" device=""/>
-<part name="F1" library="fuse" deviceset="TE5" device=""/>
+<part name="F1" library="fuse" deviceset="TE5" device="" value="3A"/>
 <part name="D1" library="adafruit" deviceset="1N4004" device=""/>
 <part name="GND1" library="SparkFun-Aesthetics" deviceset="GND" device=""/>
 </parts>
 <sheets>
 <sheet>
 <plain>
+<text x="10.16" y="58.42" size="1.778" layer="91">Decoupling</text>
 </plain>
 <instances>
 <instance part="M1" gate="G$1" x="-5.08" y="68.58"/>
-<instance part="F1" gate="1" x="38.1" y="66.04"/>
-<instance part="D1" gate="1" x="17.78" y="66.04" rot="R180"/>
-<instance part="GND1" gate="1" x="2.54" y="50.8"/>
+<instance part="F1" gate="1" x="50.8" y="66.04"/>
+<instance part="D1" gate="1" x="33.02" y="66.04" rot="R180"/>
+<instance part="GND1" gate="1" x="2.54" y="45.72"/>
 </instances>
 <busses>
 </busses>
@@ -436,6 +437,32 @@ You are welcome to use this library for commercial purposes. For attribution, we
 <pinref part="GND1" gate="1" pin="GND"/>
 <wire x1="-2.54" y1="63.5" x2="2.54" y2="63.5" width="0.1524" layer="91"/>
 <wire x1="2.54" y1="63.5" x2="2.54" y2="53.34" width="0.1524" layer="91"/>
+<wire x1="2.54" y1="53.34" x2="2.54" y2="48.26" width="0.1524" layer="91"/>
+<wire x1="15.24" y1="55.88" x2="15.24" y2="53.34" width="0.1524" layer="91"/>
+<wire x1="15.24" y1="53.34" x2="2.54" y2="53.34" width="0.1524" layer="91"/>
+<junction x="2.54" y="53.34"/>
+</segment>
+</net>
+<net name="N$2" class="0">
+<segment>
+<pinref part="D1" gate="1" pin="A"/>
+<pinref part="F1" gate="1" pin="1"/>
+<wire x1="35.56" y1="66.04" x2="45.72" y2="66.04" width="0.1524" layer="91"/>
+</segment>
+</net>
+<net name="TO_POWER" class="0">
+<segment>
+<pinref part="F1" gate="1" pin="2"/>
+<wire x1="55.88" y1="66.04" x2="68.58" y2="66.04" width="0.1524" layer="91"/>
+<label x="60.96" y="66.04" size="1.778" layer="95"/>
+</segment>
+</net>
+<net name="TO_ISOLATION" class="0">
+<segment>
+<pinref part="M1" gate="G$1" pin="SIG"/>
+<wire x1="-2.54" y1="68.58" x2="0" y2="68.58" width="0.1524" layer="91"/>
+<wire x1="0" y1="68.58" x2="0" y2="81.28" width="0.1524" layer="91"/>
+<label x="0" y="81.28" size="1.778" layer="95"/>
 </segment>
 </net>
 <net name="N$1" class="0">
@@ -443,28 +470,9 @@ You are welcome to use this library for commercial purposes. For attribution, we
 <pinref part="M1" gate="G$1" pin="V+"/>
 <pinref part="D1" gate="1" pin="C"/>
 <wire x1="-2.54" y1="66.04" x2="15.24" y2="66.04" width="0.1524" layer="91"/>
-</segment>
-</net>
-<net name="N$2" class="0">
-<segment>
-<pinref part="D1" gate="1" pin="A"/>
-<pinref part="F1" gate="1" pin="1"/>
-<wire x1="20.32" y1="66.04" x2="33.02" y2="66.04" width="0.1524" layer="91"/>
-</segment>
-</net>
-<net name="TO_POWER" class="0">
-<segment>
-<pinref part="F1" gate="1" pin="2"/>
-<wire x1="43.18" y1="66.04" x2="50.8" y2="66.04" width="0.1524" layer="91"/>
-<label x="48.26" y="66.04" size="1.778" layer="95"/>
-</segment>
-</net>
-<net name="TO_MCU" class="0">
-<segment>
-<pinref part="M1" gate="G$1" pin="SIG"/>
-<wire x1="-2.54" y1="68.58" x2="0" y2="68.58" width="0.1524" layer="91"/>
-<wire x1="0" y1="68.58" x2="0" y2="81.28" width="0.1524" layer="91"/>
-<label x="0" y="81.28" size="1.778" layer="95"/>
+<wire x1="15.24" y1="66.04" x2="30.48" y2="66.04" width="0.1524" layer="91"/>
+<wire x1="15.24" y1="60.96" x2="15.24" y2="66.04" width="0.1524" layer="91"/>
+<junction x="15.24" y="66.04"/>
 </segment>
 </net>
 </nets>
