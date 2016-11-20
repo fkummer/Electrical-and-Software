@@ -3452,11 +3452,12 @@ You are welcome to use this library for commercial purposes. For attribution, we
 <wire x1="91.44" y1="99.06" x2="96.52" y2="99.06" width="0.1524" layer="91"/>
 <wire x1="96.52" y1="99.06" x2="96.52" y2="73.66" width="0.1524" layer="91"/>
 <wire x1="96.52" y1="73.66" x2="76.2" y2="73.66" width="0.1524" layer="91"/>
-<junction x="76.2" y="73.66"/>
-<wire x1="76.2" y1="78.74" x2="76.2" y2="73.66" width="0.1524" layer="91"/>
 <pinref part="D3" gate="1" pin="C"/>
 <wire x1="96.52" y1="73.66" x2="114.3" y2="73.66" width="0.1524" layer="91"/>
 <junction x="96.52" y="73.66"/>
+<pinref part="R3" gate="G$1" pin="1"/>
+<wire x1="76.2" y1="76.2" x2="76.2" y2="73.66" width="0.1524" layer="91"/>
+<junction x="76.2" y="73.66"/>
 </segment>
 </net>
 <net name="GND" class="0">
