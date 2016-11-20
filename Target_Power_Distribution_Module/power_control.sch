@@ -3010,6 +3010,14 @@ Wickmann</description>
 <part name="R3" library="SparkFun-Resistors" deviceset="RESISTOR" device="1206" value="10k"/>
 <part name="D1" library="adafruit" deviceset="SCHOTTKY-DIODE" device="CB429-15" value="1N5817"/>
 <part name="F1" library="fuse" deviceset="FUSE" device="PICOFUSE" value="2A"/>
+<part name="Q3" library="transistor-power" deviceset="IRF3704" device="" value="NFET"/>
+<part name="Q4" library="adafruit" deviceset="PFET" device="BS250" value="PFET"/>
+<part name="F2" library="fuse" deviceset="FUSE" device="PICOFUSE" value="250 mA"/>
+<part name="R4" library="SparkFun-Resistors" deviceset="RESISTOR" device="1206" value="10k"/>
+<part name="R5" library="SparkFun-Resistors" deviceset="RESISTOR" device="1206" value="10k"/>
+<part name="R6" library="SparkFun-Resistors" deviceset="RESISTOR" device="1206" value="10k"/>
+<part name="3.3V" library="SparkFun-Aesthetics" deviceset="VCC" device="" value="3.3V"/>
+<part name="GND-ISO2" library="SparkFun-Aesthetics" deviceset="GND-ISO" device=""/>
 </parts>
 <sheets>
 <sheet>
@@ -3025,6 +3033,14 @@ Wickmann</description>
 <instance part="R3" gate="G$1" x="15.24" y="40.64" rot="R90"/>
 <instance part="D1" gate="G$1" x="96.52" y="48.26"/>
 <instance part="F1" gate="G$1" x="83.82" y="48.26"/>
+<instance part="Q3" gate="G$1" x="25.4" y="-7.62"/>
+<instance part="Q4" gate="1" x="66.04" y="0"/>
+<instance part="F2" gate="G$1" x="83.82" y="-7.62"/>
+<instance part="R4" gate="G$1" x="10.16" y="-15.24" rot="R90"/>
+<instance part="R5" gate="G$1" x="68.58" y="-15.24" rot="R90"/>
+<instance part="R6" gate="G$1" x="48.26" y="10.16" rot="R90"/>
+<instance part="3.3V" gate="G$1" x="48.26" y="22.86"/>
+<instance part="GND-ISO2" gate="G$1" x="27.94" y="-25.4"/>
 </instances>
 <busses>
 </busses>
@@ -3041,17 +3057,16 @@ Wickmann</description>
 <pinref part="R1" gate="G$1" pin="1"/>
 <wire x1="30.48" y1="35.56" x2="68.58" y2="35.56" width="0.1524" layer="91"/>
 </segment>
-</net>
-<net name="VCC" class="0">
 <segment>
-<pinref part="Q2" gate="1" pin="S"/>
-<wire x1="68.58" y1="60.96" x2="68.58" y2="73.66" width="0.1524" layer="91"/>
-<pinref part="SUPPLY1" gate="G$1" pin="VCC"/>
-<wire x1="68.58" y1="73.66" x2="48.26" y2="73.66" width="0.1524" layer="91"/>
-<wire x1="48.26" y1="73.66" x2="48.26" y2="91.44" width="0.1524" layer="91"/>
-<pinref part="R2" gate="G$1" pin="2"/>
-<wire x1="48.26" y1="73.66" x2="48.26" y2="71.12" width="0.1524" layer="91"/>
-<junction x="48.26" y="73.66"/>
+<pinref part="R4" gate="G$1" pin="1"/>
+<pinref part="GND-ISO2" gate="G$1" pin="GND-ISO"/>
+<wire x1="10.16" y1="-20.32" x2="27.94" y2="-20.32" width="0.1524" layer="91"/>
+<wire x1="27.94" y1="-20.32" x2="27.94" y2="-22.86" width="0.1524" layer="91"/>
+<pinref part="R5" gate="G$1" pin="1"/>
+<wire x1="27.94" y1="-20.32" x2="68.58" y2="-20.32" width="0.1524" layer="91"/>
+<junction x="27.94" y="-20.32"/>
+<pinref part="Q3" gate="G$1" pin="S"/>
+<wire x1="27.94" y1="-12.7" x2="27.94" y2="-20.32" width="0.1524" layer="91"/>
 </segment>
 </net>
 <net name="N$2" class="0">
@@ -3099,6 +3114,70 @@ Wickmann</description>
 <pinref part="D1" gate="G$1" pin="C"/>
 <wire x1="99.06" y1="48.26" x2="111.76" y2="48.26" width="0.1524" layer="91"/>
 <label x="111.76" y="48.26" size="1.778" layer="95" xref="yes"/>
+</segment>
+</net>
+<net name="N$1" class="0">
+<segment>
+<pinref part="Q4" gate="1" pin="G"/>
+<pinref part="R6" gate="G$1" pin="1"/>
+<wire x1="60.96" y1="0" x2="48.26" y2="0" width="0.1524" layer="91"/>
+<wire x1="48.26" y1="0" x2="48.26" y2="5.08" width="0.1524" layer="91"/>
+<pinref part="Q3" gate="G$1" pin="D"/>
+<wire x1="27.94" y1="-2.54" x2="27.94" y2="0" width="0.1524" layer="91"/>
+<wire x1="27.94" y1="0" x2="48.26" y2="0" width="0.1524" layer="91"/>
+<junction x="48.26" y="0"/>
+</segment>
+</net>
+<net name="3.3V" class="0">
+<segment>
+<pinref part="Q4" gate="1" pin="S"/>
+<wire x1="68.58" y1="5.08" x2="68.58" y2="17.78" width="0.1524" layer="91"/>
+<wire x1="68.58" y1="17.78" x2="48.26" y2="17.78" width="0.1524" layer="91"/>
+<pinref part="R6" gate="G$1" pin="2"/>
+<wire x1="48.26" y1="17.78" x2="48.26" y2="15.24" width="0.1524" layer="91"/>
+<pinref part="3.3V" gate="G$1" pin="VCC"/>
+<wire x1="48.26" y1="17.78" x2="48.26" y2="22.86" width="0.1524" layer="91"/>
+<junction x="48.26" y="17.78"/>
+</segment>
+</net>
+<net name="5V" class="0">
+<segment>
+<pinref part="Q2" gate="1" pin="S"/>
+<wire x1="68.58" y1="60.96" x2="68.58" y2="73.66" width="0.1524" layer="91"/>
+<pinref part="SUPPLY1" gate="G$1" pin="VCC"/>
+<wire x1="68.58" y1="73.66" x2="48.26" y2="73.66" width="0.1524" layer="91"/>
+<wire x1="48.26" y1="73.66" x2="48.26" y2="91.44" width="0.1524" layer="91"/>
+<pinref part="R2" gate="G$1" pin="2"/>
+<wire x1="48.26" y1="73.66" x2="48.26" y2="71.12" width="0.1524" layer="91"/>
+<junction x="48.26" y="73.66"/>
+</segment>
+</net>
+<net name="SENSOR_PWR_CNTRL" class="0">
+<segment>
+<pinref part="R4" gate="G$1" pin="2"/>
+<pinref part="Q3" gate="G$1" pin="G"/>
+<wire x1="10.16" y1="-10.16" x2="22.86" y2="-10.16" width="0.1524" layer="91"/>
+<wire x1="10.16" y1="-10.16" x2="-5.08" y2="-10.16" width="0.1524" layer="91"/>
+<junction x="10.16" y="-10.16"/>
+<label x="-5.08" y="-10.16" size="1.778" layer="95" rot="R180" xref="yes"/>
+</segment>
+</net>
+<net name="N$6" class="0">
+<segment>
+<pinref part="Q4" gate="1" pin="D"/>
+<pinref part="R5" gate="G$1" pin="2"/>
+<wire x1="68.58" y1="-5.08" x2="68.58" y2="-7.62" width="0.1524" layer="91"/>
+<pinref part="F2" gate="G$1" pin="1"/>
+<wire x1="68.58" y1="-7.62" x2="68.58" y2="-10.16" width="0.1524" layer="91"/>
+<wire x1="68.58" y1="-7.62" x2="78.74" y2="-7.62" width="0.1524" layer="91"/>
+<junction x="68.58" y="-7.62"/>
+</segment>
+</net>
+<net name="SENSOR_POWER" class="0">
+<segment>
+<pinref part="F2" gate="G$1" pin="2"/>
+<wire x1="88.9" y1="-7.62" x2="104.14" y2="-7.62" width="0.1524" layer="91"/>
+<label x="104.14" y="-7.62" size="1.778" layer="95" xref="yes"/>
 </segment>
 </net>
 </nets>
