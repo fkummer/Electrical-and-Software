@@ -4585,6 +4585,8 @@ These are standard SMD and PTH capacitors. Normally 10uF, 47uF, and 100uF in ele
 <part name="GND-ISO6" library="SparkFun-Aesthetics" deviceset="GND-ISO" device=""/>
 <part name="C3" library="SparkFun-Capacitors" deviceset="CAP" device="PTH" value="1 uF"/>
 <part name="C4" library="SparkFun-Capacitors" deviceset="CAP" device="PTH" value="1 uF"/>
+<part name="SW2" library="special" deviceset="SW_DIP-1" device=""/>
+<part name="SW3" library="special" deviceset="SW_DIP-1" device=""/>
 </parts>
 <sheets>
 <sheet>
@@ -4625,6 +4627,8 @@ These are standard SMD and PTH capacitors. Normally 10uF, 47uF, and 100uF in ele
 <instance part="GND-ISO6" gate="G$1" x="-43.18" y="-55.88"/>
 <instance part="C3" gate="G$1" x="-30.48" y="-38.1"/>
 <instance part="C4" gate="G$1" x="-53.34" y="-38.1"/>
+<instance part="SW2" gate="G$1" x="-152.4" y="68.58"/>
+<instance part="SW3" gate="G$1" x="20.32" y="63.5"/>
 </instances>
 <busses>
 </busses>
@@ -4725,6 +4729,10 @@ These are standard SMD and PTH capacitors. Normally 10uF, 47uF, and 100uF in ele
 <wire x1="-142.24" y1="30.48" x2="-142.24" y2="33.02" width="0.1524" layer="91"/>
 <wire x1="-142.24" y1="30.48" x2="-132.08" y2="30.48" width="0.1524" layer="91"/>
 <junction x="-142.24" y="30.48"/>
+<pinref part="SW2" gate="G$1" pin="1"/>
+<wire x1="-144.78" y1="68.58" x2="-132.08" y2="68.58" width="0.1524" layer="91"/>
+<wire x1="-132.08" y1="68.58" x2="-132.08" y2="30.48" width="0.1524" layer="91"/>
+<junction x="-132.08" y="30.48"/>
 </segment>
 </net>
 <net name="N$5" class="0">
@@ -4762,7 +4770,11 @@ These are standard SMD and PTH capacitors. Normally 10uF, 47uF, and 100uF in ele
 <wire x1="5.08" y1="58.42" x2="5.08" y2="55.88" width="0.1524" layer="91"/>
 <wire x1="5.08" y1="58.42" x2="5.08" y2="63.5" width="0.1524" layer="91"/>
 <junction x="5.08" y="58.42"/>
-<label x="5.08" y="63.5" size="1.778" layer="95" rot="R90" xref="yes"/>
+<label x="5.08" y="71.12" size="1.778" layer="95" rot="R90" xref="yes"/>
+<pinref part="SW3" gate="G$1" pin="2"/>
+<wire x1="5.08" y1="63.5" x2="5.08" y2="71.12" width="0.1524" layer="91"/>
+<wire x1="12.7" y1="63.5" x2="5.08" y2="63.5" width="0.1524" layer="91"/>
+<junction x="5.08" y="63.5"/>
 </segment>
 <segment>
 <pinref part="IC1" gate="1" pin="OUT"/>
@@ -4779,11 +4791,15 @@ These are standard SMD and PTH capacitors. Normally 10uF, 47uF, and 100uF in ele
 <pinref part="Q2" gate="1" pin="S"/>
 <wire x1="-142.24" y1="43.18" x2="-142.24" y2="55.88" width="0.1524" layer="91"/>
 <wire x1="-142.24" y1="55.88" x2="-162.56" y2="55.88" width="0.1524" layer="91"/>
-<wire x1="-162.56" y1="55.88" x2="-162.56" y2="73.66" width="0.1524" layer="91"/>
+<wire x1="-162.56" y1="55.88" x2="-162.56" y2="68.58" width="0.1524" layer="91"/>
 <pinref part="R2" gate="G$1" pin="2"/>
+<wire x1="-162.56" y1="68.58" x2="-162.56" y2="73.66" width="0.1524" layer="91"/>
 <wire x1="-162.56" y1="55.88" x2="-162.56" y2="53.34" width="0.1524" layer="91"/>
 <junction x="-162.56" y="55.88"/>
 <label x="-162.56" y="73.66" size="1.778" layer="95" rot="R90" xref="yes"/>
+<pinref part="SW2" gate="G$1" pin="2"/>
+<wire x1="-162.56" y1="68.58" x2="-160.02" y2="68.58" width="0.1524" layer="91"/>
+<junction x="-162.56" y="68.58"/>
 </segment>
 <segment>
 <pinref part="IC1" gate="1" pin="IN"/>
@@ -4830,6 +4846,10 @@ These are standard SMD and PTH capacitors. Normally 10uF, 47uF, and 100uF in ele
 <wire x1="25.4" y1="33.02" x2="25.4" y2="30.48" width="0.1524" layer="91"/>
 <wire x1="25.4" y1="33.02" x2="35.56" y2="33.02" width="0.1524" layer="91"/>
 <junction x="25.4" y="33.02"/>
+<pinref part="SW3" gate="G$1" pin="1"/>
+<wire x1="27.94" y1="63.5" x2="35.56" y2="63.5" width="0.1524" layer="91"/>
+<wire x1="35.56" y1="63.5" x2="35.56" y2="33.02" width="0.1524" layer="91"/>
+<junction x="35.56" y="33.02"/>
 </segment>
 </net>
 <net name="SENSOR_POWER" class="0">
