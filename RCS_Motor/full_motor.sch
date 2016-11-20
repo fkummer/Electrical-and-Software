@@ -3552,7 +3552,7 @@ You are welcome to use this library for commercial purposes. For attribution, we
 <wire x1="68.58" y1="157.48" x2="53.34" y2="157.48" width="0.1524" layer="91"/>
 </segment>
 </net>
-<net name="TO_POWER" class="0">
+<net name="TO_POWER_6V" class="0">
 <segment>
 <pinref part="F1" gate="1" pin="1"/>
 <label x="147.32" y="73.66" size="1.778" layer="95"/>
