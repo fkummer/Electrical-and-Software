@@ -2284,11 +2284,11 @@ Used in MPL115A1</description>
 <part name="C3" library="SparkFun" deviceset="CAP" device="0402-CAP" value="0.1uF"/>
 <part name="R1" library="SparkFun" deviceset="RESISTOR" device="0402-RES" value="1k"/>
 <part name="R2" library="SparkFun" deviceset="RESISTOR" device="0402-RES" value="1k"/>
-<part name="P+6" library="SparkFun" deviceset="VCC" device=""/>
 <part name="C4" library="SparkFun" deviceset="CAP_POL" device="1206" value="10uF"/>
 <part name="C5" library="SparkFun" deviceset="CAP" device="0402-CAP" value="0.1uF"/>
 <part name="GND5" library="SparkFun" deviceset="GND" device=""/>
 <part name="C6" library="SparkFun" deviceset="CAP" device="0402-CAP" value="1uF"/>
+<part name="P+1" library="SparkFun" deviceset="VCC" device=""/>
 </parts>
 <sheets>
 <sheet>
@@ -2311,21 +2311,20 @@ Used in MPL115A1</description>
 <instance part="C3" gate="G$1" x="35.56" y="119.38"/>
 <instance part="R1" gate="G$1" x="121.92" y="121.92" rot="R90"/>
 <instance part="R2" gate="G$1" x="134.62" y="121.92" rot="R90"/>
-<instance part="P+6" gate="1" x="129.54" y="137.16"/>
 <instance part="C4" gate="G$1" x="25.4" y="121.92"/>
 <instance part="C5" gate="G$1" x="43.18" y="99.06"/>
 <instance part="GND5" gate="1" x="116.84" y="81.28"/>
 <instance part="C6" gate="G$1" x="45.72" y="119.38"/>
+<instance part="P+1" gate="1" x="119.38" y="137.16"/>
 </instances>
 <busses>
 </busses>
 <nets>
 <net name="GND" class="0">
 <segment>
-<wire x1="43.18" y1="111.76" x2="43.18" y2="96.52" width="0.1524" layer="91"/>
-<wire x1="43.18" y1="96.52" x2="43.18" y2="83.82" width="0.1524" layer="91"/>
-<wire x1="43.18" y1="83.82" x2="78.74" y2="83.82" width="0.1524" layer="91"/>
-<wire x1="78.74" y1="83.82" x2="101.6" y2="83.82" width="0.1524" layer="91"/>
+<wire x1="35.56" y1="83.82" x2="43.18" y2="83.82" width="0.1524" layer="91"/>
+<wire x1="43.18" y1="83.82" x2="76.2" y2="83.82" width="0.1524" layer="91"/>
+<wire x1="76.2" y1="83.82" x2="101.6" y2="83.82" width="0.1524" layer="91"/>
 <wire x1="101.6" y1="83.82" x2="116.84" y2="83.82" width="0.1524" layer="91"/>
 <wire x1="116.84" y1="83.82" x2="124.46" y2="83.82" width="0.1524" layer="91"/>
 <wire x1="124.46" y1="83.82" x2="124.46" y2="20.32" width="0.1524" layer="91"/>
@@ -2336,8 +2335,6 @@ Used in MPL115A1</description>
 <wire x1="55.88" y1="20.32" x2="124.46" y2="20.32" width="0.1524" layer="91"/>
 <wire x1="7.62" y1="20.32" x2="22.86" y2="20.32" width="0.1524" layer="91"/>
 <wire x1="22.86" y1="20.32" x2="55.88" y2="20.32" width="0.1524" layer="91"/>
-<wire x1="78.74" y1="106.68" x2="78.74" y2="83.82" width="0.1524" layer="91"/>
-<junction x="78.74" y="83.82"/>
 <wire x1="55.88" y1="53.34" x2="55.88" y2="50.8" width="0.1524" layer="91"/>
 <wire x1="55.88" y1="50.8" x2="55.88" y2="48.26" width="0.1524" layer="91"/>
 <wire x1="60.96" y1="53.34" x2="55.88" y2="53.34" width="0.1524" layer="91"/>
@@ -2372,8 +2369,6 @@ Used in MPL115A1</description>
 <pinref part="C3" gate="G$1" pin="2"/>
 <pinref part="C6" gate="G$1" pin="2"/>
 <wire x1="35.56" y1="114.3" x2="35.56" y2="83.82" width="0.1524" layer="91"/>
-<wire x1="35.56" y1="83.82" x2="43.18" y2="83.82" width="0.1524" layer="91"/>
-<junction x="43.18" y="83.82"/>
 <pinref part="U2" gate="G$1" pin="SDO"/>
 <wire x1="83.82" y1="66.04" x2="101.6" y2="66.04" width="0.1524" layer="91"/>
 <wire x1="101.6" y1="66.04" x2="101.6" y2="83.82" width="0.1524" layer="91"/>
@@ -2383,9 +2378,12 @@ Used in MPL115A1</description>
 <pinref part="GND4" gate="1" pin="GND"/>
 <junction x="7.62" y="20.32"/>
 <pinref part="C5" gate="G$1" pin="2"/>
-<junction x="43.18" y="96.52"/>
-<pinref part="U1" gate="G$1" pin="CAP"/>
-<wire x1="43.18" y1="111.76" x2="83.82" y2="111.76" width="0.1524" layer="91"/>
+<wire x1="43.18" y1="96.52" x2="43.18" y2="83.82" width="0.1524" layer="91"/>
+<junction x="43.18" y="83.82"/>
+<pinref part="U1" gate="G$1" pin="GND"/>
+<wire x1="83.82" y1="109.22" x2="76.2" y2="109.22" width="0.1524" layer="91"/>
+<wire x1="76.2" y1="109.22" x2="76.2" y2="83.82" width="0.1524" layer="91"/>
+<junction x="76.2" y="83.82"/>
 </segment>
 </net>
 <net name="SCL" class="0">
@@ -2399,15 +2397,19 @@ Used in MPL115A1</description>
 <wire x1="129.54" y1="114.3" x2="129.54" y2="12.7" width="0.1524" layer="91"/>
 <junction x="121.92" y="114.3"/>
 <wire x1="-17.78" y1="43.18" x2="-17.78" y2="12.7" width="0.1524" layer="91"/>
-<wire x1="-17.78" y1="12.7" x2="91.44" y2="12.7" width="0.1524" layer="91"/>
-<wire x1="91.44" y1="12.7" x2="91.44" y2="60.96" width="0.1524" layer="91"/>
-<wire x1="91.44" y1="60.96" x2="81.28" y2="60.96" width="0.1524" layer="91"/>
-<wire x1="129.54" y1="12.7" x2="91.44" y2="12.7" width="0.1524" layer="91"/>
+<wire x1="-17.78" y1="12.7" x2="88.9" y2="12.7" width="0.1524" layer="91"/>
 <label x="-30.48" y="38.1" size="1.778" layer="95"/>
+<pinref part="U2" gate="G$1" pin="SCL"/>
+<wire x1="88.9" y1="12.7" x2="129.54" y2="12.7" width="0.1524" layer="91"/>
+<wire x1="83.82" y1="60.96" x2="88.9" y2="60.96" width="0.1524" layer="91"/>
+<wire x1="88.9" y1="60.96" x2="88.9" y2="12.7" width="0.1524" layer="91"/>
+<junction x="88.9" y="12.7"/>
 </segment>
 </net>
 <net name="SDA" class="0">
 <segment>
+<label x="116.84" y="111.76" size="1.778" layer="95"/>
+<pinref part="U1" gate="G$1" pin="SDA"/>
 <wire x1="96.52" y1="5.08" x2="-38.1" y2="5.08" width="0.1524" layer="91"/>
 <wire x1="-38.1" y1="5.08" x2="-38.1" y2="132.08" width="0.1524" layer="91"/>
 <wire x1="-38.1" y1="132.08" x2="-17.78" y2="132.08" width="0.1524" layer="91"/>
@@ -2416,13 +2418,13 @@ Used in MPL115A1</description>
 <wire x1="83.82" y1="63.5" x2="96.52" y2="63.5" width="0.1524" layer="91"/>
 <wire x1="96.52" y1="63.5" x2="96.52" y2="5.08" width="0.1524" layer="91"/>
 <label x="-30.48" y="127" size="1.778" layer="95"/>
-</segment>
-<segment>
-<wire x1="134.62" y1="116.84" x2="134.62" y2="111.76" width="0.1524" layer="91"/>
-<wire x1="134.62" y1="111.76" x2="114.3" y2="111.76" width="0.1524" layer="91"/>
-<label x="116.84" y="111.76" size="1.778" layer="95"/>
+<wire x1="134.62" y1="5.08" x2="96.52" y2="5.08" width="0.1524" layer="91"/>
+<junction x="96.52" y="5.08"/>
 <pinref part="R2" gate="G$1" pin="1"/>
-<pinref part="U1" gate="G$1" pin="SDA"/>
+<wire x1="134.62" y1="116.84" x2="134.62" y2="111.76" width="0.1524" layer="91"/>
+<wire x1="134.62" y1="111.76" x2="134.62" y2="5.08" width="0.1524" layer="91"/>
+<wire x1="114.3" y1="111.76" x2="134.62" y2="111.76" width="0.1524" layer="91"/>
+<junction x="134.62" y="111.76"/>
 </segment>
 </net>
 <net name="INT2" class="0">
@@ -2439,7 +2441,15 @@ Used in MPL115A1</description>
 <pinref part="U1" gate="G$1" pin="INT1"/>
 </segment>
 </net>
-<net name="VCC_3.3V" class="0">
+<net name="N$1" class="0">
+<segment>
+<pinref part="C5" gate="G$1" pin="1"/>
+<wire x1="43.18" y1="104.14" x2="43.18" y2="111.76" width="0.1524" layer="91"/>
+<pinref part="U1" gate="G$1" pin="CAP"/>
+<wire x1="43.18" y1="111.76" x2="83.82" y2="111.76" width="0.1524" layer="91"/>
+</segment>
+</net>
+<net name="VCC" class="0">
 <segment>
 <wire x1="83.82" y1="114.3" x2="81.28" y2="114.3" width="0.1524" layer="91"/>
 <wire x1="81.28" y1="114.3" x2="81.28" y2="116.84" width="0.1524" layer="91"/>
@@ -2452,30 +2462,22 @@ Used in MPL115A1</description>
 <junction x="129.54" y="127"/>
 <pinref part="R1" gate="G$1" pin="2"/>
 <pinref part="R2" gate="G$1" pin="2"/>
-<pinref part="P+6" gate="1" pin="VCC"/>
 <wire x1="129.54" y1="127" x2="129.54" y2="137.16" width="0.1524" layer="91"/>
 <wire x1="-10.16" y1="137.16" x2="-10.16" y2="154.94" width="0.1524" layer="91"/>
 <wire x1="81.28" y1="137.16" x2="35.56" y2="137.16" width="0.1524" layer="91"/>
 <wire x1="35.56" y1="137.16" x2="15.24" y2="137.16" width="0.1524" layer="91"/>
 <wire x1="15.24" y1="137.16" x2="5.08" y2="137.16" width="0.1524" layer="91"/>
 <wire x1="5.08" y1="137.16" x2="-10.16" y2="137.16" width="0.1524" layer="91"/>
-<wire x1="129.54" y1="137.16" x2="81.28" y2="137.16" width="0.1524" layer="91"/>
+<wire x1="129.54" y1="137.16" x2="119.38" y2="137.16" width="0.1524" layer="91"/>
+<wire x1="119.38" y1="137.16" x2="81.28" y2="137.16" width="0.1524" layer="91"/>
 <wire x1="81.28" y1="114.3" x2="81.28" y2="137.16" width="0.1524" layer="91"/>
 <junction x="81.28" y="137.16"/>
 <wire x1="129.54" y1="127" x2="121.92" y2="127" width="0.1524" layer="91"/>
-<wire x1="2.54" y1="60.96" x2="2.54" y2="63.5" width="0.1524" layer="91"/>
-<wire x1="12.7" y1="60.96" x2="12.7" y2="63.5" width="0.1524" layer="91"/>
-<wire x1="12.7" y1="63.5" x2="5.08" y2="63.5" width="0.1524" layer="91"/>
-<pinref part="C2" gate="G$1" pin="+"/>
-<pinref part="C1" gate="G$1" pin="1"/>
-<wire x1="5.08" y1="63.5" x2="2.54" y2="63.5" width="0.1524" layer="91"/>
-<wire x1="5.08" y1="63.5" x2="5.08" y2="71.12" width="0.1524" layer="91"/>
 <junction x="5.08" y="137.16"/>
 <pinref part="CIO" gate="G$1" pin="1"/>
 <wire x1="5.08" y1="71.12" x2="5.08" y2="137.16" width="0.1524" layer="91"/>
 <wire x1="22.86" y1="40.64" x2="22.86" y2="71.12" width="0.1524" layer="91"/>
 <wire x1="22.86" y1="71.12" x2="15.24" y2="71.12" width="0.1524" layer="91"/>
-<junction x="5.08" y="71.12"/>
 <wire x1="15.24" y1="71.12" x2="5.08" y2="71.12" width="0.1524" layer="91"/>
 <wire x1="60.96" y1="68.58" x2="55.88" y2="68.58" width="0.1524" layer="91"/>
 <wire x1="55.88" y1="68.58" x2="55.88" y2="71.12" width="0.1524" layer="91"/>
@@ -2501,29 +2503,34 @@ Used in MPL115A1</description>
 <wire x1="35.56" y1="127" x2="35.56" y2="137.16" width="0.1524" layer="91"/>
 <junction x="35.56" y="137.16"/>
 <label x="-12.7" y="160.02" size="1.778" layer="95"/>
-<wire x1="81.28" y1="71.12" x2="91.44" y2="71.12" width="0.1524" layer="91"/>
 <wire x1="91.44" y1="71.12" x2="91.44" y2="78.74" width="0.1524" layer="91"/>
 <wire x1="91.44" y1="78.74" x2="15.24" y2="78.74" width="0.1524" layer="91"/>
 <wire x1="15.24" y1="78.74" x2="15.24" y2="137.16" width="0.1524" layer="91"/>
 <junction x="15.24" y="137.16"/>
-</segment>
-</net>
-<net name="N$4" class="0">
-<segment>
-<wire x1="83.82" y1="109.22" x2="78.74" y2="109.22" width="0.1524" layer="91"/>
-<wire x1="78.74" y1="109.22" x2="78.74" y2="106.68" width="0.1524" layer="91"/>
-<pinref part="U1" gate="G$1" pin="GND"/>
-</segment>
-</net>
-<net name="N$6" class="0">
-<segment>
-<wire x1="134.62" y1="5.08" x2="93.98" y2="5.08" width="0.1524" layer="91"/>
-<wire x1="134.62" y1="111.76" x2="134.62" y2="5.08" width="0.1524" layer="91"/>
+<pinref part="U2" gate="G$1" pin="CS"/>
+<wire x1="83.82" y1="71.12" x2="91.44" y2="71.12" width="0.1524" layer="91"/>
+<pinref part="P+1" gate="1" pin="VCC"/>
+<junction x="119.38" y="137.16"/>
+<pinref part="C1" gate="G$1" pin="1"/>
+<wire x1="12.7" y1="60.96" x2="12.7" y2="63.5" width="0.1524" layer="91"/>
+<wire x1="12.7" y1="63.5" x2="7.62" y2="63.5" width="0.1524" layer="91"/>
+<wire x1="7.62" y1="63.5" x2="2.54" y2="63.5" width="0.1524" layer="91"/>
+<wire x1="2.54" y1="60.96" x2="2.54" y2="63.5" width="0.1524" layer="91"/>
+<pinref part="C2" gate="G$1" pin="+"/>
+<wire x1="5.08" y1="66.04" x2="7.62" y2="66.04" width="0.1524" layer="91"/>
+<wire x1="7.62" y1="66.04" x2="7.62" y2="63.5" width="0.1524" layer="91"/>
+<junction x="7.62" y="63.5"/>
+<wire x1="5.08" y1="66.04" x2="5.08" y2="71.12" width="0.1524" layer="91"/>
+<junction x="5.08" y="71.12"/>
 </segment>
 </net>
 </nets>
 </sheet>
 </sheets>
+<errors>
+<approved hash="106,1,114.3,109.22,INT1,,,,,"/>
+<approved hash="106,1,114.3,106.68,INT2,,,,,"/>
+</errors>
 </schematic>
 </drawing>
 </eagle>
