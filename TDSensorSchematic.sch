@@ -2275,7 +2275,7 @@ Used in MPL115A1</description>
 </classes>
 <parts>
 <part name="C1" library="SparkFun" deviceset="CAP" device="0603-CAP" value="0.1uF"/>
-<part name="P+2" library="SparkFun" deviceset="VCC" device=""/>
+<part name="P+2" library="SparkFun" deviceset="VCC" device="" value="VCC 3.3V"/>
 <part name="CIO" library="SparkFun" deviceset="CAP" device="0603-CAP" value="0.1uF"/>
 <part name="GND4" library="SparkFun" deviceset="GND" device=""/>
 <part name="C2" library="SparkFun" deviceset="CAP_POL" device="1206" value="10uF"/>
@@ -2288,7 +2288,7 @@ Used in MPL115A1</description>
 <part name="C5" library="SparkFun" deviceset="CAP" device="0402-CAP" value="0.1uF"/>
 <part name="GND5" library="SparkFun" deviceset="GND" device=""/>
 <part name="C6" library="SparkFun" deviceset="CAP" device="0402-CAP" value="1uF"/>
-<part name="P+1" library="SparkFun" deviceset="VCC" device=""/>
+<part name="P+1" library="SparkFun" deviceset="VCC" device="" value="VCC 3.3V"/>
 </parts>
 <sheets>
 <sheet>
@@ -2449,7 +2449,7 @@ Used in MPL115A1</description>
 <wire x1="43.18" y1="111.76" x2="83.82" y2="111.76" width="0.1524" layer="91"/>
 </segment>
 </net>
-<net name="VCC" class="0">
+<net name="VCC_3.3V" class="0">
 <segment>
 <wire x1="83.82" y1="114.3" x2="81.28" y2="114.3" width="0.1524" layer="91"/>
 <wire x1="81.28" y1="114.3" x2="81.28" y2="116.84" width="0.1524" layer="91"/>
