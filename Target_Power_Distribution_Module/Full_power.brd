@@ -34,18 +34,18 @@
 <layer number="38" name="bTest" color="7" fill="1" visible="no" active="yes"/>
 <layer number="39" name="tKeepout" color="4" fill="11" visible="yes" active="yes"/>
 <layer number="40" name="bKeepout" color="1" fill="11" visible="yes" active="yes"/>
-<layer number="41" name="tRestrict" color="4" fill="10" visible="yes" active="yes"/>
-<layer number="42" name="bRestrict" color="1" fill="10" visible="yes" active="yes"/>
-<layer number="43" name="vRestrict" color="2" fill="10" visible="yes" active="yes"/>
+<layer number="41" name="tRestrict" color="4" fill="10" visible="no" active="yes"/>
+<layer number="42" name="bRestrict" color="1" fill="10" visible="no" active="yes"/>
+<layer number="43" name="vRestrict" color="2" fill="10" visible="no" active="yes"/>
 <layer number="44" name="Drills" color="7" fill="1" visible="no" active="yes"/>
 <layer number="45" name="Holes" color="7" fill="1" visible="no" active="yes"/>
 <layer number="46" name="Milling" color="3" fill="1" visible="no" active="yes"/>
 <layer number="47" name="Measures" color="7" fill="1" visible="no" active="yes"/>
-<layer number="48" name="Document" color="7" fill="1" visible="yes" active="yes"/>
-<layer number="49" name="Reference" color="7" fill="1" visible="yes" active="yes"/>
+<layer number="48" name="Document" color="7" fill="1" visible="no" active="yes"/>
+<layer number="49" name="Reference" color="7" fill="1" visible="no" active="yes"/>
 <layer number="50" name="dxf" color="7" fill="1" visible="no" active="no"/>
-<layer number="51" name="tDocu" color="7" fill="1" visible="yes" active="yes"/>
-<layer number="52" name="bDocu" color="7" fill="1" visible="yes" active="yes"/>
+<layer number="51" name="tDocu" color="7" fill="1" visible="no" active="yes"/>
+<layer number="52" name="bDocu" color="7" fill="1" visible="no" active="yes"/>
 <layer number="53" name="tGND_GNDA" color="7" fill="9" visible="no" active="no"/>
 <layer number="54" name="bGND_GNDA" color="1" fill="9" visible="no" active="no"/>
 <layer number="56" name="wert" color="7" fill="1" visible="no" active="no"/>
@@ -86,7 +86,7 @@
 <layer number="126" name="_bNames" color="7" fill="1" visible="no" active="yes"/>
 <layer number="127" name="_tValues" color="7" fill="1" visible="no" active="yes"/>
 <layer number="128" name="_bValues" color="7" fill="1" visible="no" active="yes"/>
-<layer number="129" name="Mask" color="7" fill="1" visible="yes" active="yes"/>
+<layer number="129" name="Mask" color="7" fill="1" visible="no" active="yes"/>
 <layer number="131" name="tAdjust" color="7" fill="1" visible="no" active="yes"/>
 <layer number="132" name="bAdjust" color="7" fill="1" visible="no" active="yes"/>
 <layer number="144" name="Drill_legend" color="7" fill="1" visible="no" active="yes"/>
@@ -122,12 +122,12 @@
 <layer number="222" name="222bmp" color="23" fill="1" visible="no" active="no"/>
 <layer number="223" name="223bmp" color="24" fill="1" visible="no" active="no"/>
 <layer number="224" name="224bmp" color="25" fill="1" visible="no" active="no"/>
-<layer number="225" name="225bmp" color="7" fill="1" visible="yes" active="yes"/>
-<layer number="226" name="226bmp" color="7" fill="1" visible="yes" active="yes"/>
-<layer number="227" name="227bmp" color="7" fill="1" visible="yes" active="yes"/>
-<layer number="228" name="228bmp" color="7" fill="1" visible="yes" active="yes"/>
-<layer number="229" name="229bmp" color="7" fill="1" visible="yes" active="yes"/>
-<layer number="230" name="230bmp" color="7" fill="1" visible="yes" active="yes"/>
+<layer number="225" name="225bmp" color="7" fill="1" visible="no" active="yes"/>
+<layer number="226" name="226bmp" color="7" fill="1" visible="no" active="yes"/>
+<layer number="227" name="227bmp" color="7" fill="1" visible="no" active="yes"/>
+<layer number="228" name="228bmp" color="7" fill="1" visible="no" active="yes"/>
+<layer number="229" name="229bmp" color="7" fill="1" visible="no" active="yes"/>
+<layer number="230" name="230bmp" color="7" fill="1" visible="no" active="yes"/>
 <layer number="231" name="Eagle3D_PG1" color="7" fill="1" visible="no" active="no"/>
 <layer number="232" name="Eagle3D_PG2" color="7" fill="1" visible="no" active="no"/>
 <layer number="233" name="Eagle3D_PG3" color="7" fill="1" visible="no" active="no"/>
@@ -136,7 +136,7 @@
 <layer number="250" name="Descript" color="7" fill="1" visible="no" active="no"/>
 <layer number="251" name="SMDround" color="7" fill="1" visible="no" active="no"/>
 <layer number="254" name="cooling" color="7" fill="1" visible="no" active="yes"/>
-<layer number="255" name="routoute" color="7" fill="1" visible="yes" active="yes"/>
+<layer number="255" name="routoute" color="7" fill="1" visible="no" active="yes"/>
 </layers>
 <board>
 <plain>
@@ -675,19 +675,19 @@ Please make sure your boards conform to these design rules.</description>
 <elements>
 <element name="C1" library="SparkFun-Passives" package="CAP-PTH-SMALL" value=".1 uF" x="58.42" y="71.12" smashed="yes">
 <attribute name="NAME" x="58.928" y="72.39" size="0.6096" layer="25"/>
-<attribute name="VALUE" x="58.674" y="69.596" size="0.6096" layer="27"/>
+<attribute name="VALUE" x="58.674" y="69.596" size="0.6096" layer="25"/>
 </element>
 <element name="C2" library="SparkFun-Passives" package="CPOL-RADIAL-10UF-25V" value="10 uF" x="5.08" y="44.45" smashed="yes">
 <attribute name="NAME" x="4.191" y="45.974" size="0.6096" layer="25"/>
-<attribute name="VALUE" x="0.635" y="42.037" size="0.6096" layer="27"/>
+<attribute name="VALUE" x="0.635" y="42.037" size="0.6096" layer="25"/>
 </element>
 <element name="C3" library="SparkFun-Capacitors" package="CAP-PTH-SMALL" value="1 uF" x="21.59" y="60.96" smashed="yes">
 <attribute name="NAME" x="22.098" y="62.23" size="0.6096" layer="25"/>
-<attribute name="VALUE" x="21.844" y="59.436" size="0.6096" layer="27"/>
+<attribute name="VALUE" x="21.844" y="59.436" size="0.6096" layer="25"/>
 </element>
 <element name="C4" library="SparkFun-Capacitors" package="CAP-PTH-SMALL" value="1 uF" x="58.42" y="66.04" smashed="yes">
 <attribute name="NAME" x="58.928" y="67.31" size="0.6096" layer="25"/>
-<attribute name="VALUE" x="58.674" y="64.516" size="0.6096" layer="27"/>
+<attribute name="VALUE" x="58.674" y="64.516" size="0.6096" layer="25"/>
 </element>
 <element name="D1" library="SparkFun-DiscreteSemi" package="DIODE-1N4001" value="1N5817" x="22.86" y="76.2" smashed="yes">
 <attribute name="NAME" x="19.939" y="77.851" size="0.6096" layer="25"/>
@@ -703,7 +703,7 @@ Please make sure your boards conform to these design rules.</description>
 <attribute name="MF" value="" x="7.62" y="76.2" size="1.778" layer="27" display="off"/>
 <attribute name="OC_FARNELL" value="unknown" x="7.62" y="76.2" size="1.778" layer="27" display="off"/>
 <attribute name="NAME" x="5.08" y="77.724" size="0.6096" layer="25" ratio="10"/>
-<attribute name="VALUE" x="5.08" y="73.3552" size="0.6096" layer="27" ratio="10"/>
+<attribute name="VALUE" x="5.08" y="73.3552" size="0.6096" layer="25" ratio="10"/>
 </element>
 <element name="F2" library="fuse" package="PICOFUSE" value="250 mA" x="7.62" y="63.5" smashed="yes">
 <attribute name="OC_NEWARK" value="unknown" x="7.62" y="63.5" size="1.778" layer="27" display="off"/>
@@ -711,7 +711,7 @@ Please make sure your boards conform to these design rules.</description>
 <attribute name="MF" value="" x="7.62" y="63.5" size="1.778" layer="27" display="off"/>
 <attribute name="OC_FARNELL" value="unknown" x="7.62" y="63.5" size="1.778" layer="27" display="off"/>
 <attribute name="NAME" x="5.08" y="65.024" size="0.6096" layer="25" ratio="10"/>
-<attribute name="VALUE" x="5.08" y="60.6552" size="0.6096" layer="27" ratio="10"/>
+<attribute name="VALUE" x="5.08" y="60.6552" size="0.6096" layer="25" ratio="10"/>
 </element>
 <element name="F3" library="fuse" package="PICOFUSE" value="FUSE (3.5A)" x="7.62" y="69.85" smashed="yes">
 <attribute name="OC_NEWARK" value="unknown" x="7.62" y="69.85" size="1.778" layer="27" display="off"/>
@@ -719,55 +719,55 @@ Please make sure your boards conform to these design rules.</description>
 <attribute name="MF" value="" x="7.62" y="69.85" size="1.778" layer="27" display="off"/>
 <attribute name="OC_FARNELL" value="unknown" x="7.62" y="69.85" size="1.778" layer="27" display="off"/>
 <attribute name="NAME" x="5.08" y="71.374" size="0.6096" layer="25" ratio="10"/>
-<attribute name="VALUE" x="5.08" y="67.0052" size="0.6096" layer="27" ratio="10"/>
+<attribute name="VALUE" x="5.08" y="67.0052" size="0.6096" layer="25" ratio="10"/>
 </element>
 <element name="F4" library="SparkFun-PowerIC" package="PTC" value="PTC (1.5A)" x="22.86" y="66.04" smashed="yes">
 <attribute name="NAME" x="19.05" y="67.745" size="0.6096" layer="25"/>
-<attribute name="VALUE" x="13.97" y="65.805" size="0.6096" layer="27"/>
+<attribute name="VALUE" x="13.97" y="65.805" size="0.6096" layer="25"/>
 </element>
 <element name="IC1" library="adafruit" package="TO92" value="MCP1702" x="59.69" y="76.2" smashed="yes">
 <attribute name="NAME" x="62.103" y="77.851" size="0.6096" layer="25" ratio="10"/>
-<attribute name="VALUE" x="53.721" y="78.74" size="0.6096" layer="27" ratio="10"/>
+<attribute name="VALUE" x="53.721" y="78.74" size="0.6096" layer="25" ratio="10"/>
 </element>
 <element name="Q1" library="User-Submitted" package="TO220V" value="NFET" x="49.53" y="52.07" smashed="yes">
 <attribute name="NAME" x="46.736" y="55.499" size="0.6096" layer="25" ratio="10"/>
-<attribute name="VALUE" x="46.228" y="48.768" size="0.6096" layer="27" ratio="10"/>
+<attribute name="VALUE" x="46.228" y="48.768" size="0.6096" layer="25" ratio="10"/>
 </element>
 <element name="Q2" library="User-Submitted" package="TO220V" value="PFET" x="36.83" y="52.07" smashed="yes">
 <attribute name="NAME" x="34.036" y="55.499" size="0.6096" layer="25" ratio="10"/>
-<attribute name="VALUE" x="33.528" y="48.768" size="0.6096" layer="27" ratio="10"/>
+<attribute name="VALUE" x="33.528" y="48.768" size="0.6096" layer="25" ratio="10"/>
 </element>
 <element name="Q3" library="User-Submitted" package="TO220V" value="NFET" x="49.53" y="67.31" smashed="yes">
 <attribute name="NAME" x="46.736" y="70.739" size="0.6096" layer="25" ratio="10"/>
-<attribute name="VALUE" x="46.228" y="64.008" size="0.6096" layer="27" ratio="10"/>
+<attribute name="VALUE" x="46.228" y="64.008" size="0.6096" layer="25" ratio="10"/>
 </element>
 <element name="Q4" library="User-Submitted" package="TO220V" value="PFET" x="36.83" y="67.31" smashed="yes">
 <attribute name="NAME" x="34.036" y="70.739" size="0.6096" layer="25" ratio="10"/>
-<attribute name="VALUE" x="33.528" y="64.008" size="0.6096" layer="27" ratio="10"/>
+<attribute name="VALUE" x="33.528" y="64.008" size="0.6096" layer="25" ratio="10"/>
 </element>
 <element name="R1" library="SparkFun-Resistors" package="1206" value="10k" x="34.29" y="59.69" smashed="yes">
 <attribute name="NAME" x="33.02" y="60.833" size="0.6096" layer="25"/>
-<attribute name="VALUE" x="34.163" y="57.531" size="0.6096" layer="27"/>
+<attribute name="VALUE" x="34.163" y="57.531" size="0.6096" layer="25"/>
 </element>
 <element name="R2" library="SparkFun-Resistors" package="1206" value="10k" x="41.91" y="59.69" smashed="yes">
 <attribute name="NAME" x="40.64" y="60.833" size="0.6096" layer="25"/>
-<attribute name="VALUE" x="40.513" y="57.531" size="0.6096" layer="27"/>
+<attribute name="VALUE" x="40.513" y="57.531" size="0.6096" layer="25"/>
 </element>
 <element name="R3" library="SparkFun-Resistors" package="1206" value="10k" x="49.53" y="59.69" smashed="yes">
 <attribute name="NAME" x="48.26" y="60.833" size="0.6096" layer="25"/>
-<attribute name="VALUE" x="48.133" y="57.531" size="0.6096" layer="27"/>
+<attribute name="VALUE" x="48.133" y="57.531" size="0.6096" layer="25"/>
 </element>
 <element name="R4" library="SparkFun-Resistors" package="1206" value="10k" x="49.53" y="76.2" smashed="yes">
 <attribute name="NAME" x="48.26" y="77.343" size="0.6096" layer="25"/>
-<attribute name="VALUE" x="48.133" y="74.041" size="0.6096" layer="27"/>
+<attribute name="VALUE" x="48.133" y="74.041" size="0.6096" layer="25"/>
 </element>
 <element name="R5" library="SparkFun-Resistors" package="1206" value="10k" x="41.91" y="76.2" smashed="yes">
 <attribute name="NAME" x="40.64" y="77.343" size="0.6096" layer="25"/>
-<attribute name="VALUE" x="40.513" y="74.041" size="0.6096" layer="27"/>
+<attribute name="VALUE" x="40.513" y="74.041" size="0.6096" layer="25"/>
 </element>
 <element name="R6" library="SparkFun-Resistors" package="1206" value="10k" x="34.29" y="76.2" smashed="yes">
 <attribute name="NAME" x="33.02" y="77.343" size="0.6096" layer="25"/>
-<attribute name="VALUE" x="32.893" y="74.041" size="0.6096" layer="27"/>
+<attribute name="VALUE" x="32.893" y="74.041" size="0.6096" layer="25"/>
 </element>
 <element name="SW1" library="special" package="EDG-01" value="" x="13.97" y="52.07" smashed="yes" rot="R180">
 <attribute name="VALUE" x="15.875" y="58.674" size="1.27" layer="27" ratio="10" rot="R180"/>
@@ -796,7 +796,7 @@ Please make sure your boards conform to these design rules.</description>
 <element name="JP1" library="SparkFun-Connectors" package="USB-MICROB" value="USB-MICROB" x="2.54" y="54.61" smashed="yes" rot="R270">
 <attribute name="PROD_ID" value="CONN-09505" x="2.54" y="54.61" size="1.778" layer="27" rot="R270" display="off"/>
 <attribute name="NAME" x="2.19" y="56.21" size="0.6096" layer="25" rot="R270"/>
-<attribute name="VALUE" x="6.985" y="57.785" size="0.6096" layer="27" rot="R270"/>
+<attribute name="VALUE" x="6.985" y="57.785" size="0.6096" layer="25" rot="R270"/>
 </element>
 </elements>
 <signals>
