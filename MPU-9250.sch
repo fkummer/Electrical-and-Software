@@ -1290,8 +1290,13 @@ Source: AVX .. aphvc.pdf</description>
 <wire x1="66.04" y1="63.5" x2="66.04" y2="60.96" width="0.1524" layer="91"/>
 <pinref part="C3" gate="G$1" pin="2"/>
 <pinref part="U$1" gate="G$1" pin="GND"/>
-<wire x1="88.9" y1="60.96" x2="66.04" y2="60.96" width="0.1524" layer="91"/>
+<wire x1="88.9" y1="60.96" x2="81.28" y2="60.96" width="0.1524" layer="91"/>
 <junction x="66.04" y="60.96"/>
+<pinref part="U$1" gate="G$1" pin="CSB"/>
+<wire x1="81.28" y1="60.96" x2="66.04" y2="60.96" width="0.1524" layer="91"/>
+<wire x1="88.9" y1="66.04" x2="81.28" y2="66.04" width="0.1524" layer="91"/>
+<wire x1="81.28" y1="66.04" x2="81.28" y2="60.96" width="0.1524" layer="91"/>
+<junction x="81.28" y="60.96"/>
 </segment>
 </net>
 <net name="VDD" class="0">
