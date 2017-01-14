@@ -17,7 +17,8 @@ void setup() {
   Wire.begin();        // Join i2c bus
   Serial.begin(9600);  // Start serial for output
   measPressure.begin(); // Get sensor online
-
+  pinMode(5, OUTPUT);
+  digitalWrite(5, HIGH);
   //Configure the sensor
   measPressure.setModeAltimeter(); // Measure altitude above sea level in meters
   measPressure.setOversampleRate(7); // Set Oversample to the recommended 128
