@@ -11922,11 +11922,11 @@ Picofuse, 19275 Wickmann</description>
 <instance part="GND3" gate="1" x="114.3" y="83.82"/>
 <instance part="GND4" gate="1" x="0" y="88.9"/>
 <instance part="IC1" gate="1" x="127" y="20.32"/>
-<instance part="C3" gate="G$1" x="104.14" y="15.24" rot="R90"/>
-<instance part="GND5" gate="1" x="99.06" y="-7.62"/>
+<instance part="C3" gate="G$1" x="101.6" y="15.24" rot="R90"/>
+<instance part="GND5" gate="1" x="96.52" y="-7.62"/>
 <instance part="GND6" gate="1" x="144.78" y="-10.16"/>
 <instance part="GND7" gate="1" x="-25.4" y="48.26"/>
-<instance part="C5" gate="G$1" x="53.34" y="81.28" rot="R90"/>
+<instance part="C5" gate="G$1" x="33.02" y="78.74" rot="R180"/>
 <instance part="R2" gate="G$1" x="154.94" y="71.12" rot="R90"/>
 <instance part="R3" gate="G$1" x="170.18" y="71.12" rot="R90"/>
 <instance part="SUPPLY3" gate="VDD" x="162.56" y="83.82"/>
@@ -11940,8 +11940,8 @@ Picofuse, 19275 Wickmann</description>
 <instance part="R4" gate="G$1" x="10.16" y="88.9" rot="R90"/>
 <instance part="R5" gate="G$1" x="162.56" y="22.86" rot="R90"/>
 <instance part="R6" gate="G$1" x="172.72" y="22.86" rot="R90"/>
-<instance part="R7" gate="G$1" x="91.44" y="5.08" rot="R90"/>
-<instance part="GND11" gate="1" x="91.44" y="-7.62"/>
+<instance part="R7" gate="G$1" x="91.44" y="12.7" rot="R90"/>
+<instance part="GND11" gate="1" x="91.44" y="2.54"/>
 <instance part="C4" gate="G$1" x="-17.78" y="60.96"/>
 <instance part="C6" gate="G$1" x="-7.62" y="60.96"/>
 <instance part="GND12" gate="1" x="-12.7" y="48.26"/>
@@ -11957,6 +11957,18 @@ Picofuse, 19275 Wickmann</description>
 <busses>
 </busses>
 <nets>
+<net name="N$1" class="0">
+<segment>
+<pinref part="R1" gate="G$1" pin="1"/>
+<wire x1="20.32" y1="76.2" x2="20.32" y2="73.66" width="0.1524" layer="91"/>
+<wire x1="20.32" y1="73.66" x2="33.02" y2="73.66" width="0.1524" layer="91"/>
+<pinref part="C5" gate="G$1" pin="1"/>
+<wire x1="33.02" y1="73.66" x2="35.56" y2="73.66" width="0.1524" layer="91"/>
+<wire x1="33.02" y1="76.2" x2="33.02" y2="73.66" width="0.1524" layer="91"/>
+<junction x="33.02" y="73.66"/>
+<pinref part="U1" gate="U$1" pin="PC6(/RESET)"/>
+</segment>
+</net>
 <net name="N$2" class="0">
 <segment>
 <wire x1="35.56" y1="48.26" x2="17.78" y2="48.26" width="0.1524" layer="91"/>
@@ -12025,12 +12037,12 @@ Picofuse, 19275 Wickmann</description>
 <segment>
 <pinref part="GND5" gate="1" pin="GND"/>
 <pinref part="C3" gate="G$1" pin="1"/>
-<wire x1="99.06" y1="-5.08" x2="99.06" y2="2.54" width="0.1524" layer="91"/>
-<wire x1="99.06" y1="2.54" x2="99.06" y2="15.24" width="0.1524" layer="91"/>
-<wire x1="99.06" y1="15.24" x2="101.6" y2="15.24" width="0.1524" layer="91"/>
+<wire x1="96.52" y1="-5.08" x2="96.52" y2="2.54" width="0.1524" layer="91"/>
+<wire x1="96.52" y1="2.54" x2="96.52" y2="15.24" width="0.1524" layer="91"/>
+<wire x1="96.52" y1="15.24" x2="99.06" y2="15.24" width="0.1524" layer="91"/>
 <pinref part="IC1" gate="1" pin="GND@A"/>
-<wire x1="114.3" y1="2.54" x2="99.06" y2="2.54" width="0.1524" layer="91"/>
-<junction x="99.06" y="2.54"/>
+<wire x1="114.3" y1="2.54" x2="96.52" y2="2.54" width="0.1524" layer="91"/>
+<junction x="96.52" y="2.54"/>
 </segment>
 <segment>
 <pinref part="IC1" gate="1" pin="GND"/>
@@ -12101,7 +12113,7 @@ Picofuse, 19275 Wickmann</description>
 <segment>
 <pinref part="R7" gate="G$1" pin="1"/>
 <pinref part="GND11" gate="1" pin="GND"/>
-<wire x1="91.44" y1="0" x2="91.44" y2="-5.08" width="0.1524" layer="91"/>
+<wire x1="91.44" y1="7.62" x2="91.44" y2="5.08" width="0.1524" layer="91"/>
 </segment>
 <segment>
 <pinref part="C4" gate="G$1" pin="2"/>
@@ -12146,18 +12158,6 @@ Picofuse, 19275 Wickmann</description>
 <pinref part="J4" gate="G$1" pin="2"/>
 <wire x1="-35.56" y1="83.82" x2="-33.02" y2="83.82" width="0.1524" layer="91"/>
 <label x="-33.02" y="83.82" size="1.27" layer="95" xref="yes"/>
-</segment>
-<segment>
-<pinref part="IC1" gate="1" pin="VCCIO"/>
-<wire x1="114.3" y1="40.64" x2="109.22" y2="40.64" width="0.1524" layer="91"/>
-<pinref part="IC1" gate="1" pin="3V3OUT"/>
-<pinref part="C3" gate="G$1" pin="2"/>
-<wire x1="109.22" y1="15.24" x2="114.3" y2="15.24" width="0.1524" layer="91"/>
-<wire x1="109.22" y1="40.64" x2="109.22" y2="15.24" width="0.1524" layer="91"/>
-<junction x="109.22" y="15.24"/>
-<wire x1="109.22" y1="40.64" x2="106.68" y2="40.64" width="0.1524" layer="91"/>
-<junction x="109.22" y="40.64"/>
-<label x="106.68" y="40.64" size="1.27" layer="95" rot="R180" xref="yes"/>
 </segment>
 </net>
 <net name="A4(SDA)" class="0">
@@ -12239,8 +12239,9 @@ Picofuse, 19275 Wickmann</description>
 <net name="DTR" class="0">
 <segment>
 <pinref part="C5" gate="G$1" pin="2"/>
-<wire x1="58.42" y1="81.28" x2="78.74" y2="81.28" width="0.1524" layer="91"/>
-<label x="78.74" y="81.28" size="1.27" layer="95" xref="yes"/>
+<wire x1="33.02" y1="83.82" x2="33.02" y2="86.36" width="0.1524" layer="91"/>
+<wire x1="33.02" y1="86.36" x2="35.56" y2="86.36" width="0.1524" layer="91"/>
+<label x="35.56" y="86.36" size="1.27" layer="95" xref="yes"/>
 </segment>
 <segment>
 <pinref part="IC1" gate="1" pin="!DTR"/>
@@ -12358,6 +12359,18 @@ Picofuse, 19275 Wickmann</description>
 <label x="106.68" y="43.18" size="1.27" layer="95" rot="R180" xref="yes"/>
 </segment>
 </net>
+<net name="N$7" class="0">
+<segment>
+<pinref part="IC1" gate="1" pin="VCCIO"/>
+<wire x1="114.3" y1="40.64" x2="109.22" y2="40.64" width="0.1524" layer="91"/>
+<pinref part="IC1" gate="1" pin="3V3OUT"/>
+<wire x1="106.68" y1="15.24" x2="109.22" y2="15.24" width="0.1524" layer="91"/>
+<pinref part="C3" gate="G$1" pin="2"/>
+<wire x1="109.22" y1="15.24" x2="114.3" y2="15.24" width="0.1524" layer="91"/>
+<wire x1="109.22" y1="40.64" x2="109.22" y2="15.24" width="0.1524" layer="91"/>
+<junction x="109.22" y="15.24"/>
+</segment>
+</net>
 <net name="N$9" class="0">
 <segment>
 <pinref part="LED2" gate="G$1" pin="C"/>
@@ -12395,9 +12408,10 @@ Picofuse, 19275 Wickmann</description>
 <net name="N$8" class="0">
 <segment>
 <pinref part="R7" gate="G$1" pin="2"/>
-<wire x1="96.52" y1="10.16" x2="91.44" y2="10.16" width="0.1524" layer="91"/>
+<wire x1="91.44" y1="20.32" x2="91.44" y2="17.78" width="0.1524" layer="91"/>
 <pinref part="LED4" gate="G$1" pin="C"/>
-<wire x1="96.52" y1="10.16" x2="96.52" y2="27.94" width="0.1524" layer="91"/>
+<wire x1="91.44" y1="20.32" x2="96.52" y2="20.32" width="0.1524" layer="91"/>
+<wire x1="96.52" y1="20.32" x2="96.52" y2="27.94" width="0.1524" layer="91"/>
 </segment>
 </net>
 <net name="N$6" class="0">
@@ -12426,28 +12440,12 @@ Picofuse, 19275 Wickmann</description>
 <wire x1="-35.56" y1="86.36" x2="-33.02" y2="86.36" width="0.1524" layer="91"/>
 <label x="-33.02" y="86.36" size="1.27" layer="95" xref="yes"/>
 </segment>
-<segment>
-<pinref part="R1" gate="G$1" pin="1"/>
-<wire x1="20.32" y1="76.2" x2="20.32" y2="73.66" width="0.1524" layer="91"/>
-<wire x1="20.32" y1="73.66" x2="33.02" y2="73.66" width="0.1524" layer="91"/>
-<pinref part="U1" gate="U$1" pin="PC6(/RESET)"/>
-<pinref part="C5" gate="G$1" pin="1"/>
-<wire x1="33.02" y1="73.66" x2="35.56" y2="73.66" width="0.1524" layer="91"/>
-<wire x1="33.02" y1="73.66" x2="33.02" y2="81.28" width="0.1524" layer="91"/>
-<wire x1="33.02" y1="81.28" x2="50.8" y2="81.28" width="0.1524" layer="91"/>
-<junction x="33.02" y="73.66"/>
-</segment>
 </net>
 <net name="MISO" class="0">
 <segment>
 <pinref part="J4" gate="G$1" pin="5"/>
 <wire x1="-35.56" y1="91.44" x2="-33.02" y2="91.44" width="0.1524" layer="91"/>
 <label x="-33.02" y="91.44" size="1.27" layer="95" xref="yes"/>
-</segment>
-<segment>
-<pinref part="U1" gate="U$1" pin="PB4(MISO)"/>
-<wire x1="83.82" y1="17.78" x2="86.36" y2="17.78" width="0.1524" layer="91"/>
-<label x="86.36" y="17.78" size="1.27" layer="95" xref="yes"/>
 </segment>
 </net>
 <net name="SCK" class="0">
@@ -12456,22 +12454,12 @@ Picofuse, 19275 Wickmann</description>
 <wire x1="-35.56" y1="93.98" x2="-33.02" y2="93.98" width="0.1524" layer="91"/>
 <label x="-33.02" y="93.98" size="1.27" layer="95" xref="yes"/>
 </segment>
-<segment>
-<pinref part="U1" gate="U$1" pin="PB5(SCK)"/>
-<wire x1="83.82" y1="15.24" x2="86.36" y2="15.24" width="0.1524" layer="91"/>
-<label x="86.36" y="15.24" size="1.27" layer="95" xref="yes"/>
-</segment>
 </net>
 <net name="MOSI" class="0">
 <segment>
 <pinref part="J4" gate="G$1" pin="4"/>
 <wire x1="-35.56" y1="88.9" x2="-33.02" y2="88.9" width="0.1524" layer="91"/>
 <label x="-33.02" y="88.9" size="1.27" layer="95" xref="yes"/>
-</segment>
-<segment>
-<pinref part="U1" gate="U$1" pin="PB3(MOSI/OC2)"/>
-<wire x1="83.82" y1="20.32" x2="86.36" y2="20.32" width="0.1524" layer="91"/>
-<label x="86.36" y="20.32" size="1.27" layer="95" xref="yes"/>
 </segment>
 </net>
 </nets>
