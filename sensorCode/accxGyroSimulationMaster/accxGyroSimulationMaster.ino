@@ -8,7 +8,6 @@
  */
 #include <Wire.h>
 #include "MPU9250.h"
-#include <stdint.h>
 
 #define MPU9250_ADDRESS 0x68
 #define INT_STATUS 0x3A

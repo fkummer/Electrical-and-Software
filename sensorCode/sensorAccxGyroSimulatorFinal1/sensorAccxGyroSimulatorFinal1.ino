@@ -9,8 +9,8 @@
 #include <Wire.h>
 #include <stdint.h>
 
-float aArray[3] = {30, 20, 40};
-float gArray[3] = {10, 20, 10};
+float aArray[3] = {30, 20, 40}; // set acceleration values
+float gArray[3] = {10, 20, 10}; // set gyroscope values
 byte data = 0;
 byte byteAArray[6]; //= {0, 0, 0, 2, 0, 2};
 byte byteGArray[6]; // = {0, 2, 0, 2, 0, 2};
@@ -18,8 +18,8 @@ int counter = 0;
 
 void setup() {
   Serial.begin(9600);
-  convertToB(gArray, 1.953, 0.0076);
-  convertToB(aArray, 15.63, 0.06);
+  convertToB(gArray, 1.953, 0.0076); //create byte array
+  convertToB(aArray, 15.63, 0.06);  
   Wire.begin(0x68);
   Wire.onRequest(requestEvent);
   Wire.onReceive(receiveEvent);
@@ -29,7 +29,7 @@ void loop() {
   delay(500);
 }
 
-void requestEvent() {
+void requestEvent() { // send bytes to main
   //  if(data == 59 || data == 67){
   //    Wire.write(data);
   //    data = 0;
@@ -47,13 +47,14 @@ void requestEvent() {
   }
 }
 
-void receiveEvent(int numBytes) {
+void receiveEvent(int numBytes) { //recieve bytes from main
   while (Wire.available()) {
     data = Wire.read();
     Serial.println(data);
   }
 }
-
+//this function converts the float measurements into a byte array
+//that can be understood by main
 void convertToB(float sArray[], float ms, float ls) {
   int i;
   for (i = 0; i < 3; i++) {
