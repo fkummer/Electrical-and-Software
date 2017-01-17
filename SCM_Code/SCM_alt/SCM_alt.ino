@@ -12,6 +12,15 @@
 
 MPL3115A2 measPressure;
 
+//Write a register on the altimeter
+void IIC_Write(byte regAddr, byte value)
+{
+  // This function writes one byto over IIC
+  Wire.beginTransmission(MPL3115A2_ADDRESS);
+  Wire.write(regAddr);
+  Wire.write(value);
+  Wire.endTransmission(true);
+}
 
 void setup() {
   Wire.begin();        // Join i2c bus
@@ -23,6 +32,9 @@ void setup() {
   measPressure.setModeAltimeter(); // Measure altitude above sea level in meters
   measPressure.setOversampleRate(7); // Set Oversample to the recommended 128
   measPressure.enableEventFlags(); // Enable all three pressure and temp event flags 
+
+  byte offset = 24;
+  IIC_Write(OFF_H, offset);
 }
 
 void loop() {

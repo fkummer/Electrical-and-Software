@@ -20,19 +20,17 @@
  
 #include <SparkFun_ADXL345.h>
 
+#include <Wire.h>
+#include "SparkFunMPL3115A2.h"
+#define MPL3115A2_ADDRESS 0x60
+#define STATUS 0x00
+
+MPL3115A2 measPressure;
+
 /*********** COMMUNICATION SELECTION ***********/
-/*    Comment Out The One You Are Not Using    */
-//ADXL345 adxl = ADXL345(10);           // USE FOR SPI COMMUNICATION, ADXL345(CS_PIN);
 ADXL345 adxl = ADXL345();             // USE FOR I2C COMMUNICATION
 
 /****************** VARIABLES ******************/
-/*                                             */
-int AccelMinX = 0;
-int AccelMaxX = 0;
-int AccelMinY = 0;
-int AccelMaxY = 0;
-int AccelMinZ = 0;
-int AccelMaxZ = 0; 
 
 float accX = 0;
 float accY = 0;
@@ -48,14 +46,22 @@ float accZ = 0;
 #define gainY     66
 #define gainZ     63.5 
 
+//Write a register on the altimeter
+void IIC_Write(byte regAddr, byte value)
+{
+  // This function writes one byto over IIC
+  Wire.beginTransmission(MPL3115A2_ADDRESS);
+  Wire.write(regAddr);
+  Wire.write(value);
+  Wire.endTransmission(true);
+}
 
 /******************** SETUP ********************/
 /*          Configure ADXL345 Settings         */
 void setup()
 {
   Serial.begin(9600);                 // Start the serial terminal
-  Serial.println("SparkFun ADXL345 Accelerometer Breakout Calibration");
-  Serial.println();
+  Serial.println("Begin");
 
   pinMode(6,OUTPUT);
   digitalWrite(6,HIGH);
@@ -66,10 +72,19 @@ void setup()
                                       // Accepted values are 2g, 4g, 8g or 16g
                                       // Higher Values = Wider Measurement Range
                                       // Lower Values = Greater Sensitivity
-                                      
-  adxl.setSpiBit(0);                // Configure the device: 4 wire SPI mode = '0' or 3 wire SPI mode = 1
-                                      // Default: Set to 1
-                                      // SPI pins on the ATMega328: 11, 12 and 13 as reference in SPI Library 
+
+  //Altimeter section
+  Wire.begin();        // Join i2c bus
+  measPressure.begin(); // Get sensor online
+  pinMode(5, OUTPUT);
+  digitalWrite(5, HIGH);
+  //Configure the sensor
+  measPressure.setModeAltimeter(); // Measure altitude above sea level in meters
+  measPressure.setOversampleRate(7); // Set Oversample to the recommended 128
+  measPressure.enableEventFlags(); // Enable all three pressure and temp event flags 
+
+  byte offset = 24;
+  IIC_Write(OFF_H, offset);
 }
 
 /****************** MAIN CODE ******************/
@@ -85,14 +100,18 @@ void loop()
   adxl.readAccel(&x, &y, &z);         // Read the accelerometer values and store in variables x,y,z
   
 
-  // UNCOMMENT SECTION TO VIEW NEW VALUES
   accX = (x - offsetX)/gainX;         // Calculating New Values for X, Y and Z
   accY = (y - offsetY)/gainY;
   accZ = (z - offsetZ)/gainZ;
 
   Serial.print(accX); Serial.print("  "); Serial.print(accY); Serial.print("  "); Serial.print(accZ);
   Serial.println(); 
-  
+
+  float altitude = measPressure.readAltitudeFt();
+  Serial.print("Altitude:");
+  Serial.print(altitude, 2);
+  Serial.println();
+ 
   while (Serial.available())
   {
     Serial.read();                    // Clear buffer
