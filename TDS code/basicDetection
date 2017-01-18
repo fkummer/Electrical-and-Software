@@ -1,0 +1,93 @@
+#drawing contours from a custom image of the three targets given by nasa
+
+from cv2 import *
+import numpy as np
+
+targetsImage = imread('targets.png',1)
+
+
+hsv = cvtColor(targetsImage, COLOR_BGR2HSV)
+
+lowerYellow = np.array([10,50,50])
+upperYellow = np.array([30,255,255])
+
+lowerRed = np.array([160,50,50])
+upperRed = np.array([180,255,255])
+
+lowerBlue = np.array([100,50,50])
+
+upperBlue = np.array([130,255,255])
+
+
+
+mask = inRange(hsv, lowerYellow, upperYellow)
+
+resYellow = bitwise_and(targetsImage, targetsImage, mask = mask)
+
+greyYellow = cvtColor(resYellow, COLOR_BGR2GRAY)
+
+ret, imgBWY = threshold(greyYellow, 128, 255, THRESH_BINARY)
+
+
+
+
+
+mask = inRange(hsv, lowerBlue, upperBlue)
+
+resBlue = bitwise_and(targetsImage, targetsImage, mask = mask)
+
+greyBlue = cvtColor(resBlue, COLOR_BGR2GRAY)
+
+ret, imgBWB = threshold(greyBlue, 10, 255, THRESH_BINARY)
+
+
+
+
+
+
+mask = inRange(hsv, lowerRed, upperRed)
+
+resRed = bitwise_and(targetsImage, targetsImage, mask = mask)
+
+greyRed = cvtColor(resRed, COLOR_BGR2GRAY)
+
+ret, imgBWR = threshold(greyRed, 50, 255, THRESH_BINARY)
+
+
+imgBW = imgBWR + imgBWB + imgBWY
+
+img = resRed + resBlue + resYellow
+
+
+
+ret, thresh = threshold(img, 127,255,0)
+
+image, contours, hierarchy = findContours(thresh, RETR_TREE, CHAIN_APPROX_SIMPLE)
+
+
+imshow("cont", image)
+
+#imshow("Targets before processing", targetsImage)
+
+#imshow("Targets in color", img)
+
+#imshow("Targets in black and white", imgBW)
+
+
+
+
+#imageCont, cont, hier = findContours(grey, RETR_TREE, CHAIN_APPROX_SIMPLE)
+
+
+
+#imshow("targets", img)
+
+#imshow("grey", imageCont)
+
+
+#imshow("image", targetsImage)
+waitKey(0)
+destroyAllWindows()
+
+#imshow("image", targetsImage)
+
