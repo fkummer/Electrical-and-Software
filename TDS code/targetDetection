@@ -1,0 +1,106 @@
+from cv2 import *
+import numpy as np
+
+def colorMaskThreshold(color):
+
+    if color == "yellow": # hsv = [25, 255, 255]
+        lowerMask = np.array([21,230,230])
+        upperMask = np.array([26,255,255])
+        
+        
+    elif color == "blue": #hsv = [109, 255, 91]
+        lowerMask = np.array([105,200,90])
+        upperMask = np.array([110,255,150])
+        
+    else: #red color --> hsv = [170, 241, 166]
+        lowerMask = np.array([160,230,150])
+        upperMask = np.array([180,255,175])
+
+    return lowerMask, upperMask
+
+def colorThreshold(color):
+    upperThreshold = 255
+
+    if color == "yellow":
+        lowerThreshold = 128
+        
+    elif color == "blue":
+        lowerThreshold = 10
+
+    else:
+        lowerThreshold = 50
+
+    return lowerThreshold, upperThreshold
+
+def convert2BW(targetsImage):
+    hsv = cvtColor(targetsImage, COLOR_BGR2HSV)
+
+    lowerMaskYellow, upperMaskYellow = colorMaskThreshold("yellow")
+    lowerMaskBlue, upperMaskBlue = colorMaskThreshold("blue")
+    lowerMaskRed, upperMaskRed = colorMaskThreshold("red")
+
+    lowerYellow, upperYellow = colorThreshold("yellow")
+    lowerBlue, upperBlue = colorThreshold("blue")
+    lowerRed, upperRed = colorThreshold("red")
+
+    mask = inRange(hsv, lowerMaskYellow, upperMaskYellow)
+    resYellow = bitwise_and(targetsImage, targetsImage, mask = mask)
+    greyYellow = cvtColor(resYellow, COLOR_BGR2GRAY)
+    ret, imgBWY = threshold(greyYellow, lowerYellow, upperYellow, THRESH_BINARY)
+    
+    
+    mask = inRange(hsv, lowerMaskBlue, upperMaskBlue)
+    resBlue = bitwise_and(targetsImage, targetsImage, mask = mask)
+    greyBlue = cvtColor(resBlue, COLOR_BGR2GRAY)
+    ret, imgBWB = threshold(greyBlue, lowerBlue, upperBlue, THRESH_BINARY)
+
+    mask = inRange(hsv, lowerMaskRed, upperMaskRed)
+    resRed = bitwise_and(targetsImage, targetsImage, mask = mask)
+    greyRed = cvtColor(resRed, COLOR_BGR2GRAY)
+    ret, imgBWR = threshold(greyRed, lowerRed, upperRed, THRESH_BINARY)
+
+    return imgBWY + imgBWB + imgBWR
+
+def convert2Edged(imgBW):
+    filtered = GaussianBlur(imgBW, (7,7), 0)
+
+    edged = Canny(filtered, 50, 150)
+
+    return edged    
+
+def drawTargets(edged, targetsImage):
+    ret, thresh = threshold(edged, 127, 255, 0)
+    image, contours, hierarchy = findContours(thresh, RETR_TREE, CHAIN_APPROX_SIMPLE)
+
+    for c in contours:
+        index = 0
+        peri = arcLength(c,True)
+        approx = approxPolyDP(c, 0.03 * peri, True)
+        area = contourArea(c)
+        if area < 56:
+           index +=1
+           continue
+    
+
+        if len(approx) >= 1 and len(approx) <= 5:
+           drawContours(targetsImage, [approx] , index, (0,255,0), 1)
+
+        index +=1
+    return
+
+targetsImage = imread('targets.png',1)
+imBW = convert2BW(targetsImage)
+edged = convert2Edged(imBW)
+drawTargets(edged, targetsImage)
+imshow("a", targetsImage)
+
+waitKey(0)
+
+destroyAllWindows()
+
+
+        
+    
+    
+
+    
