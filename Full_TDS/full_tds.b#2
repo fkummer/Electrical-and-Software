@@ -181,6 +181,13 @@ You are welcome to use this library for commercial purposes. For attribution, we
 <text x="-0.889" y="1.524" size="0.4064" layer="25">&gt;Name</text>
 <text x="-1.905" y="-3.683" size="0.8128" layer="27">&gt;Value</text>
 </package>
+<package name="CAP-PTH-SMALL">
+<wire x1="1.27" y1="0.635" x2="1.27" y2="-0.635" width="0.2032" layer="21"/>
+<pad name="1" x="0" y="0" drill="0.7" diameter="1.651"/>
+<pad name="2" x="2.54" y="0" drill="0.7" diameter="1.651"/>
+<text x="0.508" y="1.27" size="0.4064" layer="25">&gt;Name</text>
+<text x="0.254" y="-1.524" size="0.4064" layer="27">&gt;Value</text>
+</package>
 </packages>
 </library>
 <library name="SparkFun-Connectors">
@@ -359,6 +366,47 @@ You are welcome to use this library for commercial purposes. For attribution, we
 <rectangle x1="2.286" y1="-0.254" x2="2.794" y2="0.254" layer="51"/>
 <rectangle x1="-0.254" y1="-0.254" x2="0.254" y2="0.254" layer="51"/>
 </package>
+<package name="USB-MICROB">
+<description>Micro USB Package</description>
+<wire x1="-3.4" y1="-2.15" x2="-3" y2="-2.15" width="0.127" layer="51"/>
+<wire x1="3" y1="-2.15" x2="3.4" y2="-2.15" width="0.127" layer="51"/>
+<wire x1="-3.4" y1="-2.15" x2="-3.4" y2="-1.45" width="0.127" layer="51"/>
+<wire x1="-3.4" y1="-1.45" x2="-3.4" y2="2.85" width="0.127" layer="51"/>
+<wire x1="3.4" y1="2.85" x2="2.2" y2="2.85" width="0.127" layer="51"/>
+<wire x1="3.4" y1="2.85" x2="3.4" y2="-1.45" width="0.127" layer="51"/>
+<wire x1="3.4" y1="-1.45" x2="3.4" y2="-2.15" width="0.127" layer="51"/>
+<wire x1="-3.4" y1="-1.45" x2="3.4" y2="-1.45" width="0.127" layer="51"/>
+<wire x1="-3.4" y1="1.25" x2="-3.4" y2="2.85" width="0.2032" layer="21"/>
+<wire x1="-3.4" y1="2.85" x2="-2.2" y2="2.85" width="0.2032" layer="21"/>
+<wire x1="3.4" y1="2.85" x2="2.2" y2="2.85" width="0.2032" layer="21"/>
+<wire x1="3.4" y1="1.25" x2="3.4" y2="2.85" width="0.2032" layer="21"/>
+<wire x1="-3.4" y1="-1.45" x2="3.4" y2="-1.45" width="0.2032" layer="21"/>
+<wire x1="-2.2" y1="1.45" x2="2.2" y2="1.45" width="0.127" layer="51"/>
+<wire x1="2.2" y1="1.45" x2="2.2" y2="2.85" width="0.127" layer="51"/>
+<wire x1="-2.2" y1="1.45" x2="-2.2" y2="2.85" width="0.127" layer="51"/>
+<wire x1="-3.4" y1="2.85" x2="-2.2" y2="2.85" width="0.127" layer="51"/>
+<wire x1="-2.2" y1="2.85" x2="-2.2" y2="1.45" width="0.2032" layer="21"/>
+<wire x1="-2.2" y1="1.45" x2="2.2" y2="1.45" width="0.2032" layer="21"/>
+<wire x1="2.2" y1="1.45" x2="2.2" y2="2.85" width="0.2032" layer="21"/>
+<wire x1="-3.4" y1="-2.15" x2="-4" y2="-2.75" width="0.2032" layer="51"/>
+<wire x1="3.4" y1="-2.15" x2="4" y2="-2.75" width="0.2032" layer="51"/>
+<wire x1="-3" y1="-2.15" x2="-3" y2="-2.55" width="0.127" layer="51"/>
+<wire x1="-2.8" y1="-2.8" x2="2.75" y2="-2.8" width="0.127" layer="51"/>
+<wire x1="3" y1="-2.6" x2="3" y2="-2.15" width="0.127" layer="51"/>
+<wire x1="-3" y1="-2.55" x2="-2.8" y2="-2.8" width="0.127" layer="51" curve="84.547378"/>
+<wire x1="2.75" y1="-2.8" x2="3" y2="-2.6" width="0.127" layer="51" curve="84.547378"/>
+<smd name="VBUS" x="-1.3" y="2.65" dx="1.4" dy="0.35" layer="1" rot="R90"/>
+<smd name="GND" x="1.3" y="2.65" dx="1.4" dy="0.35" layer="1" rot="R90"/>
+<smd name="D-" x="-0.65" y="2.65" dx="1.4" dy="0.35" layer="1" rot="R90"/>
+<smd name="D+" x="0" y="2.65" dx="1.4" dy="0.35" layer="1" rot="R90"/>
+<smd name="ID" x="0.65" y="2.65" dx="1.4" dy="0.35" layer="1" rot="R90"/>
+<smd name="MT1" x="-4" y="0" dx="1.8" dy="1.9" layer="1"/>
+<smd name="MT2" x="4" y="0" dx="1.8" dy="1.9" layer="1"/>
+<text x="-1.6" y="-0.35" size="0.762" layer="25">&gt;NAME</text>
+<text x="-1.905" y="-3.175" size="0.762" layer="27">&gt;VALUE</text>
+<smd name="P$1" x="-1.27" y="0" dx="1.9" dy="1.9" layer="1"/>
+<smd name="P$2" x="1.27" y="0" dx="1.9" dy="1.9" layer="1"/>
+</package>
 </packages>
 </library>
 <library name="adafruit">
@@ -379,6 +427,40 @@ You are welcome to use this library for commercial purposes. For attribution, we
 <pad name="K" x="1.27" y="0" drill="0.8128" diameter="1.6764" shape="octagon"/>
 <text x="3.175" y="0.5334" size="1.27" layer="25" ratio="10">&gt;NAME</text>
 <text x="3.2004" y="-1.8034" size="1.27" layer="27" ratio="10">&gt;VALUE</text>
+</package>
+<package name="R1206">
+<description>&lt;b&gt;RESISTOR&lt;/b&gt;&lt;p&gt;
+chip</description>
+<wire x1="0.9525" y1="-0.8128" x2="-0.9652" y2="-0.8128" width="0.1524" layer="51"/>
+<wire x1="0.9525" y1="0.8128" x2="-0.9652" y2="0.8128" width="0.1524" layer="51"/>
+<wire x1="-2.473" y1="0.983" x2="2.473" y2="0.983" width="0.0508" layer="39"/>
+<wire x1="2.473" y1="0.983" x2="2.473" y2="-0.983" width="0.0508" layer="39"/>
+<wire x1="2.473" y1="-0.983" x2="-2.473" y2="-0.983" width="0.0508" layer="39"/>
+<wire x1="-2.473" y1="-0.983" x2="-2.473" y2="0.983" width="0.0508" layer="39"/>
+<smd name="2" x="1.422" y="0" dx="1.6" dy="1.803" layer="1"/>
+<smd name="1" x="-1.422" y="0" dx="1.6" dy="1.803" layer="1"/>
+<text x="-1.397" y="1.143" size="1.27" layer="25">&gt;NAME</text>
+<text x="-1.397" y="-2.413" size="1.27" layer="27">&gt;VALUE</text>
+<rectangle x1="-1.6891" y1="-0.8763" x2="-0.9525" y2="0.8763" layer="51"/>
+<rectangle x1="0.9525" y1="-0.8763" x2="1.6891" y2="0.8763" layer="51"/>
+<rectangle x1="-0.3" y1="-0.7" x2="0.3" y2="0.7" layer="35"/>
+</package>
+<package name="TO92">
+<description>&lt;b&gt;TO-92&lt;/b&gt;</description>
+<wire x1="-2.095" y1="-1.651" x2="-0.7869" y2="2.5484" width="0.1524" layer="21" curve="-111.097684" cap="flat"/>
+<wire x1="0.7869" y1="2.5484" x2="2.095" y2="-1.651" width="0.1524" layer="21" curve="-111.097684" cap="flat"/>
+<wire x1="-2.095" y1="-1.651" x2="2.095" y2="-1.651" width="0.1524" layer="21"/>
+<wire x1="-2.254" y1="-0.254" x2="-0.286" y2="-0.254" width="0.1524" layer="51"/>
+<wire x1="-2.655" y1="-0.254" x2="-2.254" y2="-0.254" width="0.1524" layer="21"/>
+<wire x1="-0.286" y1="-0.254" x2="0.286" y2="-0.254" width="0.1524" layer="21"/>
+<wire x1="2.254" y1="-0.254" x2="2.655" y2="-0.254" width="0.1524" layer="21"/>
+<wire x1="0.286" y1="-0.254" x2="2.254" y2="-0.254" width="0.1524" layer="51"/>
+<wire x1="-0.7864" y1="2.5484" x2="0.7864" y2="2.5484" width="0.1524" layer="51" curve="-34.298964" cap="flat"/>
+<pad name="1" x="-1.27" y="0" drill="0.8128" diameter="1.6764" shape="octagon"/>
+<pad name="2" x="0" y="1.905" drill="0.8128" diameter="1.6764" shape="octagon"/>
+<pad name="3" x="1.27" y="0" drill="0.8128" diameter="1.6764" shape="octagon"/>
+<text x="2.413" y="1.651" size="1.27" layer="25" ratio="10">&gt;NAME</text>
+<text x="2.921" y="-1.27" size="1.27" layer="27" ratio="10">&gt;VALUE</text>
 </package>
 </packages>
 </library>
@@ -401,6 +483,36 @@ You are welcome to use this library for commercial purposes. For attribution, we
 <pad name="2" x="2.54" y="0" drill="0.6096" shape="long" rot="R90"/>
 <text x="-5.08" y="-3.937" size="1.27" layer="27" ratio="10">&gt;VALUE</text>
 <text x="-5.08" y="2.667" size="1.27" layer="25" ratio="10">&gt;NAME</text>
+</package>
+<package name="EDG-01">
+<description>&lt;b&gt;DIP SWITCH&lt;/b&gt;</description>
+<wire x1="-1.905" y1="-4.953" x2="1.905" y2="-4.953" width="0.1524" layer="21"/>
+<wire x1="1.905" y1="4.953" x2="-1.905" y2="4.953" width="0.1524" layer="21"/>
+<wire x1="-1.905" y1="4.953" x2="-1.905" y2="1.651" width="0.1524" layer="21"/>
+<wire x1="-1.905" y1="-1.651" x2="-1.397" y2="-1.651" width="0.1524" layer="21"/>
+<wire x1="-1.397" y1="-1.651" x2="-1.397" y2="1.651" width="0.1524" layer="21"/>
+<wire x1="-1.397" y1="1.651" x2="-1.905" y2="1.651" width="0.1524" layer="21"/>
+<wire x1="-1.905" y1="-1.651" x2="-1.905" y2="-4.953" width="0.1524" layer="21"/>
+<wire x1="-1.905" y1="1.651" x2="-1.905" y2="-1.651" width="0.1524" layer="21"/>
+<wire x1="1.905" y1="-4.953" x2="1.905" y2="-1.651" width="0.1524" layer="21"/>
+<wire x1="1.905" y1="1.651" x2="1.397" y2="1.651" width="0.1524" layer="21"/>
+<wire x1="1.397" y1="1.651" x2="1.397" y2="-1.651" width="0.1524" layer="21"/>
+<wire x1="1.397" y1="-1.651" x2="1.905" y2="-1.651" width="0.1524" layer="21"/>
+<wire x1="1.905" y1="1.651" x2="1.905" y2="4.953" width="0.1524" layer="21"/>
+<wire x1="1.905" y1="-1.651" x2="1.905" y2="1.651" width="0.1524" layer="21"/>
+<wire x1="-0.762" y1="1.905" x2="-0.762" y2="-1.905" width="0.1524" layer="21"/>
+<wire x1="-0.762" y1="1.905" x2="0.762" y2="1.905" width="0.1524" layer="21"/>
+<wire x1="0.762" y1="-1.905" x2="0.762" y2="1.905" width="0.1524" layer="21"/>
+<wire x1="0.762" y1="-1.905" x2="-0.762" y2="-1.905" width="0.1524" layer="21"/>
+<pad name="1" x="0" y="-3.81" drill="0.8128" shape="long" rot="R90"/>
+<pad name="2" x="0" y="3.81" drill="0.8128" shape="long" rot="R90"/>
+<text x="-0.254" y="-4.191" size="1.524" layer="51" ratio="10">1</text>
+<text x="-1.27" y="2.54" size="1.524" layer="51" ratio="10">ON</text>
+<text x="-1.905" y="-6.604" size="1.27" layer="27" ratio="10">&gt;VALUE</text>
+<text x="-1.905" y="5.334" size="1.27" layer="25" ratio="10">&gt;NAME</text>
+<rectangle x1="-0.508" y1="-0.381" x2="0.508" y2="0" layer="21"/>
+<rectangle x1="-0.508" y1="-1.016" x2="0.508" y2="-0.635" layer="21"/>
+<rectangle x1="-0.508" y1="-1.651" x2="0.508" y2="-1.27" layer="21"/>
 </package>
 </packages>
 </library>
@@ -575,13 +687,117 @@ You are welcome to use this library for commercial purposes. For attribution, we
 </package>
 </packages>
 </library>
+<library name="User-Submitted">
+<description>&lt;h3&gt;SparkFun Electronics' preferred foot prints&lt;/h3&gt;
+In this library you'll find submitted parts from SparkFun users everywhere!&lt;br&gt;&lt;br&gt;
+These are not necessarily parts we carry, but are parts that other users have determined function well with other parts in our libraries. Please keep in mind that it is the end user's responsibility to ensure correctness and suitablity for a given componet or application.
+&lt;br&gt;&lt;br&gt;
+If you find these parts useful, please consider helping the open-source community by contributing your own through GitHub. https://github.com/sparkfun/SparkFun-Eagle-Libraries
+&lt;br&gt;&lt;br&gt;
+
+&lt;b&gt;Licensing:&lt;/b&gt; Creative Commons ShareAlike 4.0 International - https://creativecommons.org/licenses/by-sa/4.0/ 
+&lt;br&gt;&lt;br&gt;
+You are welcome to use this library for commercial purposes. For attribution, we ask that when you begin to sell your device using our footprint, you email us with a link to the product being sold. We want bragging rights that we helped (in a very small part) to create your 8th world wonder. We would like the opportunity to feature your device on our homepage.</description>
+<packages>
+<package name="TO220V">
+<description>&lt;b&gt;TO 220 Vertical&lt;/b&gt; Package works with various parts including N-Channel MOSFET SparkFun SKU: COM-10213</description>
+<wire x1="-5.08" y1="2.032" x2="-5.08" y2="-0.381" width="0.2032" layer="21"/>
+<wire x1="5.08" y1="2.032" x2="5.08" y2="-0.381" width="0.2032" layer="21"/>
+<wire x1="5.08" y1="2.032" x2="-5.08" y2="2.032" width="0.2032" layer="21"/>
+<wire x1="-5.08" y1="2.032" x2="-5.08" y2="3.048" width="0.2032" layer="21"/>
+<wire x1="-5.08" y1="3.048" x2="5.08" y2="3.048" width="0.2032" layer="21"/>
+<wire x1="5.08" y1="3.048" x2="5.08" y2="2.032" width="0.2032" layer="21"/>
+<wire x1="-5.08" y1="-0.381" x2="-4.191" y2="-1.27" width="0.2032" layer="21" curve="92.798868"/>
+<wire x1="4.191" y1="-1.27" x2="5.08" y2="-0.381" width="0.2032" layer="21" curve="92.798868"/>
+<wire x1="-4.191" y1="-1.27" x2="-3.81" y2="-1.27" width="0.2032" layer="21"/>
+<wire x1="4.191" y1="-1.27" x2="3.81" y2="-1.27" width="0.2032" layer="21"/>
+<rectangle x1="-5.08" y1="2.032" x2="5.08" y2="3.048" layer="21"/>
+<pad name="1" x="-2.54" y="0" drill="1.016" shape="long" rot="R90"/>
+<pad name="2" x="0" y="0" drill="1.016" shape="long" rot="R90"/>
+<pad name="3" x="2.54" y="0" drill="1.016" shape="long" rot="R90"/>
+<text x="-2.794" y="3.429" size="1.27" layer="25" ratio="10">&gt;NAME</text>
+<text x="-3.302" y="-3.302" size="1.27" layer="27" ratio="10">&gt;VALUE</text>
+</package>
+</packages>
+</library>
+<library name="SparkFun-DiscreteSemi">
+<description>&lt;h3&gt;SparkFun Electronics' preferred foot prints&lt;/h3&gt;
+In this library you'll find discrete semiconductors- transistors, diodes, TRIACs, optoisolators, etc.&lt;br&gt;&lt;br&gt;
+We've spent an enormous amount of time creating and checking these footprints and parts, but it is the end user's responsibility to ensure correctness and suitablity for a given componet or application. If you enjoy using this library, please buy one of our products at www.sparkfun.com.
+&lt;br&gt;&lt;br&gt;
+&lt;b&gt;Licensing:&lt;/b&gt; Creative Commons ShareAlike 4.0 International - https://creativecommons.org/licenses/by-sa/4.0/ 
+&lt;br&gt;&lt;br&gt;
+You are welcome to use this library for commercial purposes. For attribution, we ask that when you begin to sell your device using our footprint, you email us with a link to the product being sold. We want bragging rights that we helped (in a very small part) to create your 8th world wonder. We would like the opportunity to feature your device on our homepage.</description>
+<packages>
+<package name="DIODE-1N4001">
+<wire x1="3.175" y1="1.27" x2="1.905" y2="1.27" width="0.254" layer="21"/>
+<wire x1="1.905" y1="1.27" x2="-3.175" y2="1.27" width="0.254" layer="21"/>
+<wire x1="-3.175" y1="1.27" x2="-3.175" y2="0" width="0.254" layer="21"/>
+<wire x1="-3.175" y1="0" x2="-3.175" y2="-1.27" width="0.254" layer="21"/>
+<wire x1="-3.175" y1="-1.27" x2="1.905" y2="-1.27" width="0.254" layer="21"/>
+<wire x1="1.905" y1="-1.27" x2="3.175" y2="-1.27" width="0.254" layer="21"/>
+<wire x1="3.175" y1="-1.27" x2="3.175" y2="0" width="0.254" layer="21"/>
+<wire x1="3.175" y1="0" x2="3.175" y2="1.27" width="0.254" layer="21"/>
+<wire x1="1.905" y1="1.27" x2="1.905" y2="-1.27" width="0.254" layer="21"/>
+<wire x1="-3.175" y1="0" x2="-3.81" y2="0" width="0.254" layer="21"/>
+<wire x1="3.175" y1="0" x2="3.81" y2="0" width="0.254" layer="21"/>
+<pad name="A" x="-5.08" y="0" drill="1" diameter="1.9812"/>
+<pad name="C" x="5.08" y="0" drill="1" diameter="1.9812"/>
+<text x="-2.921" y="1.651" size="0.6096" layer="25">&gt;Name</text>
+<text x="-2.921" y="-0.508" size="1.016" layer="21" ratio="12">&gt;Value</text>
+</package>
+</packages>
+</library>
+<library name="fuse">
+<description>&lt;b&gt;Fuses and Fuse Holders&lt;/b&gt;&lt;p&gt;
+&lt;author&gt;Created by librarian@cadsoft.de&lt;/author&gt;</description>
+<packages>
+<package name="PICOFUSE">
+<description>&lt;B&gt;PICOFUSE&lt;/B&gt;&lt;p&gt;
+Picofuse, 19275 Wickmann</description>
+<wire x1="5.08" y1="0" x2="4.064" y2="0" width="0.1524" layer="51"/>
+<wire x1="-5.08" y1="0" x2="-4.064" y2="0" width="0.6096" layer="51"/>
+<wire x1="-2.794" y1="1.27" x2="-1.524" y2="1.27" width="0.1524" layer="21"/>
+<wire x1="-1.27" y1="1.016" x2="-1.524" y2="1.27" width="0.1524" layer="21"/>
+<wire x1="-2.794" y1="-1.27" x2="-1.524" y2="-1.27" width="0.1524" layer="21"/>
+<wire x1="-1.27" y1="-1.016" x2="-1.524" y2="-1.27" width="0.1524" layer="21"/>
+<wire x1="1.27" y1="1.016" x2="1.524" y2="1.27" width="0.1524" layer="21"/>
+<wire x1="1.27" y1="1.016" x2="-1.27" y2="1.016" width="0.1524" layer="21"/>
+<wire x1="1.27" y1="-1.016" x2="1.524" y2="-1.27" width="0.1524" layer="21"/>
+<wire x1="1.27" y1="-1.016" x2="-1.27" y2="-1.016" width="0.1524" layer="21"/>
+<wire x1="2.794" y1="1.27" x2="1.524" y2="1.27" width="0.1524" layer="21"/>
+<wire x1="2.794" y1="-1.27" x2="1.524" y2="-1.27" width="0.1524" layer="21"/>
+<wire x1="-1.524" y1="1.016" x2="-1.524" y2="-1.016" width="0.0508" layer="21"/>
+<wire x1="-2.794" y1="1.016" x2="-2.794" y2="-1.016" width="0.0508" layer="21"/>
+<wire x1="2.794" y1="1.016" x2="2.794" y2="-1.016" width="0.0508" layer="21"/>
+<wire x1="1.524" y1="1.016" x2="1.524" y2="-1.016" width="0.0508" layer="21"/>
+<wire x1="3.81" y1="0.508" x2="3.81" y2="-0.508" width="0.1524" layer="21"/>
+<wire x1="3.81" y1="-0.508" x2="3.556" y2="-0.508" width="0.1524" layer="21"/>
+<wire x1="2.794" y1="-1.27" x2="3.556" y2="-0.508" width="0.1524" layer="21"/>
+<wire x1="3.81" y1="0.508" x2="3.556" y2="0.508" width="0.1524" layer="21"/>
+<wire x1="2.794" y1="1.27" x2="3.556" y2="0.508" width="0.1524" layer="21"/>
+<wire x1="-2.794" y1="1.27" x2="-3.556" y2="0.508" width="0.1524" layer="21"/>
+<wire x1="-3.556" y1="0.508" x2="-3.81" y2="0.508" width="0.1524" layer="21"/>
+<wire x1="-3.81" y1="0.508" x2="-3.81" y2="-0.508" width="0.1524" layer="21"/>
+<wire x1="-3.81" y1="-0.508" x2="-3.556" y2="-0.508" width="0.1524" layer="21"/>
+<wire x1="-3.556" y1="-0.508" x2="-2.794" y2="-1.27" width="0.1524" layer="21"/>
+<wire x1="-1.27" y1="0" x2="1.27" y2="0" width="0.0508" layer="21"/>
+<pad name="1" x="-5.08" y="0" drill="0.8128" shape="long" rot="R90"/>
+<pad name="2" x="5.08" y="0" drill="0.8128" shape="long" rot="R90"/>
+<text x="-2.54" y="1.524" size="1.27" layer="25" ratio="10">&gt;NAME</text>
+<text x="-2.54" y="-2.8448" size="1.27" layer="27" ratio="10">&gt;VALUE</text>
+<rectangle x1="3.81" y1="-0.3048" x2="4.1656" y2="0.3048" layer="21"/>
+<rectangle x1="-4.1656" y1="-0.3048" x2="-3.81" y2="0.3048" layer="21"/>
+</package>
+</packages>
+</library>
 </libraries>
 <attributes>
 </attributes>
 <variantdefs>
 </variantdefs>
 <classes>
-<class number="0" name="default" width="0" drill="0">
+<class number="0" name="default" width="0.508" drill="0">
 </class>
 <class number="1" name="actuator" width="0.8128" drill="0">
 <clearance class="1" value="0.2286"/>
@@ -885,6 +1101,51 @@ Please make sure your boards conform to these design rules.</description>
 <attribute name="NAME" x="1.9812" y="39.2938" size="0.8128" layer="25" ratio="10" rot="R90"/>
 <attribute name="VALUE" x="6.985" y="39.37" size="0.8128" layer="27" rot="R90"/>
 </element>
+<element name="Q1" library="User-Submitted" package="TO220V" value="NFET" x="44.45" y="-38.1"/>
+<element name="Q2" library="User-Submitted" package="TO220V" value="PFET" x="64.77" y="-38.1"/>
+<element name="R9" library="adafruit" package="R1206" value="10k" x="30.48" y="-66.04"/>
+<element name="R10" library="adafruit" package="R1206" value="10k" x="35.56" y="-66.04"/>
+<element name="R11" library="adafruit" package="R1206" value="10k" x="40.64" y="-66.04"/>
+<element name="D1" library="SparkFun-DiscreteSemi" package="DIODE-1N4001" value="1N5817" x="10.16" y="20.32"/>
+<element name="F1" library="fuse" package="PICOFUSE" value="2A" x="46.99" y="-53.34">
+<attribute name="OC_NEWARK" value="unknown" x="6.35" y="-46.99" size="1.778" layer="27" display="off"/>
+<attribute name="MPN" value="" x="6.35" y="-46.99" size="1.778" layer="27" display="off"/>
+<attribute name="MF" value="" x="6.35" y="-46.99" size="1.778" layer="27" display="off"/>
+<attribute name="OC_FARNELL" value="unknown" x="6.35" y="-46.99" size="1.778" layer="27" display="off"/>
+</element>
+<element name="Q3" library="User-Submitted" package="TO220V" value="NFET" x="5.08" y="-54.61"/>
+<element name="Q4" library="User-Submitted" package="TO220V" value="PFET" x="25.4" y="-54.61"/>
+<element name="F2" library="fuse" package="PICOFUSE" value="250 mA" x="69.85" y="-53.34">
+<attribute name="OC_NEWARK" value="unknown" x="6.35" y="-90.17" size="1.778" layer="27" display="off"/>
+<attribute name="MPN" value="" x="6.35" y="-90.17" size="1.778" layer="27" display="off"/>
+<attribute name="MF" value="" x="6.35" y="-90.17" size="1.778" layer="27" display="off"/>
+<attribute name="OC_FARNELL" value="unknown" x="6.35" y="-90.17" size="1.778" layer="27" display="off"/>
+</element>
+<element name="R12" library="adafruit" package="R1206" value="10k" x="45.72" y="-66.04"/>
+<element name="R13" library="adafruit" package="R1206" value="10k" x="50.8" y="-66.04"/>
+<element name="R14" library="adafruit" package="R1206" value="10k" x="55.88" y="-66.04"/>
+<element name="SW1" library="special" package="EDG-01" value="" x="62.23" y="20.32"/>
+<element name="F3" library="fuse" package="PICOFUSE" value="2.5A" x="6.35" y="-68.58">
+<attribute name="OC_NEWARK" value="unknown" x="-7.62" y="-123.19" size="1.778" layer="27" display="off"/>
+<attribute name="MPN" value="" x="-7.62" y="-123.19" size="1.778" layer="27" display="off"/>
+<attribute name="MF" value="" x="-7.62" y="-123.19" size="1.778" layer="27" display="off"/>
+<attribute name="OC_FARNELL" value="unknown" x="-7.62" y="-123.19" size="1.778" layer="27" display="off"/>
+</element>
+<element name="C8" library="SparkFun-Passives" package="CAP-PTH-SMALL" value=".1 uF" x="45.72" y="-19.05"/>
+<element name="C9" library="SparkFun-Passives" package="CPOL-RADIAL-10UF-25V" value="10 uF" x="66.04" y="-19.05"/>
+<element name="IC1" library="adafruit" package="TO92" value="MCP1702" x="25.4" y="-20.32"/>
+<element name="C10" library="SparkFun-Capacitors" package="CAP-PTH-SMALL" value=".1 uF" x="3.81" y="-38.1"/>
+<element name="C11" library="SparkFun-Capacitors" package="CAP-PTH-SMALL" value=".1 uF" x="22.86" y="-38.1"/>
+<element name="SW2" library="special" package="EDG-01" value="" x="74.93" y="20.32"/>
+<element name="SW3" library="special" package="EDG-01" value="" x="1.27" y="0"/>
+<element name="PI" library="SparkFun-Connectors" package="1X02" value="" x="66.04" y="0"/>
+<element name="SENSOR" library="SparkFun-Connectors" package="1X02" value="" x="3.81" y="-20.32"/>
+<element name="STATE_CONTROLLER" library="SparkFun-Connectors" package="1X02" value="" x="17.78" y="0"/>
+<element name="JP7" library="SparkFun-Connectors" package="USB-MICROB" value="USB-MICROB" x="22.86" y="-67.31">
+<attribute name="PROD_ID" value="CONN-09505" x="-38.1" y="-278.13" size="1.778" layer="27" display="off"/>
+</element>
+<element name="CNTRL_INPUTS" library="SparkFun-Connectors" package="1X02" value="" x="44.45" y="0"/>
+<element name="D3" library="SparkFun-DiscreteSemi" package="DIODE-1N4001" value="TVS" x="40.64" y="20.32"/>
 </elements>
 <signals>
 <signal name="GND-ISO">
@@ -957,6 +1218,42 @@ Please make sure your boards conform to these design rules.</description>
 <wire x1="50.8" y1="45.72" x2="52.07" y2="46.99" width="0.1524" layer="16"/>
 <wire x1="40.64" y1="45.72" x2="50.8" y2="45.72" width="0.1524" layer="16"/>
 <via x="56.8325" y="53.6575" extent="1-16" drill="0.3302"/>
+<contactref element="Q1" pad="3"/>
+<contactref element="R11" pad="1"/>
+<contactref element="R9" pad="1"/>
+<contactref element="R12" pad="1"/>
+<contactref element="R13" pad="1"/>
+<contactref element="Q3" pad="3"/>
+<contactref element="C8" pad="2"/>
+<contactref element="C9" pad="2"/>
+<contactref element="C11" pad="2"/>
+<contactref element="IC1" pad="1"/>
+<contactref element="C10" pad="2"/>
+<contactref element="JP7" pad="GND"/>
+<contactref element="JP7" pad="MT1"/>
+<contactref element="JP7" pad="MT2"/>
+<contactref element="D3" pad="A"/>
+<contactref element="PI" pad="2"/>
+<contactref element="SENSOR" pad="2"/>
+<contactref element="STATE_CONTROLLER" pad="2"/>
+<wire x1="64.77" y1="-19.05" x2="68.58" y2="0" width="0" layer="19" extent="1-1"/>
+<wire x1="48.26" y1="-19.05" x2="64.77" y2="-19.05" width="0" layer="19" extent="1-1"/>
+<wire x1="46.99" y1="-38.1" x2="48.26" y2="-19.05" width="0" layer="19" extent="1-1"/>
+<wire x1="25.4" y1="-38.1" x2="46.99" y2="-38.1" width="0" layer="19" extent="1-1"/>
+<wire x1="24.13" y1="-20.32" x2="25.4" y2="-38.1" width="0" layer="19" extent="1-1"/>
+<wire x1="6.35" y1="-20.32" x2="24.13" y2="-20.32" width="0" layer="19" extent="1-1"/>
+<wire x1="6.35" y1="-38.1" x2="6.35" y2="-20.32" width="0" layer="19" extent="1-1"/>
+<wire x1="7.62" y1="-54.61" x2="6.35" y2="-38.1" width="0" layer="19" extent="1-1"/>
+<wire x1="18.86" y1="-67.31" x2="7.62" y2="-54.61" width="0" layer="19" extent="1-1"/>
+<wire x1="24.16" y1="-64.66" x2="18.86" y2="-67.31" width="0" layer="19" extent="1-1"/>
+<wire x1="26.86" y1="-67.31" x2="24.16" y2="-64.66" width="0" layer="19" extent="1-1"/>
+<wire x1="29.058" y1="-66.04" x2="26.86" y2="-67.31" width="0" layer="19" extent="1-1"/>
+<wire x1="39.218" y1="-66.04" x2="29.058" y2="-66.04" width="0" layer="19" extent="1-1"/>
+<wire x1="44.298" y1="-66.04" x2="39.218" y2="-66.04" width="0" layer="19" extent="1-1"/>
+<wire x1="49.378" y1="-66.04" x2="44.298" y2="-66.04" width="0" layer="19" extent="1-1"/>
+<wire x1="20.32" y1="0" x2="24.13" y2="-20.32" width="0" layer="19" extent="1-1"/>
+<wire x1="35.56" y1="20.32" x2="20.32" y2="0" width="0" layer="19" extent="1-1"/>
+<wire x1="40.64" y1="45.72" x2="35.56" y2="20.32" width="0" layer="19" extent="1-1"/>
 </signal>
 <signal name="SS">
 <contactref element="U1" pad="16"/>
@@ -1022,6 +1319,18 @@ Please make sure your boards conform to these design rules.</description>
 <wire x1="13.0175" y1="71.12" x2="13.0175" y2="57.15" width="0.1524" layer="1"/>
 <wire x1="13.0175" y1="71.12" x2="12.83" y2="71.12" width="0.1524" layer="1"/>
 <via x="50.8" y="71.12" extent="1-16" drill="0.3302"/>
+<contactref element="Q4" pad="3"/>
+<contactref element="R14" pad="2"/>
+<contactref element="SW3" pad="2"/>
+<contactref element="IC1" pad="3"/>
+<contactref element="C10" pad="1"/>
+<contactref element="STATE_CONTROLLER" pad="1"/>
+<wire x1="1.27" y1="3.81" x2="12.7" y2="50.8" width="0" layer="19" extent="1-1"/>
+<wire x1="17.78" y1="0" x2="1.27" y2="3.81" width="0" layer="19" extent="1-1"/>
+<wire x1="26.67" y1="-20.32" x2="17.78" y2="0" width="0" layer="19" extent="1-1"/>
+<wire x1="3.81" y1="-38.1" x2="26.67" y2="-20.32" width="0" layer="19" extent="1-1"/>
+<wire x1="27.94" y1="-54.61" x2="3.81" y2="-38.1" width="0" layer="19" extent="1-1"/>
+<wire x1="57.302" y1="-66.04" x2="27.94" y2="-54.61" width="0" layer="19" extent="1-1"/>
 </signal>
 <signal name="SCL">
 <contactref element="U1" pad="28"/>
@@ -1306,6 +1615,96 @@ Please make sure your boards conform to these design rules.</description>
 <wire x1="11.43" y1="72.39" x2="11.43" y2="77.7875" width="0.1524" layer="1"/>
 <wire x1="10.16" y1="71.12" x2="11.43" y2="72.39" width="0.1524" layer="1"/>
 <wire x1="10.16" y1="71.12" x2="10.03" y2="71.12" width="0.1524" layer="1"/>
+</signal>
+<signal name="N$3">
+<contactref element="Q1" pad="2"/>
+<contactref element="Q2" pad="1"/>
+<contactref element="R10" pad="1"/>
+<wire x1="44.45" y1="-38.1" x2="34.138" y2="-66.04" width="0" layer="19" extent="1-1"/>
+<wire x1="62.23" y1="-38.1" x2="44.45" y2="-38.1" width="0" layer="19" extent="1-1"/>
+</signal>
+<signal name="PI_PWR_CNTRL">
+<contactref element="R11" pad="2"/>
+<contactref element="Q1" pad="1"/>
+<contactref element="CNTRL_INPUTS" pad="2"/>
+<wire x1="41.91" y1="-38.1" x2="46.99" y2="0" width="0" layer="19" extent="1-1"/>
+<wire x1="42.062" y1="-66.04" x2="41.91" y2="-38.1" width="0" layer="19" extent="1-1"/>
+</signal>
+<signal name="N$12">
+<contactref element="R9" pad="2"/>
+<contactref element="Q2" pad="2"/>
+<contactref element="F1" pad="1"/>
+<contactref element="SW2" pad="1"/>
+<wire x1="64.77" y1="-38.1" x2="74.93" y2="16.51" width="0" layer="19" extent="1-1"/>
+<wire x1="41.91" y1="-53.34" x2="64.77" y2="-38.1" width="0" layer="19" extent="1-1"/>
+<wire x1="31.902" y1="-66.04" x2="41.91" y2="-53.34" width="0" layer="19" extent="1-1"/>
+</signal>
+<signal name="N$13">
+<contactref element="F1" pad="2"/>
+<contactref element="D1" pad="A"/>
+<wire x1="52.07" y1="-53.34" x2="5.08" y2="20.32" width="0" layer="19" extent="1-1"/>
+</signal>
+<signal name="PI_5V">
+<contactref element="D1" pad="C"/>
+<contactref element="PI" pad="1"/>
+<wire x1="15.24" y1="20.32" x2="66.04" y2="0" width="0" layer="19" extent="1-1"/>
+</signal>
+<signal name="N$14">
+<contactref element="Q4" pad="1"/>
+<contactref element="R14" pad="1"/>
+<contactref element="Q3" pad="2"/>
+<wire x1="22.86" y1="-54.61" x2="5.08" y2="-54.61" width="0" layer="19" extent="1-1"/>
+<wire x1="54.458" y1="-66.04" x2="22.86" y2="-54.61" width="0" layer="19" extent="1-1"/>
+</signal>
+<signal name="5V">
+<contactref element="Q2" pad="3"/>
+<contactref element="R10" pad="2"/>
+<contactref element="SW2" pad="2"/>
+<contactref element="IC1" pad="2"/>
+<contactref element="C11" pad="1"/>
+<contactref element="C9" pad="1"/>
+<contactref element="C8" pad="1"/>
+<contactref element="D3" pad="C"/>
+<contactref element="F3" pad="2"/>
+<wire x1="45.72" y1="20.32" x2="74.93" y2="24.13" width="0" layer="19" extent="1-1"/>
+<wire x1="45.72" y1="-19.05" x2="45.72" y2="20.32" width="0" layer="19" extent="1-1"/>
+<wire x1="25.4" y1="-18.415" x2="45.72" y2="-19.05" width="0" layer="19" extent="1-1"/>
+<wire x1="22.86" y1="-38.1" x2="25.4" y2="-18.415" width="0" layer="19" extent="1-1"/>
+<wire x1="67.31" y1="-19.05" x2="45.72" y2="-19.05" width="0" layer="19" extent="1-1"/>
+<wire x1="67.31" y1="-38.1" x2="67.31" y2="-19.05" width="0" layer="19" extent="1-1"/>
+<wire x1="36.982" y1="-66.04" x2="22.86" y2="-38.1" width="0" layer="19" extent="1-1"/>
+<wire x1="11.43" y1="-68.58" x2="36.982" y2="-66.04" width="0" layer="19" extent="1-1"/>
+</signal>
+<signal name="SENSOR_PWR_CNTRL">
+<contactref element="R12" pad="2"/>
+<contactref element="Q3" pad="1"/>
+<contactref element="CNTRL_INPUTS" pad="1"/>
+<wire x1="47.142" y1="-66.04" x2="2.54" y2="-54.61" width="0" layer="19" extent="1-1"/>
+<wire x1="44.45" y1="0" x2="47.142" y2="-66.04" width="0" layer="19" extent="1-1"/>
+</signal>
+<signal name="N$15">
+<contactref element="Q4" pad="2"/>
+<contactref element="R13" pad="2"/>
+<contactref element="F2" pad="1"/>
+<contactref element="SW3" pad="1"/>
+<wire x1="52.222" y1="-66.04" x2="25.4" y2="-54.61" width="0" layer="19" extent="1-1"/>
+<wire x1="64.77" y1="-53.34" x2="52.222" y2="-66.04" width="0" layer="19" extent="1-1"/>
+<wire x1="1.27" y1="-3.81" x2="25.4" y2="-54.61" width="0" layer="19" extent="1-1"/>
+</signal>
+<signal name="SENSOR_POWER">
+<contactref element="F2" pad="2"/>
+<contactref element="SENSOR" pad="1"/>
+<wire x1="3.81" y1="-20.32" x2="74.93" y2="-53.34" width="0" layer="19" extent="1-1"/>
+</signal>
+<signal name="5V_RAW">
+<contactref element="SW1" pad="2"/>
+<contactref element="JP7" pad="VBUS"/>
+<wire x1="21.56" y1="-64.66" x2="62.23" y2="24.13" width="0" layer="19" extent="1-1"/>
+</signal>
+<signal name="5V_SWITCH">
+<contactref element="F3" pad="1"/>
+<contactref element="SW1" pad="1"/>
+<wire x1="1.27" y1="-68.58" x2="62.23" y2="16.51" width="0" layer="19" extent="1-1"/>
 </signal>
 </signals>
 </board>

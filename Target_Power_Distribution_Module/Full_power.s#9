@@ -4470,7 +4470,7 @@ FQP27P06 -
 <part name="SW1" library="special" deviceset="SW_DIP-1" device=""/>
 <part name="U$1" library="GeekAmmo" deviceset="USB-CON-5PIN" device="-105017-0001"/>
 <part name="D2" library="SparkFun-DiscreteSemi" deviceset="DIODE-ZENER" device="PTH" value="TVS"/>
-<part name="F3" library="fuse" deviceset="PICOFUSE" device="" value="FUSE (2A)"/>
+<part name="F3" library="fuse" deviceset="PICOFUSE" device="" value="FUSE (3.5A)"/>
 <part name="F4" library="SparkFun-PowerIC" deviceset="PTC" device="PTH" value="PTC (1.5A)"/>
 <part name="C1" library="SparkFun-Capacitors" deviceset="CAP" device="1206" value=".1 uF"/>
 <part name="C2" library="SparkFun-Passives" deviceset="CAP_POL" device="PTH2" value="10 uF"/>
@@ -4795,7 +4795,11 @@ FQP27P06 -
 <approved hash="102,1,-185.42,-15.24,VCC,5V_RAW,,,,"/>
 <approved hash="104,1,-205.74,-22.86,U$1,VBUS,5V_RAW,,,"/>
 <approved hash="104,1,-205.74,-33.02,U$1,GND,GND-ISO,,,"/>
+<approved hash="106,1,-111.76,30.48,PI_5V,,,,,"/>
+<approved hash="106,1,45.72,33.02,SENSOR_POWER,,,,,"/>
 <approved hash="113,1,-172.72,-18.9188,SW1,,,,,"/>
+<approved hash="113,1,-152.4,69.9812,SW2,,,,,"/>
+<approved hash="113,1,20.32,64.9012,SW3,,,,,"/>
 </errors>
 </schematic>
 </drawing>
