@@ -2034,16 +2034,16 @@ Please make sure your boards conform to these design rules.</description>
 <contactref element="C13" pad="2"/>
 <contactref element="C12" pad="2"/>
 <contactref element="CIO" pad="2"/>
-<contactref element="C15" pad="2"/>
-<contactref element="C14" pad="2"/>
-<contactref element="C17" pad="2"/>
-<contactref element="C16" pad="2"/>
-<contactref element="U4" pad="3"/>
 <contactref element="U3" pad="12"/>
 <contactref element="U3" pad="4"/>
 <contactref element="U3" pad="5"/>
 <contactref element="U3" pad="2"/>
 <contactref element="POWER" pad="2"/>
+<contactref element="C15" pad="2"/>
+<contactref element="C14" pad="2"/>
+<contactref element="C17" pad="2"/>
+<contactref element="C16" pad="2"/>
+<contactref element="U4" pad="3"/>
 <wire x1="-0.07" y1="-148.7219" x2="-0.07" y2="-150.9981" width="0" layer="19" extent="1-1"/>
 <wire x1="-1.67" y1="-148.7219" x2="-0.07" y2="-148.7219" width="0" layer="19" extent="1-1"/>
 <wire x1="-2.47" y1="-148.7219" x2="-1.67" y2="-148.7219" width="0" layer="19" extent="1-1"/>
@@ -2148,16 +2148,16 @@ Please make sure your boards conform to these design rules.</description>
 <contactref element="STATE_CONTROLLER" pad="1"/>
 <contactref element="U4" pad="1"/>
 <contactref element="U4" pad="4"/>
-<contactref element="CIO" pad="1"/>
-<contactref element="U3" pad="1"/>
-<contactref element="U3" pad="6"/>
 <contactref element="C17" pad="1"/>
 <contactref element="C14" pad="1"/>
 <contactref element="C15" pad="1"/>
+<contactref element="POWER" pad="1"/>
 <contactref element="U3" pad="7"/>
+<contactref element="CIO" pad="1"/>
+<contactref element="U3" pad="1"/>
+<contactref element="U3" pad="6"/>
 <contactref element="C12" pad="1"/>
 <contactref element="C13" pad="1"/>
-<contactref element="POWER" pad="1"/>
 <wire x1="-3.27" y1="-148.7219" x2="-3.37" y2="-149.86" width="0" layer="19" extent="1-1"/>
 <wire x1="0.73" y1="-148.7219" x2="-3.27" y2="-148.7219" width="0" layer="19" extent="1-1"/>
 <wire x1="22.86" y1="-138.43" x2="0.73" y2="-148.7219" width="0" layer="19" extent="1-1"/>

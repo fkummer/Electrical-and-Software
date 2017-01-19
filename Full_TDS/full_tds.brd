@@ -2363,8 +2363,10 @@ Please make sure your boards conform to these design rules.</description>
 <contactref element="R11" pad="2"/>
 <contactref element="Q1" pad="1"/>
 <contactref element="CNTRL_INPUTS" pad="2"/>
-<wire x1="41.91" y1="-38.1" x2="46.99" y2="0" width="0" layer="19" extent="1-1"/>
-<wire x1="42.062" y1="-66.04" x2="41.91" y2="-38.1" width="0" layer="19" extent="1-1"/>
+<contactref element="U5" pad="13"/>
+<wire x1="42.062" y1="-66.04" x2="-12.3" y2="-149.0726" width="0" layer="19" extent="1-1"/>
+<wire x1="41.91" y1="-38.1" x2="42.062" y2="-66.04" width="0" layer="19" extent="1-1"/>
+<wire x1="46.99" y1="0" x2="41.91" y2="-38.1" width="0" layer="19" extent="1-1"/>
 </signal>
 <signal name="N$12">
 <contactref element="R9" pad="2"/>
@@ -2415,6 +2417,8 @@ Please make sure your boards conform to these design rules.</description>
 <contactref element="R12" pad="2"/>
 <contactref element="Q3" pad="1"/>
 <contactref element="CNTRL_INPUTS" pad="1"/>
+<contactref element="U5" pad="12"/>
+<wire x1="2.54" y1="-54.61" x2="-13.1" y2="-149.0726" width="0" layer="19" extent="1-1"/>
 <wire x1="47.142" y1="-66.04" x2="2.54" y2="-54.61" width="0" layer="19" extent="1-1"/>
 <wire x1="44.45" y1="0" x2="47.142" y2="-66.04" width="0" layer="19" extent="1-1"/>
 </signal>
