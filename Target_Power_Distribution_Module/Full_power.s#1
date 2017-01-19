@@ -5751,8 +5751,8 @@ For boards designed to be plugged directly into a USB slot. If possible, ensure 
 <part name="GND-ISO5" library="SparkFun-Aesthetics" deviceset="GND-ISO" device=""/>
 <part name="IC1" library="adafruit" deviceset="MCP1700" device="TRI" value="MCP1702"/>
 <part name="GND-ISO6" library="SparkFun-Aesthetics" deviceset="GND-ISO" device=""/>
-<part name="C3" library="SparkFun-Capacitors" deviceset="CAP" device="PTH" value="1 uF"/>
-<part name="C4" library="SparkFun-Capacitors" deviceset="CAP" device="PTH" value="1 uF"/>
+<part name="C3" library="SparkFun-Capacitors" deviceset="CAP" device="PTH" value=".1 uF"/>
+<part name="C4" library="SparkFun-Capacitors" deviceset="CAP" device="PTH" value=".1 uF"/>
 <part name="SW2" library="special" deviceset="SW_DIP-1" device=""/>
 <part name="SW3" library="special" deviceset="SW_DIP-1" device=""/>
 <part name="PI" library="SparkFun-Connectors" deviceset="M02" device="PTH"/>
@@ -5794,7 +5794,7 @@ For boards designed to be plugged directly into a USB slot. If possible, ensure 
 <instance part="GND-ISO5" gate="G$1" x="-157.48" y="-58.42"/>
 <instance part="IC1" gate="1" x="-43.18" y="-27.94"/>
 <instance part="GND-ISO6" gate="G$1" x="-43.18" y="-55.88"/>
-<instance part="C3" gate="G$1" x="-30.48" y="-38.1"/>
+<instance part="C3" gate="G$1" x="-27.94" y="-38.1"/>
 <instance part="C4" gate="G$1" x="-53.34" y="-38.1"/>
 <instance part="SW2" gate="G$1" x="-99.06" y="48.26"/>
 <instance part="SW3" gate="G$1" x="-91.44" y="106.68"/>
@@ -5867,8 +5867,8 @@ For boards designed to be plugged directly into a USB slot. If possible, ensure 
 <wire x1="-43.18" y1="-35.56" x2="-43.18" y2="-48.26" width="0.1524" layer="91"/>
 <junction x="-43.18" y="-48.26"/>
 <pinref part="C3" gate="G$1" pin="2"/>
-<wire x1="-30.48" y1="-40.64" x2="-30.48" y2="-48.26" width="0.1524" layer="91"/>
-<wire x1="-30.48" y1="-48.26" x2="-43.18" y2="-48.26" width="0.1524" layer="91"/>
+<wire x1="-27.94" y1="-40.64" x2="-27.94" y2="-48.26" width="0.1524" layer="91"/>
+<wire x1="-27.94" y1="-48.26" x2="-43.18" y2="-48.26" width="0.1524" layer="91"/>
 <pinref part="JP1" gate="G$1" pin="GND"/>
 <pinref part="D3" gate="G$1" pin="A"/>
 <wire x1="-109.22" y1="-40.64" x2="-109.22" y2="-48.26" width="0.1524" layer="91"/>
@@ -5984,10 +5984,10 @@ For boards designed to be plugged directly into a USB slot. If possible, ensure 
 <segment>
 <pinref part="IC1" gate="1" pin="OUT"/>
 <pinref part="C3" gate="G$1" pin="1"/>
-<wire x1="-35.56" y1="-27.94" x2="-30.48" y2="-27.94" width="0.1524" layer="91"/>
-<wire x1="-30.48" y1="-27.94" x2="-30.48" y2="-33.02" width="0.1524" layer="91"/>
-<wire x1="-30.48" y1="-27.94" x2="-15.24" y2="-27.94" width="0.1524" layer="91"/>
-<junction x="-30.48" y="-27.94"/>
+<wire x1="-35.56" y1="-27.94" x2="-27.94" y2="-27.94" width="0.1524" layer="91"/>
+<wire x1="-27.94" y1="-27.94" x2="-27.94" y2="-33.02" width="0.1524" layer="91"/>
+<wire x1="-27.94" y1="-27.94" x2="-15.24" y2="-27.94" width="0.1524" layer="91"/>
+<junction x="-27.94" y="-27.94"/>
 <label x="-15.24" y="-27.94" size="1.27" layer="95" xref="yes"/>
 </segment>
 <segment>
