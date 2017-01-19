@@ -666,11 +666,11 @@ Please make sure your boards conform to these design rules.</description>
 <attribute name="NAME" x="4.191" y="45.974" size="0.6096" layer="25"/>
 <attribute name="VALUE" x="0.635" y="42.037" size="0.6096" layer="25"/>
 </element>
-<element name="C3" library="SparkFun-Capacitors" package="CAP-PTH-SMALL" value="1 uF" x="21.59" y="60.96" smashed="yes">
+<element name="C3" library="SparkFun-Capacitors" package="CAP-PTH-SMALL" value=".1 uF" x="21.59" y="60.96" smashed="yes">
 <attribute name="NAME" x="22.098" y="62.23" size="0.6096" layer="25"/>
 <attribute name="VALUE" x="21.844" y="59.436" size="0.6096" layer="25"/>
 </element>
-<element name="C4" library="SparkFun-Capacitors" package="CAP-PTH-SMALL" value="1 uF" x="58.42" y="66.04" smashed="yes">
+<element name="C4" library="SparkFun-Capacitors" package="CAP-PTH-SMALL" value=".1 uF" x="58.42" y="66.04" smashed="yes">
 <attribute name="NAME" x="58.928" y="67.31" size="0.6096" layer="25"/>
 <attribute name="VALUE" x="58.674" y="64.516" size="0.6096" layer="25"/>
 </element>

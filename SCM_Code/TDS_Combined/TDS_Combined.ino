@@ -19,7 +19,7 @@
  *  *****************************************/
  
 #include <SparkFun_ADXL345.h>
-
+#include <SPI.h>
 #include <Wire.h>
 #include "SparkFunMPL3115A2.h"
 #define MPL3115A2_ADDRESS 0x60
@@ -46,6 +46,17 @@ float accZ = 0;
 #define gainY     66
 #define gainZ     63.5 
 
+#define NOT_AN_INTERRUPT -1
+
+// SPI interrupt routine
+//Capture what is coming in. 
+ISR (SPI_STC_vect)
+{
+  Serial.println("Received");
+  Serial.println(SPDR);
+  SPDR = 'd';
+}// end of interrupt service routine (ISR) SPI_STC_vect
+
 //Write a register on the altimeter
 void IIC_Write(byte regAddr, byte value)
 {
@@ -60,12 +71,30 @@ void IIC_Write(byte regAddr, byte value)
 /*          Configure ADXL345 Settings         */
 void setup()
 {
-  Serial.begin(9600);                 // Start the serial terminal
+  Serial.begin(115200);                 // Start the serial terminal
   Serial.println("Begin");
-
-  pinMode(6,OUTPUT);
-  digitalWrite(6,HIGH);
   
+  pinMode(5, OUTPUT);
+  pinMode(6, OUTPUT);
+  pinMode(7, OUTPUT);
+
+  digitalWrite(5, HIGH);   // turn the LED on (HIGH is the voltage level)
+  digitalWrite(6, HIGH);   // turn the LED on (HIGH is the voltage level)
+  digitalWrite(7, HIGH);   // turn the LED on (HIGH is the voltage level)
+
+    //SPI setup
+  SPI.setClockDivider(SPI_CLOCK_DIV32);
+  
+  // have to send on master in, *slave out*
+  pinMode(MISO, OUTPUT);
+  
+  // turn on SPI in slave mode
+  SPCR |= _BV(SPE);
+  
+  // turn on interrupts
+  SPCR |= _BV(SPIE);
+
+  //Accelerometer
   adxl.powerOn();                     // Power on the ADXL345
 
   adxl.setRangeSetting(8);           // Give the range settings
@@ -85,6 +114,8 @@ void setup()
 
   byte offset = 24;
   IIC_Write(OFF_H, offset);
+
+  delay(5);
 }
 
 /****************** MAIN CODE ******************/
