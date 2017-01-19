@@ -7195,7 +7195,7 @@ Standard 0603 ceramic capacitor, and 0.1" leaded capacitor.</description>
 <instance part="U1" gate="G$1" x="60.96" y="55.88"/>
 <instance part="R4" gate="G$1" x="17.78" y="81.28"/>
 <instance part="GND-ISO2" gate="G$1" x="33.02" y="22.86"/>
-<instance part="Q9" gate="G$1" x="15.24" y="53.34" rot="R90"/>
+<instance part="Q9" gate="G$1" x="15.24" y="55.88" rot="R90"/>
 <instance part="C3" gate="G$1" x="15.24" y="43.18"/>
 <instance part="C4" gate="G$1" x="25.4" y="43.18"/>
 <instance part="JP6" gate="G$1" x="137.16" y="109.22" rot="R180"/>
@@ -7372,19 +7372,18 @@ Standard 0603 ceramic capacitor, and 0.1" leaded capacitor.</description>
 <segment>
 <pinref part="Q9" gate="G$1" pin="1"/>
 <pinref part="C3" gate="G$1" pin="1"/>
-<wire x1="15.24" y1="48.26" x2="35.56" y2="48.26" width="0.1524" layer="91"/>
-<junction x="15.24" y="48.26"/>
-<wire x1="35.56" y1="48.26" x2="35.56" y2="50.8" width="0.1524" layer="91"/>
+<wire x1="15.24" y1="50.8" x2="38.1" y2="50.8" width="0.1524" layer="91"/>
+<junction x="15.24" y="50.8"/>
 <pinref part="U1" gate="G$1" pin="PB7(XTAL2/TOSC2)"/>
-<wire x1="35.56" y1="50.8" x2="38.1" y2="50.8" width="0.1524" layer="91"/>
+<wire x1="15.24" y1="50.8" x2="15.24" y2="48.26" width="0.1524" layer="91"/>
 </segment>
 </net>
 <net name="N$20" class="0">
 <segment>
 <pinref part="Q9" gate="G$1" pin="2"/>
-<wire x1="15.24" y1="58.42" x2="25.4" y2="58.42" width="0.1524" layer="91"/>
+<wire x1="15.24" y1="60.96" x2="25.4" y2="60.96" width="0.1524" layer="91"/>
 <pinref part="C4" gate="G$1" pin="1"/>
-<wire x1="25.4" y1="58.42" x2="25.4" y2="55.88" width="0.1524" layer="91"/>
+<wire x1="25.4" y1="60.96" x2="25.4" y2="55.88" width="0.1524" layer="91"/>
 <pinref part="U1" gate="G$1" pin="PB6(XTAL1/TOSC1)"/>
 <wire x1="25.4" y1="55.88" x2="25.4" y2="48.26" width="0.1524" layer="91"/>
 <wire x1="38.1" y1="55.88" x2="25.4" y2="55.88" width="0.1524" layer="91"/>

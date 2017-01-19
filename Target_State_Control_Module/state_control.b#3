@@ -146,6 +146,7 @@
 <wire x1="68.25" y1="38.1" x2="68.25" y2="80" width="0" layer="20"/>
 <wire x1="68.25" y1="80" x2="0" y2="80" width="0" layer="20"/>
 <wire x1="0" y1="80" x2="0" y2="38.1" width="0" layer="20"/>
+<text x="67.31" y="63.5" size="1.778" layer="26" rot="MR270">F. Kummer SCM v1</text>
 </plain>
 <libraries>
 <library name="SparkFun-Passives">

@@ -329,6 +329,36 @@ You are welcome to use this library for commercial purposes. For attribution, we
 <hole x="0" y="2.2" drill="0.9"/>
 <hole x="0" y="-2.2" drill="0.9"/>
 </package>
+<package name="1X03">
+<wire x1="3.81" y1="0.635" x2="4.445" y2="1.27" width="0.2032" layer="21"/>
+<wire x1="4.445" y1="1.27" x2="5.715" y2="1.27" width="0.2032" layer="21"/>
+<wire x1="5.715" y1="1.27" x2="6.35" y2="0.635" width="0.2032" layer="21"/>
+<wire x1="6.35" y1="-0.635" x2="5.715" y2="-1.27" width="0.2032" layer="21"/>
+<wire x1="5.715" y1="-1.27" x2="4.445" y2="-1.27" width="0.2032" layer="21"/>
+<wire x1="4.445" y1="-1.27" x2="3.81" y2="-0.635" width="0.2032" layer="21"/>
+<wire x1="-0.635" y1="1.27" x2="0.635" y2="1.27" width="0.2032" layer="21"/>
+<wire x1="0.635" y1="1.27" x2="1.27" y2="0.635" width="0.2032" layer="21"/>
+<wire x1="1.27" y1="-0.635" x2="0.635" y2="-1.27" width="0.2032" layer="21"/>
+<wire x1="1.27" y1="0.635" x2="1.905" y2="1.27" width="0.2032" layer="21"/>
+<wire x1="1.905" y1="1.27" x2="3.175" y2="1.27" width="0.2032" layer="21"/>
+<wire x1="3.175" y1="1.27" x2="3.81" y2="0.635" width="0.2032" layer="21"/>
+<wire x1="3.81" y1="-0.635" x2="3.175" y2="-1.27" width="0.2032" layer="21"/>
+<wire x1="3.175" y1="-1.27" x2="1.905" y2="-1.27" width="0.2032" layer="21"/>
+<wire x1="1.905" y1="-1.27" x2="1.27" y2="-0.635" width="0.2032" layer="21"/>
+<wire x1="-1.27" y1="0.635" x2="-1.27" y2="-0.635" width="0.2032" layer="21"/>
+<wire x1="-0.635" y1="1.27" x2="-1.27" y2="0.635" width="0.2032" layer="21"/>
+<wire x1="-1.27" y1="-0.635" x2="-0.635" y2="-1.27" width="0.2032" layer="21"/>
+<wire x1="0.635" y1="-1.27" x2="-0.635" y2="-1.27" width="0.2032" layer="21"/>
+<wire x1="6.35" y1="0.635" x2="6.35" y2="-0.635" width="0.2032" layer="21"/>
+<pad name="1" x="0" y="0" drill="1.016" diameter="1.8796" rot="R90"/>
+<pad name="2" x="2.54" y="0" drill="1.016" diameter="1.8796" rot="R90"/>
+<pad name="3" x="5.08" y="0" drill="1.016" diameter="1.8796" rot="R90"/>
+<text x="-1.3462" y="1.8288" size="1.27" layer="25" ratio="10">&gt;NAME</text>
+<text x="-1.27" y="-3.175" size="1.27" layer="27">&gt;VALUE</text>
+<rectangle x1="4.826" y1="-0.254" x2="5.334" y2="0.254" layer="51"/>
+<rectangle x1="2.286" y1="-0.254" x2="2.794" y2="0.254" layer="51"/>
+<rectangle x1="-0.254" y1="-0.254" x2="0.254" y2="0.254" layer="51"/>
+</package>
 </packages>
 </library>
 <library name="adafruit">
@@ -851,6 +881,7 @@ Please make sure your boards conform to these design rules.</description>
 <attribute name="NAME" x="40.64" y="78.74" size="0.8128" layer="25" rot="R270"/>
 <attribute name="VALUE" x="39.37" y="78.74" size="0.8128" layer="25" rot="R270"/>
 </element>
+<element name="JP1" library="SparkFun-Connectors" package="1X03" value="GPIO" x="2.54" y="34.29"/>
 </elements>
 <signals>
 <signal name="GND-ISO">
@@ -1269,6 +1300,21 @@ Please make sure your boards conform to these design rules.</description>
 <contactref element="LED5" pad="A"/>
 <wire x1="38.1" y1="45.72" x2="38.1" y2="40.64" width="0.254" layer="1"/>
 <wire x1="38.1" y1="40.64" x2="37.97" y2="40.64" width="0.254" layer="1"/>
+</signal>
+<signal name="INT0">
+<contactref element="U1" pad="4"/>
+<contactref element="JP1" pad="1"/>
+<wire x1="2.54" y1="34.29" x2="16.51" y2="59.69" width="0" layer="19" extent="1-1"/>
+</signal>
+<signal name="INT1">
+<contactref element="U1" pad="5"/>
+<contactref element="JP1" pad="2"/>
+<wire x1="5.08" y1="34.29" x2="19.05" y2="59.69" width="0" layer="19" extent="1-1"/>
+</signal>
+<signal name="IO4">
+<contactref element="U1" pad="6"/>
+<contactref element="JP1" pad="3"/>
+<wire x1="7.62" y1="34.29" x2="21.59" y2="59.69" width="0" layer="19" extent="1-1"/>
 </signal>
 </signals>
 </board>

@@ -9,7 +9,7 @@ ISR (SPI_STC_vect)
 {
   Serial.println("Received");
   Serial.println(SPDR);
-  SPDR = 'b';
+  SPDR = 'c';
 }// end of interrupt service routine (ISR) SPI_STC_vect
 
 
