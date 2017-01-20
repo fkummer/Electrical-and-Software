@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE eagle SYSTEM "eagle.dtd">
-<eagle version="7.5.0">
+<eagle version="7.7.0">
 <drawing>
 <settings>
 <setting alwaysvectorfont="no"/>
@@ -18888,7 +18888,7 @@ Source: AVX .. aphvc.pdf</description>
 <instance part="C16" gate="G$1" x="292.1" y="246.38"/>
 <instance part="C17" gate="G$1" x="337.82" y="246.38"/>
 <instance part="D2" gate="G$1" x="347.98" y="246.38" rot="R90"/>
-<instance part="IC3" gate="G$1" x="312.42" y="256.54"/>
+<instance part="IC3" gate="G$1" x="309.88" y="256.54"/>
 <instance part="R14" gate="G$1" x="327.66" y="246.38" rot="R90"/>
 <instance part="R15" gate="G$1" x="312.42" y="233.68" rot="R90"/>
 <instance part="GND6" gate="1" x="271.78" y="223.52"/>
@@ -19930,14 +19930,14 @@ Source: AVX .. aphvc.pdf</description>
 <pinref part="C16" gate="G$1" pin="+"/>
 <wire x1="292.1" y1="256.54" x2="292.1" y2="248.92" width="0.1524" layer="91"/>
 <pinref part="IC3" gate="G$1" pin="IN"/>
-<wire x1="292.1" y1="256.54" x2="304.8" y2="256.54" width="0.1524" layer="91"/>
+<wire x1="292.1" y1="256.54" x2="302.26" y2="256.54" width="0.1524" layer="91"/>
 <junction x="292.1" y="256.54"/>
 </segment>
 </net>
 <net name="N$22" class="0">
 <segment>
 <pinref part="IC3" gate="G$1" pin="ADJ"/>
-<wire x1="312.42" y1="248.92" x2="312.42" y2="241.3" width="0.1524" layer="91"/>
+<wire x1="309.88" y1="248.92" x2="312.42" y2="241.3" width="0.1524" layer="91"/>
 <pinref part="R15" gate="G$1" pin="2"/>
 <pinref part="R14" gate="G$1" pin="1"/>
 <wire x1="312.42" y1="241.3" x2="312.42" y2="238.76" width="0.1524" layer="91"/>
@@ -19948,7 +19948,7 @@ Source: AVX .. aphvc.pdf</description>
 <net name="VOUT-MOTOR" class="0">
 <segment>
 <pinref part="IC3" gate="G$1" pin="OUT"/>
-<wire x1="320.04" y1="256.54" x2="327.66" y2="256.54" width="0.1524" layer="91"/>
+<wire x1="317.5" y1="256.54" x2="327.66" y2="256.54" width="0.1524" layer="91"/>
 <pinref part="C17" gate="G$1" pin="+"/>
 <wire x1="327.66" y1="256.54" x2="337.82" y2="256.54" width="0.1524" layer="91"/>
 <wire x1="337.82" y1="256.54" x2="337.82" y2="248.92" width="0.1524" layer="91"/>
