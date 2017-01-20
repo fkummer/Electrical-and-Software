@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE eagle SYSTEM "eagle.dtd">
-<eagle version="7.5.0">
+<eagle version="7.6.0">
 <drawing>
 <settings>
 <setting alwaysvectorfont="no"/>
@@ -18496,11 +18496,6 @@ Source: AVX .. aphvc.pdf</description>
 <wire x1="40.64" y1="116.84" x2="38.1" y2="116.84" width="0.1524" layer="91"/>
 <label x="38.1" y="116.84" size="1.778" layer="95" rot="R180" xref="yes"/>
 </segment>
-<segment>
-<pinref part="U2" gate="G$1" pin="VDDIO"/>
-<wire x1="-99.06" y1="15.24" x2="-101.6" y2="15.24" width="0.1524" layer="91"/>
-<label x="-101.6" y="15.24" size="1.778" layer="95" rot="R180" xref="yes"/>
-</segment>
 </net>
 <net name="ADO/SDO" class="0">
 <segment>
@@ -19192,6 +19187,11 @@ Source: AVX .. aphvc.pdf</description>
 <pinref part="POT" gate="J$1" pin="1"/>
 <wire x1="203.2" y1="114.3" x2="198.12" y2="114.3" width="0.1524" layer="91"/>
 <label x="198.12" y="114.3" size="1.778" layer="95" rot="R180" xref="yes"/>
+</segment>
+<segment>
+<pinref part="U2" gate="G$1" pin="VDDIO"/>
+<wire x1="-99.06" y1="15.24" x2="-101.6" y2="15.24" width="0.1524" layer="91"/>
+<label x="-101.6" y="15.24" size="1.778" layer="95" rot="R180" xref="yes"/>
 </segment>
 </net>
 <net name="N$15" class="0">
