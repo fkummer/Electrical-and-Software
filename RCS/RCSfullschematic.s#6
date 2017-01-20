@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE eagle SYSTEM "eagle.dtd">
-<eagle version="7.6.0">
+<eagle version="7.5.0">
 <drawing>
 <settings>
 <setting alwaysvectorfont="no"/>
@@ -6353,17 +6353,6 @@ Basic SMA packaged diode. Good for reverse polarization protection. Common part 
 <text x="-2.921" y="1.651" size="0.6096" layer="25">&gt;Name</text>
 <text x="-2.921" y="-0.508" size="1.016" layer="21" ratio="12">&gt;Value</text>
 </package>
-<package name="SOD-323@1">
-<wire x1="-0.9" y1="0.65" x2="-0.5" y2="0.65" width="0.2032" layer="21"/>
-<wire x1="-0.5" y1="0.65" x2="0.9" y2="0.65" width="0.2032" layer="21"/>
-<wire x1="-0.9" y1="-0.65" x2="-0.5" y2="-0.65" width="0.2032" layer="21"/>
-<wire x1="-0.5" y1="-0.65" x2="0.9" y2="-0.65" width="0.2032" layer="21"/>
-<wire x1="-0.5" y1="0.65" x2="-0.5" y2="-0.65" width="0.2032" layer="21"/>
-<smd name="C" x="-1.15" y="0" dx="0.63" dy="0.83" layer="1"/>
-<smd name="A" x="1.15" y="0" dx="0.63" dy="0.83" layer="1"/>
-<text x="-0.889" y="1.016" size="0.4064" layer="25">&gt;NAME</text>
-<text x="-1.016" y="-1.397" size="0.4064" layer="27">&gt;VALUE</text>
-</package>
 <package name="SOT23-3">
 <wire x1="1.4224" y1="0.6604" x2="1.4224" y2="-0.6604" width="0.1524" layer="51"/>
 <wire x1="1.4224" y1="-0.6604" x2="-1.4224" y2="-0.6604" width="0.1524" layer="51"/>
@@ -6554,7 +6543,7 @@ Basic small signal diode good up to 200mA. SMB footprint. Common part #: BAS16</
 <wire x1="1.35" y1="-0.775" x2="-1.35" y2="-0.775" width="0.127" layer="51"/>
 <wire x1="-1.35" y1="-0.775" x2="-1.35" y2="0.775" width="0.127" layer="51"/>
 </package>
-<package name="SOD-323">
+<package name="SOD-323@2">
 <description>SOD-323 (Small Outline Diode)</description>
 <wire x1="-1.77" y1="0.625" x2="-1.77" y2="-0.625" width="0.2032" layer="21"/>
 <smd name="C" x="-1.15" y="0" dx="0.63" dy="0.83" layer="1"/>
@@ -6573,6 +6562,17 @@ Basic small signal diode good up to 200mA. SMB footprint. Common part #: BAS16</
 <text x="0" y="-0.762" size="0.6096" layer="27" font="vector" ratio="20" align="top-center">&gt;VALUE</text>
 <wire x1="-0.85" y1="0.625" x2="0.85" y2="0.625" width="0.127" layer="21"/>
 <wire x1="-0.85" y1="-0.625" x2="0.85" y2="-0.625" width="0.127" layer="21"/>
+</package>
+<package name="SOD-323">
+<wire x1="-0.9" y1="0.65" x2="-0.5" y2="0.65" width="0.2032" layer="21"/>
+<wire x1="-0.5" y1="0.65" x2="0.9" y2="0.65" width="0.2032" layer="21"/>
+<wire x1="-0.9" y1="-0.65" x2="-0.5" y2="-0.65" width="0.2032" layer="21"/>
+<wire x1="-0.5" y1="-0.65" x2="0.9" y2="-0.65" width="0.2032" layer="21"/>
+<wire x1="-0.5" y1="0.65" x2="-0.5" y2="-0.65" width="0.2032" layer="21"/>
+<smd name="C" x="-1.15" y="0" dx="0.63" dy="0.83" layer="1"/>
+<smd name="A" x="1.15" y="0" dx="0.63" dy="0.83" layer="1"/>
+<text x="-0.889" y="1.016" size="0.4064" layer="25">&gt;NAME</text>
+<text x="-1.016" y="-1.397" size="0.4064" layer="27">&gt;VALUE</text>
 </package>
 </packages>
 <symbols>
@@ -6751,7 +6751,7 @@ These are standard reverse protection diodes and small signal diodes. SMA packag
 <technology name=""/>
 </technologies>
 </device>
-<device name="BAS16" package="SOD-323@1">
+<device name="BAS16" package="SOD-323">
 <connects>
 <connect gate="G$1" pin="A" pad="A"/>
 <connect gate="G$1" pin="C" pad="C"/>
@@ -6879,7 +6879,7 @@ These are standard reverse protection diodes and small signal diodes. SMA packag
 <gate name="G$1" symbol="DIODE-ZENER" x="0" y="0"/>
 </gates>
 <devices>
-<device name="-MM3Z3V3T1G" package="SOD-323">
+<device name="-MM3Z3V3T1G" package="SOD-323@2">
 <connects>
 <connect gate="G$1" pin="A" pad="A"/>
 <connect gate="G$1" pin="C" pad="C"/>
@@ -6891,7 +6891,7 @@ These are standard reverse protection diodes and small signal diodes. SMA packag
 </technology>
 </technologies>
 </device>
-<device name="-MMSZ5232BS" package="SOD-323">
+<device name="-MMSZ5232BS" package="SOD-323@2">
 <connects>
 <connect gate="G$1" pin="A" pad="A"/>
 <connect gate="G$1" pin="C" pad="C"/>
@@ -6915,7 +6915,7 @@ These are standard reverse protection diodes and small signal diodes. SMA packag
 </technology>
 </technologies>
 </device>
-<device name="-BZT52C3V6S" package="SOD-323">
+<device name="-BZT52C3V6S" package="SOD-323@2">
 <connects>
 <connect gate="G$1" pin="A" pad="A"/>
 <connect gate="G$1" pin="C" pad="C"/>
@@ -7274,7 +7274,7 @@ will be further integrated into the Sparkfun Library for other footprints.  It c
 <text x="0.616" y="0.75" size="1.27" layer="51">+</text>
 <text x="-1.384" y="0.75" size="1.27" layer="51">-</text>
 </package>
-<package name="1X04">
+<package name="1X04@1">
 <wire x1="6.985" y1="1.27" x2="8.255" y2="1.27" width="0.2032" layer="21"/>
 <wire x1="8.255" y1="1.27" x2="8.89" y2="0.635" width="0.2032" layer="21"/>
 <wire x1="8.89" y1="-0.635" x2="8.255" y2="-1.27" width="0.2032" layer="21"/>
@@ -7312,7 +7312,7 @@ will be further integrated into the Sparkfun Library for other footprints.  It c
 <rectangle x1="2.286" y1="-0.254" x2="2.794" y2="0.254" layer="51"/>
 <rectangle x1="-0.254" y1="-0.254" x2="0.254" y2="0.254" layer="51"/>
 </package>
-<package name="MOLEX-1X4">
+<package name="MOLEX-1X4@1">
 <wire x1="-1.27" y1="3.048" x2="-1.27" y2="-2.54" width="0.127" layer="21"/>
 <wire x1="8.89" y1="3.048" x2="8.89" y2="-2.54" width="0.127" layer="21"/>
 <wire x1="8.89" y1="3.048" x2="-1.27" y2="3.048" width="0.127" layer="21"/>
@@ -7327,7 +7327,7 @@ will be further integrated into the Sparkfun Library for other footprints.  It c
 <pad name="3" x="5.08" y="0" drill="1.016" diameter="1.8796"/>
 <pad name="4" x="7.62" y="0" drill="1.016" diameter="1.8796"/>
 </package>
-<package name="SCREWTERMINAL-3.5MM-4">
+<package name="SCREWTERMINAL-3.5MM-4@1">
 <wire x1="-1.75" y1="3.4" x2="12.25" y2="3.4" width="0.2032" layer="21"/>
 <wire x1="12.25" y1="3.4" x2="12.25" y2="-2.8" width="0.2032" layer="21"/>
 <wire x1="12.25" y1="-2.8" x2="12.25" y2="-3.6" width="0.2032" layer="21"/>
@@ -7386,7 +7386,7 @@ will be further integrated into the Sparkfun Library for other footprints.  It c
 <text x="-0.508" y="1.27" size="0.4064" layer="25">&gt;NAME</text>
 <text x="-0.508" y="-1.651" size="0.4064" layer="27">&gt;VALUE</text>
 </package>
-<package name="1X04_LOCK">
+<package name="1X04_LOCK@1">
 <wire x1="6.985" y1="1.27" x2="8.255" y2="1.27" width="0.2032" layer="21"/>
 <wire x1="8.255" y1="1.27" x2="8.89" y2="0.635" width="0.2032" layer="21"/>
 <wire x1="8.89" y1="-0.635" x2="8.255" y2="-1.27" width="0.2032" layer="21"/>
@@ -7424,7 +7424,7 @@ will be further integrated into the Sparkfun Library for other footprints.  It c
 <rectangle x1="2.286" y1="-0.254" x2="2.794" y2="0.254" layer="51"/>
 <rectangle x1="-0.254" y1="-0.254" x2="0.254" y2="0.254" layer="51"/>
 </package>
-<package name="1X04_LOCK_LONGPADS">
+<package name="1X04_LOCK_LONGPADS@1">
 <description>This footprint was designed to help hold the alignment of a through-hole component (i.e.  6-pin header) while soldering it into place.  
 You may notice that each hole has been shifted either up or down by 0.005 of an inch from it's more standard position (which is a perfectly straight line).  
 This slight alteration caused the pins (the squares in the middle) to touch the edges of the holes.  Because they are alternating, it causes a "brace" 
@@ -7456,7 +7456,7 @@ will be further integrated into the Sparkfun Library for other footprints.  It c
 <rectangle x1="4.7879" y1="-0.4191" x2="5.3721" y2="0.1651" layer="51"/>
 <rectangle x1="7.3279" y1="-0.4191" x2="7.9121" y2="0.1651" layer="51" rot="R90"/>
 </package>
-<package name="MOLEX-1X4_LOCK">
+<package name="MOLEX-1X4_LOCK@1">
 <wire x1="-1.27" y1="3.048" x2="-1.27" y2="-2.54" width="0.127" layer="21"/>
 <wire x1="8.89" y1="3.048" x2="8.89" y2="-2.54" width="0.127" layer="21"/>
 <wire x1="8.89" y1="3.048" x2="-1.27" y2="3.048" width="0.127" layer="21"/>
@@ -7491,7 +7491,7 @@ will be further integrated into the Sparkfun Library for other footprints.  It c
 <hole x="-2.54" y="0" drill="1.4"/>
 <hole x="2.54" y="0" drill="1.4"/>
 </package>
-<package name="1X04_LONGPADS">
+<package name="1X04_LONGPADS@1">
 <wire x1="-1.27" y1="0.635" x2="-1.27" y2="-0.635" width="0.2032" layer="21"/>
 <wire x1="8.89" y1="0.635" x2="8.89" y2="-0.635" width="0.2032" layer="21"/>
 <pad name="1" x="0" y="0" drill="1.1176" diameter="1.8796" shape="long" rot="R90"/>
@@ -7505,7 +7505,7 @@ will be further integrated into the Sparkfun Library for other footprints.  It c
 <rectangle x1="2.286" y1="-0.254" x2="2.794" y2="0.254" layer="51"/>
 <rectangle x1="-0.254" y1="-0.254" x2="0.254" y2="0.254" layer="51"/>
 </package>
-<package name="1X04_NO_SILK">
+<package name="1X04_NO_SILK@1">
 <pad name="1" x="0" y="0" drill="1.016" diameter="1.8796" shape="square" rot="R90"/>
 <pad name="2" x="2.54" y="0" drill="1.016" diameter="1.8796" rot="R90"/>
 <pad name="3" x="5.08" y="0" drill="1.016" diameter="1.8796" rot="R90"/>
@@ -7517,7 +7517,7 @@ will be further integrated into the Sparkfun Library for other footprints.  It c
 <rectangle x1="2.286" y1="-0.254" x2="2.794" y2="0.254" layer="51"/>
 <rectangle x1="-0.254" y1="-0.254" x2="0.254" y2="0.254" layer="51"/>
 </package>
-<package name="JST-4-PTH">
+<package name="JST-4-PTH@1">
 <pad name="1" x="-3" y="0" drill="0.7" diameter="1.6"/>
 <pad name="2" x="-1" y="0" drill="0.7" diameter="1.6"/>
 <pad name="3" x="1" y="0" drill="0.7" diameter="1.6"/>
@@ -7536,7 +7536,7 @@ will be further integrated into the Sparkfun Library for other footprints.  It c
 <wire x1="-4.3" y1="-1.6" x2="-4.3" y2="0" width="0.2032" layer="21"/>
 <wire x1="4.3" y1="-1.6" x2="4.3" y2="0" width="0.2032" layer="21"/>
 </package>
-<package name="SCREWTERMINAL-3.5MM-4_LOCK">
+<package name="SCREWTERMINAL-3.5MM-4_LOCK@1">
 <wire x1="-2.3" y1="3.4" x2="12.8" y2="3.4" width="0.2032" layer="21"/>
 <wire x1="12.8" y1="3.4" x2="12.8" y2="-2.8" width="0.2032" layer="21"/>
 <wire x1="12.8" y1="-2.8" x2="12.8" y2="-3.6" width="0.2032" layer="21"/>
@@ -7625,7 +7625,7 @@ will be further integrated into the Sparkfun Library for other footprints.  It c
 <hole x="-2.54" y="0" drill="1.4"/>
 <hole x="2.54" y="0" drill="1.4"/>
 </package>
-<package name="JST-4-PTH-VERT">
+<package name="JST-4-PTH-VERT@1">
 <wire x1="-4.95" y1="-2.25" x2="-4.95" y2="2.25" width="0.2032" layer="21"/>
 <wire x1="-4.95" y1="2.25" x2="4.95" y2="2.25" width="0.2032" layer="21"/>
 <wire x1="4.95" y1="-2.25" x2="1" y2="-2.25" width="0.2032" layer="21"/>
@@ -7645,7 +7645,7 @@ will be further integrated into the Sparkfun Library for other footprints.  It c
 <text x="2.7" y="0.95" size="0.8" layer="51">Y</text>
 <text x="-3.3" y="0.95" size="0.8" layer="51">B</text>
 </package>
-<package name="1X04_SMD_RA_FEMALE">
+<package name="1X04_SMD_RA_FEMALE@1">
 <wire x1="-5.205" y1="4.25" x2="-5.205" y2="-4.25" width="0.1778" layer="21"/>
 <wire x1="5.205" y1="4.25" x2="-5.205" y2="4.25" width="0.1778" layer="21"/>
 <wire x1="5.205" y1="-4.25" x2="5.205" y2="4.25" width="0.1778" layer="21"/>
@@ -9630,7 +9630,7 @@ Standard 4-pin 0.1" header. Use with straight break away headers (SKU : PRT-0011
 <gate name="G$1" symbol="M04" x="-2.54" y="0"/>
 </gates>
 <devices>
-<device name="PTH" package="1X04">
+<device name="PTH" package="1X04@1">
 <connects>
 <connect gate="G$1" pin="1" pad="1"/>
 <connect gate="G$1" pin="2" pad="2"/>
@@ -9643,7 +9643,7 @@ Standard 4-pin 0.1" header. Use with straight break away headers (SKU : PRT-0011
 </technology>
 </technologies>
 </device>
-<device name="POLAR" package="MOLEX-1X4">
+<device name="POLAR" package="MOLEX-1X4@1">
 <connects>
 <connect gate="G$1" pin="1" pad="1"/>
 <connect gate="G$1" pin="2" pad="2"/>
@@ -9654,7 +9654,7 @@ Standard 4-pin 0.1" header. Use with straight break away headers (SKU : PRT-0011
 <technology name=""/>
 </technologies>
 </device>
-<device name="SCREW" package="SCREWTERMINAL-3.5MM-4">
+<device name="SCREW" package="SCREWTERMINAL-3.5MM-4@1">
 <connects>
 <connect gate="G$1" pin="1" pad="1"/>
 <connect gate="G$1" pin="2" pad="2"/>
@@ -9678,7 +9678,7 @@ Standard 4-pin 0.1" header. Use with straight break away headers (SKU : PRT-0011
 <technology name=""/>
 </technologies>
 </device>
-<device name="LOCK" package="1X04_LOCK">
+<device name="LOCK" package="1X04_LOCK@1">
 <connects>
 <connect gate="G$1" pin="1" pad="1"/>
 <connect gate="G$1" pin="2" pad="2"/>
@@ -9691,7 +9691,7 @@ Standard 4-pin 0.1" header. Use with straight break away headers (SKU : PRT-0011
 </technology>
 </technologies>
 </device>
-<device name="LOCK_LONGPADS" package="1X04_LOCK_LONGPADS">
+<device name="LOCK_LONGPADS" package="1X04_LOCK_LONGPADS@1">
 <connects>
 <connect gate="G$1" pin="1" pad="1"/>
 <connect gate="G$1" pin="2" pad="2"/>
@@ -9704,7 +9704,7 @@ Standard 4-pin 0.1" header. Use with straight break away headers (SKU : PRT-0011
 </technology>
 </technologies>
 </device>
-<device name="POLAR_LOCK" package="MOLEX-1X4_LOCK">
+<device name="POLAR_LOCK" package="MOLEX-1X4_LOCK@1">
 <connects>
 <connect gate="G$1" pin="1" pad="1"/>
 <connect gate="G$1" pin="2" pad="2"/>
@@ -9726,7 +9726,7 @@ Standard 4-pin 0.1" header. Use with straight break away headers (SKU : PRT-0011
 <technology name=""/>
 </technologies>
 </device>
-<device name="LONGPADS" package="1X04_LONGPADS">
+<device name="LONGPADS" package="1X04_LONGPADS@1">
 <connects>
 <connect gate="G$1" pin="1" pad="1"/>
 <connect gate="G$1" pin="2" pad="2"/>
@@ -9739,7 +9739,7 @@ Standard 4-pin 0.1" header. Use with straight break away headers (SKU : PRT-0011
 </technology>
 </technologies>
 </device>
-<device name="1X04_NO_SILK" package="1X04_NO_SILK">
+<device name="1X04_NO_SILK" package="1X04_NO_SILK@1">
 <connects>
 <connect gate="G$1" pin="1" pad="1"/>
 <connect gate="G$1" pin="2" pad="2"/>
@@ -9752,7 +9752,7 @@ Standard 4-pin 0.1" header. Use with straight break away headers (SKU : PRT-0011
 </technology>
 </technologies>
 </device>
-<device name="JST-PTH" package="JST-4-PTH">
+<device name="JST-PTH" package="JST-4-PTH@1">
 <connects>
 <connect gate="G$1" pin="1" pad="1"/>
 <connect gate="G$1" pin="2" pad="2"/>
@@ -9765,7 +9765,7 @@ Standard 4-pin 0.1" header. Use with straight break away headers (SKU : PRT-0011
 </technology>
 </technologies>
 </device>
-<device name="SCREW_LOCK" package="SCREWTERMINAL-3.5MM-4_LOCK">
+<device name="SCREW_LOCK" package="SCREWTERMINAL-3.5MM-4_LOCK@1">
 <connects>
 <connect gate="G$1" pin="1" pad="1"/>
 <connect gate="G$1" pin="2" pad="2"/>
@@ -9812,7 +9812,7 @@ Standard 4-pin 0.1" header. Use with straight break away headers (SKU : PRT-0011
 <technology name=""/>
 </technologies>
 </device>
-<device name="JST-PTH-VERT" package="JST-4-PTH-VERT">
+<device name="JST-PTH-VERT" package="JST-4-PTH-VERT@1">
 <connects>
 <connect gate="G$1" pin="1" pad="1"/>
 <connect gate="G$1" pin="2" pad="2"/>
@@ -9823,7 +9823,7 @@ Standard 4-pin 0.1" header. Use with straight break away headers (SKU : PRT-0011
 <technology name=""/>
 </technologies>
 </device>
-<device name="SMD_RA_FEMALE" package="1X04_SMD_RA_FEMALE">
+<device name="SMD_RA_FEMALE" package="1X04_SMD_RA_FEMALE@1">
 <connects>
 <connect gate="G$1" pin="1" pad="1"/>
 <connect gate="G$1" pin="2" pad="2"/>
@@ -18489,8 +18489,8 @@ Source: AVX .. aphvc.pdf</description>
 <part name="F1" library="SparkFun-PowerIC" deviceset="PTC" device="SMD" value="3A"/>
 <part name="C4" library="SparkFun-Passives" deviceset="CAP" device="1206" value="0.1uF"/>
 <part name="C5" library="SparkFun-Passives" deviceset="CAP" device="1206" value="0.1uF"/>
-<part name="D3" library="SparkFun-DiscreteSemi" deviceset="DIODE" device="1N4148" value="1N4148"/>
-<part name="D4" library="SparkFun-DiscreteSemi" deviceset="DIODE" device="1N4148" value="1N4148"/>
+<part name="D3" library="SparkFun-DiscreteSemi" deviceset="DIODE" device="ES3J" value="3A/600V"/>
+<part name="D4" library="SparkFun-DiscreteSemi" deviceset="DIODE" device="ES3J" value="3A/600V"/>
 <part name="R1" library="SparkFun-Passives" deviceset="RESISTOR" device="1206" value="220"/>
 <part name="R2" library="SparkFun-Passives" deviceset="RESISTOR" device="1206" value="10k"/>
 <part name="R3" library="SparkFun-Passives" deviceset="RESISTOR" device="1206" value="10k"/>
@@ -19153,14 +19153,6 @@ Source: AVX .. aphvc.pdf</description>
 <junction x="170.18" y="45.72"/>
 </segment>
 </net>
-<net name="3.3V" class="0">
-<segment>
-<pinref part="MCU" gate="G$1" pin="4"/>
-<label x="144.78" y="114.3" size="1.778" layer="95"/>
-<pinref part="POT" gate="J$1" pin="1"/>
-<wire x1="142.24" y1="114.3" x2="203.2" y2="114.3" width="0.1524" layer="91"/>
-</segment>
-</net>
 <net name="N$5" class="0">
 <segment>
 <pinref part="R4" gate="G$1" pin="1"/>
@@ -19653,6 +19645,11 @@ Source: AVX .. aphvc.pdf</description>
 <pinref part="JP2" gate="G$1" pin="1"/>
 <wire x1="375.92" y1="198.12" x2="370.84" y2="198.12" width="0.1524" layer="91"/>
 <label x="370.84" y="198.12" size="1.016" layer="95" rot="R180" xref="yes"/>
+</segment>
+<segment>
+<pinref part="POT" gate="J$1" pin="1"/>
+<wire x1="203.2" y1="114.3" x2="198.12" y2="114.3" width="0.1524" layer="91"/>
+<label x="198.12" y="114.3" size="1.778" layer="95" rot="R180" xref="yes"/>
 </segment>
 </net>
 <net name="N$15" class="0">
