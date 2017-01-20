@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE eagle SYSTEM "eagle.dtd">
-<eagle version="7.5.0">
+<eagle version="7.6.0">
 <drawing>
 <settings>
 <setting alwaysvectorfont="no"/>
@@ -18092,6 +18092,7 @@ Standard adjustable voltage regulator but in SMD form. Spark Fun Electronics SKU
 <part name="SUPPLY1" library="supply2" deviceset="GND1" device=""/>
 <part name="MPWR1" library="SparkFun-Connectors" deviceset="M02" device="PTH" value="11.1"/>
 <part name="MPWR2" library="SparkFun-Connectors" deviceset="M02" device="PTH" value="7.4V"/>
+<part name="GND6" library="supply1" deviceset="GND" device=""/>
 </parts>
 <sheets>
 <sheet>
@@ -18202,6 +18203,7 @@ Standard adjustable voltage regulator but in SMD form. Spark Fun Electronics SKU
 <instance part="SUPPLY1" gate="G$1" x="271.78" y="223.52"/>
 <instance part="MPWR1" gate="G$1" x="203.2" y="243.84"/>
 <instance part="MPWR2" gate="G$1" x="203.2" y="208.28"/>
+<instance part="GND6" gate="1" x="-45.72" y="20.32"/>
 </instances>
 <busses>
 </busses>
@@ -18448,6 +18450,11 @@ Standard adjustable voltage regulator but in SMD form. Spark Fun Electronics SKU
 <pinref part="C13" gate="G$1" pin="-"/>
 <pinref part="C14" gate="G$1" pin="-"/>
 <pinref part="MPWR2" gate="G$1" pin="1"/>
+</segment>
+<segment>
+<pinref part="U2" gate="G$1" pin="RESV2"/>
+<wire x1="-53.34" y1="22.86" x2="-45.72" y2="22.86" width="0.1524" layer="91"/>
+<pinref part="GND6" gate="1" pin="GND"/>
 </segment>
 </net>
 <net name="INT2" class="0">
@@ -19091,6 +19098,11 @@ Standard adjustable voltage regulator but in SMD form. Spark Fun Electronics SKU
 <pinref part="U2" gate="G$1" pin="VDDIO"/>
 <wire x1="-99.06" y1="15.24" x2="-101.6" y2="15.24" width="0.1524" layer="91"/>
 <label x="-101.6" y="15.24" size="1.778" layer="95" rot="R180" xref="yes"/>
+</segment>
+<segment>
+<pinref part="U2" gate="G$1" pin="RESV"/>
+<wire x1="-99.06" y1="33.02" x2="-101.6" y2="33.02" width="0.1524" layer="91"/>
+<label x="-101.6" y="33.02" size="1.778" layer="95" rot="R180" xref="yes"/>
 </segment>
 </net>
 <net name="N$15" class="0">
