@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE eagle SYSTEM "eagle.dtd">
-<eagle version="7.7.0">
+<eagle version="7.6.0">
 <drawing>
 <settings>
 <setting alwaysvectorfont="no"/>
@@ -18092,8 +18092,8 @@ Operational amplifiers,  comparators, voltage regulators, ADCs, DACs, etc.&lt;p&
 <part name="SERVO" library="SparkFun-Electromechanical" deviceset="SMALL_SERVO" device=""/>
 <part name="C4" library="SparkFun-Passives" deviceset="CAP" device="1206" value="0.1uF"/>
 <part name="C5" library="SparkFun-Passives" deviceset="CAP" device="1206" value="0.1uF"/>
-<part name="D3" library="SparkFun-DiscreteSemi" deviceset="DIODE" device="ES3J" value="3A/600V"/>
-<part name="D4" library="SparkFun-DiscreteSemi" deviceset="DIODE" device="ES3J" value="3A/600V"/>
+<part name="D3" library="SparkFun-DiscreteSemi" deviceset="DIODE" device="SMA-ALT" value="3A/600V"/>
+<part name="D4" library="SparkFun-DiscreteSemi" deviceset="DIODE" device="SMA-ALT" value="3A/600V"/>
 <part name="R1" library="SparkFun-Passives" deviceset="RESISTOR" device="1206" value="220"/>
 <part name="R2" library="SparkFun-Passives" deviceset="RESISTOR" device="1206" value="10k"/>
 <part name="R3" library="SparkFun-Passives" deviceset="RESISTOR" device="1206" value="10k"/>
@@ -18170,7 +18170,11 @@ Operational amplifiers,  comparators, voltage regulators, ADCs, DACs, etc.&lt;p&
 <part name="SUPPLY1" library="supply2" deviceset="GND1" device=""/>
 <part name="MPWR1" library="SparkFun-Connectors" deviceset="M02" device="PTH" value="11.1"/>
 <part name="MPWR2" library="SparkFun-Connectors" deviceset="M02" device="PTH" value="7.4V"/>
+<<<<<<< HEAD
 <part name="IC4" library="linear" deviceset="*317" device="T"/>
+=======
+<part name="GND6" library="supply1" deviceset="GND" device=""/>
+>>>>>>> origin/develop
 </parts>
 <sheets>
 <sheet>
@@ -18280,7 +18284,11 @@ Operational amplifiers,  comparators, voltage regulators, ADCs, DACs, etc.&lt;p&
 <instance part="SUPPLY1" gate="G$1" x="271.78" y="223.52"/>
 <instance part="MPWR1" gate="G$1" x="203.2" y="243.84"/>
 <instance part="MPWR2" gate="G$1" x="203.2" y="208.28"/>
+<<<<<<< HEAD
 <instance part="IC4" gate="A1" x="312.42" y="254"/>
+=======
+<instance part="GND6" gate="1" x="-45.72" y="20.32"/>
+>>>>>>> origin/develop
 </instances>
 <busses>
 </busses>
@@ -18527,6 +18535,11 @@ Operational amplifiers,  comparators, voltage regulators, ADCs, DACs, etc.&lt;p&
 <pinref part="C13" gate="G$1" pin="-"/>
 <pinref part="C14" gate="G$1" pin="-"/>
 <pinref part="MPWR2" gate="G$1" pin="1"/>
+</segment>
+<segment>
+<pinref part="U2" gate="G$1" pin="RESV2"/>
+<wire x1="-53.34" y1="22.86" x2="-45.72" y2="22.86" width="0.1524" layer="91"/>
+<pinref part="GND6" gate="1" pin="GND"/>
 </segment>
 </net>
 <net name="INT2" class="0">
@@ -19170,6 +19183,11 @@ Operational amplifiers,  comparators, voltage regulators, ADCs, DACs, etc.&lt;p&
 <pinref part="U2" gate="G$1" pin="VDDIO"/>
 <wire x1="-99.06" y1="15.24" x2="-101.6" y2="15.24" width="0.1524" layer="91"/>
 <label x="-101.6" y="15.24" size="1.778" layer="95" rot="R180" xref="yes"/>
+</segment>
+<segment>
+<pinref part="U2" gate="G$1" pin="RESV"/>
+<wire x1="-99.06" y1="33.02" x2="-101.6" y2="33.02" width="0.1524" layer="91"/>
+<label x="-101.6" y="33.02" size="1.778" layer="95" rot="R180" xref="yes"/>
 </segment>
 </net>
 <net name="N$15" class="0">

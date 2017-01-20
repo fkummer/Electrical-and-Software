@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE eagle SYSTEM "eagle.dtd">
-<eagle version="7.7.0">
+<eagle version="7.5.0">
 <drawing>
 <settings>
 <setting alwaysvectorfont="no"/>
@@ -18013,8 +18013,8 @@ Standard adjustable voltage regulator but in SMD form. Spark Fun Electronics SKU
 <part name="SERVO" library="SparkFun-Electromechanical" deviceset="SMALL_SERVO" device=""/>
 <part name="C4" library="SparkFun-Passives" deviceset="CAP" device="1206" value="0.1uF"/>
 <part name="C5" library="SparkFun-Passives" deviceset="CAP" device="1206" value="0.1uF"/>
-<part name="D3" library="SparkFun-DiscreteSemi" deviceset="DIODE" device="ES3J" value="3A/600V"/>
-<part name="D4" library="SparkFun-DiscreteSemi" deviceset="DIODE" device="ES3J" value="3A/600V"/>
+<part name="D3" library="SparkFun-DiscreteSemi" deviceset="DIODE" device="SMA-ALT" value="3A/600V"/>
+<part name="D4" library="SparkFun-DiscreteSemi" deviceset="DIODE" device="SMA-ALT" value="3A/600V"/>
 <part name="R1" library="SparkFun-Passives" deviceset="RESISTOR" device="1206" value="220"/>
 <part name="R2" library="SparkFun-Passives" deviceset="RESISTOR" device="1206" value="10k"/>
 <part name="R3" library="SparkFun-Passives" deviceset="RESISTOR" device="1206" value="10k"/>
