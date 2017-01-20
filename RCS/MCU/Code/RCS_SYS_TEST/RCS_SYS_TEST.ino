@@ -10,7 +10,6 @@
 #include <Servo.h>
 #include "MPU9250.h"
 #include "SparkFunMPL3115A2.h"
-#include "EEPROM_24LC256.h"
 
 #define AHRS true //Altitude Heading and Reference System, used to get roll, pitch, yaw, etc.
 #define FLIGHT_STATE 0x54 //I2C address of flight state chip
@@ -27,24 +26,19 @@
 //Rocket properties, all in imperial units
 const float P = 8.5; //Proportianal constant for the control system.
 const float I = 1; //Moment of inertia of the rocket about roll axis
-const float Rho = 0.002377; //Air density
-const float S = 0.375; //
-const float L = 0.172; //
+const float Rho = 1; //Air density
+const float S = 1; //
+const float L = 1; //
 
 unsigned long startTime = 0;
 unsigned long endTime = 0;
 unsigned long currTime = 0;
 
 unsigned long memAddress = 0;
-String dataString;
-const int stringSize = 32;//Max memory size of dataString
 
 MPU9250 myIMU;
 MPL3115A2 myPressure;
 Servo motor;
-
-EEPROM_24LC256 stateEE(4); //Flight state EEPROM address
-EEPROM_24LC256 storeEE(0); //Flight storage EEPROM address
 
 //Globals required for control system
 float spinRate = 0;
@@ -55,27 +49,107 @@ float velocity = 0;
 ///////////////////////////////////////////////////////
 //Helper functions for reading/writing to EEPROM chips
 //////////////////////////////////////////////////////
+void writeEEPROM(int deviceaddress, unsigned int eeaddress, char* data)
+{
+  // Uses Page Write for 24LC256
+  // Allows for 64 byte page boundary
+  // Splits string into max 16 byte writes
+  unsigned char i = 0, counter = 0;
+  unsigned int  address;
+  unsigned int  page_space;
+  unsigned int  page = 0;
+  unsigned int  num_writes;
+  unsigned int  data_len = 0;
+  unsigned char first_write_size;
+  unsigned char last_write_size;
+  unsigned char write_size;
+
+  // Calculate length of data
+  do {
+    data_len++;
+  } while (data[data_len]);
+
+  // Calculate space available in first page
+  page_space = int(((eeaddress / 64) + 1) * 64) - eeaddress;
+
+  // Calculate first write size
+  if (page_space > 16) {
+    first_write_size = page_space - ((page_space / 16) * 16);
+    if (first_write_size == 0) first_write_size = 16;
+  }
+  else
+    first_write_size = page_space;
+
+  // calculate size of last write
+  if (data_len > first_write_size)
+    last_write_size = (data_len - first_write_size) % 16;
+
+  // Calculate how many writes we need
+  if (data_len > first_write_size)
+    num_writes = ((data_len - first_write_size) / 16) + 2;
+  else
+    num_writes = 1;
+
+  i = 0;
+  address = eeaddress;
+  for (page = 0; page < num_writes; page++)
+  {
+    if (page == 0) write_size = first_write_size;
+    else if (page == (num_writes - 1)) write_size = last_write_size;
+    else write_size = 16;
+
+    Wire.beginTransmission(deviceaddress);
+    Wire.write((int)((address) >> 8));   // MSB
+    Wire.write((int)((address) & 0xFF)); // LSB
+    counter = 0;
+    do {
+      Wire.write((byte) data[i]);
+      i++;
+      counter++;
+    } while ((data[i]) && (counter < write_size));
+    Wire.endTransmission();
+    address += write_size; // Increment address for next write
+
+    delay(6);  // needs 5ms for page write
+  }
+}
+
+void readEEPROM(int deviceaddress, unsigned int eeaddress,
+                unsigned char* data, unsigned int num_chars)
+{
+  unsigned char i = 0;
+  Wire.beginTransmission(deviceaddress);
+  Wire.write((int)(eeaddress >> 8));   // MSB
+  Wire.write((int)(eeaddress & 0xFF)); // LSB
+  Wire.endTransmission();
+
+  Wire.requestFrom(deviceaddress, num_chars);
+
+  while (Wire.available()) data[i++] = Wire.read();
+}
+/*
 String logData(String dataString) {
   /* INPUT: NONE
      OUTPUT: NONE
      Logs flight data to EEPROM
-  */
+  
   //String dataString = (String)currTime + ": " + (String)myIMU.ax + ", " + (String)myIMU.gz + ", " + (String)currentAlt + " \n";
-  byte data[stringSize];
-  dataString.getBytes(data, dataString.length());
-  storeEE.writeEEPROM(memAddress, data, stringSize); //Find length of String later
+  unsigned char* dataChar[dataString.length()];
+  dataString.toCharArray(dataChar, dataString.length());
+  writeEEPROM(FLIGHT_STORAGE, memAddress, dataChar); //Find length of String later
   //memAddress += dataString.length();
-  return data;
+  return dataString;
 }
 
-String readData(unsigned int address, int readLen) {
+String readData(unsigned int address, unsigned int readLen) {
   /* INPUT: Start address of data to be read, length (in chars) of memory to be read
      OUTPUT: String of data requested
-  */
-  byte data[readLen];
-  storeEE.readEEPROM(address, (byte *) data, readLen);
-  return String((char *)data);
+  
+  char dataChar[readLen - 1];
+  readEEPROM(FLIGHT_STORAGE, address, dataChar, readLen);
+  return String(dataChar);
 }
+*/
 ///////////////////////////////////
 //Functions for the control system
 ///////////////////////////////////
@@ -130,7 +204,7 @@ float getAltitude() {
 
 float getVelocity() {
   /* INPUT: NONE
-     OUTPUT: Velocity in feet per second
+     OUTPUT: velocity in feet per second
   */
   velocity = (currentAlt - prevAlt) * 10;
   return velocity;
@@ -140,8 +214,8 @@ float findDeflection(float rotationRate, float desiredRR) {
   /* INPUT: Rate of rotation of launch vehicle, desired rate of rotation
      OUTPUT: Rotational accleration in (???)
   */
-  float alpha = (desiredRR - rotationRate) * P * DEG_TO_RAD; //Find control error term and multiply by proportional const. Units: rad/s^2
-  float liftCoeff = alpha * I / (S * L * Rho); //Start calculation of lift coefficent
+  float alpha = (desiredRR - rotationRate) * P * DEG_TO_RAD; //Find control error term and multiply by proportional const.
+  float liftCoeff = alpha * I / (S * L); //Start calculation of lift coefficent
   liftCoeff = liftCoeff / (velocity * velocity);
   return getDeflection(liftCoeff);
 }
@@ -151,13 +225,18 @@ void deflectFlaps(float deflection) {
      OUTPUT: NONE
      Converts fin deflection to motor angle, saturates at +-30 degrees from
      center angle of 90.
+     
   */
   int angle = deflection * 2.0 + 90;
-  angle = constrain(angle, 60, 120); //Saturate angle between min and max deflections
+  if (angle > 120) {
+    angle = 120;
+  } else if (angle < 60) {
+    angle = 60;
+  }
   motor.write(angle);
 }
 
-float controlAlgo(float desiredRate) {
+void controlAlgo(float desiredRate) {
   /* INPUT: NONE
      OUTPUT: NONE
      The control algorithm. Computes the nessecary fin
@@ -167,12 +246,10 @@ float controlAlgo(float desiredRate) {
   updateIMUData();
   float deflection = findDeflection(myIMU.gz, desiredRate);
   deflectFlaps(deflection);
-  return deflection;
 }
 
 void setup() {
   Serial.begin(9600);
-  //Setup I/O pins
   pinMode(LED_PIN, OUTPUT);
   pinMode(FEEDBACK_PIN, INPUT);
   motor.attach(MOTOR_PIN);
@@ -194,19 +271,21 @@ void setup() {
 
 void loop() {
   // put your main code here, to run repeatedly:
-  
-  //Serial.println(dataString.length()+1);
-  delay(250);
+  delay(1000);
   currTime = millis();
-  Serial.println(controlAlgo(0.0));
-  dataString = (String)currTime + ":" + (String)myIMU.az + "," + (String)myIMU.gz + "," + (String)currentAlt + "\n";
-  Serial.println(logData(dataString));
-  Serial.println(millis()- currTime);
+  updateIMUData();
+  getAltitude();
+  String dataString = (String)currTime + ": " + (String)myIMU.az + ", " + (String)myIMU.gz + ", " + (String)currentAlt + ", " + (String)analogRead(FEEDBACK_PIN) + " \n";
+  Serial.println(dataString);
+  motor.write(90);
   digitalWrite(LED_PIN, HIGH);
-  delay(250);
-  Serial.println(readData(memAddress, stringSize));
-  //Serial.println(memAddress);
-  memAddress += stringSize;
+  delay(1000);
+  currTime = millis();
+  updateIMUData();
+  getAltitude();
+  dataString = (String)currTime + ": " + (String)myIMU.az + ", " + (String)myIMU.gz + ", " + (String)currentAlt + ", " + (String)analogRead(FEEDBACK_PIN) + " \n";
+  Serial.println(dataString);
+  motor.write(100);
   digitalWrite(LED_PIN, LOW);
 
 }
