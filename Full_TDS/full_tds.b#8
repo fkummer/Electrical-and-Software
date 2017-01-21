@@ -8,8 +8,8 @@
 </settings>
 <grid distance="0.05" unitdist="inch" unit="inch" style="lines" multiple="1" display="no" altdistance="0.025" altunitdist="inch" altunit="inch"/>
 <layers>
-<layer number="1" name="Top" color="4" fill="1" visible="yes" active="yes"/>
-<layer number="16" name="Bottom" color="1" fill="1" visible="yes" active="yes"/>
+<layer number="1" name="Top" color="4" fill="1" visible="no" active="yes"/>
+<layer number="16" name="Bottom" color="1" fill="1" visible="no" active="yes"/>
 <layer number="17" name="Pads" color="2" fill="1" visible="yes" active="yes"/>
 <layer number="18" name="Vias" color="2" fill="1" visible="yes" active="yes"/>
 <layer number="19" name="Unrouted" color="6" fill="1" visible="yes" active="yes"/>
@@ -1869,7 +1869,7 @@ Please make sure your boards conform to these design rules.</description>
 </element>
 <element name="JP2" library="SparkFun-Connectors" package="1X04" value="SPI" x="17.78" y="39.37" smashed="yes" rot="R90">
 <attribute name="NAME" x="15.9512" y="38.0238" size="0.6096" layer="25" ratio="10" rot="R90"/>
-<attribute name="VALUE" x="20.32" y="38.1" size="0.6096" layer="25" rot="R90"/>
+<attribute name="VALUE" x="15.875" y="41.91" size="0.6096" layer="25" rot="R90"/>
 </element>
 <element name="JP6" library="SparkFun-Connectors" package="1X06" value="PRGRM" x="40.64" y="53.34" smashed="yes">
 <attribute name="PROD_ID" value="CONN-08437" x="40.64" y="53.34" size="1.778" layer="27" display="off"/>
@@ -1877,12 +1877,12 @@ Please make sure your boards conform to these design rules.</description>
 <attribute name="VALUE" x="39.37" y="50.8" size="0.6096" layer="25"/>
 </element>
 <element name="LED1" library="adafruit" package="CHIPLED_1206" value="Red" x="24.13" y="29.21" smashed="yes">
-<attribute name="NAME" x="22.225" y="27.94" size="0.6096" layer="25" rot="R90"/>
-<attribute name="VALUE" x="22.86" y="27.94" size="0.6096" layer="27" rot="R90"/>
+<attribute name="NAME" x="22.86" y="27.94" size="0.6096" layer="25" rot="R90"/>
+<attribute name="VALUE" x="24.13" y="26.035" size="0.6096" layer="27" rot="R90"/>
 </element>
 <element name="LED2" library="adafruit" package="CHIPLED_1206" value="Green" x="27.94" y="29.21" smashed="yes">
 <attribute name="NAME" x="29.845" y="27.94" size="0.6096" layer="25" rot="R90"/>
-<attribute name="VALUE" x="30.48" y="27.94" size="0.6096" layer="27" rot="R90"/>
+<attribute name="VALUE" x="27.94" y="24.765" size="0.6096" layer="27" rot="R90"/>
 </element>
 <element name="R1" library="SparkFun-Resistors" package="1206" value="1K" x="29.21" y="21.59" smashed="yes" rot="R90">
 <attribute name="NAME" x="28.067" y="20.32" size="0.6096" layer="25" rot="R90"/>
@@ -1910,7 +1910,7 @@ Please make sure your boards conform to these design rules.</description>
 </element>
 <element name="D1" library="SparkFun-DiscreteSemi" package="DIODE-1N4001" value="1N5817" x="64.77" y="11.43" smashed="yes">
 <attribute name="NAME" x="61.849" y="13.081" size="0.6096" layer="25"/>
-<attribute name="VALUE" x="61.849" y="10.922" size="0.6096" layer="21" ratio="12"/>
+<attribute name="VALUE" x="65.024" y="13.462" size="0.6096" layer="21" ratio="12"/>
 </element>
 <element name="F1" library="SparkFun-Fuses" package="1206" value="2A" x="62.23" y="35.56" smashed="yes" rot="R90">
 <attribute name="VALUE" value="6V/0.5A" x="62.23" y="35.56" size="1.778" layer="27" rot="R90" display="off"/>
@@ -1954,7 +1954,7 @@ Please make sure your boards conform to these design rules.</description>
 </element>
 <element name="C9" library="adafruit" package="C1206" value="10 uF" x="82.55" y="44.45" smashed="yes" rot="R90">
 <attribute name="NAME" x="81.407" y="43.18" size="0.6096" layer="25" rot="R90"/>
-<attribute name="VALUE" x="84.963" y="43.18" size="0.6096" layer="27" rot="R90"/>
+<attribute name="VALUE" x="84.328" y="43.18" size="0.6096" layer="27" rot="R90"/>
 </element>
 <element name="IC1" library="adafruit" package="TO92" value="MCP1702" x="52.07" y="31.75" smashed="yes">
 <attribute name="NAME" x="54.483" y="33.401" size="0.6096" layer="25" ratio="10"/>
@@ -1963,13 +1963,13 @@ Please make sure your boards conform to these design rules.</description>
 <element name="C10" library="SparkFun-Capacitors" package="1206" value="0.1 uF" x="78.74" y="44.45" smashed="yes" rot="R90">
 <attribute name="PROD_ID" value="CAP-09822" x="78.74" y="44.45" size="1.778" layer="27" rot="R90" display="off"/>
 <attribute name="VALUE" value="1.0uF" x="78.74" y="44.45" size="1.778" layer="27" rot="R90" display="off"/>
-<attribute name="NAME" x="77.597" y="43.18" size="0.6096" layer="25" font="vector" ratio="20" rot="R90" align="bottom-center"/>
+<attribute name="NAME" x="78.867" y="41.91" size="0.6096" layer="25" font="vector" ratio="20" rot="R90" align="bottom-center"/>
 <attribute name="VALUE" x="79.883" y="44.45" size="0.6096" layer="27" font="vector" ratio="20" rot="R90" align="top-center"/>
 </element>
 <element name="C11" library="SparkFun-Capacitors" package="1206" value="0.1 uF" x="82.55" y="50.8" smashed="yes" rot="R90">
 <attribute name="PROD_ID" value="CAP-09822" x="82.55" y="50.8" size="1.778" layer="27" rot="R90" display="off"/>
 <attribute name="VALUE" value="1.0uF" x="82.55" y="50.8" size="1.778" layer="27" rot="R90" display="off"/>
-<attribute name="NAME" x="81.407" y="50.8" size="0.6096" layer="25" font="vector" ratio="20" rot="R90" align="bottom-center"/>
+<attribute name="NAME" x="82.677" y="48.26" size="0.6096" layer="25" font="vector" ratio="20" rot="R90" align="bottom-center"/>
 <attribute name="VALUE" x="83.693" y="50.8" size="0.6096" layer="27" font="vector" ratio="20" rot="R90" align="top-center"/>
 </element>
 <element name="SW2" library="special" package="EDG-01" value="PI" x="69.85" y="26.67" smashed="yes">
@@ -1991,27 +1991,27 @@ Please make sure your boards conform to these design rules.</description>
 <element name="JP7" library="SparkFun-Connectors" package="USB-MICROB" value="USB-MICROB" x="17.78" y="31.75" smashed="yes" rot="R270">
 <attribute name="PROD_ID" value="CONN-09505" x="-193.04" y="92.71" size="1.778" layer="27" rot="R270" display="off"/>
 <attribute name="NAME" x="17.43" y="33.35" size="0.6096" layer="25" rot="R270"/>
-<attribute name="VALUE" x="14.605" y="33.655" size="0.6096" layer="27" rot="R270"/>
+<attribute name="VALUE" x="16.51" y="33.655" size="0.6096" layer="27" rot="R270"/>
 </element>
 <element name="CNTRL_INPUTS" library="SparkFun-Connectors" package="1X02" value="" x="25.4" y="53.34" smashed="yes">
 <attribute name="NAME" x="24.0538" y="55.1688" size="0.6096" layer="25" ratio="10"/>
 <attribute name="VALUE" x="24.13" y="50.165" size="1.27" layer="27"/>
 </element>
 <element name="D3" library="SparkFun-DiscreteSemi" package="DIODE-1N4001" value="TVS" x="64.77" y="16.51" smashed="yes" rot="R180">
-<attribute name="NAME" x="67.691" y="14.859" size="0.6096" layer="25" rot="R180"/>
-<attribute name="VALUE" x="67.691" y="17.018" size="0.6096" layer="21" ratio="12" rot="R180"/>
+<attribute name="NAME" x="63.881" y="18.669" size="0.6096" layer="25" rot="R180"/>
+<attribute name="VALUE" x="67.056" y="18.923" size="0.6096" layer="21" ratio="12" rot="R180"/>
 </element>
 <element name="C12" library="SparkFun-Capacitors" package="1206" value="0.1 uF" x="78.74" y="50.8" smashed="yes" rot="R90">
 <attribute name="PROD_ID" value="CAP-09822" x="78.74" y="50.8" size="1.778" layer="27" rot="R90" display="off"/>
 <attribute name="VALUE" value="1.0uF" x="78.74" y="50.8" size="1.778" layer="27" rot="R90" display="off"/>
-<attribute name="NAME" x="77.597" y="50.8" size="0.6096" layer="25" font="vector" ratio="20" rot="R90" align="bottom-center"/>
+<attribute name="NAME" x="78.867" y="48.26" size="0.6096" layer="25" font="vector" ratio="20" rot="R90" align="bottom-center"/>
 <attribute name="VALUE" x="79.883" y="50.8" size="0.6096" layer="27" font="vector" ratio="20" rot="R90" align="top-center"/>
 </element>
 <element name="CIO" library="SparkFun-Capacitors" package="1206" value="0.1 uF" x="64.77" y="50.8" smashed="yes" rot="R90">
 <attribute name="PROD_ID" value="CAP-09822" x="64.77" y="50.8" size="1.778" layer="27" rot="R90" display="off"/>
 <attribute name="VALUE" value="1.0uF" x="64.77" y="50.8" size="1.778" layer="27" rot="R90" display="off"/>
 <attribute name="NAME" x="63.627" y="50.8" size="0.6096" layer="25" font="vector" ratio="20" rot="R90" align="bottom-center"/>
-<attribute name="VALUE" x="66.548" y="50.8" size="0.6096" layer="27" font="vector" ratio="20" rot="R90" align="top-center"/>
+<attribute name="VALUE" x="65.913" y="50.8" size="0.6096" layer="27" font="vector" ratio="20" rot="R90" align="top-center"/>
 </element>
 <element name="C13" library="adafruit" package="C1206" value="10uF" x="60.96" y="48.26" smashed="yes" rot="R90">
 <attribute name="NAME" x="59.817" y="46.99" size="0.6096" layer="25" rot="R90"/>
@@ -2023,17 +2023,17 @@ Please make sure your boards conform to these design rules.</description>
 </element>
 <element name="U4" library="SparkFun-Sensors" package="LGA8" value="MPL3115A2LGA8" x="66.04" y="44.45" smashed="yes" rot="R180">
 <attribute name="NAME" x="67.564" y="41.783" size="0.6096" layer="25" font="vector" ratio="15" rot="R180"/>
-<attribute name="VALUE" x="67.564" y="47.498" size="0.6096" layer="27" font="vector" ratio="15" rot="R180"/>
+<attribute name="VALUE" x="70.739" y="41.148" size="0.6096" layer="27" font="vector" ratio="15" rot="R180"/>
 </element>
 <element name="C14" library="SparkFun-Capacitors" package="1206" value="0.1 uF" x="74.93" y="50.8" smashed="yes" rot="R270">
 <attribute name="PROD_ID" value="CAP-09822" x="74.93" y="50.8" size="1.778" layer="27" rot="R270" display="off"/>
 <attribute name="VALUE" value="1.0uF" x="74.93" y="50.8" size="1.778" layer="27" rot="R270" display="off"/>
-<attribute name="NAME" x="76.073" y="50.8" size="0.6096" layer="25" font="vector" ratio="20" rot="R270" align="bottom-center"/>
-<attribute name="VALUE" x="73.787" y="50.8" size="0.6096" layer="27" font="vector" ratio="20" rot="R270" align="top-center"/>
+<attribute name="NAME" x="74.803" y="48.26" size="0.6096" layer="25" font="vector" ratio="20" rot="R270" align="bottom-center"/>
+<attribute name="VALUE" x="76.962" y="50.8" size="0.6096" layer="27" font="vector" ratio="20" rot="R270" align="top-center"/>
 </element>
 <element name="C15" library="adafruit" package="C1206" value="10uF" x="74.93" y="44.45" smashed="yes" rot="R270">
-<attribute name="NAME" x="76.073" y="45.72" size="0.6096" layer="25" rot="R270"/>
-<attribute name="VALUE" x="72.517" y="45.72" size="0.6096" layer="27" rot="R270"/>
+<attribute name="NAME" x="74.803" y="42.545" size="0.6096" layer="25" rot="R270"/>
+<attribute name="VALUE" x="76.327" y="45.085" size="0.6096" layer="27" rot="R270"/>
 </element>
 <element name="C16" library="SparkFun-Capacitors" package="1206" value="0.1 uF" x="60.96" y="41.91" smashed="yes" rot="R270">
 <attribute name="PROD_ID" value="CAP-09822" x="60.96" y="41.91" size="1.778" layer="27" rot="R270" display="off"/>
@@ -2044,7 +2044,7 @@ Please make sure your boards conform to these design rules.</description>
 <element name="C17" library="SparkFun-Capacitors" package="1206" value="1.0uF" x="71.12" y="44.45" smashed="yes" rot="R270">
 <attribute name="PROD_ID" value="CAP-09822" x="71.12" y="44.45" size="1.778" layer="27" rot="R270" display="off"/>
 <attribute name="VALUE" value="1.0uF" x="71.12" y="44.45" size="1.778" layer="27" rot="R270" display="off"/>
-<attribute name="NAME" x="72.263" y="44.45" size="0.6096" layer="25" font="vector" ratio="20" rot="R270" align="bottom-center"/>
+<attribute name="NAME" x="70.993" y="41.91" size="0.6096" layer="25" font="vector" ratio="20" rot="R270" align="bottom-center"/>
 <attribute name="VALUE" x="69.977" y="44.45" size="0.6096" layer="27" font="vector" ratio="20" rot="R270" align="top-center"/>
 </element>
 <element name="U5" library="SparkFun-IC-Microcontroller" package="TQFP32-08" value="ATMEGA328P_TQFP" x="34.29" y="40.64" smashed="yes">
@@ -2070,7 +2070,7 @@ Please make sure your boards conform to these design rules.</description>
 <attribute name="PROD_ID" value="CAP-09822" x="21.59" y="40.64" size="1.778" layer="27" rot="R90" display="off"/>
 <attribute name="VALUE" value="1.0uF" x="21.59" y="40.64" size="1.778" layer="27" rot="R90" display="off"/>
 <attribute name="NAME" x="20.447" y="40.64" size="0.6096" layer="25" font="vector" ratio="20" rot="R90" align="bottom-center"/>
-<attribute name="VALUE" x="22.733" y="40.64" size="0.6096" layer="27" font="vector" ratio="20" rot="R90" align="top-center"/>
+<attribute name="VALUE" x="21.463" y="37.465" size="0.6096" layer="27" font="vector" ratio="20" rot="R90" align="top-center"/>
 </element>
 <element name="C20" library="SparkFun-Capacitors" package="1206" value="22 pF" x="25.4" y="48.26" smashed="yes">
 <attribute name="PROD_ID" value="CAP-09822" x="25.4" y="48.26" size="1.778" layer="27" display="off"/>
@@ -2100,15 +2100,15 @@ Please make sure your boards conform to these design rules.</description>
 </element>
 <element name="LED6" library="adafruit" package="CHIPLED_1206" value="Green" x="48.26" y="44.45" smashed="yes" rot="R90">
 <attribute name="NAME" x="49.53" y="43.18" size="0.6096" layer="25" rot="R180"/>
-<attribute name="VALUE" x="49.53" y="46.99" size="0.6096" layer="27" rot="R180"/>
+<attribute name="VALUE" x="46.355" y="44.45" size="0.6096" layer="27" rot="R180"/>
 </element>
 <element name="LED7" library="adafruit" package="CHIPLED_1206" value="Yellow" x="48.26" y="40.64" smashed="yes" rot="R90">
 <attribute name="NAME" x="49.53" y="39.37" size="0.6096" layer="25" rot="R180"/>
-<attribute name="VALUE" x="49.53" y="43.18" size="0.6096" layer="27" rot="R180"/>
+<attribute name="VALUE" x="46.355" y="40.64" size="0.6096" layer="27" rot="R180"/>
 </element>
 <element name="LED8" library="adafruit" package="CHIPLED_1206" value="Blue" x="48.26" y="36.83" smashed="yes" rot="R90">
 <attribute name="NAME" x="49.53" y="35.56" size="0.6096" layer="25" rot="R180"/>
-<attribute name="VALUE" x="49.53" y="39.37" size="0.6096" layer="27" rot="R180"/>
+<attribute name="VALUE" x="46.355" y="37.465" size="0.6096" layer="27" rot="R180"/>
 </element>
 <element name="JP9" library="SparkFun-Connectors" package="1X02" value="I2C" x="60.96" y="53.34" smashed="yes" rot="R180">
 <attribute name="NAME" x="62.3062" y="51.5112" size="0.6096" layer="25" ratio="10" rot="R180"/>
@@ -2124,7 +2124,6 @@ Please make sure your boards conform to these design rules.</description>
 </element>
 <element name="U$3" library="custom" package="2X20-NOSILK" value="RASPBERRY-PI-HEADER2B" x="73.66" y="7.62" smashed="yes" rot="R180">
 <attribute name="NAME" x="74.295" y="3.556" size="0.6096" layer="25" font="vector" ratio="20" rot="R180"/>
-<attribute name="VALUE" x="74.295" y="10.033" size="0.6096" layer="27" font="vector" ratio="20" rot="R180"/>
 </element>
 <element name="R2" library="SparkFun-Resistors" package="1206" value="0" x="25.4" y="12.7" rot="R90"/>
 </elements>

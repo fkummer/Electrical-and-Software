@@ -2979,10 +2979,11 @@ Please make sure your boards conform to these design rules.</description>
 <wire x1="71.7804" y1="11.43" x2="75.057" y2="8.1534" width="0.508" layer="1"/>
 <wire x1="69.85" y1="11.43" x2="71.7804" y2="11.43" width="0.508" layer="1"/>
 <wire x1="73.6854" y1="5.1054" x2="73.66" y2="5.08" width="0.508" layer="1"/>
+<contactref element="U$3" pad="4"/>
+<wire x1="73.66" y1="5.08" x2="71.12" y2="5.08" width="0" layer="19" extent="1-1"/>
 </signal>
 <signal name="FT232_VCC">
 <contactref element="U$2" pad="3"/>
-<contactref element="U$3" pad="4"/>
 <contactref element="U2" pad="20"/>
 <contactref element="C5" pad="1"/>
 <contactref element="C2" pad="1"/>
@@ -3028,7 +3029,6 @@ Please make sure your boards conform to these design rules.</description>
 <wire x1="35.8902" y1="11.5062" x2="39.3192" y2="8.0772" width="0.1524" layer="1"/>
 <wire x1="35.5854" y1="11.5062" x2="35.8902" y2="11.5062" width="0.1524" layer="1"/>
 <wire x1="34.2519" y1="12.8397" x2="35.5854" y2="11.5062" width="0.1524" layer="1"/>
-<wire x1="71.0946" y1="5.1054" x2="71.12" y2="5.08" width="0.1524" layer="1"/>
 <wire x1="24.003" y1="12.4206" x2="24.2316" y2="12.4206" width="0.1524" layer="1"/>
 <wire x1="21.6408" y1="10.0584" x2="24.003" y2="12.4206" width="0.1524" layer="1"/>
 <wire x1="24.2316" y1="12.4206" x2="24.2697" y2="12.4587" width="0.1524" layer="1"/>
