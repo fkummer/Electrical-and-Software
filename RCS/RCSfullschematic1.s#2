@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE eagle SYSTEM "eagle.dtd">
-<eagle version="7.6.0">
+<eagle version="7.5.0">
 <drawing>
 <settings>
 <setting alwaysvectorfont="no"/>
@@ -18073,6 +18073,8 @@ Operational amplifiers,  comparators, voltage regulators, ADCs, DACs, etc.&lt;p&
 <classes>
 <class number="0" name="default" width="0" drill="0">
 </class>
+<class number="1" name="Motor" width="0.6985" drill="0">
+</class>
 </classes>
 <parts>
 <part name="U1" library="SparkFun-Sensors" deviceset="MPL3115A2" device=""/>
@@ -18564,7 +18566,7 @@ Operational amplifiers,  comparators, voltage regulators, ADCs, DACs, etc.&lt;p&
 <pinref part="C2" gate="G$1" pin="1"/>
 </segment>
 </net>
-<net name="6V_POWER" class="0">
+<net name="6V_POWER" class="1">
 <segment>
 <pinref part="D4" gate="G$1" pin="C"/>
 <wire x1="132.08" y1="10.16" x2="132.08" y2="12.7" width="0.1524" layer="91"/>
@@ -18592,14 +18594,14 @@ Operational amplifiers,  comparators, voltage regulators, ADCs, DACs, etc.&lt;p&
 <junction x="170.18" y="30.48"/>
 </segment>
 </net>
-<net name="N$4" class="0">
+<net name="N$4" class="1">
 <segment>
 <pinref part="D3" gate="G$1" pin="A"/>
 <wire x1="213.36" y1="30.48" x2="220.98" y2="30.48" width="0.1524" layer="91"/>
 <pinref part="F1" gate="1" pin="1"/>
 </segment>
 </net>
-<net name="N$2" class="0">
+<net name="N$2" class="1">
 <segment>
 <pinref part="T1" gate="G$1" pin="B"/>
 <pinref part="IC1" gate="G$1" pin="CT2"/>
@@ -18610,7 +18612,7 @@ Operational amplifiers,  comparators, voltage regulators, ADCs, DACs, etc.&lt;p&
 <junction x="162.56" y="55.88"/>
 </segment>
 </net>
-<net name="N$6" class="0">
+<net name="N$6" class="1">
 <segment>
 <pinref part="T1" gate="G$1" pin="C"/>
 <pinref part="SERVO" gate="G$1" pin="SIG"/>
@@ -19137,7 +19139,7 @@ Operational amplifiers,  comparators, voltage regulators, ADCs, DACs, etc.&lt;p&
 <pinref part="F3" gate="1" pin="1"/>
 </segment>
 </net>
-<net name="N$19" class="0">
+<net name="N$19" class="1">
 <segment>
 <wire x1="210.82" y1="246.38" x2="210.82" y2="256.54" width="0.1524" layer="91"/>
 <pinref part="SW3" gate="G$1" pin="2"/>
@@ -19145,14 +19147,14 @@ Operational amplifiers,  comparators, voltage regulators, ADCs, DACs, etc.&lt;p&
 <pinref part="MPWR1" gate="G$1" pin="2"/>
 </segment>
 </net>
-<net name="N$20" class="0">
+<net name="N$20" class="1">
 <segment>
 <pinref part="SW3" gate="G$1" pin="1"/>
 <pinref part="F4" gate="1" pin="1"/>
 <wire x1="238.76" y1="256.54" x2="256.54" y2="256.54" width="0.1524" layer="91"/>
 </segment>
 </net>
-<net name="N$21" class="0">
+<net name="N$21" class="1">
 <segment>
 <pinref part="F4" gate="1" pin="2"/>
 <wire x1="266.7" y1="256.54" x2="281.94" y2="256.54" width="0.1524" layer="91"/>
@@ -19167,7 +19169,7 @@ Operational amplifiers,  comparators, voltage regulators, ADCs, DACs, etc.&lt;p&
 <junction x="292.1" y="256.54"/>
 </segment>
 </net>
-<net name="N$22" class="0">
+<net name="N$22" class="1">
 <segment>
 <pinref part="R15" gate="G$1" pin="2"/>
 <pinref part="R14" gate="G$1" pin="1"/>
@@ -19178,7 +19180,7 @@ Operational amplifiers,  comparators, voltage regulators, ADCs, DACs, etc.&lt;p&
 <junction x="312.42" y="241.3"/>
 </segment>
 </net>
-<net name="VOUT-MOTOR" class="0">
+<net name="VOUT-MOTOR" class="1">
 <segment>
 <pinref part="C17" gate="G$1" pin="+"/>
 <wire x1="327.66" y1="256.54" x2="337.82" y2="256.54" width="0.1524" layer="91"/>
@@ -19217,7 +19219,7 @@ Operational amplifiers,  comparators, voltage regulators, ADCs, DACs, etc.&lt;p&
 <label x="525.78" y="40.64" size="1.27" layer="95" rot="R180" xref="yes"/>
 </segment>
 </net>
-<net name="GND1" class="0">
+<net name="GND1" class="1">
 <segment>
 <pinref part="C15" gate="G$1" pin="2"/>
 <wire x1="281.94" y1="241.3" x2="281.94" y2="228.6" width="0.1524" layer="91"/>
