@@ -18607,11 +18607,6 @@ Standard adjustable voltage regulator but in SMD form. Spark Fun Electronics SKU
 <junction x="589.28" y="60.96"/>
 </segment>
 <segment>
-<pinref part="U4" gate="G$1" pin="ADDR"/>
-<pinref part="R11" gate="G$1" pin="1"/>
-<wire x1="518.16" y1="132.08" x2="530.86" y2="132.08" width="0.1524" layer="91"/>
-</segment>
-<segment>
 <pinref part="U4" gate="G$1" pin="SDA"/>
 <wire x1="518.16" y1="121.92" x2="523.24" y2="121.92" width="0.1524" layer="91"/>
 <label x="523.24" y="121.92" size="1.27" layer="95" xref="yes"/>
@@ -19212,9 +19207,43 @@ Standard adjustable voltage regulator but in SMD form. Spark Fun Electronics SKU
 <label x="370.84" y="241.3" size="1.27" layer="95" rot="R180" xref="yes"/>
 </segment>
 </net>
+<net name="N$6" class="0">
+<segment>
+<pinref part="U4" gate="G$1" pin="ADDR"/>
+<pinref part="R11" gate="G$1" pin="1"/>
+<wire x1="518.16" y1="132.08" x2="530.86" y2="132.08" width="0.1524" layer="91"/>
+</segment>
+</net>
 </nets>
 </sheet>
 </sheets>
+<errors>
+<approved hash="104,1,-73.66,91.44,U1,VDD,LOGIC_VDD,,,"/>
+<approved hash="104,1,-73.66,88.9,U1,CAP,N$1,,,"/>
+<approved hash="104,1,-73.66,83.82,U1,VDDIO,LOGIC_VDD,,,"/>
+<approved hash="104,1,533.4,43.18,IC2,VCC,USBVDD,,,"/>
+<approved hash="202,1,533.4,30.48,IC2,OSCI,,,,"/>
+<approved hash="202,1,561.34,35.56,IC2,!CTS,,,,"/>
+<approved hash="202,1,561.34,30.48,IC2,!DSR,,,,"/>
+<approved hash="202,1,561.34,27.94,IC2,!DCD,,,,"/>
+<approved hash="202,1,561.34,25.4,IC2,!RI,,,,"/>
+<approved hash="104,1,533.4,40.64,IC2,VCCIO,VDD_IO,,,"/>
+<approved hash="202,1,533.4,35.56,IC2,!RESET,,,,"/>
+<approved hash="106,1,-53.34,27.94,CS,,,,,"/>
+<approved hash="106,1,-99.06,7.62,FSYNC,,,,,"/>
+<approved hash="106,1,-48.26,86.36,INT1,,,,,"/>
+<approved hash="106,1,-48.26,83.82,INT2,,,,,"/>
+<approved hash="113,1,43.2223,131.885,J1,,,,,"/>
+<approved hash="113,1,141.563,110.685,MCU,,,,,"/>
+<approved hash="113,1,206.417,110.295,POT,,,,,"/>
+<approved hash="113,1,380.323,89.0947,J6,,,,,"/>
+<approved hash="113,1,462.28,90.5849,SW1,,,,,"/>
+<approved hash="113,1,236.22,222.381,SW2,,,,,"/>
+<approved hash="113,1,312.42,216.383,LM117,,,,,"/>
+<approved hash="113,1,231.14,257.941,SW3,,,,,"/>
+<approved hash="113,1,312.42,251.943,IC3,,,,,"/>
+<approved hash="115,1,439.42,74.93,RESET,,,,,"/>
+</errors>
 </schematic>
 </drawing>
 <compatibility>
