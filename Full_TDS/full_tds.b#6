@@ -2064,7 +2064,7 @@ Please make sure your boards conform to these design rules.</description>
 </element>
 <element name="Q5" library="special" package="QS" value="8MHz" x="25.4" y="40.64" smashed="yes" rot="R90">
 <attribute name="VALUE" x="29.337" y="35.56" size="0.6096" layer="27" ratio="10" rot="R90"/>
-<attribute name="NAME" x="22.733" y="35.56" size="0.6096" layer="25" ratio="10" rot="R90"/>
+<attribute name="NAME" x="24.003" y="34.29" size="0.6096" layer="25" ratio="10" rot="R90"/>
 </element>
 <element name="C19" library="SparkFun-Capacitors" package="1206" value="22 pF" x="21.59" y="40.64" smashed="yes" rot="R90">
 <attribute name="PROD_ID" value="CAP-09822" x="21.59" y="40.64" size="1.778" layer="27" rot="R90" display="off"/>
