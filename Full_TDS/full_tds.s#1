@@ -12912,6 +12912,7 @@ You are welcome to use this library for commercial purposes. For attribution, we
 <wire x1="-73.66" y1="162.56" x2="-48.26" y2="162.56" width="0.1524" layer="91"/>
 <junction x="-48.26" y="162.56"/>
 <pinref part="R2" gate="G$1" pin="1"/>
+<label x="-63.5" y="162.56" size="1.778" layer="95" rot="R270" xref="yes"/>
 </segment>
 </net>
 <net name="SENSOR_PWR_CNTRL" class="0">
@@ -13297,10 +13298,34 @@ You are welcome to use this library for commercial purposes. For attribution, we
 <approved hash="104,1,2.54,127,U2,GND21,GND-ISO,,,"/>
 <approved hash="104,1,2.54,149.86,U2,VCCIO,N$4,,,"/>
 <approved hash="104,1,2.54,134.62,U2,AGND,GND-ISO,,,"/>
+<approved hash="104,1,2.54,154.94,U2,VCC,FT232_VCC,,,"/>
 <approved hash="202,1,33.02,154.94,U2,CTS,,,,"/>
 <approved hash="202,1,33.02,132.08,U2,PWREN,,,,"/>
 <approved hash="202,1,33.02,129.54,U2,TXDEN,,,,"/>
 <approved hash="202,1,33.02,127,U2,SLEEP,,,,"/>
+<approved hash="204,1,25.4,241.3,U$3,3.3V,,,,"/>
+<approved hash="104,1,25.4,205.74,U$3,GND,GND-ISO,,,"/>
+<approved hash="204,1,25.4,238.76,U$3,3.3V,,,,"/>
+<approved hash="104,1,25.4,198.12,U$3,GND,GND-ISO,,,"/>
+<approved hash="104,1,25.4,200.66,U$3,GND,GND-ISO,,,"/>
+<approved hash="104,1,25.4,203.2,U$3,GND,GND-ISO,,,"/>
+<approved hash="202,1,55.88,236.22,U$3,RXI,,,,"/>
+<approved hash="104,1,25.4,208.28,U$3,GND,GND-ISO,,,"/>
+<approved hash="104,1,25.4,243.84,U$3,5V,PI_5V,,,"/>
+<approved hash="104,1,25.4,246.38,U$3,5V,PI_5V,,,"/>
+<approved hash="104,1,25.4,195.58,U$3,GND,GND-ISO,,,"/>
+<approved hash="104,1,25.4,193.04,U$3,GND,GND-ISO,,,"/>
+<approved hash="104,1,25.4,190.5,U$3,GND,GND-ISO,,,"/>
+<approved hash="106,1,-121.92,-15.24,ACCEL_INT1,,,,,"/>
+<approved hash="106,1,-121.92,-17.78,ACCEL_INT2,,,,,"/>
+<approved hash="106,1,5.08,-5.08,ALT_INT1,,,,,"/>
+<approved hash="106,1,5.08,-7.62,ALT_INT2,,,,,"/>
+<approved hash="106,1,30.48,66.04,INT0,,,,,"/>
+<approved hash="106,1,30.48,63.5,INT1,,,,,"/>
+<approved hash="106,1,30.48,60.96,IO4,,,,,"/>
+<approved hash="113,1,132.757,109.025,PI,,,,,"/>
+<approved hash="113,1,132.752,93.7853,3.3V,,,,,"/>
+<approved hash="113,1,140.377,78.5453,CNTRL_INPUTS,,,,,"/>
 </errors>
 </schematic>
 </drawing>

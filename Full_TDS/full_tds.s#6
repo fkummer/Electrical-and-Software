@@ -12074,6 +12074,8 @@ You are welcome to use this library for commercial purposes. For attribution, we
 <class number="1" name="actuator" width="0.8128" drill="0">
 <clearance class="1" value="0.2286"/>
 </class>
+<class number="2" name="pi" width="0.508" drill="0">
+</class>
 </classes>
 <parts>
 <part name="JP6" library="SparkFun-Connectors" deviceset="M06" device="SILK_FEMALE_PTH" value="PRGRM"/>
@@ -12279,7 +12281,7 @@ You are welcome to use this library for commercial purposes. For attribution, we
 <busses>
 </busses>
 <nets>
-<net name="GND-ISO" class="0">
+<net name="GND-ISO" class="2">
 <segment>
 <pinref part="C5" gate="G$1" pin="2"/>
 <pinref part="GND-ISO3" gate="G$1" pin="GND-ISO"/>
@@ -12855,14 +12857,14 @@ You are welcome to use this library for commercial purposes. For attribution, we
 <label x="33.02" y="45.72" size="1.27" layer="95" xref="yes"/>
 </segment>
 </net>
-<net name="N$13" class="0">
+<net name="N$13" class="2">
 <segment>
 <pinref part="F1" gate="G$1" pin="2"/>
 <pinref part="D1" gate="G$1" pin="A"/>
 <wire x1="-132.08" y1="101.6" x2="-129.54" y2="101.6" width="0.1524" layer="91"/>
 </segment>
 </net>
-<net name="PI_5V" class="0">
+<net name="PI_5V" class="2">
 <segment>
 <pinref part="D1" gate="G$1" pin="C"/>
 <wire x1="-124.46" y1="101.6" x2="-114.3" y2="101.6" width="0.1524" layer="91"/>
@@ -12879,7 +12881,7 @@ You are welcome to use this library for commercial purposes. For attribution, we
 <label x="22.86" y="246.38" size="1.27" layer="95" rot="R180" xref="yes"/>
 </segment>
 </net>
-<net name="5V" class="0">
+<net name="5V" class="2">
 <segment>
 <wire x1="-165.1" y1="127" x2="-165.1" y2="132.08" width="0.1524" layer="91"/>
 <pinref part="R10" gate="G$1" pin="2"/>
@@ -13001,7 +13003,7 @@ You are welcome to use this library for commercial purposes. For attribution, we
 <label x="-60.96" y="5.08" size="1.27" layer="95" rot="R90" xref="yes"/>
 </segment>
 </net>
-<net name="5V_RAW" class="0">
+<net name="5V_RAW" class="2">
 <segment>
 <wire x1="-185.42" y1="55.88" x2="-185.42" y2="63.5" width="0.1524" layer="91"/>
 <wire x1="-185.42" y1="55.88" x2="-180.34" y2="55.88" width="0.1524" layer="91"/>
@@ -13032,7 +13034,7 @@ You are welcome to use this library for commercial purposes. For attribution, we
 <label x="-66.04" y="162.56" size="1.27" layer="95" rot="R180" xref="yes"/>
 </segment>
 </net>
-<net name="5V_SWITCH" class="0">
+<net name="5V_SWITCH" class="2">
 <segment>
 <pinref part="F3" gate="G$1" pin="1"/>
 <wire x1="-160.02" y1="55.88" x2="-165.1" y2="55.88" width="0.1524" layer="91"/>
@@ -13209,7 +13211,7 @@ You are welcome to use this library for commercial purposes. For attribution, we
 <wire x1="-165.1" y1="93.98" x2="-165.1" y2="111.76" width="0.1524" layer="91"/>
 </segment>
 </net>
-<net name="N$3" class="0">
+<net name="N$3" class="2">
 <segment>
 <pinref part="U$2" gate="G$1" pin="D1.(P)"/>
 <pinref part="U$2" gate="G$1" pin="D1(P)"/>
