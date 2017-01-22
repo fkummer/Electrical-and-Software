@@ -12,12 +12,12 @@
 <layer number="16" name="Bottom" color="1" fill="1" visible="yes" active="yes"/>
 <layer number="17" name="Pads" color="2" fill="1" visible="yes" active="yes"/>
 <layer number="18" name="Vias" color="2" fill="1" visible="yes" active="yes"/>
-<layer number="19" name="Unrouted" color="6" fill="1" visible="yes" active="yes"/>
+<layer number="19" name="Unrouted" color="6" fill="1" visible="no" active="yes"/>
 <layer number="20" name="Dimension" color="15" fill="1" visible="yes" active="yes"/>
-<layer number="21" name="tPlace" color="7" fill="1" visible="yes" active="yes"/>
-<layer number="22" name="bPlace" color="7" fill="1" visible="yes" active="yes"/>
-<layer number="23" name="tOrigins" color="15" fill="1" visible="yes" active="yes"/>
-<layer number="24" name="bOrigins" color="15" fill="1" visible="yes" active="yes"/>
+<layer number="21" name="tPlace" color="7" fill="1" visible="no" active="yes"/>
+<layer number="22" name="bPlace" color="7" fill="1" visible="no" active="yes"/>
+<layer number="23" name="tOrigins" color="15" fill="1" visible="no" active="yes"/>
+<layer number="24" name="bOrigins" color="15" fill="1" visible="no" active="yes"/>
 <layer number="25" name="tNames" color="7" fill="1" visible="yes" active="yes"/>
 <layer number="26" name="bNames" color="7" fill="1" visible="yes" active="yes"/>
 <layer number="27" name="tValues" color="7" fill="1" visible="yes" active="yes"/>
@@ -154,6 +154,34 @@
 <text x="42.8625" y="50.165" size="0.8128" layer="25" font="vector" ratio="10" rot="MR0">V</text>
 <text x="42.2275" y="47.9425" size="0.8128" layer="25" font="vector" ratio="10">G</text>
 <text x="42.2275" y="53.0225" size="0.8128" layer="25" font="vector" ratio="10">S</text>
+<text x="36.195" y="78.4225" size="0.8128" layer="25" font="vector" ratio="10" rot="MR0">+</text>
+<text x="41.91" y="78.4225" size="0.8128" layer="25" font="vector" ratio="10" rot="MR0">-</text>
+<text x="6.985" y="78.4225" size="0.8128" layer="25" font="vector" ratio="10" rot="MR0">+</text>
+<text x="12.3825" y="78.4225" size="0.8128" layer="25" font="vector" ratio="10" rot="MR0">-</text>
+<text x="13.335" y="58.7375" size="0.8128" layer="25" font="vector" ratio="10" rot="MR0">-</text>
+<text x="13.335" y="62.865" size="0.8128" layer="25" font="vector" ratio="10" rot="MR0">-</text>
+<text x="19.685" y="63.1825" size="0.8128" layer="25" font="vector" ratio="10" rot="MR0">+</text>
+<text x="19.685" y="58.7375" size="0.8128" layer="25" font="vector" ratio="10" rot="MR0">+</text>
+<text x="27.305" y="59.3725" size="0.8128" layer="25" font="vector" ratio="10" rot="MR0">-</text>
+<text x="33.3375" y="64.4525" size="0.8128" layer="25" font="vector" ratio="10" rot="MR0">-</text>
+<text x="39.37" y="64.4525" size="0.8128" layer="25" font="vector" ratio="10" rot="MR0">+</text>
+<text x="33.655" y="59.055" size="0.8128" layer="25" font="vector" ratio="10" rot="MR0">+</text>
+<text x="1.27" y="43.815" size="0.8128" layer="25" font="vector" ratio="10" rot="R90">FEED</text>
+<text x="5.08" y="41.5925" size="0.8128" layer="25" font="vector" ratio="10" rot="MR0">+</text>
+<text x="5.08" y="48.5775" size="0.8128" layer="25" font="vector" ratio="10" rot="MR0">-</text>
+<text x="8.255" y="5.08" size="0.8128" layer="25" font="vector" ratio="10" rot="R180">FEED</text>
+<text x="8.89" y="4.445" size="0.8128" layer="25" font="vector" ratio="10">SIG</text>
+<text x="12.3825" y="4.1275" size="0.8128" layer="25" font="vector" ratio="10" rot="MR0">-</text>
+<text x="16.51" y="4.1275" size="0.8128" layer="25" font="vector" ratio="10" rot="MR0">-</text>
+<text x="19.3675" y="4.1275" size="0.8128" layer="25" font="vector" ratio="10" rot="MR0">+</text>
+<text x="21.9075" y="4.1275" size="0.8128" layer="25" font="vector" ratio="10" rot="R90">RESET</text>
+<text x="24.4475" y="4.1275" size="0.8128" layer="25" font="vector" ratio="10" rot="R90">MOSI</text>
+<text x="26.9875" y="4.1275" size="0.8128" layer="25" font="vector" ratio="10" rot="R90">MISO</text>
+<text x="29.5275" y="4.1275" size="0.8128" layer="25" font="vector" ratio="10" rot="R90">SCK</text>
+<text x="33.9725" y="4.445" size="0.8128" layer="25" font="vector" ratio="10" rot="R90">SCL</text>
+<text x="36.5125" y="4.445" size="0.8128" layer="25" font="vector" ratio="10" rot="R90">SDA</text>
+<text x="41.5925" y="4.1275" size="0.8128" layer="25" font="vector" ratio="10" rot="MR0">-</text>
+<text x="39.0525" y="4.1275" size="0.8128" layer="25" font="vector" ratio="10" rot="MR0">+</text>
 </plain>
 <libraries>
 <library name="SparkFun-Capacitors">
@@ -2606,41 +2634,37 @@ Please make sure your boards conform to these design rules.</description>
 <attribute name="OC_NEWARK" value="unknown" x="37.465" y="2.54" size="1.778" layer="27" display="off"/>
 <attribute name="OC_FARNELL" value="unknown" x="37.465" y="2.54" size="1.778" layer="27" display="off"/>
 <attribute name="MF" value="" x="37.465" y="2.54" size="1.778" layer="27" display="off"/>
-<attribute name="NAME" x="32.385" y="4.191" size="1.27" layer="25" font="vector" ratio="10"/>
 <attribute name="VALUE" x="38.1" y="4.191" size="1.27" layer="27" ratio="10"/>
 </element>
 <element name="J6" library="SparkFun-Connectors" package="1X06_LOCK" value="" x="16.51" y="2.54" smashed="yes">
-<attribute name="NAME" x="15.24" y="4.318" size="1.27" layer="25" font="vector"/>
 <attribute name="VALUE" x="15.24" y="-0.762" size="1.27" layer="27" font="vector"/>
 </element>
 <element name="J7" library="SparkFun-Connectors" package="USB-MICROB" value="USB-MICROB" x="2.54" y="10.16" smashed="yes" rot="R270">
 <attribute name="PROD_ID" value="CONN-09505" x="2.54" y="10.16" size="1.778" layer="27" rot="R270" display="off"/>
 </element>
 <element name="JP1" library="SparkFun-Connectors" package="1X02" value="SENSOR/MCU" x="3.175" y="54.61" smashed="yes" rot="R270">
-<attribute name="NAME" x="5.0038" y="55.9562" size="1.27" layer="25" font="vector" ratio="10" rot="R270"/>
-<attribute name="VALUE" x="0" y="55.88" size="1.27" layer="27" font="vector" rot="R270"/>
+<attribute name="VALUE" x="0.635" y="57.15" size="0.8128" layer="27" font="vector" rot="R270"/>
 </element>
 <element name="JP5" library="SparkFun-Connectors" package="1X02" value="MOTOR" x="3.175" y="61.595" smashed="yes" rot="R270">
-<attribute name="NAME" x="5.0038" y="62.9412" size="1.27" layer="25" font="vector" ratio="10" rot="R270"/>
-<attribute name="VALUE" x="0" y="62.865" size="1.27" layer="27" font="vector" rot="R270"/>
+<attribute name="VALUE" x="0.635" y="62.5475" size="0.8128" layer="27" font="vector" rot="R270"/>
 </element>
 <element name="LM117" library="SparkFun-IC-Power" package="SOT223" value="" x="31.75" y="50.8">
 <attribute name="PROD_ID" value="VREG-08170" x="31.75" y="50.8" size="1.778" layer="27" display="off"/>
 </element>
 <element name="MCU" library="SparkFun-Connectors" package="1X03" value="" x="6.985" y="2.54" smashed="yes">
-<attribute name="NAME" x="5.6388" y="4.3688" size="1.27" layer="25" font="vector" ratio="10"/>
+<attribute name="NAME" x="8.0137" y="1.0287" size="0.8128" layer="25" font="vector" ratio="10" rot="R180"/>
 <attribute name="VALUE" x="5.715" y="-0.635" size="1.27" layer="27"/>
 </element>
 <element name="MPWR1" library="SparkFun-Connectors" package="1X02" value="11.1" x="10.795" y="77.47" smashed="yes" rot="R180">
-<attribute name="NAME" x="12.1412" y="75.6412" size="1.27" layer="25" font="vector" ratio="10" rot="R180"/>
-<attribute name="VALUE" x="13.335" y="74.295" size="1.27" layer="27" font="vector"/>
+<attribute name="NAME" x="12.1412" y="75.6412" size="0.8128" layer="25" font="vector" ratio="10" rot="R180"/>
+<attribute name="VALUE" x="5.715" y="75.2475" size="0.8128" layer="27" font="vector"/>
 </element>
 <element name="MPWR2" library="SparkFun-Connectors" package="1X02" value="7.4V" x="40.005" y="77.47" smashed="yes" rot="R180">
-<attribute name="NAME" x="41.3512" y="75.6412" size="1.27" layer="25" font="vector" ratio="10" rot="R180"/>
-<attribute name="VALUE" x="33.655" y="78.74" size="1.27" layer="27" font="vector" rot="R270"/>
+<attribute name="NAME" x="41.3512" y="75.6412" size="0.8128" layer="25" font="vector" ratio="10" rot="R180"/>
+<attribute name="VALUE" x="34.925" y="78.74" size="0.8128" layer="27" font="vector" rot="R270"/>
 </element>
 <element name="POT" library="SparkFun-Connectors" package="1X03" value="" x="3.175" y="42.545" smashed="yes" rot="R90">
-<attribute name="NAME" x="1.3462" y="41.1988" size="1.27" layer="25" font="vector" ratio="10" rot="R90"/>
+<attribute name="NAME" x="1.3462" y="41.1988" size="0.8128" layer="25" font="vector" ratio="10" rot="R90"/>
 <attribute name="VALUE" x="6.35" y="41.275" size="1.27" layer="27" rot="R90"/>
 </element>
 <element name="Q2" library="adafruit" package="HC49/S" value="8 MHz" x="10.795" y="12.7" smashed="yes" rot="R90">
@@ -2727,7 +2751,7 @@ Please make sure your boards conform to these design rules.</description>
 </element>
 <element name="U3" library="SparkFun-DigitalIC" package="TQFP32-08" value="ATMEGA328P_TQFP" x="29.21" y="12.065" smashed="yes">
 <attribute name="PROD_ID" value="IC-09069" x="29.21" y="12.065" size="1.778" layer="27" display="off"/>
-<attribute name="VALUE" x="25.4" y="6.35" size="0.8128" layer="27" font="vector" ratio="10"/>
+<attribute name="VALUE" x="23.495" y="17.4625" size="0.8128" layer="27" font="vector" ratio="10"/>
 </element>
 <element name="U4" library="SparkFun-AnalogIC" package="MSOP10" value="ADS1015" x="41.91" y="19.685" smashed="yes" rot="R270">
 <attribute name="PROD_ID" value="IC-12239" x="41.91" y="19.685" size="1.778" layer="27" rot="R270" display="off"/>

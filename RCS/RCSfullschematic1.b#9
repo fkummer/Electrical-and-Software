@@ -2281,6 +2281,8 @@ Source: http://www.linear.com .. LT1996</description>
 <classes>
 <class number="0" name="default" width="0" drill="0">
 </class>
+<class number="1" name="Motor" width="0.029971875" drill="0">
+</class>
 </classes>
 <designrules name="LaenPCBOrder">
 <description language="de">&lt;b&gt;EAGLE Design Rules&lt;/b&gt;
@@ -2968,7 +2970,7 @@ Please make sure your boards conform to these design rules.</description>
 <wire x1="18.5928" y1="32.1564" x2="18.72" y2="32.185" width="0.1524" layer="1"/>
 <wire x1="5.334" y1="33.528" x2="5.21" y2="33.655" width="0.1524" layer="1"/>
 </signal>
-<signal name="6V_POWER">
+<signal name="6V_POWER" class="1">
 <contactref element="D4" pad="C"/>
 <contactref element="C5" pad="1"/>
 <contactref element="C4" pad="1"/>
@@ -3017,13 +3019,13 @@ Please make sure your boards conform to these design rules.</description>
 <wire x1="41.148" y1="57.912" x2="41.145" y2="57.785" width="0.1524" layer="1"/>
 <wire x1="34.8996" y1="72.39" x2="34.795" y2="72.39" width="0.1524" layer="1"/>
 </signal>
-<signal name="N$4">
+<signal name="N$4" class="1">
 <contactref element="D3" pad="A"/>
 <contactref element="F1" pad="1"/>
 <wire x1="41.91" y1="68.58" x2="38.195" y2="68.58" width="0.1524" layer="1"/>
 <wire x1="43.815" y1="70.485" x2="41.91" y2="68.58" width="0.1524" layer="1"/>
 </signal>
-<signal name="N$2">
+<signal name="N$2" class="1">
 <contactref element="T1" pad="1"/>
 <contactref element="IC1" pad="8"/>
 <contactref element="R2" pad="1"/>
@@ -3040,7 +3042,7 @@ Please make sure your boards conform to these design rules.</description>
 <wire x1="36.8808" y1="54.102" x2="36.83" y2="54.0512" width="0.1524" layer="1"/>
 <wire x1="37.4904" y1="72.39" x2="37.595" y2="72.39" width="0.1524" layer="1"/>
 </signal>
-<signal name="N$6">
+<signal name="N$6" class="1">
 <contactref element="T1" pad="3"/>
 <contactref element="SERVO" pad="1"/>
 <contactref element="R3" pad="2"/>
@@ -3717,7 +3719,7 @@ Please make sure your boards conform to these design rules.</description>
 <wire x1="24.2316" y1="77.4192" x2="24.13" y2="77.47" width="0.1524" layer="1"/>
 <wire x1="31.0896" y1="69.9516" x2="31.115" y2="69.85" width="0.1524" layer="1"/>
 </signal>
-<signal name="N$19">
+<signal name="N$19" class="1">
 <contactref element="SW3" pad="2"/>
 <contactref element="MPWR1" pad="2"/>
 <wire x1="3.9624" y1="73.152" x2="3.2004" y2="73.152" width="0.1524" layer="1"/>
@@ -3725,14 +3727,14 @@ Please make sure your boards conform to these design rules.</description>
 <wire x1="3.2004" y1="73.152" x2="3.175" y2="73.025" width="0.1524" layer="1"/>
 <wire x1="8.2296" y1="77.4192" x2="8.255" y2="77.47" width="0.1524" layer="1"/>
 </signal>
-<signal name="N$20">
+<signal name="N$20" class="1">
 <contactref element="SW3" pad="1"/>
 <contactref element="F4" pad="1"/>
 <wire x1="5.0292" y1="63.5508" x2="8.8392" y2="63.5508" width="0.1524" layer="1"/>
 <wire x1="3.175" y1="65.405" x2="5.0292" y2="63.5508" width="0.1524" layer="1"/>
 <wire x1="8.8392" y1="63.5508" x2="8.89" y2="63.5" width="0.1524" layer="1"/>
 </signal>
-<signal name="N$21">
+<signal name="N$21" class="1">
 <contactref element="F4" pad="2"/>
 <contactref element="C15" pad="1"/>
 <contactref element="C16" pad="+"/>
@@ -3758,7 +3760,7 @@ Please make sure your boards conform to these design rules.</description>
 <wire x1="19.6596" y1="77.4192" x2="19.685" y2="77.47" width="0.1524" layer="16"/>
 <wire x1="8.9916" y1="73.7616" x2="8.89" y2="73.66" width="0.1524" layer="16"/>
 </signal>
-<signal name="N$22">
+<signal name="N$22" class="1">
 <contactref element="R15" pad="2"/>
 <contactref element="R14" pad="1"/>
 <contactref element="IC4" pad="1"/>
@@ -3770,7 +3772,7 @@ Please make sure your boards conform to these design rules.</description>
 <wire x1="14.6304" y1="77.4192" x2="14.605" y2="77.47" width="0.1524" layer="1"/>
 <wire x1="15.0876" y1="71.1708" x2="15.11" y2="71.12" width="0.1524" layer="1"/>
 </signal>
-<signal name="VOUT-MOTOR">
+<signal name="VOUT-MOTOR" class="1">
 <contactref element="C17" pad="+"/>
 <contactref element="R14" pad="2"/>
 <contactref element="IC4" pad="2"/>
@@ -3819,7 +3821,7 @@ Please make sure your boards conform to these design rules.</description>
 <wire x1="15.5448" y1="22.5552" x2="15.69" y2="22.475" width="0.1524" layer="1"/>
 <wire x1="8.5344" y1="27.5844" x2="8.44" y2="27.675" width="0.1524" layer="1"/>
 </signal>
-<signal name="GND1">
+<signal name="GND1" class="1">
 <contactref element="C15" pad="2"/>
 <contactref element="C16" pad="-"/>
 <contactref element="R15" pad="1"/>
