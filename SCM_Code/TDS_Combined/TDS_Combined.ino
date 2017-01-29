@@ -48,13 +48,28 @@ float accZ = 0;
 
 #define NOT_AN_INTERRUPT -1
 
+int desired = 1000;
+volatile byte lsb = 0;
+volatile byte msb = 0;
+
+volatile byte send_lsb = 1;
+
+
 // SPI interrupt routine
 //Capture what is coming in. 
 ISR (SPI_STC_vect)
 {
   Serial.println("Received");
   Serial.println(SPDR);
-  SPDR = 'd';
+  if(send_lsb){
+    msb = desired >> 8;
+    SPDR = msb;
+    send_lsb = 0;
+  }else{
+    lsb = desired & 0x00ff;
+    SPDR = lsb;
+    send_lsb = 1;
+  }
 }// end of interrupt service routine (ISR) SPI_STC_vect
 
 //Write a register on the altimeter
