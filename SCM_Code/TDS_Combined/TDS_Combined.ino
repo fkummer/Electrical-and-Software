@@ -136,20 +136,12 @@ void setup()
   IIC_Write(OFF_H, offset);
 
   delay(5);
-}
-
-/****************** MAIN CODE ******************/
-/*  Accelerometer Readings and Min/Max Values  */
-void loop()
-{
-  Serial.println("Send any character to display values.");
-  while (!Serial.available()){}       // Waiting for character to be sent to Serial
+ 
+  float initAltitude = measPressure.readAltitudeFt();
+  Serial.print("Initial Altitude:");
+  Serial.print(initAltitude, 2);
   Serial.println();
-
-  a0_state = a0_state ^ 1;
-  digitalWrite(A0, a0_state);
-  
-  // Get the Accelerometer Readings
+   // Get the Accelerometer Readings
   int x,y,z;                          // init variables hold results
   adxl.readAccel(&x, &y, &z);         // Read the accelerometer values and store in variables x,y,z
   
@@ -160,14 +152,31 @@ void loop()
 
   Serial.print(accX); Serial.print("  "); Serial.print(accY); Serial.print("  "); Serial.print(accZ);
   Serial.println(); 
+}
 
-  float altitude = measPressure.readAltitudeFt();
-  Serial.print("Altitude:");
-  Serial.print(altitude, 2);
-  Serial.println();
+/****************** MAIN CODE ******************/
+/*  Accelerometer Readings and Min/Max Values  */
+void loop()
+{
+  //Accelerometer - Determine launch
+ // Altimeter - Signal to take photos
+ float asc[] = {1000, 1500, 2000, 2500, 3000, 3500, 4000, 4500, 5000};
+ float dec[] = {4750, 4250, 3750, 3250, 2750, 2250, 1750, 1250};
+ //during ascent
+ for(int i = 0; i < 8; i++;)
+ {
+   if(i > asc[i])
+   {
+    //trigger gpio, take photo etc.
+   }
+ }
+ for(int i = 0; i < 7; i++;)
+ {
+   if(i < asc[i])
+   {
+    //trigger gpio, take photo etc.
+   }
+ }
+  
  
-  while (Serial.available())
-  {
-    Serial.read();                    // Clear buffer
-  }
 }
