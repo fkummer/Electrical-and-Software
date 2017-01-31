@@ -158,10 +158,35 @@ void setup()
 /*  Accelerometer Readings and Min/Max Values  */
 void loop()
 {
-  //Accelerometer - Determine launch
+ //Accelerometer - Determine launch
+ boolean inLaunch = false;
+ int count = 0; 
+ while(inLaunch == false)
+ {
+  int x,y,z;                          // init variables hold results
+  adxl.readAccel(&x, &y, &z);         // Read the accelerometer values and store in variables x,y,z
+  accX = (x - offsetX)/gainX;         // Calculating New Values for X, Y and Z
+  accY = (y - offsetY)/gainY;
+  accZ = (z - offsetZ)/gainZ;
+  float accMag = pow(accX, 2) + pow(accY, 2) + pow(accZ, 2);
+  accMag = sqrt(accMag);
+  if(accMag > 5.0)
+  {
+   count++;
+  }
+  else {
+   count = 0;
+  }
+  if(count > 1000) //arbitrary, we need 1000 readings in a row saying that acceleration > 5gs
+  {
+   inLaunch = true;
+  }
+ }
+ 
+ 
  // Altimeter - Signal to take photos
- float asc[] = {1000, 1500, 2000, 2500, 3000, 3500, 4000, 4500, 5000};
- float dec[] = {4750, 4250, 3750, 3250, 2750, 2250, 1750, 1250};
+ float asc[] = {1000, 1500, 2000, 2500, 3000, 3500, 4000, 4500, 5000}; //9 elements, hard coded but that can be changed
+ float dec[] = {4750, 4250, 3750, 3250, 2750, 2250, 1750, 1250}; //8 elements, same deal
  //during ascent
  for(int i = 0; i < 8; i++;)
  {
@@ -170,6 +195,7 @@ void loop()
     //trigger gpio, take photo etc.
    }
  }
+ //during descent
  for(int i = 0; i < 7; i++;)
  {
    if(i < asc[i])
