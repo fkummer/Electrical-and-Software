@@ -127,6 +127,7 @@ void setup()
   measPressure.begin(); // Get sensor online
   pinMode(5, OUTPUT);
   digitalWrite(5, HIGH);
+ 
   //Configure the sensor
   measPressure.setModeAltimeter(); // Measure altitude above sea level in meters
   measPressure.setOversampleRate(7); // Set Oversample to the recommended 128
@@ -186,7 +187,8 @@ void loop()
  
  // Altimeter - Signal to take photos
  float asc[] = {1000, 1500, 2000, 2500, 3000, 3500, 4000, 4500, 5000}; //9 elements, hard coded but that can be changed
- float dec[] = {4750, 4250, 3750, 3250, 2750, 2250, 1750, 1250}; //8 elements, same deal
+ float dec[] = {4750, 4250, 3750, 3250, 2750, 2250, 1750, 1250}; //8 elements, same deal, numbers changed
+ 
  //during ascent
  for(int i = 0; i < 8; i++;)
  {
@@ -195,6 +197,7 @@ void loop()
     //trigger gpio, take photo etc.
    }
  }
+
  //during descent
  for(int i = 0; i < 7; i++;)
  {
@@ -202,7 +205,5 @@ void loop()
    {
     //trigger gpio, take photo etc.
    }
- }
-  
- 
+ }  
 }
