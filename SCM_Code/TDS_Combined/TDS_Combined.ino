@@ -48,7 +48,7 @@ float accZ = 0;
 
 #define NOT_AN_INTERRUPT -1
 
-int desired = 1000;
+int desired = 0;
 volatile byte lsb = 0;
 volatile byte msb = 0;
 
@@ -69,6 +69,7 @@ ISR (SPI_STC_vect)
     lsb = desired & 0x00ff;
     SPDR = lsb;
     send_lsb = 1;
+    desired = desired + 10;
   }
 }// end of interrupt service routine (ISR) SPI_STC_vect
 
