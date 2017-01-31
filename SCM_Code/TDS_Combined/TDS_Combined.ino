@@ -192,7 +192,7 @@ void loop()
  //during ascent
  for(int i = 0; i < 8; i++;)
  {
-   if(i > asc[i])
+   if(myPressure.readAltitudeFt()  > asc[i])
    {
     //trigger gpio, take photo etc.
    }
@@ -201,7 +201,7 @@ void loop()
  //during descent
  for(int i = 0; i < 7; i++;)
  {
-   if(i < asc[i])
+   if(myPressure.readAltitudeFt()  < asc[i])
    {
     //trigger gpio, take photo etc.
    }
