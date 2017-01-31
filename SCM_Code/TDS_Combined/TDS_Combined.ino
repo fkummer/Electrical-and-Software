@@ -48,12 +48,13 @@ float accZ = 0;
 
 #define NOT_AN_INTERRUPT -1
 
-int desired = 1000;
+int desired = 0;
 volatile byte lsb = 0;
 volatile byte msb = 0;
 
 volatile byte send_lsb = 1;
 
+byte a0_state = 1;
 
 // SPI interrupt routine
 //Capture what is coming in. 
@@ -69,6 +70,7 @@ ISR (SPI_STC_vect)
     lsb = desired & 0x00ff;
     SPDR = lsb;
     send_lsb = 1;
+    desired = desired + 10;
   }
 }// end of interrupt service routine (ISR) SPI_STC_vect
 
@@ -92,11 +94,14 @@ void setup()
   pinMode(5, OUTPUT);
   pinMode(6, OUTPUT);
   pinMode(7, OUTPUT);
-
+  pinMode(A0, OUTPUT);
+  
+  
   digitalWrite(5, HIGH);   // turn the LED on (HIGH is the voltage level)
   digitalWrite(6, HIGH);   // turn the LED on (HIGH is the voltage level)
   digitalWrite(7, HIGH);   // turn the LED on (HIGH is the voltage level)
-
+  digitalWrite(A0, a0_state);
+  
     //SPI setup
   SPI.setClockDivider(SPI_CLOCK_DIV32);
   
@@ -140,6 +145,9 @@ void loop()
   Serial.println("Send any character to display values.");
   while (!Serial.available()){}       // Waiting for character to be sent to Serial
   Serial.println();
+
+  a0_state = a0_state ^ 1;
+  digitalWrite(A0, a0_state);
   
   // Get the Accelerometer Readings
   int x,y,z;                          // init variables hold results
