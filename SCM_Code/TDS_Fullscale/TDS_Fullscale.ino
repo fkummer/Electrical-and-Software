@@ -25,6 +25,10 @@
 #define MPL3115A2_ADDRESS 0x60
 #define STATUS 0x00
 
+#define GREEN_LED 5
+#define YELLOW_LED 6
+#define BLUE_LED 7
+#define PI_GPIO A0
 MPL3115A2 measPressure;
 
 /*********** COMMUNICATION SELECTION ***********/
@@ -48,12 +52,16 @@ float accZ = 0;
 
 #define NOT_AN_INTERRUPT -1
 
-int desired = 5280;
+int desired = 0;
 volatile byte lsb = 0;
 volatile byte msb = 0;
 
 volatile byte send_lsb = 1;
 
+float starting_altitude = 0;
+float curr_altitude = 0;
+
+int x,y,z;  
 
 // SPI interrupt routine
 //Capture what is coming in. 
@@ -69,6 +77,7 @@ ISR (SPI_STC_vect)
     lsb = desired & 0x00ff;
     SPDR = lsb;
     send_lsb = 1;
+    desired = desired + 10;
   }
 }// end of interrupt service routine (ISR) SPI_STC_vect
 
@@ -89,14 +98,17 @@ void setup()
   Serial.begin(115200);                 // Start the serial terminal
   Serial.println("Begin");
   
-  pinMode(5, OUTPUT);
-  pinMode(6, OUTPUT);
-  pinMode(7, OUTPUT);
-
-  digitalWrite(5, HIGH);   // turn the LED on (HIGH is the voltage level)
-  digitalWrite(6, HIGH);   // turn the LED on (HIGH is the voltage level)
-  digitalWrite(7, HIGH);   // turn the LED on (HIGH is the voltage level)
-
+  pinMode(GREEN_LED, OUTPUT);
+  pinMode(YELLOW_LED, OUTPUT);
+  pinMode(BLUE_LED, OUTPUT);
+  pinMode(PI_GPIO, OUTPUT);
+  
+  
+  digitalWrite(GREEN_LED, HIGH);   // turn the LED on (HIGH is the voltage level)
+  digitalWrite(YELLOW_LED, HIGH);   // turn the LED on (HIGH is the voltage level)
+  digitalWrite(BLUE_LED, HIGH);   // turn the LED on (HIGH is the voltage level)
+  digitalWrite(PI_GPIO, LOW);
+  
     //SPI setup
   SPI.setClockDivider(SPI_CLOCK_DIV32);
   
@@ -120,8 +132,7 @@ void setup()
   //Altimeter section
   Wire.begin();        // Join i2c bus
   measPressure.begin(); // Get sensor online
-  pinMode(5, OUTPUT);
-  digitalWrite(5, HIGH);
+  
   //Configure the sensor
   measPressure.setModeAltimeter(); // Measure altitude above sea level in meters
   measPressure.setOversampleRate(7); // Set Oversample to the recommended 128
@@ -131,36 +142,61 @@ void setup()
   IIC_Write(OFF_H, offset);
 
   delay(5);
+
+  //Need to get our baseline altitude
+  //All altitudes are measured with reference to this
+  starting_altitude = measPressure.readAltitudeFt();
+  Serial.println("Start");
 }
 
 /****************** MAIN CODE ******************/
 /*  Accelerometer Readings and Min/Max Values  */
 void loop()
 {
-  Serial.println("Send any character to display values.");
+  int cntr = 0;
+  byte launched = 0;
 
-
-  Serial.println();
+  while(!launched){
+    //Wait for launch level acceleration
+    // Get the Accelerometer Readings
+    
+    adxl.readAccel(&x, &y, &z);         // Read the accelerometer values and store in variables x,y,z
   
-  // Get the Accelerometer Readings
-  int x,y,z;                          // init variables hold results
-  adxl.readAccel(&x, &y, &z);         // Read the accelerometer values and store in variables x,y,z
+    accX = (x - offsetX)/gainX;         // Calculating New Values for X, Y and Z
+    accY = (y - offsetY)/gainY;
+    accZ = (z - offsetZ)/gainZ;
   
 
-  accX = (x - offsetX)/gainX;         // Calculating New Values for X, Y and Z
-  accY = (y - offsetY)/gainY;
-  accZ = (z - offsetZ)/gainZ;
+    float accMag = pow(accX,2) + pow(accY,2) + pow(accZ,2);
+    accMag = sqrt(accMag);
+    Serial.println(accMag);
+    
+    while(accMag > 2 && cntr < 50){
+      adxl.readAccel(&x, &y, &z);         // Read the accelerometer values and store in variables x,y,z
+      accX = (x - offsetX)/gainX;         // Calculating New Values for X, Y and Z
+      accY = (y - offsetY)/gainY;
+      accZ = (z - offsetZ)/gainZ;
+      accMag = pow(accX,2) + pow(accY,2) + pow(accZ,2);
+      accMag = sqrt(accMag);
+      cntr += 1;
+    }
 
-  Serial.print(accX); Serial.print("  "); Serial.print(accY); Serial.print("  "); Serial.print(accZ);
-  Serial.println(); 
+    if(cntr >= 50){
+      launched = 1;
+    }else{
+      launched = 0;
+      cntr = 0;
+    }
+  }
 
-  float altitude = measPressure.readAltitudeFt();
-  Serial.print("Altitude:");
-  Serial.print(altitude, 2);
-  Serial.println();
- 
-  while (Serial.available())
-  {
-    Serial.read();                    // Clear buffer
+  
+  Serial.println("Launch!");
+
+  while(curr_altitude < 4800){
+    Serial.println(measPressure.readAltitudeFt());
+    curr_altitude = measPressure.readAltitudeFt() - starting_altitude;
+    Serial.println(curr_altitude);
+    delay(500);
   }
 }
+
