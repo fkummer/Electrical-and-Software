@@ -1,3 +1,7 @@
+
+
+
+
 /*  *****************************************
  *  ADXL345_Calibration
  *  ADXL345 Hook Up Guide Calibration Example 
@@ -17,11 +21,10 @@
  *  SparkFun ADXL345
  *  Arduino Uno
  *  *****************************************/
- 
+#include <SparkFunMPL3115A2.h>
 #include <SparkFun_ADXL345.h>
 #include <SPI.h>
 #include <Wire.h>
-#include "SparkFunMPL3115A2.h"
 #define MPL3115A2_ADDRESS 0x60
 #define STATUS 0x00
 
@@ -54,6 +57,9 @@ volatile byte msb = 0;
 
 volatile byte send_lsb = 1;
 
+#define SENSOR_PWR 9
+#define PI_PWR 8
+#define SS 10
 
 // SPI interrupt routine
 //Capture what is coming in. 
@@ -87,15 +93,22 @@ void IIC_Write(byte regAddr, byte value)
 void setup()
 {
   Serial.begin(115200);                 // Start the serial terminal
-  Serial.println("Begin");
+  
   
   pinMode(5, OUTPUT);
   pinMode(6, OUTPUT);
   pinMode(7, OUTPUT);
-
+  pinMode(SENSOR_PWR, OUTPUT);
+  pinMode(PI_PWR, OUTPUT);
+  pinMode(A0, OUTPUT);
+  pinMode(SS, INPUT);
+  
   digitalWrite(5, HIGH);   // turn the LED on (HIGH is the voltage level)
   digitalWrite(6, HIGH);   // turn the LED on (HIGH is the voltage level)
   digitalWrite(7, HIGH);   // turn the LED on (HIGH is the voltage level)
+  digitalWrite(SENSOR_PWR, LOW);
+  digitalWrite(PI_PWR, LOW);
+  digitalWrite(A0, LOW);
 
     //SPI setup
   SPI.setClockDivider(SPI_CLOCK_DIV32);
@@ -122,6 +135,7 @@ void setup()
   measPressure.begin(); // Get sensor online
   pinMode(5, OUTPUT);
   digitalWrite(5, HIGH);
+ 
   //Configure the sensor
   measPressure.setModeAltimeter(); // Measure altitude above sea level in meters
   measPressure.setOversampleRate(7); // Set Oversample to the recommended 128
@@ -131,36 +145,89 @@ void setup()
   IIC_Write(OFF_H, offset);
 
   delay(5);
+  Serial.println("Begin");
 }
+
 
 /****************** MAIN CODE ******************/
 /*  Accelerometer Readings and Min/Max Values  */
 void loop()
 {
-  Serial.println("Send any character to display values.");
-
-
-  Serial.println();
-  
-  // Get the Accelerometer Readings
-  int x,y,z;                          // init variables hold results
-  adxl.readAccel(&x, &y, &z);         // Read the accelerometer values and store in variables x,y,z
-  
-
-  accX = (x - offsetX)/gainX;         // Calculating New Values for X, Y and Z
-  accY = (y - offsetY)/gainY;
-  accZ = (z - offsetZ)/gainZ;
-
-  Serial.print(accX); Serial.print("  "); Serial.print(accY); Serial.print("  "); Serial.print(accZ);
-  Serial.println(); 
-
-  float altitude = measPressure.readAltitudeFt();
-  Serial.print("Altitude:");
-  Serial.print(altitude, 2);
-  Serial.println();
+ //Accelerometer - Determine launch
+ boolean inLaunch = false;
+ int x,y,z; 
+ int count = 0; 
  
-  while (Serial.available())
+// while(inLaunch == false)
+// {                         // init variables hold results
+//  adxl.readAccel(&x, &y, &z);         // Read the accelerometer values and store in variables x,y,z
+//  accX = (x - offsetX)/gainX;         // Calculating New Values for X, Y and Z
+//  accY = (y - offsetY)/gainY;
+//  accZ = (z - offsetZ)/gainZ;
+//  float accMag = pow(accX, 2) + pow(accY, 2) + pow(accZ, 2);
+//  accMag = sqrt(accMag);
+//  if(accMag > 1.2)
+//  {
+//   Serial.println(accMag);
+//   count++;
+//  }
+//  else {
+//   count = 0;
+//  }
+//  if(count > 100) //arbitrary, we need 1000 readings in a row saying that acceleration > 5gs
+//  {
+//   inLaunch = true;
+//   Serial.print("rocket launched!");
+//  }
+// }
+ 
+ // Altimeter - Signal to take photos
+ Serial.println("Starting altitude measures");
+ float initAltitude = measPressure.readAltitudeFt();
+ Serial.println(initAltitude);
+ float asc[] = {1000, 1500, 2000, 2500, 3000, 3500, 4000, 4500, 5000}; //9 elements, hard coded but that can be changed
+ float dec[] = {4750, 4250, 3750, 3250, 2750, 2250, 1750, 1250}; //8 elements, same deal, numbers changed
+ int i = 0;
+ 
+ float currAltitude = measPressure.readAltitudeFt() - initAltitude;
+ 
+ Serial.println("starting ascent");
+ while(currAltitude< 5000) //during ascent
+ { 
+  while(!Serial.available());
+  Serial.println("current altitude is" + String(currAltitude));
+   if(i <= 7 && currAltitude > asc[i] && currAltitude < asc[i+1])
+   {
+    //trigger gpio, take photo etc.
+    Serial.println("picture taken at" + String(currAltitude));
+    i++;
+   }
+  if(i <= 7 && currAltitude > asc[i+1])
   {
-    Serial.read();                    // Clear buffer
+   i++;
   }
+  currAltitude = measPressure.readAltitudeFt() - initAltitude;
+  while(Serial.available())
+ {
+  Serial.read();  
+ }
+ }
+
+ while(measPressure.readAltitudeFt() - initAltitude > 0) //during descent
+ {
+   if(i <= 6 && measPressure.readAltitudeFt() - initAltitude  < asc[i] && measPressure.readAltitudeFt() - initAltitude  > asc[i+1])
+   {
+    //trigger gpio, take photo etc.
+    Serial.println("picture taken at" + String(measPressure.readAltitudeFt()));
+    i++;
+   }
+   if(i <= 6 && measPressure.readAltitudeFt() - initAltitude  < asc[i+1])
+  {
+   i++;
+  }
+ }
+
+ while(1){
+  Serial.println("Done");
+ }
 }
