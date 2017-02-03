@@ -11,6 +11,9 @@ float Altitude = 0;
 byte byteArray[3];
 byte val = 50;
 int counter = 0;
+
+byte ascent = 1;
+
 float altArr[] = {250, 500, 1000, 1250, 1500, 1750, 2000, 2250, 2500, 2750, 3000, 3250, 3500, 3750, 4000, 4600, 5100, 4800, 4600, 4100, 3500.0, 3000.0, 2500.0, 2000.0, 1500.0, 1000.0, 750.0, 500.00, 300.00, 200.00, 0.0};
 
 void convertAltToArray(float Altitude);
@@ -60,15 +63,21 @@ void requestEvent(){
         //this section allows changing the counter so you can choose
         //how long to simulate a flight plan
         //additionally, you can change the altitude inccrement
-        counter += 1;
-        if (counter < 31){
-          convertAltToArray(Altitude);
-          Altitude = altArr[counter];
-          Serial.print("Altitude:");
-          Serial.println(Altitude);
+        if(ascent){
+          Altitude += 10;
+          if(Altitude >= 5280){
+            ascent = 0;
+          }
         }else{
-          Serial.println("Flight over");
+          if(Altitude > 0){
+            Altitude -= 10;
+          }
         }
+        
+        Serial.print("Altitude:");
+        Serial.println(Altitude);
+        convertAltToArray(Altitude);
+       
       }
     }
 }

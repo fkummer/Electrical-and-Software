@@ -61,7 +61,37 @@ volatile byte send_lsb = 1;
 #define PI_PWR 8
 #define SS 10
 
+#define LAUNCH_ACCEL 2
+
+#define WAIT_FOR_LAUNCH 0
+#define ASCENT 1
+#define DESCENT 2
+#define LANDING 3
+
+//Initial altitude reading
 float initAltitude = 0;
+
+//Difference between intial altitude and current altitude
+float currAltitude = 0;
+
+byte currState = ASCENT;
+
+float asc[] = {1000, 1500, 2000, 2500, 3000, 3500, 4000, 4500}; //8 elements, hard coded but that can be changed
+float dec[] = {4750, 4250, 3750, 3250, 2750, 2250, 1750, 1250}; //8 elements, same deal, numbers changed
+
+int asc_ptr = 0;
+int dec_ptr = 0;
+
+//Max altitude
+int max_alt = 0;
+
+
+
+//Consecutive ascent readings
+int asc_count = 0;
+
+//Consecutive descent readings
+int dec_count = 0;
 
 // SPI interrupt routine
 //Capture what is coming in. 
@@ -70,11 +100,11 @@ ISR (SPI_STC_vect)
   Serial.println("Received");
   Serial.println(SPDR);
   if(send_lsb){
-    msb = desired >> 8;
+    msb = (int)currAltitude >> 8;
     SPDR = msb;
     send_lsb = 0;
   }else{
-    lsb = desired & 0x00ff;
+    lsb = (int)currAltitude & 0x00ff;
     SPDR = lsb;
     send_lsb = 1;
   }
@@ -147,94 +177,91 @@ void setup()
   IIC_Write(OFF_H, offset);
   initAltitude = measPressure.readAltitudeFt();
   delay(5);
-  Serial.println("Begin");
+  if(currState == WAIT_FOR_LAUNCH){
+    Serial.println("WAIT_FOR_LAUNCH");
+  }
+  
 }
-
 
 /****************** MAIN CODE ******************/
 /*  Accelerometer Readings and Min/Max Values  */
 void loop()
 {
  //Accelerometer - Determine launch
- boolean inLaunch = false;
  int x,y,z; 
  int count = 0; 
  
-// while(inLaunch == false)
-// {                         // init variables hold results
-//  adxl.readAccel(&x, &y, &z);         // Read the accelerometer values and store in variables x,y,z
-//  accX = (x - offsetX)/gainX;         // Calculating New Values for X, Y and Z
-//  accY = (y - offsetY)/gainY;
-//  accZ = (z - offsetZ)/gainZ;
-//  float accMag = pow(accX, 2) + pow(accY, 2) + pow(accZ, 2);
-//  accMag = sqrt(accMag);
-//  if(accMag > 1.2)
-//  {
-//   Serial.println(accMag);
-//   count++;
-//  }
-//  else {
-//   count = 0;
-//  }
-//  if(count > 100) //arbitrary, we need 1000 readings in a row saying that acceleration > 5gs
-//  {
-//   inLaunch = true;
-//   Serial.print("rocket launched!");
-//  }
-// }
  
- // Altimeter - Signal to take photos
- Serial.println("Starting altitude measures");
-
- Serial.println(initAltitude);
- float asc[] = {1000, 1500, 2000, 2500, 3000, 3500, 4000, 4500}; //8 elements, hard coded but that can be changed
- float dec[] = {4750, 4250, 3750, 3250, 2750, 2250, 1750, 1250}; //8 elements, same deal, numbers changed
- int i = 0;
- 
- float currAltitude = measPressure.readAltitudeFt() - initAltitude;
- 
- Serial.println("starting ascent");
- while(currAltitude < 4500 && currAltitude > 900) //during ascent
- { 
-  while(!Serial.available());
-  Serial.println("current altitude is" + String(currAltitude));
-   if(i <= 7 && currAltitude > asc[i] && currAltitude < asc[i+1])
-   {
-    //trigger gpio, take photo etc.
-    Serial.println("picture taken at" + String(currAltitude));
-    i++;
-   }
-  if(i <= 7 && currAltitude > asc[i+1])
+ if(currState == WAIT_FOR_LAUNCH)
+ {                         // init variables hold results
+  adxl.readAccel(&x, &y, &z);         // Read the accelerometer values and store in variables x,y,z
+  accX = (x - offsetX)/gainX;         // Calculating New Values for X, Y and Z
+  accY = (y - offsetY)/gainY;
+  accZ = (z - offsetZ)/gainZ;
+  float accMag = pow(accX, 2) + pow(accY, 2) + pow(accZ, 2);
+  accMag = sqrt(accMag);
+  if(accMag > LAUNCH_ACCEL)
   {
-   i++;
+   Serial.println(accMag);
+   count++;
   }
-  currAltitude = measPressure.readAltitudeFt() - initAltitude;
-  while(Serial.available())
- {
-  Serial.read();  
- }
- }
- delay(3000);
- i = 0;
- while(currAltitude > 1000) //during descent
- {
-   if(i <= 7 && currAltitude < asc[i] && currAltitude  > asc[i+1])
-   {
-    //trigger gpio, take photo etc.
-    Serial.println("picture taken at" + String(currAltitude));
-    i++;
-   }
-   if(i <= 7 && currAltitude  < asc[i+1])
-   {
-    i++;
-   }
-  currAltitude = measPressure.readAltitudeFt() - initAltitude;
-  Serial.print("Curr Altitude is:");
-  Serial.println(currAltitude);
-  delay(100);
+  else {
+   count = 0;
+  }
+  if(count > 100) //arbitrary, we need 100 readings in a row saying that acceleration > 5gs
+  {
+   currState = ASCENT;
+   Serial.print("LAUNCH");
+  }
  }
 
- while(1){
-  Serial.println("Done");
+ if(currState == ASCENT){
+  currAltitude = measPressure.readAltitudeFt() - initAltitude;
+  if(currAltitude > max_alt){
+    max_alt = currAltitude;
+    asc_count = 0;
+  }else{
+    if(currAltitude < max_alt){
+      asc_count += 1;
+    }
+  }
+
+  //We are consistently below max altitude, we are descending
+  if(asc_count >= 20){
+    currState = DESCENT;
+    Serial.println("DESCENT");
+  }
+
+  //If we're at one of our target picture altitudes
+  if(currAltitude >= asc[asc_ptr] && asc_ptr < 8){
+    Serial.print("Picture captured at:");
+    Serial.println((int)currAltitude);
+    asc_ptr += 1;
+  }
+
+  delay(20);
  }
+
+ if(currState == DESCENT){
+  currAltitude = measPressure.readAltitudeFt() - initAltitude;;
+  
+  if(currAltitude <= 1000){
+   currState = LANDING;
+   Serial.println("LANDING");
+  }
+
+  
+  //If we're at one of our target picture altitudes
+  if(currAltitude <= dec[dec_ptr] && dec_ptr < 8){
+   Serial.print("Picture captured at:");
+   Serial.println((int)currAltitude);
+   dec_ptr += 1;
+  }
+  delay(20);
+ }
+
+ if(currState == LANDING){
+  
+ }
+ 
 }
