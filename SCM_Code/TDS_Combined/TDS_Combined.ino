@@ -61,6 +61,8 @@ volatile byte send_lsb = 1;
 #define PI_PWR 8
 #define SS 10
 
+float initAltitude = 0;
+
 // SPI interrupt routine
 //Capture what is coming in. 
 ISR (SPI_STC_vect)
@@ -143,7 +145,7 @@ void setup()
 
   byte offset = 24;
   IIC_Write(OFF_H, offset);
-
+  initAltitude = measPressure.readAltitudeFt();
   delay(5);
   Serial.println("Begin");
 }
@@ -183,16 +185,16 @@ void loop()
  
  // Altimeter - Signal to take photos
  Serial.println("Starting altitude measures");
- float initAltitude = measPressure.readAltitudeFt();
+
  Serial.println(initAltitude);
- float asc[] = {1000, 1500, 2000, 2500, 3000, 3500, 4000, 4500, 5000}; //9 elements, hard coded but that can be changed
+ float asc[] = {1000, 1500, 2000, 2500, 3000, 3500, 4000, 4500}; //8 elements, hard coded but that can be changed
  float dec[] = {4750, 4250, 3750, 3250, 2750, 2250, 1750, 1250}; //8 elements, same deal, numbers changed
  int i = 0;
  
  float currAltitude = measPressure.readAltitudeFt() - initAltitude;
  
  Serial.println("starting ascent");
- while(currAltitude< 5000) //during ascent
+ while(currAltitude < 4500 && currAltitude > 900) //during ascent
  { 
   while(!Serial.available());
   Serial.println("current altitude is" + String(currAltitude));
@@ -212,19 +214,24 @@ void loop()
   Serial.read();  
  }
  }
-
- while(measPressure.readAltitudeFt() - initAltitude > 0) //during descent
+ delay(3000);
+ i = 0;
+ while(currAltitude > 1000) //during descent
  {
-   if(i <= 6 && measPressure.readAltitudeFt() - initAltitude  < asc[i] && measPressure.readAltitudeFt() - initAltitude  > asc[i+1])
+   if(i <= 7 && currAltitude < asc[i] && currAltitude  > asc[i+1])
    {
     //trigger gpio, take photo etc.
-    Serial.println("picture taken at" + String(measPressure.readAltitudeFt()));
+    Serial.println("picture taken at" + String(currAltitude));
     i++;
    }
-   if(i <= 6 && measPressure.readAltitudeFt() - initAltitude  < asc[i+1])
-  {
-   i++;
-  }
+   if(i <= 7 && currAltitude  < asc[i+1])
+   {
+    i++;
+   }
+  currAltitude = measPressure.readAltitudeFt() - initAltitude;
+  Serial.print("Curr Altitude is:");
+  Serial.println(currAltitude);
+  delay(100);
  }
 
  while(1){
