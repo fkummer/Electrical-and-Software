@@ -31,7 +31,7 @@ void setup() {
   Serial.print("REAL VALUE: ");
   Serial.print(Altitude);
   convertAltToArray(Altitude);
-  Wire.begin(0x60);
+  Wire.begin(0x61);
   Wire.onRequest(requestEvent);
   Wire.onReceive(receiveEvent);
 }
@@ -65,7 +65,7 @@ void requestEvent(){
         //additionally, you can change the altitude inccrement
         if(ascent){
           Altitude += 10;
-          if(Altitude >= 5280){
+          if(Altitude >= 4300){
             ascent = 0;
           }
         }else{

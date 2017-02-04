@@ -25,7 +25,7 @@
 #include <SparkFun_ADXL345.h>
 #include <SPI.h>
 #include <Wire.h>
-#define MPL3115A2_ADDRESS 0x60
+#define MPL3115A2_ADDRESS 0x61
 #define STATUS 0x00
 
 MPL3115A2 measPressure;
@@ -60,13 +60,15 @@ volatile byte send_lsb = 1;
 #define SENSOR_PWR 9
 #define PI_PWR 8
 #define SS 10
+#define TAKE_PIC A0
 
-#define LAUNCH_ACCEL 2
+#define LAUNCH_ACCEL 1.2
 
 #define WAIT_FOR_LAUNCH 0
 #define ASCENT 1
 #define DESCENT 2
 #define LANDING 3
+#define RECOVERY 4
 
 //Initial altitude reading
 float initAltitude = 0;
@@ -74,9 +76,9 @@ float initAltitude = 0;
 //Difference between intial altitude and current altitude
 float currAltitude = 0;
 
-byte currState = ASCENT;
+byte currState = WAIT_FOR_LAUNCH;
 
-float asc[] = {1000, 1500, 2000, 2500, 3000, 3500, 4000, 4500}; //8 elements, hard coded but that can be changed
+float asc[] = {2500, 3000, 3500, 4000, 4500}; //5 elements, hard coded but that can be changed
 float dec[] = {4750, 4250, 3750, 3250, 2750, 2250, 1750, 1250}; //8 elements, same deal, numbers changed
 
 int asc_ptr = 0;
@@ -85,14 +87,15 @@ int dec_ptr = 0;
 //Max altitude
 int max_alt = 0;
 
-
-
 //Consecutive ascent readings
 int asc_count = 0;
 
 //Consecutive descent readings
 int dec_count = 0;
 
+//Accel count
+ int count = 0; 
+ 
 // SPI interrupt routine
 //Capture what is coming in. 
 ISR (SPI_STC_vect)
@@ -107,6 +110,7 @@ ISR (SPI_STC_vect)
     lsb = (int)currAltitude & 0x00ff;
     SPDR = lsb;
     send_lsb = 1;
+    digitalWrite(TAKE_PIC, LOW);
   }
 }// end of interrupt service routine (ISR) SPI_STC_vect
 
@@ -132,7 +136,7 @@ void setup()
   pinMode(7, OUTPUT);
   pinMode(SENSOR_PWR, OUTPUT);
   pinMode(PI_PWR, OUTPUT);
-  pinMode(A0, OUTPUT);
+  pinMode(TAKE_PIC, OUTPUT);
   pinMode(SS, INPUT);
   
   digitalWrite(5, HIGH);   // turn the LED on (HIGH is the voltage level)
@@ -140,7 +144,7 @@ void setup()
   digitalWrite(7, HIGH);   // turn the LED on (HIGH is the voltage level)
   digitalWrite(SENSOR_PWR, LOW);
   digitalWrite(PI_PWR, LOW);
-  digitalWrite(A0, LOW);
+  digitalWrite(TAKE_PIC, LOW);
 
     //SPI setup
   SPI.setClockDivider(SPI_CLOCK_DIV32);
@@ -183,14 +187,16 @@ void setup()
   
 }
 
+void takePic(){
+  digitalWrite(TAKE_PIC, HIGH);
+}
+
 /****************** MAIN CODE ******************/
 /*  Accelerometer Readings and Min/Max Values  */
 void loop()
 {
  //Accelerometer - Determine launch
  int x,y,z; 
- int count = 0; 
- 
  
  if(currState == WAIT_FOR_LAUNCH)
  {                         // init variables hold results
@@ -208,7 +214,7 @@ void loop()
   else {
    count = 0;
   }
-  if(count > 100) //arbitrary, we need 100 readings in a row saying that acceleration > 5gs
+  if(count > 20) //arbitrary, we need 100 readings in a row saying that acceleration > 5gs
   {
    currState = ASCENT;
    Serial.print("LAUNCH");
@@ -217,7 +223,7 @@ void loop()
 
  if(currState == ASCENT){
   currAltitude = measPressure.readAltitudeFt() - initAltitude;
-  if(currAltitude > max_alt){
+  if(currAltitude > max_alt | max_alt < 750 ){
     max_alt = currAltitude;
     asc_count = 0;
   }else{
@@ -233,7 +239,8 @@ void loop()
   }
 
   //If we're at one of our target picture altitudes
-  if(currAltitude >= asc[asc_ptr] && asc_ptr < 8){
+  if(currAltitude >= asc[asc_ptr] && asc_ptr < 5){
+    takePic();
     Serial.print("Picture captured at:");
     Serial.println((int)currAltitude);
     asc_ptr += 1;
@@ -243,7 +250,7 @@ void loop()
  }
 
  if(currState == DESCENT){
-  currAltitude = measPressure.readAltitudeFt() - initAltitude;;
+  currAltitude = measPressure.readAltitudeFt() - initAltitude;
   
   if(currAltitude <= 1000){
    currState = LANDING;
@@ -253,6 +260,7 @@ void loop()
   
   //If we're at one of our target picture altitudes
   if(currAltitude <= dec[dec_ptr] && dec_ptr < 8){
+   takePic();
    Serial.print("Picture captured at:");
    Serial.println((int)currAltitude);
    dec_ptr += 1;
@@ -261,6 +269,25 @@ void loop()
  }
 
  if(currState == LANDING){
+  currAltitude = measPressure.readAltitudeFt() - initAltitude;
+
+  if(currAltitude <= 50){
+     Serial.println("Waiting to confirm landing...");
+     delay(10000);
+     takePic();
+     Serial.println("Landing picture captured");
+     delay(5000);
+     takePic();
+     Serial.println("Landing picture captured");
+     delay(5000);
+     takePic();
+     Serial.println("Landing picture captured");
+     currState = RECOVERY;
+     Serial.println("Recovery");
+  }
+ }
+
+ if(currState == RECOVERY){
   
  }
  
