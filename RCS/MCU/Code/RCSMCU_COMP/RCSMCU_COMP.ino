@@ -16,6 +16,7 @@
 #define AHRS true //Altitude Heading and Reference System, used to get roll, pitch, yaw, etc.
 #define FLIGHT_STATE 0x54 //I2C address of flight state chip
 #define FLIGHT_STORAGE 0x50 //I2C address of flight storage chip
+#define MAX_MEMORY 32760 //Max memory address for EEPROM
 
 //Some constants for flight calculations
 #define DEG_TO_RAD 0.017453//Conversion factor for degree to radian conversion
@@ -42,7 +43,7 @@ unsigned long burnoutTime = 0; //Time burnout is detected, relative to startTime
 
 unsigned long memAddress = 0; //Memory address
 String dataString;
-const int stringSize = 32;//Max memory size of dataString
+const int stringSize = 64;//Max memory size of dataString
 
 MPU9250 myIMU;
 MPL3115A2 myPressure;
@@ -76,11 +77,13 @@ String logData(String dataString) {
      Logs flight data to EEPROM
   */
   //String dataString = (String)currTime + ": " + (String)myIMU.ax + ", " + (String)myIMU.gz + ", " + (String)currentAlt + " \n";
-  byte data[stringSize];
-  dataString.getBytes(data, dataString.length());
-  storeEE.writeEEPROM(memAddress, data, stringSize); //Find length of String later
-  memAddress += stringSize;
-  return data;
+  if(memAddress < MAX_MEMORY){
+    byte data[stringSize];
+    dataString.getBytes(data, dataString.length());
+    storeEE.writeEEPROM(memAddress, data, stringSize); //Find length of String later
+    memAddress += stringSize;
+    return data;
+  }
 }
 
 String readData(unsigned int address, int readLen) {
@@ -112,19 +115,20 @@ float updateIMUData() {
   */
   if (myIMU.readByte(MPU9250_ADDRESS, INT_STATUS) & 0x01) {
     myIMU.readAccelData(myIMU.accelCount);  // Read the x/y/z adc values
+    myIMU.getAres(); //Update resolutions
+    myIMU.getGres();
     // Now we'll calculate the accleration value into actual g's
     // This depends on scale being set
-    myIMU.ax = (float)myIMU.accelCount[0] * myIMU.aRes; // - myIMU.accelBias[0];
-    myIMU.ay = (float)myIMU.accelCount[1] * myIMU.aRes; // - myIMU.accelBias[1];
-    myIMU.az = (float)myIMU.accelCount[2] * myIMU.aRes; // - myIMU.accelBias[2];
+    myIMU.ax = (float)myIMU.accelCount[0] * myIMU.aRes;// - myIMU.accelBias[0];
+    myIMU.ay = (float)myIMU.accelCount[1] * myIMU.aRes;// - myIMU.accelBias[1];
+    myIMU.az = (float)myIMU.accelCount[2] * myIMU.aRes;// - myIMU.accelBias[2];
 
     myIMU.readGyroData(myIMU.gyroCount);  // Read the x/y/z adc values
     // Calculate the gyro value into actual degrees per second
     // This depends on scale being set
     myIMU.gx = (float)myIMU.gyroCount[0] * myIMU.gRes;
     myIMU.gy = (float)myIMU.gyroCount[1] * myIMU.gRes;
-    myIMU.gz = (float)myIMU.gyroCount[2] * myIMU.gRes;
-    //myIMU.gz = -50.0; 
+    myIMU.gz = (float)myIMU.gyroCount[2] * myIMU.gRes; 
   }
 }
 
@@ -177,9 +181,9 @@ float controlAlgo(float desiredRate) {
   getAltitude();
   getVelocity();
   updateIMUData();
-  float deflection = findDeflection(myIMU.gz, desiredRate);
+  float deflection = findDeflection(myIMU.gx, desiredRate);
   deflectFlaps(deflection);
-  return deflection;
+  return constrain(deflection, -15.0, 15.0);
 }
 
 void intializeSensors(){
@@ -232,6 +236,8 @@ boolean detectApogee(){
    */
    if(velocity < 0){
     altDebounce++;
+   }else{
+    altDebounce = 0;
    }
    if(altDebounce > 10){
     apogee = true;
@@ -254,7 +260,7 @@ boolean detectBurnout(){
     }
     if(debounce > 10){
       burnout = true;
-      initialRate = myIMU.gz;
+      initialRate = myIMU.gx;
       return true;
     }
     delay(50);
@@ -268,10 +274,18 @@ void setup() {
   pinMode(LED_PIN, OUTPUT);
   pinMode(FEEDBACK_PIN, INPUT);
   motor.attach(MOTOR_PIN);
+  //Test motor
+  motor.write(60);
+  delay(1000);
+  motor.write(120);
+  delay(1000);
+  motor.write(90);
+  
   intializeSensors();
   //Setup sensors
   Wire.begin();
   memAddress = 0;
+  digitalWrite(LED_PIN, HIGH);
 }
 
 
@@ -279,7 +293,7 @@ int LED = HIGH;
 float deflection = 0.0;
 void loop() {
   digitalWrite(LED_PIN, LED);
-  while(!detectLaunch); //Wait for launch detection
+  while(!detectLaunch()); //Wait for launch detection
   digitalWrite(LED_PIN, !LED);
   
   //Main control loop
@@ -289,14 +303,14 @@ void loop() {
     digitalWrite(LED_PIN, LED);
     currTime = millis() - startTime;
     
-    //Set initial roll rate and burnout detection time on first interation
+    //Set initial roll rate and burnout detection time on first iteration
     if(controlInit){
       burnoutTime = currTime;
       //Adjust desired rate to be in same direction as initial rate
       if(initialRate < 0){ 
-        desiredRate = -360.0;
+        desiredRate = -desiredRate;
       }else{
-        desiredRate = 360.0;
+        desiredRate = desiredRate;
       }
       controlInit = false;
     }
@@ -313,7 +327,7 @@ void loop() {
     }
     
     //Log data to EEPROM
-    dataString = (String)currTime + ":" + (String)myIMU.az + "," + (String)myIMU.gz + "," + (String)currentAlt + "," + (String)deflection + "\n";
+    dataString = (String)currTime + ":" + (String)myIMU.az + "," + (String)myIMU.gx + "," + (String)currentAlt + "," + (String)deflection + "\n";
     Serial.println(dataString);
     logData(dataString);
     detectApogee();
