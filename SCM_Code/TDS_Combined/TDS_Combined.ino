@@ -25,7 +25,7 @@
 #include <SparkFun_ADXL345.h>
 #include <SPI.h>
 #include <Wire.h>
-#define MPL3115A2_ADDRESS 0x61
+#define MPL3115A2_ADDRESS 0x60
 #define STATUS 0x00
 
 MPL3115A2 measPressure;
@@ -62,7 +62,7 @@ volatile byte send_lsb = 1;
 #define SS 10
 #define TAKE_PIC A0
 
-#define LAUNCH_ACCEL 1.2
+#define LAUNCH_ACCEL 3.0
 
 #define WAIT_FOR_LAUNCH 0
 #define ASCENT 1
@@ -141,7 +141,7 @@ void setup()
   
   digitalWrite(5, HIGH);   // turn the LED on (HIGH is the voltage level)
   digitalWrite(6, HIGH);   // turn the LED on (HIGH is the voltage level)
-  digitalWrite(7, HIGH);   // turn the LED on (HIGH is the voltage level)
+  digitalWrite(7, LOW);   // turn the LED on (HIGH is the voltage level)
   digitalWrite(SENSOR_PWR, LOW);
   digitalWrite(PI_PWR, LOW);
   digitalWrite(TAKE_PIC, LOW);
@@ -214,15 +214,17 @@ void loop()
   else {
    count = 0;
   }
-  if(count > 20) //arbitrary, we need 100 readings in a row saying that acceleration > 5gs
+  if(count > 50) //arbitrary, we need 100 readings in a row saying that acceleration > 5gs
   {
    currState = ASCENT;
+   digitalWrite(7, HIGH);
    Serial.print("LAUNCH");
   }
  }
 
  if(currState == ASCENT){
   currAltitude = measPressure.readAltitudeFt() - initAltitude;
+  Serial.println(currAltitude);
   if(currAltitude > max_alt | max_alt < 750 ){
     max_alt = currAltitude;
     asc_count = 0;
@@ -245,8 +247,7 @@ void loop()
     Serial.println((int)currAltitude);
     asc_ptr += 1;
   }
-
-  delay(20);
+  delay(10);
  }
 
  if(currState == DESCENT){
@@ -265,13 +266,14 @@ void loop()
    Serial.println((int)currAltitude);
    dec_ptr += 1;
   }
-  delay(20);
+  delay(10);
  }
 
  if(currState == LANDING){
   currAltitude = measPressure.readAltitudeFt() - initAltitude;
 
   if(currAltitude <= 50){
+    
      Serial.println("Waiting to confirm landing...");
      delay(10000);
      takePic();

@@ -31,7 +31,7 @@ void setup() {
   Serial.print("REAL VALUE: ");
   Serial.print(Altitude);
   convertAltToArray(Altitude);
-  Wire.begin(0x61);
+  Wire.begin(0x60);
   Wire.onRequest(requestEvent);
   Wire.onReceive(receiveEvent);
 }
@@ -64,13 +64,13 @@ void requestEvent(){
         //how long to simulate a flight plan
         //additionally, you can change the altitude inccrement
         if(ascent){
-          Altitude += 10;
+          Altitude += 3;
           if(Altitude >= 4300){
             ascent = 0;
           }
         }else{
           if(Altitude > 0){
-            Altitude -= 10;
+            Altitude -= 3;
           }
         }
         
