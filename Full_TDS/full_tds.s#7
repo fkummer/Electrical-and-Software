@@ -12074,6 +12074,8 @@ You are welcome to use this library for commercial purposes. For attribution, we
 <class number="1" name="actuator" width="0.8128" drill="0">
 <clearance class="1" value="0.2286"/>
 </class>
+<class number="2" name="pi" width="0.508" drill="0">
+</class>
 </classes>
 <parts>
 <part name="JP6" library="SparkFun-Connectors" deviceset="M06" device="SILK_FEMALE_PTH" value="PRGRM"/>
@@ -12155,6 +12157,7 @@ You are welcome to use this library for commercial purposes. For attribution, we
 <part name="GND-ISO6" library="SparkFun-Aesthetics" deviceset="GND-ISO" device=""/>
 <part name="U$3" library="custom" deviceset="RASPBERRY-PI-HEADER" device="2B"/>
 <part name="GND-ISO1" library="SparkFun-Aesthetics" deviceset="GND-ISO" device=""/>
+<part name="R2" library="SparkFun-Resistors" deviceset="RESISTOR" device="1206" value="0"/>
 </parts>
 <sheets>
 <sheet>
@@ -12275,11 +12278,12 @@ You are welcome to use this library for commercial purposes. For attribution, we
 <instance part="GND-ISO6" gate="G$1" x="-215.9" y="114.3"/>
 <instance part="U$3" gate="G$1" x="40.64" y="220.98"/>
 <instance part="GND-ISO1" gate="G$1" x="22.86" y="182.88"/>
+<instance part="R2" gate="G$1" x="-78.74" y="162.56" rot="R180"/>
 </instances>
 <busses>
 </busses>
 <nets>
-<net name="GND-ISO" class="0">
+<net name="GND-ISO" class="2">
 <segment>
 <pinref part="C5" gate="G$1" pin="2"/>
 <pinref part="GND-ISO3" gate="G$1" pin="GND-ISO"/>
@@ -12855,14 +12859,14 @@ You are welcome to use this library for commercial purposes. For attribution, we
 <label x="33.02" y="45.72" size="1.27" layer="95" xref="yes"/>
 </segment>
 </net>
-<net name="N$13" class="0">
+<net name="N$13" class="2">
 <segment>
 <pinref part="F1" gate="G$1" pin="2"/>
 <pinref part="D1" gate="G$1" pin="A"/>
 <wire x1="-132.08" y1="101.6" x2="-129.54" y2="101.6" width="0.1524" layer="91"/>
 </segment>
 </net>
-<net name="PI_5V" class="0">
+<net name="PI_5V" class="2">
 <segment>
 <pinref part="D1" gate="G$1" pin="C"/>
 <wire x1="-124.46" y1="101.6" x2="-114.3" y2="101.6" width="0.1524" layer="91"/>
@@ -12876,48 +12880,38 @@ You are welcome to use this library for commercial purposes. For attribution, we
 <segment>
 <pinref part="U$3" gate="G$1" pin="5V@2"/>
 <wire x1="25.4" y1="246.38" x2="22.86" y2="246.38" width="0.1524" layer="91"/>
-<label x="22.86" y="246.38" size="1.27" layer="95" rot="R180" xref="yes"/>
+<label x="20.32" y="246.38" size="1.27" layer="95" rot="R180" xref="yes"/>
+<wire x1="22.86" y1="246.38" x2="20.32" y2="246.38" width="0.1524" layer="91"/>
+<wire x1="22.86" y1="246.38" x2="22.86" y2="243.84" width="0.1524" layer="91"/>
+<junction x="22.86" y="246.38"/>
+<pinref part="U$3" gate="G$1" pin="5V@4"/>
+<wire x1="22.86" y1="243.84" x2="25.4" y2="243.84" width="0.1524" layer="91"/>
 </segment>
 </net>
-<net name="5V" class="0">
-<segment>
-<wire x1="-165.1" y1="127" x2="-165.1" y2="132.08" width="0.1524" layer="91"/>
-<pinref part="R10" gate="G$1" pin="2"/>
-<wire x1="-165.1" y1="132.08" x2="-165.1" y2="137.16" width="0.1524" layer="91"/>
-<label x="-165.1" y="137.16" size="1.778" layer="95" rot="R90" xref="yes"/>
-<pinref part="SW2" gate="G$1" pin="2"/>
-<wire x1="-165.1" y1="132.08" x2="-162.56" y2="132.08" width="0.1524" layer="91"/>
-<junction x="-165.1" y="132.08"/>
-</segment>
-<segment>
-<pinref part="IC1" gate="1" pin="IN"/>
-<wire x1="-106.68" y1="55.88" x2="-109.22" y2="55.88" width="0.1524" layer="91"/>
-<pinref part="C11" gate="G$1" pin="1"/>
-<wire x1="-109.22" y1="48.26" x2="-109.22" y2="55.88" width="0.1524" layer="91"/>
-<pinref part="C9" gate="G$1" pin="1"/>
-<wire x1="-142.24" y1="55.88" x2="-134.62" y2="55.88" width="0.1524" layer="91"/>
-<wire x1="-134.62" y1="55.88" x2="-134.62" y2="48.26" width="0.1524" layer="91"/>
-<pinref part="C8" gate="G$1" pin="1"/>
-<wire x1="-134.62" y1="55.88" x2="-124.46" y2="55.88" width="0.1524" layer="91"/>
-<wire x1="-124.46" y1="55.88" x2="-124.46" y2="48.26" width="0.1524" layer="91"/>
-<junction x="-134.62" y="55.88"/>
-<wire x1="-124.46" y1="55.88" x2="-116.84" y2="55.88" width="0.1524" layer="91"/>
-<junction x="-124.46" y="55.88"/>
-<junction x="-109.22" y="55.88"/>
-<wire x1="-116.84" y1="55.88" x2="-109.22" y2="55.88" width="0.1524" layer="91"/>
-<wire x1="-116.84" y1="55.88" x2="-116.84" y2="60.96" width="0.1524" layer="91"/>
-<junction x="-116.84" y="55.88"/>
-<label x="-116.84" y="60.96" size="1.778" layer="95" rot="R90" xref="yes"/>
-<pinref part="D3" gate="G$1" pin="C"/>
-<wire x1="-142.24" y1="48.26" x2="-142.24" y2="55.88" width="0.1524" layer="91"/>
-<junction x="-142.24" y="55.88"/>
-<pinref part="F3" gate="G$1" pin="2"/>
-<wire x1="-147.32" y1="55.88" x2="-142.24" y2="55.88" width="0.1524" layer="91"/>
-</segment>
+<net name="FT232_VCC" class="0">
 <segment>
 <pinref part="U$2" gate="G$1" pin="S1(P)"/>
 <wire x1="-205.74" y1="106.68" x2="-208.28" y2="106.68" width="0.1524" layer="91"/>
 <label x="-208.28" y="106.68" size="1.27" layer="95" rot="R180" xref="yes"/>
+</segment>
+<segment>
+<wire x1="-40.64" y1="162.56" x2="-30.48" y2="162.56" width="0.1524" layer="91"/>
+<wire x1="-30.48" y1="162.56" x2="-12.7" y2="162.56" width="0.1524" layer="91"/>
+<wire x1="-12.7" y1="162.56" x2="-12.7" y2="154.94" width="0.1524" layer="91"/>
+<wire x1="-12.7" y1="154.94" x2="2.54" y2="154.94" width="0.1524" layer="91"/>
+<wire x1="-30.48" y1="157.48" x2="-30.48" y2="162.56" width="0.1524" layer="91"/>
+<wire x1="-40.64" y1="157.48" x2="-40.64" y2="162.56" width="0.1524" layer="91"/>
+<junction x="-30.48" y="162.56"/>
+<junction x="-40.64" y="162.56"/>
+<pinref part="U2" gate="G$1" pin="VCC"/>
+<pinref part="C5" gate="G$1" pin="1"/>
+<pinref part="C2" gate="G$1" pin="1"/>
+<wire x1="-40.64" y1="162.56" x2="-48.26" y2="162.56" width="0.1524" layer="91"/>
+<pinref part="C6" gate="G$1" pin="2"/>
+<wire x1="-48.26" y1="157.48" x2="-48.26" y2="162.56" width="0.1524" layer="91"/>
+<wire x1="-73.66" y1="162.56" x2="-48.26" y2="162.56" width="0.1524" layer="91"/>
+<junction x="-48.26" y="162.56"/>
+<pinref part="R2" gate="G$1" pin="1"/>
 </segment>
 </net>
 <net name="SENSOR_PWR_CNTRL" class="0">
@@ -13001,7 +12995,7 @@ You are welcome to use this library for commercial purposes. For attribution, we
 <label x="-60.96" y="5.08" size="1.27" layer="95" rot="R90" xref="yes"/>
 </segment>
 </net>
-<net name="5V_RAW" class="0">
+<net name="5V_RAW" class="2">
 <segment>
 <wire x1="-185.42" y1="55.88" x2="-185.42" y2="63.5" width="0.1524" layer="91"/>
 <wire x1="-185.42" y1="55.88" x2="-180.34" y2="55.88" width="0.1524" layer="91"/>
@@ -13012,27 +13006,8 @@ You are welcome to use this library for commercial purposes. For attribution, we
 <wire x1="-195.58" y1="55.88" x2="-185.42" y2="55.88" width="0.1524" layer="91"/>
 <label x="-185.42" y="63.5" size="1.27" layer="95" rot="R90" xref="yes"/>
 </segment>
-<segment>
-<wire x1="-40.64" y1="162.56" x2="-30.48" y2="162.56" width="0.1524" layer="91"/>
-<wire x1="-30.48" y1="162.56" x2="-12.7" y2="162.56" width="0.1524" layer="91"/>
-<wire x1="-12.7" y1="162.56" x2="-12.7" y2="154.94" width="0.1524" layer="91"/>
-<wire x1="-12.7" y1="154.94" x2="2.54" y2="154.94" width="0.1524" layer="91"/>
-<wire x1="-30.48" y1="157.48" x2="-30.48" y2="162.56" width="0.1524" layer="91"/>
-<wire x1="-40.64" y1="157.48" x2="-40.64" y2="162.56" width="0.1524" layer="91"/>
-<junction x="-30.48" y="162.56"/>
-<junction x="-40.64" y="162.56"/>
-<pinref part="U2" gate="G$1" pin="VCC"/>
-<pinref part="C5" gate="G$1" pin="1"/>
-<pinref part="C2" gate="G$1" pin="1"/>
-<wire x1="-40.64" y1="162.56" x2="-48.26" y2="162.56" width="0.1524" layer="91"/>
-<pinref part="C6" gate="G$1" pin="2"/>
-<wire x1="-48.26" y1="162.56" x2="-66.04" y2="162.56" width="0.1524" layer="91"/>
-<wire x1="-48.26" y1="157.48" x2="-48.26" y2="162.56" width="0.1524" layer="91"/>
-<junction x="-48.26" y="162.56"/>
-<label x="-66.04" y="162.56" size="1.27" layer="95" rot="R180" xref="yes"/>
-</segment>
 </net>
-<net name="5V_SWITCH" class="0">
+<net name="5V_SWITCH" class="2">
 <segment>
 <pinref part="F3" gate="G$1" pin="1"/>
 <wire x1="-160.02" y1="55.88" x2="-165.1" y2="55.88" width="0.1524" layer="91"/>
@@ -13209,7 +13184,7 @@ You are welcome to use this library for commercial purposes. For attribution, we
 <wire x1="-165.1" y1="93.98" x2="-165.1" y2="111.76" width="0.1524" layer="91"/>
 </segment>
 </net>
-<net name="N$3" class="0">
+<net name="N$3" class="2">
 <segment>
 <pinref part="U$2" gate="G$1" pin="D1.(P)"/>
 <pinref part="U$2" gate="G$1" pin="D1(P)"/>
@@ -13267,6 +13242,47 @@ You are welcome to use this library for commercial purposes. For attribution, we
 <label x="-66.04" y="167.64" size="1.27" layer="95" rot="R180" xref="yes"/>
 </segment>
 </net>
+<net name="5V" class="2">
+<segment>
+<wire x1="-91.44" y1="162.56" x2="-83.82" y2="162.56" width="0.1524" layer="91"/>
+<pinref part="R2" gate="G$1" pin="2"/>
+<label x="-91.44" y="162.56" size="1.27" layer="95" rot="R180" xref="yes"/>
+</segment>
+<segment>
+<pinref part="IC1" gate="1" pin="IN"/>
+<wire x1="-106.68" y1="55.88" x2="-109.22" y2="55.88" width="0.1524" layer="91"/>
+<pinref part="C11" gate="G$1" pin="1"/>
+<wire x1="-109.22" y1="48.26" x2="-109.22" y2="55.88" width="0.1524" layer="91"/>
+<pinref part="C9" gate="G$1" pin="1"/>
+<wire x1="-142.24" y1="55.88" x2="-134.62" y2="55.88" width="0.1524" layer="91"/>
+<wire x1="-134.62" y1="55.88" x2="-134.62" y2="48.26" width="0.1524" layer="91"/>
+<pinref part="C8" gate="G$1" pin="1"/>
+<wire x1="-134.62" y1="55.88" x2="-124.46" y2="55.88" width="0.1524" layer="91"/>
+<wire x1="-124.46" y1="55.88" x2="-124.46" y2="48.26" width="0.1524" layer="91"/>
+<junction x="-134.62" y="55.88"/>
+<wire x1="-124.46" y1="55.88" x2="-116.84" y2="55.88" width="0.1524" layer="91"/>
+<junction x="-124.46" y="55.88"/>
+<junction x="-109.22" y="55.88"/>
+<wire x1="-116.84" y1="55.88" x2="-109.22" y2="55.88" width="0.1524" layer="91"/>
+<wire x1="-116.84" y1="55.88" x2="-116.84" y2="60.96" width="0.1524" layer="91"/>
+<junction x="-116.84" y="55.88"/>
+<label x="-116.84" y="60.96" size="1.778" layer="95" rot="R90" xref="yes"/>
+<pinref part="D3" gate="G$1" pin="C"/>
+<wire x1="-142.24" y1="48.26" x2="-142.24" y2="55.88" width="0.1524" layer="91"/>
+<junction x="-142.24" y="55.88"/>
+<pinref part="F3" gate="G$1" pin="2"/>
+<wire x1="-147.32" y1="55.88" x2="-142.24" y2="55.88" width="0.1524" layer="91"/>
+</segment>
+<segment>
+<wire x1="-165.1" y1="127" x2="-165.1" y2="132.08" width="0.1524" layer="91"/>
+<pinref part="R10" gate="G$1" pin="2"/>
+<wire x1="-165.1" y1="132.08" x2="-165.1" y2="137.16" width="0.1524" layer="91"/>
+<label x="-165.1" y="137.16" size="1.778" layer="95" rot="R90" xref="yes"/>
+<pinref part="SW2" gate="G$1" pin="2"/>
+<wire x1="-165.1" y1="132.08" x2="-162.56" y2="132.08" width="0.1524" layer="91"/>
+<junction x="-165.1" y="132.08"/>
+</segment>
+</net>
 </nets>
 </sheet>
 </sheets>
@@ -13281,15 +13297,10 @@ You are welcome to use this library for commercial purposes. For attribution, we
 <approved hash="104,1,2.54,127,U2,GND21,GND-ISO,,,"/>
 <approved hash="104,1,2.54,149.86,U2,VCCIO,N$4,,,"/>
 <approved hash="104,1,2.54,134.62,U2,AGND,GND-ISO,,,"/>
-<approved hash="104,1,2.54,154.94,U2,VCC,VBUS,,,"/>
 <approved hash="202,1,33.02,154.94,U2,CTS,,,,"/>
 <approved hash="202,1,33.02,132.08,U2,PWREN,,,,"/>
 <approved hash="202,1,33.02,129.54,U2,TXDEN,,,,"/>
 <approved hash="202,1,33.02,127,U2,SLEEP,,,,"/>
-<approved hash="113,1,168.317,-28.1347,PI,,,,,"/>
-<approved hash="113,1,168.317,-50.9947,SENSOR,,,,,"/>
-<approved hash="113,1,175.937,-71.3147,STATE_CONTROLLER,,,,,"/>
-<approved hash="113,1,175.937,-94.1747,CNTRL_INPUTS,,,,,"/>
 </errors>
 </schematic>
 </drawing>
