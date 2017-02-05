@@ -324,4 +324,6 @@ void loop() {
   controlAlgo(0.0);
   updateIMUData();
   Serial.println("az: " + (String)myIMU.az);
+  Serial.println("alt: " + (String)myPressure.readAltitudeFt());
+  
 }
