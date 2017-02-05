@@ -18073,7 +18073,7 @@ Operational amplifiers,  comparators, voltage regulators, ADCs, DACs, etc.&lt;p&
 <classes>
 <class number="0" name="default" width="0" drill="0">
 </class>
-<class number="1" name="Motor" width="0.029971875" drill="0">
+<class number="1" name="Motor" width="0.6985" drill="0">
 </class>
 </classes>
 <parts>

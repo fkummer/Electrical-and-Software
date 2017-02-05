@@ -18479,6 +18479,9 @@ Siemens, Hewlett-Packard, Texas Instuments, Sharp, Motorola&lt;p&gt;
 <wire x1="162.56" y1="55.88" x2="162.56" y2="66.04" width="0.1524" layer="91"/>
 <wire x1="175.26" y1="55.88" x2="162.56" y2="55.88" width="0.1524" layer="91"/>
 <junction x="162.56" y="55.88"/>
+<pinref part="OK1" gate="G$1" pin="COL"/>
+<wire x1="162.56" y1="66.04" x2="160.02" y2="66.04" width="0.1524" layer="91"/>
+<wire x1="160.02" y1="66.04" x2="160.02" y2="68.58" width="0.1524" layer="91"/>
 </segment>
 </net>
 <net name="SIGNAL" class="1">

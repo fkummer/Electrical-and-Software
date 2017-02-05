@@ -18144,7 +18144,7 @@ Operational amplifiers,  comparators, voltage regulators, ADCs, DACs, etc.&lt;p&
 <part name="R11" library="adafruit" deviceset="R-US_" device="R1206" value="10k"/>
 <part name="GND21" library="supply1" deviceset="GND" device=""/>
 <part name="D1" library="SparkFun-DiscreteSemi" deviceset="DIODE-ZENER" device="-BZT52C3V6S" value="3.3V"/>
-<part name="F3" library="fuse" deviceset="PICOFUSE" device="" value="TRIP 100mA"/>
+<part name="F3" library="fuse" deviceset="PICOFUSE" device="" value="100mA"/>
 <part name="GND" library="SparkFun-Aesthetics" deviceset="GND" device="" value=""/>
 <part name="JP1" library="SparkFun-Connectors" deviceset="M02" device="PTH" value="SENSOR/MCU"/>
 <part name="SW2" library="special" deviceset="SW_DIP-1" device=""/>
@@ -18155,14 +18155,14 @@ Operational amplifiers,  comparators, voltage regulators, ADCs, DACs, etc.&lt;p&
 <part name="C14" library="SparkFun-Capacitors" deviceset="10UF-POLAR" device="-EIA3216-16V-10%(TANT)" value="10uF"/>
 <part name="LM117" library="SparkFun-IC-Power" deviceset="V_REG_LM1117" device="SOT223"/>
 <part name="SW3" library="special" deviceset="SW_DIP-1" device=""/>
-<part name="F4" library="fuse" deviceset="PICOFUSE" device="" value="TRIP 1.5A"/>
+<part name="F4" library="fuse" deviceset="PICOFUSE" device="" value="1.5A"/>
 <part name="C15" library="rcl" deviceset="C-US" device="C1206" value="0.1uF"/>
 <part name="C16" library="SparkFun-Capacitors" deviceset="10UF-POLAR" device="-EIA3216-16V-10%(TANT)" value="10uF"/>
 <part name="C17" library="SparkFun-Capacitors" deviceset="10UF-POLAR" device="-EIA3216-16V-10%(TANT)" value="10uF"/>
 <part name="R14" library="rcl" deviceset="R-US_" device="M1206" value="200"/>
 <part name="R15" library="rcl" deviceset="R-US_" device="M1206" value="750"/>
 <part name="JP5" library="SparkFun-Connectors" deviceset="M02" device="PTH" value="MOTOR"/>
-<part name="F1" library="fuse" deviceset="PICOFUSE" device="" value="TRIP 1.5A"/>
+<part name="F1" library="fuse" deviceset="PICOFUSE" device="" value="1.5A"/>
 <part name="SUPPLY1" library="supply2" deviceset="GND1" device=""/>
 <part name="MPWR1" library="SparkFun-Connectors" deviceset="M02" device="PTH" value="11.1"/>
 <part name="MPWR2" library="SparkFun-Connectors" deviceset="M02" device="PTH" value="7.4V"/>
@@ -18612,7 +18612,7 @@ Operational amplifiers,  comparators, voltage regulators, ADCs, DACs, etc.&lt;p&
 <junction x="162.56" y="55.88"/>
 </segment>
 </net>
-<net name="N$6" class="1">
+<net name="SIGNAL" class="1">
 <segment>
 <pinref part="T1" gate="G$1" pin="C"/>
 <pinref part="SERVO" gate="G$1" pin="SIG"/>

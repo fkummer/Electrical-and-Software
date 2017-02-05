@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE eagle SYSTEM "eagle.dtd">
-<eagle version="7.7.0">
+<eagle version="7.5.0">
 <drawing>
 <settings>
 <setting alwaysvectorfont="no"/>
@@ -3028,6 +3028,8 @@ Please make sure your boards conform to these design rules.</description>
 <wire x1="6.9342" y1="44.4246" x2="6.4008" y2="43.8912" width="0.1524" layer="1"/>
 <wire x1="2.3622" y1="37.4904" x2="2.41" y2="37.465" width="0.1524" layer="1"/>
 <wire x1="6.9342" y1="44.4246" x2="6.985" y2="44.45" width="0.1524" layer="1"/>
+<contactref element="U2" pad="20"/>
+<wire x1="22.1742" y1="30.861" x2="21.92" y2="31.785" width="0" layer="19" extent="1-1"/>
 </signal>
 <signal name="INT2">
 <contactref element="U1" pad="5"/>
@@ -3738,6 +3740,8 @@ Please make sure your boards conform to these design rules.</description>
 <wire x1="31.6992" y1="47.7012" x2="31.75" y2="47.7012" width="0.1524" layer="1"/>
 <via x="20.574" y="29.1846" extent="1-16" drill="0.3302"/>
 <via x="30.5562" y="46.5582" extent="1-16" drill="0.3302"/>
+<contactref element="U2" pad="19"/>
+<wire x1="20.574" y1="29.1846" x2="21.92" y2="31.385" width="0" layer="19" extent="1-1"/>
 </signal>
 <signal name="N$15">
 <contactref element="R12" pad="2"/>

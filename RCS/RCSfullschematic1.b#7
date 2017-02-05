@@ -3176,7 +3176,7 @@ Please make sure your boards conform to these design rules.</description>
 <wire x1="45.0342" y1="33.2232" x2="45.085" y2="33.15" width="0.1524" layer="1"/>
 <wire x1="36.8808" y1="48.768" x2="36.83" y2="48.8188" width="0.1524" layer="1"/>
 </signal>
-<signal name="A4(SDA)">
+<signal name="ADDR">
 <contactref element="U1" pad="7"/>
 <contactref element="U2" pad="24"/>
 <contactref element="J1" pad="2"/>

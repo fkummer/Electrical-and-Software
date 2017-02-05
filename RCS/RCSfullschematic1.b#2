@@ -3136,6 +3136,8 @@ Please make sure your boards conform to these design rules.</description>
 <wire x1="37.4142" y1="72.0852" x2="37.595" y2="72.39" width="0.6985" layer="1"/>
 <via x="36.957" y="57.6072" extent="1-16" drill="0.3302"/>
 <via x="36.957" y="64.9986" extent="1-16" drill="0.3302"/>
+<contactref element="OK1" pad="5"/>
+<wire x1="-5.08" y1="10.795" x2="36.8808" y2="54.102" width="0" layer="19" extent="1-1"/>
 </signal>
 <signal name="SIGNAL" class="1">
 <contactref element="T1" pad="3"/>
