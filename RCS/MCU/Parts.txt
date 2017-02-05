@@ -1,5 +1,0 @@
-EEPROM, 2MB, by Atmel
-http://www.atmel.com/devices/AT24CM02.aspx
-
-8 MHz Crystal
-http://www.mouser.com/ProductDetail/Fox/FOXSLF-080-20/?qs=sGAEpiMZZMsBj6bBr9Q9aRTaFt3VVGplZ5%252bx3NNCQpU%3d

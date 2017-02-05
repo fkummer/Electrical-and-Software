@@ -18091,6 +18091,8 @@ Resettable Fuse. Spark Fun Electronics SKU : COM-08357</description>
 <part name="MPWR2" library="SparkFun-Connectors" deviceset="M02" device="PTH" value="7.4V"/>
 <part name="IC3" library="v-reg" deviceset="LM317TS" device=""/>
 <part name="OK1" library="optocoupler" deviceset="4N35" device=""/>
+<part name="ERROR" library="adafruit" deviceset="LED" device="CHIPLED_1206" value="Red"/>
+<part name="R16" library="adafruit" deviceset="R-US_" device="R1206" value="100"/>
 </parts>
 <sheets>
 <sheet>
@@ -18190,6 +18192,11 @@ Resettable Fuse. Spark Fun Electronics SKU : COM-08357</description>
 <instance part="MPWR2" gate="G$1" x="203.2" y="208.28"/>
 <instance part="IC3" gate="1" x="312.42" y="256.54"/>
 <instance part="OK1" gate="G$1" x="160.02" y="76.2" rot="R270"/>
+<instance part="ERROR" gate="G$1" x="508" y="33.02" smashed="yes">
+<attribute name="NAME" x="511.556" y="28.448" size="1.778" layer="95" rot="R90"/>
+<attribute name="VALUE" x="513.715" y="28.448" size="1.778" layer="96" rot="R90"/>
+</instance>
+<instance part="R16" gate="G$1" x="502.92" y="5.08" rot="R90"/>
 </instances>
 <busses>
 </busses>
@@ -18343,7 +18350,12 @@ Resettable Fuse. Spark Fun Electronics SKU : COM-08357</description>
 <segment>
 <pinref part="R10" gate="G$1" pin="1"/>
 <pinref part="GND16" gate="1" pin="GND"/>
-<wire x1="510.54" y1="0" x2="510.54" y2="-5.08" width="0.1524" layer="91"/>
+<wire x1="510.54" y1="0" x2="510.54" y2="-2.54" width="0.1524" layer="91"/>
+<pinref part="R16" gate="G$1" pin="1"/>
+<wire x1="510.54" y1="-2.54" x2="510.54" y2="-5.08" width="0.1524" layer="91"/>
+<wire x1="502.92" y1="0" x2="502.92" y2="-2.54" width="0.1524" layer="91"/>
+<wire x1="502.92" y1="-2.54" x2="510.54" y2="-2.54" width="0.1524" layer="91"/>
+<junction x="510.54" y="-2.54"/>
 </segment>
 <segment>
 <pinref part="C10" gate="G$1" pin="2"/>
@@ -18434,6 +18446,11 @@ Resettable Fuse. Spark Fun Electronics SKU : COM-08357</description>
 <pinref part="C14" gate="G$1" pin="-"/>
 <pinref part="MPWR2" gate="G$1" pin="1"/>
 </segment>
+<segment>
+<pinref part="U2" gate="G$1" pin="FSYNC"/>
+<wire x1="-99.06" y1="7.62" x2="-101.6" y2="7.62" width="0.1524" layer="91"/>
+<label x="-101.6" y="7.62" size="1.778" layer="95" rot="R180" xref="yes"/>
+</segment>
 </net>
 <net name="INT2" class="0">
 <segment>
@@ -18466,13 +18483,6 @@ Resettable Fuse. Spark Fun Electronics SKU : COM-08357</description>
 <pinref part="U3" gate="U$1" pin="PD2(INT0)"/>
 <wire x1="502.92" y1="45.72" x2="505.46" y2="45.72" width="0.1524" layer="91"/>
 <label x="505.46" y="45.72" size="1.27" layer="95" xref="yes"/>
-</segment>
-</net>
-<net name="FSYNC" class="0">
-<segment>
-<pinref part="U2" gate="G$1" pin="FSYNC"/>
-<wire x1="-99.06" y1="7.62" x2="-101.6" y2="7.62" width="0.1524" layer="91"/>
-<label x="-101.6" y="7.62" size="1.778" layer="95" rot="R180" xref="yes"/>
 </segment>
 </net>
 <net name="N$1" class="0">
@@ -19016,6 +19026,11 @@ Resettable Fuse. Spark Fun Electronics SKU : COM-08357</description>
 <junction x="581.66" y="78.74"/>
 <label x="581.66" y="83.82" size="1.778" layer="95" xref="yes"/>
 </segment>
+<segment>
+<pinref part="U2" gate="G$1" pin="RESV"/>
+<wire x1="-99.06" y1="33.02" x2="-106.68" y2="33.02" width="0.1524" layer="91"/>
+<label x="-106.68" y="33.02" size="1.778" layer="95" rot="R180" xref="yes"/>
+</segment>
 </net>
 <net name="N$15" class="0">
 <segment>
@@ -19203,6 +19218,22 @@ Resettable Fuse. Spark Fun Electronics SKU : COM-08357</description>
 <pinref part="U4" gate="G$1" pin="ADDR"/>
 <pinref part="R11" gate="G$1" pin="1"/>
 <wire x1="518.16" y1="132.08" x2="530.86" y2="132.08" width="0.1524" layer="91"/>
+</segment>
+</net>
+<net name="N$14" class="0">
+<segment>
+<pinref part="R16" gate="G$1" pin="2"/>
+<wire x1="502.92" y1="10.16" x2="508" y2="10.16" width="0.1524" layer="91"/>
+<pinref part="ERROR" gate="G$1" pin="C"/>
+<wire x1="508" y1="10.16" x2="508" y2="27.94" width="0.1524" layer="91"/>
+</segment>
+</net>
+<net name="N$23" class="0">
+<segment>
+<pinref part="ERROR" gate="G$1" pin="A"/>
+<wire x1="508" y1="35.56" x2="508" y2="40.64" width="0.1524" layer="91"/>
+<pinref part="U3" gate="U$1" pin="PD4(XCK/T0)"/>
+<wire x1="508" y1="40.64" x2="502.92" y2="40.64" width="0.1524" layer="91"/>
 </segment>
 </net>
 </nets>
