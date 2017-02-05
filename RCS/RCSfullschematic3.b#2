@@ -2679,8 +2679,8 @@ Please make sure your boards conform to these design rules.</description>
 <attribute name="NAME" x="24.765" y="21.9075" size="0.8128" layer="25" font="vector" ratio="10"/>
 </element>
 <element name="SW1" library="adafruit" package="PUSHBUTTON_SMD_SJ" value="" x="36.5125" y="8.89" rot="R180"/>
-<element name="SW2" library="special" package="EDG-01" value="" x="30.48" y="77.47" smashed="yes" rot="R270">
-<attribute name="VALUE" x="23.876" y="79.375" size="1.27" layer="27" ratio="10" rot="R270"/>
+<element name="SW2" library="special" package="EDG-01" value="" x="30.1625" y="77.47" smashed="yes" rot="R270">
+<attribute name="VALUE" x="23.5585" y="79.375" size="1.27" layer="27" ratio="10" rot="R270"/>
 </element>
 <element name="SW3" library="special" package="EDG-01" value="" x="3.175" y="69.215" smashed="yes">
 <attribute name="VALUE" x="1.27" y="62.611" size="1.27" layer="27" ratio="10"/>
@@ -2708,12 +2708,12 @@ Please make sure your boards conform to these design rules.</description>
 <attribute name="VALUE" x="33.948" y="13.2495" size="0.8128" layer="25" font="vector" ratio="10"/>
 </element>
 <element name="IC3" library="v-reg" package="317TS" value="" x="18.415" y="79.6925"/>
-<element name="OK1" library="optocoupler" package="DIL06" value="4N35" x="31.4325" y="68.2625" smashed="yes">
-<attribute name="MF" value="FAIRCHILD SEMICONDUCTOR" x="31.4325" y="68.2625" size="1.778" layer="27" display="off"/>
-<attribute name="MPN" value="4N35" x="31.4325" y="68.2625" size="1.778" layer="27" display="off"/>
-<attribute name="OC_FARNELL" value="1328375" x="31.4325" y="68.2625" size="1.778" layer="27" display="off"/>
-<attribute name="OC_NEWARK" value="72K9946" x="31.4325" y="68.2625" size="1.778" layer="27" display="off"/>
-<attribute name="VALUE" x="29.0195" y="67.6275" size="1.27" layer="27" ratio="10"/>
+<element name="OK1" library="optocoupler" package="DIL06" value="4N35" x="31.4325" y="68.58" smashed="yes">
+<attribute name="MF" value="FAIRCHILD SEMICONDUCTOR" x="31.4325" y="68.58" size="1.778" layer="27" display="off"/>
+<attribute name="MPN" value="4N35" x="31.4325" y="68.58" size="1.778" layer="27" display="off"/>
+<attribute name="OC_FARNELL" value="1328375" x="31.4325" y="68.58" size="1.778" layer="27" display="off"/>
+<attribute name="OC_NEWARK" value="72K9946" x="31.4325" y="68.58" size="1.778" layer="27" display="off"/>
+<attribute name="VALUE" x="29.0195" y="67.945" size="1.27" layer="27" ratio="10"/>
 </element>
 <element name="ERROR" library="adafruit" package="CHIPLED_1206" value="Red" x="20.6375" y="20.6375" smashed="yes" rot="R90">
 <attribute name="NAME" x="22.5425" y="22.86" size="0.8128" layer="25" font="vector" ratio="10" rot="R180"/>
@@ -2775,8 +2775,8 @@ Please make sure your boards conform to these design rules.</description>
 <contactref element="OK1" pad="2"/>
 <contactref element="U2" pad="11"/>
 <contactref element="R16" pad="1"/>
-<wire x1="31.4325" y1="64.4525" x2="38.735" y2="70.1675" width="0" layer="19" extent="1-1"/>
-<wire x1="24.895" y1="66.3575" x2="31.4325" y2="64.4525" width="0" layer="19" extent="1-1"/>
+<wire x1="31.4325" y1="64.77" x2="38.735" y2="70.1675" width="0" layer="19" extent="1-1"/>
+<wire x1="24.895" y1="66.3575" x2="31.4325" y2="64.77" width="0" layer="19" extent="1-1"/>
 <wire x1="24.895" y1="61.9125" x2="24.895" y2="66.3575" width="0" layer="19" extent="1-1"/>
 <wire x1="22.095" y1="57.785" x2="24.895" y2="61.9125" width="0" layer="19" extent="1-1"/>
 <wire x1="18.415" y1="52.07" x2="22.095" y2="57.785" width="0" layer="19" extent="1-1"/>
@@ -2869,8 +2869,8 @@ Please make sure your boards conform to these design rules.</description>
 <contactref element="T1" pad="1"/>
 <contactref element="R2" pad="1"/>
 <contactref element="OK1" pad="5"/>
-<wire x1="31.4325" y1="72.0725" x2="37.735" y2="66.6725" width="0" layer="19" extent="1-1"/>
-<wire x1="17.91" y1="70.8025" x2="31.4325" y2="72.0725" width="0" layer="19" extent="1-1"/>
+<wire x1="31.4325" y1="72.39" x2="37.735" y2="66.6725" width="0" layer="19" extent="1-1"/>
+<wire x1="17.91" y1="70.8025" x2="31.4325" y2="72.39" width="0" layer="19" extent="1-1"/>
 </signal>
 <signal name="SIGNAL" class="1">
 <contactref element="T1" pad="3"/>
@@ -2887,7 +2887,7 @@ Please make sure your boards conform to these design rules.</description>
 <signal name="N$7">
 <contactref element="R1" pad="2"/>
 <contactref element="OK1" pad="1"/>
-<wire x1="38.735" y1="25.2125" x2="28.8925" y2="64.4525" width="0" layer="19" extent="1-1"/>
+<wire x1="38.735" y1="25.2125" x2="28.8925" y2="64.77" width="0" layer="19" extent="1-1"/>
 </signal>
 <signal name="A4(SDA)">
 <contactref element="U1" pad="7"/>
@@ -3108,7 +3108,7 @@ Please make sure your boards conform to these design rules.</description>
 <signal name="N$16">
 <contactref element="SW2" pad="2"/>
 <contactref element="MPWR2" pad="2"/>
-<wire x1="38.735" y1="72.7075" x2="34.29" y2="77.47" width="0" layer="19" extent="1-1"/>
+<wire x1="38.735" y1="72.7075" x2="33.9725" y2="77.47" width="0" layer="19" extent="1-1"/>
 </signal>
 <signal name="N$17">
 <contactref element="F3" pad="2"/>
@@ -3122,7 +3122,7 @@ Please make sure your boards conform to these design rules.</description>
 <signal name="N$18">
 <contactref element="SW2" pad="1"/>
 <contactref element="F3" pad="1"/>
-<wire x1="17.91" y1="66.3575" x2="26.67" y2="77.47" width="0" layer="19" extent="1-1"/>
+<wire x1="17.91" y1="66.3575" x2="26.3525" y2="77.47" width="0" layer="19" extent="1-1"/>
 </signal>
 <signal name="N$19" class="1">
 <contactref element="SW3" pad="2"/>
@@ -3181,7 +3181,7 @@ Please make sure your boards conform to these design rules.</description>
 <contactref element="T1" pad="2"/>
 <contactref element="JP5" pad="2"/>
 <contactref element="OK1" pad="4"/>
-<wire x1="37.735" y1="64.7725" x2="33.9725" y2="72.0725" width="0" layer="19" extent="1-1"/>
+<wire x1="37.735" y1="64.7725" x2="33.9725" y2="72.39" width="0" layer="19" extent="1-1"/>
 <wire x1="32.5825" y1="60.325" x2="37.735" y2="64.7725" width="0" layer="19" extent="1-1"/>
 <wire x1="38.1" y1="56.1975" x2="32.5825" y2="60.325" width="0" layer="19" extent="1-1"/>
 <wire x1="36.5125" y1="40.135" x2="38.1" y2="56.1975" width="0" layer="19" extent="1-1"/>
