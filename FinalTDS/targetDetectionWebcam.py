@@ -4,6 +4,8 @@ from subprocess import call
 import spidev
 import RPi.GPIO as GPIO
 from math import *
+import time
+#from picamera import PiCamera
 
 
 scm_pin = 5
@@ -169,24 +171,40 @@ imgNum = 0
 c=1
 
 
-#call("fswebcam -r 1920x1080 /home/pi/Desktop/fullScale/img100.jpeg", shell=True)
+
+
+namedWindow("Webcam Feed")
+vc = VideoCapture(1)
+
+
+if vc.isOpened(): # try to get the first frame
+    rval, frame = vc.read()
+else:
+    rval = False
+    
+cap_num = 0
+start_time = time.time()
+while rval:
+    imshow("Webcam Feed", frame)
+    rval, frame = vc.read()
+
+    if cap_num < 100:
+        imwrite("/home/pi/Desktop/vid_cap/img" + str(cap_num) + ".jpeg", frame)
+        cap_num += 1
+        if cap_num == 100:
+            end_time = time.time()
+            total_time = end_time-start_time
+            print("Total Time: "+str(total_time))
+            print("Time Per Image: "+str(total_time/cap_num))
+            
+    key = waitKey(1)
+    if key == 27: # exit on ESC
+        break
+
+vc.release()
+destroyWindow("Webcam Feed")
+
 while True:
-
-    # Capture frame-by-frame
-    #ret, frame = cap.read()
-    
-    # Our operations on the frame come here
-    #gray = cvtColor(frame, COLOR_BGR2GRAY)
-
-    #waitKey(100)
-
-    #cv2.imwrite("home/pi/Desktop/Frames", frame)
-    #imwrite("home/pi/Desktop/Frames", frame)
-    
-    # Display the resulting frame
-    #if waitKey(1) & 0xFF == ord('q'):
-    #   break
-    #c+=1
 
     call("fswebcam -r 1920x1080 /home/pi/Desktop/fullScale/img" + str(imgNum) + ".jpeg", shell=True)
     targetsImage = imread("/home/pi/Desktop/fullScale/img" + str(imgNum) + ".jpeg", 1)
@@ -204,10 +222,7 @@ while True:
         imgNum +=1
 
 cap.release()
-#cv2.destroyAllWindows()
 destroyAllWindows()
-#waitKey(0)
-#destroyAllWindows()
 
 
     
