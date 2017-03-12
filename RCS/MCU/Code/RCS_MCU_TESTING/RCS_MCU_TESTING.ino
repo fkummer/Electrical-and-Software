@@ -1,5 +1,6 @@
 /* RCS MCU CODE V2
     Chris Fedors
+    Added acclerometer magnitude
 
 
 
@@ -59,6 +60,7 @@ boolean apogee = false; //true of rocket has reached apogee
 int altDebounce = 0; //debounce variable used to detect apogee
 
 float spinRate = 0;
+float accelMag = 0;
 float currentAlt = 0;
 float prevAlt = 0;
 float velocity = 0;
@@ -115,20 +117,21 @@ float updateIMUData() {
   */
   if (myIMU.readByte(MPU9250_ADDRESS, INT_STATUS) & 0x01) {
     myIMU.readAccelData(myIMU.accelCount);  // Read the x/y/z adc values
-    myIMU.getAres(); //Update resolutions
-    myIMU.getGres();
+    //myIMU.getAres(); //Update resolutions
+    //myIMU.getGres();
     // Now we'll calculate the accleration value into actual g's
     // This depends on scale being set
-    myIMU.ax = (float)myIMU.accelCount[0] * myIMU.aRes;// - myIMU.accelBias[0];
-    myIMU.ay = (float)myIMU.accelCount[1] * myIMU.aRes;// - myIMU.accelBias[1];
-    myIMU.az = (float)myIMU.accelCount[2] * myIMU.aRes;// - myIMU.accelBias[2];
+    myIMU.ax = (float)myIMU.accelCount[0] * myIMU.aRes - myIMU.accelBias[0];
+    myIMU.ay = (float)myIMU.accelCount[1] * myIMU.aRes - myIMU.accelBias[1];
+    myIMU.az = (float)myIMU.accelCount[2] * myIMU.aRes - myIMU.accelBias[2];
 
     myIMU.readGyroData(myIMU.gyroCount);  // Read the x/y/z adc values
     // Calculate the gyro value into actual degrees per second
     // This depends on scale being set
     myIMU.gx = (float)myIMU.gyroCount[0] * myIMU.gRes;
     myIMU.gy = (float)myIMU.gyroCount[1] * myIMU.gRes;
-    myIMU.gz = (float)myIMU.gyroCount[2] * myIMU.gRes; 
+    myIMU.gz = (float)myIMU.gyroCount[2] * myIMU.gRes;
+    accelMag = sqrt(myIMU.ax*myIMU.ax + myIMU.ay*myIMU.ay + myIMU.az*myIMU.az);
   }
 }
 
@@ -224,7 +227,7 @@ boolean detectLaunch(){
       launch = true;
       return true;
     }
-    delay(50);
+    delay(10);
   }
   return true;
 }
@@ -293,10 +296,14 @@ int LED = HIGH;
 float deflection = 0.0;
 void loop() {
   digitalWrite(LED_PIN, LED);
-  while(!detectLaunch()); //Wait for launch detection
+  delay(100);
+  //while(!detectLaunch()); //Wait for launch detection
   digitalWrite(LED_PIN, !LED);
-  
+  updateIMUData();
+  Serial.println(accelMag);
+  delay(100);
   //Main control loop
+  /*
   while(detectBurnout() && !apogee){ //Wait for burnout detection
     //Blink LED and get time elapsed since launch was detected
     LED = !LED;
@@ -334,4 +341,5 @@ void loop() {
     endTime = millis() - currTime;
     delay(100-endTime);
   }
+  */
 }
