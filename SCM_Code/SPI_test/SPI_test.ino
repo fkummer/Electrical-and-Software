@@ -5,11 +5,14 @@
 
 // SPI interrupt routine
 //Capture what is coming in. 
+
+byte ret = 1;
 ISR (SPI_STC_vect)
 {
   Serial.println("Received");
   Serial.println(SPDR);
-  SPDR = 'c';
+  SPDR = ret;
+  ret++;
 }// end of interrupt service routine (ISR) SPI_STC_vect
 
 
@@ -31,10 +34,12 @@ void setup() {
   pinMode(5, OUTPUT);
   pinMode(6, OUTPUT);
   pinMode(7, OUTPUT);
+  pinMode(A0, OUTPUT);
 
   digitalWrite(5, HIGH);   // turn the LED on (HIGH is the voltage level)
   digitalWrite(6, HIGH);   // turn the LED on (HIGH is the voltage level)
   digitalWrite(7, HIGH);   // turn the LED on (HIGH is the voltage level)
+  digitalWrite(A0, HIGH); 
   
   delay(5);
 }

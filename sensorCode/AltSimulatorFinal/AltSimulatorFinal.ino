@@ -31,7 +31,7 @@ void setup() {
   Serial.print("REAL VALUE: ");
   Serial.print(Altitude);
   convertAltToArray(Altitude);
-  Wire.begin(0x60);
+  Wire.begin(0x61);
   Wire.onRequest(requestEvent);
   Wire.onReceive(receiveEvent);
 }

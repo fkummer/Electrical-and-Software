@@ -12879,7 +12879,7 @@ You are welcome to use this library for commercial purposes. For attribution, we
 <label x="33.02" y="45.72" size="1.27" layer="95" xref="yes"/>
 </segment>
 </net>
-<net name="N$13" class="2">
+<net name="FUSE_DIODE_PI" class="2">
 <segment>
 <pinref part="F1" gate="G$1" pin="2"/>
 <pinref part="D1" gate="G$1" pin="A"/>

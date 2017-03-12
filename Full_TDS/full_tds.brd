@@ -2834,7 +2834,6 @@ Please make sure your boards conform to these design rules.</description>
 <via x="31.3944" y="46.1772" extent="1-16" drill="0.3302"/>
 </signal>
 <signal name="DTR">
-<contactref element="U2" pad="2"/>
 <contactref element="C18" pad="1"/>
 <wire x1="16.0782" y1="23.9268" x2="16.6116" y2="23.9268" width="0.1524" layer="1"/>
 <wire x1="15.6972" y1="24.3078" x2="16.0782" y2="23.9268" width="0.1524" layer="1"/>
@@ -2846,7 +2845,6 @@ Please make sure your boards conform to these design rules.</description>
 <wire x1="23.1648" y1="53.0352" x2="22.3266" y2="53.8734" width="0.1524" layer="1"/>
 <wire x1="23.1648" y1="49.9872" x2="23.1648" y2="53.0352" width="0.1524" layer="1"/>
 <wire x1="24.2316" y1="48.9204" x2="23.1648" y2="49.9872" width="0.1524" layer="1"/>
-<wire x1="16.6116" y1="23.9268" x2="16.664" y2="23.895" width="0.1524" layer="1"/>
 <wire x1="24.2316" y1="48.9204" x2="24.26" y2="48.895" width="0.1524" layer="1"/>
 </signal>
 <signal name="TXLED">

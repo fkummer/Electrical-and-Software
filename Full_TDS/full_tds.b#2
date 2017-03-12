@@ -1941,7 +1941,7 @@ Please make sure your boards conform to these design rules.</description>
 <attribute name="VALUE" x="48.768" y="26.543" size="0.6096" layer="25" rot="R90"/>
 </element>
 <element name="SW1" library="special" package="EDG-01" value="MAIN" x="59.69" y="26.67" smashed="yes">
-<attribute name="VALUE" x="57.785" y="20.066" size="0.6096" layer="26" ratio="10"/>
+<attribute name="VALUE" x="57.785" y="20.066" size="0.6096" layer="25" ratio="10"/>
 <attribute name="NAME" x="57.785" y="32.004" size="0.6096" layer="25" ratio="10"/>
 </element>
 <element name="F3" library="SparkFun-Fuses" package="1206" value="2.5A" x="72.39" y="35.56" smashed="yes" rot="R90">

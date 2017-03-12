@@ -151,6 +151,8 @@
 <hole x="19.685" y="56.515" drill="2.79908125"/>
 <text x="62.23" y="57.15" size="0.6096" layer="25">SDA</text>
 <text x="55.88" y="57.15" size="0.6096" layer="25">SCL</text>
+<text x="78.74" y="19.05" size="0.6096" layer="26" rot="MR270">TDS rev2</text>
+<text x="77.47" y="17.145" size="0.6096" layer="26" rot="MR270">CRT</text>
 </plain>
 <libraries>
 <library name="SparkFun-Passives">
