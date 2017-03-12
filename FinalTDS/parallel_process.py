@@ -3,34 +3,43 @@ import numpy as np
 from math import *
 import time
 from TDSlib import *
+import sys
+
+WAIT = 0
+ASCENT = 1
+DESCENT = 2
+LANDING = 3
+RECOVERY = 4
 
 cap_num = 0
 
-start_time = 0
-while cap_num < 20:
+clearBuffer()
 
-    start_time = time.time()
-    targetsImage = imread("/home/pi/Desktop/vid_cap/img" + str(cap_num) + ".jpeg", 1)
+while True:
+    
+    val = stateCheck()
+    print(val)
+    if val == WAIT:
+        pass
 
-    #If it equals none, that file does not exist yet, so keep waiting for it
-    while targetsImage == None:
-        start_time = time.time()
+    if val == ASCENT or val == DESCENT:
+
         targetsImage = imread("/home/pi/Desktop/vid_cap/img" + str(cap_num) + ".jpeg", 1)
 
-    alt = 1
-    targetDetection(targetsImage, alt, cap_num)
-    imwrite("/home/pi/Desktop/vid_cap/processed/img" + str(cap_num) + ".jpeg", targetsImage)
-    end_time = time.time()
-    print("Proc Time:"+str(end_time-start_time))
+        #If it equals none, that file does not exist yet, so keep waiting for it
+        if targetsImage != None:
+            time.sleep(.3)
+            alt = altitude()
+            targetDetection(targetsImage, alt, cap_num)
+            imwrite("/home/pi/Desktop/vid_cap/processed/img" + str(cap_num) + ".jpeg", targetsImage)
+            imwrite("/media/pi/9464-D88A/proc_img" + str(cap_num) + ".jpeg", targetsImage)
+            cap_num += 1
+                
+            key = waitKey(1)
+            if key == 27: # exit on ESC
+                break
 
-    cap_num += 1
+    if val == LANDING or val == RECOVERY:
+        print("ending parallel process")
+        sys.exit()
         
-    if cap_num == 20:
-        #total_time = end_time-start_time
-        #print("Process Total Time: "+str(total_time))
-        #print("Process Time Per Image: "+str(total_time/cap_num))
-        break
-            
-    key = waitKey(1)
-    if key == 27: # exit on ESC
-        break

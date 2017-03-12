@@ -1,6 +1,12 @@
 from cv2 import *
 import numpy as np
 from math import *
+import spidev
+import time
+
+spi = spidev.SpiDev()
+spi.open(0,0)
+spi.max_speed_hz = 500000
 
 def colorMaskThreshold(color):
 
@@ -109,16 +115,45 @@ def targetDetection(targetsImage, alt, imgNum):
     return
 
 def altitude():
-    global to_send
+    to_send = 2
     alt_lsb = spi.xfer2([to_send])
     alt_msb = spi.xfer2([to_send])
-    to_send = to_send + 0x01
     test_combo = 0
     test_combo = (test_combo | alt_msb[0]) << 8
     test_combo = test_combo | alt_lsb[0]
 
     return test_combo
-                
+
+def stateCheck():
+    to_send = 3
+    count = 0
+    stateVal = spi.xfer2([to_send])
+    prevState = [-1]
+    
+    while( count < 4):
+        #print(stateVal)
+        if(stateVal[0] != prevState[0]):
+            count = 0
+        else:
+            count += 1
+        prevState[0] = stateVal[0]
+        stateVal = spi.xfer2([to_send])
+        time.sleep(.04)
+    
+    return prevState[0]
+
+def picAck():
+    to_send = 4
+    stateVal = spi.xfer2([to_send])
+    return stateVal[0]
+
+def clearBuffer():
+    to_send = 0
+    x = 0
+    while(x < 20):
+        spi.xfer2([to_send])
+        x = x + 1
+         
 def tarpPixelArea(alt):
     VFOV = 43.3
     HFOV = 70.42

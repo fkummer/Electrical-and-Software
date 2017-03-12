@@ -6,7 +6,7 @@ from subprocess import call
 #from picamera import PiCamera
 
 
-#namedWindow("Webcam Feed")
+namedWindow("Webcam Feed")
 vc = VideoCapture(0)
 vc.set(CAP_PROP_FRAME_WIDTH, 1920)
 vc.set(CAP_PROP_FRAME_HEIGHT, 1080)
@@ -23,7 +23,7 @@ cap_num = 0
 start_time = time.time()
 while rval:
     #By not showing it on screen, we can cut down on image capture time.
-    #imshow("Webcam Feed", frame)
+    imshow("Webcam Feed", frame)
     rval, frame = vc.read()
 
     if cap_num < 100:

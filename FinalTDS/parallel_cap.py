@@ -1,38 +1,66 @@
 from cv2 import *
 import time
 from TDSlib import *
+import spidev
+import RPi.GPIO as GPIO
+from math import *
+from subprocess import call
+import sys
+
+WAIT = 0
+ASCENT = 1
+DESCENT = 2
+LANDING = 3
+RECOVERY = 4
+
+scm_pin = 5
+GPIO.setmode(GPIO.BCM)
+GPIO.setup(scm_pin, GPIO.IN, pull_up_down=GPIO.PUD_DOWN)
 
 vc = VideoCapture(0)
 vc.set(CAP_PROP_FRAME_WIDTH, 1920)
 vc.set(CAP_PROP_FRAME_HEIGHT, 1080)
 cap_num = 0
+land_num = 0
 
 if vc.isOpened(): # try to get the first frame
     rval, frame = vc.read()
 else:
     rval = False
+    
+clearBuffer()
 
-start_time = time.time()
-while cap_num < 20:
-    #imshow("Webcam Feed", frame)
-    rval, frame = vc.read()
+while True:
+    val = stateCheck()
+    print(val)
 
-    if cap_num < 20:
-        start_time = time.time()
-        imwrite("/home/pi/Desktop/vid_cap/img" + str(cap_num) + ".jpeg", frame)
-        end_time = time.time()
-        print("Cap time:"+str(end_time-start_time))
-        cap_num += 1
-        
-    if cap_num == 20:
- 
-        #total_time = end_time-start_time
-        #print("Total Time: "+str(total_time))
-        #print("Time Per Image: "+str(total_time/cap_num))
-        break
+    if val == WAIT:
+        pass
+
+    if val == ASCENT or val == DESCENT:
+        rval, frame = vc.read()
+
+        if (GPIO.input(scm_pin)):
+            imwrite("/home/pi/Desktop/vid_cap/img" + str(cap_num) + ".jpeg", frame)
+            imwrite("/media/pi/9464-D88A/img" + str(cap_num) + ".jpeg", frame)
+            cap_num += 1
+            picAck()
             
-    key = waitKey(1)
-    if key == 27: # exit on ESC
-        break
+        key = waitKey(1)
 
-vc.release()
+
+    if val == LANDING:
+        print("ending parallel cap")
+        sys.exit()
+        rval, frame = vc.read()
+
+        if (GPIO.input(scm_pin)):
+            imwrite("/home/pi/Desktop/vid_cap/landing/img" + str(land_num) + ".jpeg", frame)
+            imwrite("/media/pi/9464-D88A/landing/img" + str(land_num) + ".jpeg", frame)
+            land_num += 1
+            picAck()
+
+    if val == RECOVERY:
+        vc.release()
+        GPIO.cleanup()
+        #call("sudo shutdown -h now", shell = True)
