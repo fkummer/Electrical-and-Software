@@ -1,6 +1,8 @@
 /* RCS MCU CODE V2
     Chris Fedors
     Added acclerometer magnitude
+    Edited header file to compensate for gravity in x direction instead of y direction.
+    Changed debounce to 100 ms and 3.5G
 
 
 
@@ -10,6 +12,7 @@
 #include <Wire.h>
 #include <Servo.h>
 #include "MPU9250.h"
+#include "quaternionFilters.h"
 #include "SparkFunMPL3115A2.h"
 #include "EEPROM_24LC256.h"
 
@@ -21,7 +24,7 @@
 
 //Some constants for flight calculations
 #define DEG_TO_RAD 0.017453//Conversion factor for degree to radian conversion
-#define LAUNCH_THRESHOLD 4.5 //Accleration in Gs that indicates a launch
+#define LAUNCH_THRESHOLD 3.5 //Accleration in Gs that indicates a launch
 
 //Pins used on the ATmega
 #define LED_PIN 3
@@ -131,8 +134,11 @@ float updateIMUData() {
     myIMU.gx = (float)myIMU.gyroCount[0] * myIMU.gRes;
     myIMU.gy = (float)myIMU.gyroCount[1] * myIMU.gRes;
     myIMU.gz = (float)myIMU.gyroCount[2] * myIMU.gRes;
-    accelMag = sqrt(myIMU.ax*myIMU.ax + myIMU.ay*myIMU.ay + myIMU.az*myIMU.az);
+    accelMag = sqrt((myIMU.ax * myIMU.ax) + (myIMU.ay * myIMU.ay) +  (myIMU.az * myIMU.az));
   }
+  MahonyQuaternionUpdate(myIMU.ax, myIMU.ay, myIMU.az, myIMU.gx * DEG_TO_RAD,
+                         myIMU.gy * DEG_TO_RAD, myIMU.gz * DEG_TO_RAD, myIMU.my,
+                         myIMU.mx, myIMU.mz, myIMU.deltat);
 }
 
 float getAltitude() {
@@ -195,7 +201,7 @@ void intializeSensors(){
    * Initalizes and calibrates the altimeter and IMU
    */
   //Intialize MPU 9250
-  myIMU.MPU9250SelfTest(myIMU.SelfTest);
+  myIMU.MPU9250SelfTest(myIMU.selfTest);
   myIMU.calibrateMPU9250(myIMU.gyroBias, myIMU.accelBias);
   myIMU.initMPU9250();
   myIMU.getAres(); //Get acclerometer resolution
@@ -217,14 +223,16 @@ boolean detectLaunch(){
   int debounce = 0;
   while(!launch){
     updateIMUData();
-    if(myIMU.az > LAUNCH_THRESHOLD){
+    Serial.println(accelMag);
+    if(accelMag >= LAUNCH_THRESHOLD){
       debounce++;
     }else{
       debounce = 0;
     }
-    if(debounce > 10){
+    if(debounce >= 10){
       startTime = millis();
       launch = true;
+      Serial.println(10);
       return true;
     }
     delay(10);
@@ -256,7 +264,8 @@ boolean detectBurnout(){
    int debounce = 0;
    while(!burnout){
     updateIMUData();
-    if(myIMU.az < 0.0){
+    Serial.println(accelMag);
+    if(accelMag < 2.0){
       debounce++;
     }else{
       debounce = 0;
@@ -266,7 +275,7 @@ boolean detectBurnout(){
       initialRate = myIMU.gy;
       return true;
     }
-    delay(50);
+    delay(10);
   }
   return true;
 }
@@ -295,13 +304,20 @@ void setup() {
 int LED = HIGH;
 float deflection = 0.0;
 void loop() {
-  digitalWrite(LED_PIN, LED);
-  delay(100);
-  //while(!detectLaunch()); //Wait for launch detection
-  digitalWrite(LED_PIN, !LED);
-  updateIMUData();
-  Serial.println(accelMag);
-  delay(100);
+  //digitalWrite(LED_PIN, LED);
+  //while(!detectLaunch()){ 
+  while(detectLaunch()){ //Wait for launch detection
+    delay(10);
+    digitalWrite(LED_PIN, !LED);
+    updateIMUData();
+  //Serial.println("x: " + String(myIMU.ax));
+  //Serial.println("y: " + String(myIMU.ay));
+  //Serial.println("z: " + String(myIMU.az));
+    Serial.println(accelMag);
+    delay(10);
+    digitalWrite(LED_PIN, LED);
+  }
+}
   //Main control loop
   /*
   while(detectBurnout() && !apogee){ //Wait for burnout detection
@@ -342,4 +358,4 @@ void loop() {
     delay(100-endTime);
   }
   */
-}
+//}

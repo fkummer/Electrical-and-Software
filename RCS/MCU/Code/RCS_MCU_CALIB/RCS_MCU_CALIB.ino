@@ -321,5 +321,7 @@ int LED = HIGH;
 float deflection = 0.0;
 void loop() {
   delay(100);
-  Serial.println(readData(FLIGHT_STORAGE,stringSize));
+  updateIMUData();
+  Serial.println(myIMU.az);
+  //Serial.println(readData(FLIGHT_STORAGE,stringSize));
 }
