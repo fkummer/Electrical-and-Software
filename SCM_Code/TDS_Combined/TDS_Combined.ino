@@ -22,7 +22,7 @@
  *  Arduino Uno
  *  *****************************************/
 #include <SparkFunMPL3115A2.h>
-#include <SparkFun_ADXL345.h>
+//#include <SparkFun_ADXL345.h>
 #include <SPI.h>
 #include <Wire.h>
 #define MPL3115A2_ADDRESS 0x60
@@ -31,7 +31,7 @@
 MPL3115A2 measPressure;
 
 /*********** COMMUNICATION SELECTION ***********/
-ADXL345 adxl = ADXL345();             // USE FOR I2C COMMUNICATION
+//ADXL345 adxl = ADXL345();             // USE FOR I2C COMMUNICATION
 
 /****************** VARIABLES ******************/
 
@@ -129,6 +129,12 @@ ISR (SPI_STC_vect)
     //Serial.println("State");
     //Serial.println(currState);
   }
+  if(recv == 4){
+    SPDR = currState;
+    //Serial.println("State");
+    //Serial.println(currState);
+    digitalWrite(TAKE_PIC, LOW);
+  }
 }// end of interrupt service routine (ISR) SPI_STC_vect
 
 //Write a register on the altimeter
@@ -164,7 +170,7 @@ void setup()
   digitalWrite(TAKE_PIC, LOW);
 
     //SPI setup
-  SPI.setClockDivider(SPI_CLOCK_DIV32);
+  SPI.setClockDivider(SPI_CLOCK_DIV16);
   
   // have to send on master in, *slave out*
   pinMode(MISO, OUTPUT);
@@ -176,9 +182,9 @@ void setup()
   SPCR |= _BV(SPIE);
 
   //Accelerometer
-  adxl.powerOn();                     // Power on the ADXL345
+//  adxl.powerOn();                     // Power on the ADXL345
 
-  adxl.setRangeSetting(8);           // Give the range settings
+//  adxl.setRangeSetting(8);           // Give the range settings
                                       // Accepted values are 2g, 4g, 8g or 16g
                                       // Higher Values = Wider Measurement Range
                                       // Lower Values = Greater Sensitivity
