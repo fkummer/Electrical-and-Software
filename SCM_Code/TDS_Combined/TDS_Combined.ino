@@ -62,7 +62,7 @@ volatile byte send_lsb = 1;
 #define SS 10
 #define TAKE_PIC A0
 
-#define LAUNCH_ACCEL 3.0
+#define LAUNCH_ACCEL 1.5
 
 #define WAIT_FOR_LAUNCH 0
 #define ASCENT 1
@@ -76,7 +76,7 @@ float initAltitude = 0;
 //Difference between intial altitude and current altitude
 float currAltitude = 0;
 
-byte currState = WAIT_FOR_LAUNCH;
+volatile byte currState = WAIT_FOR_LAUNCH;
 
 float asc[] = {2500, 3000, 3500, 4000, 4500}; //5 elements, hard coded but that can be changed
 float dec[] = {4750, 4250, 3750, 3250, 2750, 2250, 1750, 1250}; //8 elements, same deal, numbers changed
@@ -95,22 +95,39 @@ int dec_count = 0;
 
 //Accel count
  int count = 0; 
- 
+
+ volatile byte recv = 0;
 // SPI interrupt routine
 //Capture what is coming in. 
 ISR (SPI_STC_vect)
 {
-  Serial.println("Received");
-  Serial.println(SPDR);
-  if(send_lsb){
-    msb = (int)currAltitude >> 8;
-    SPDR = msb;
-    send_lsb = 0;
-  }else{
-    lsb = (int)currAltitude & 0x00ff;
-    SPDR = lsb;
-    send_lsb = 1;
-    digitalWrite(TAKE_PIC, LOW);
+  //Serial.println("Received");
+  recv = SPDR;
+  //Serial.println(recv);
+
+  //Alt check
+  if(recv == 2){
+    
+    
+    if(send_lsb){
+      msb = (int)currAltitude >> 8;
+      SPDR = msb;
+      send_lsb = 0;
+    }else{
+      lsb = (int)currAltitude & 0x00ff;
+      SPDR = lsb;
+      send_lsb = 1;
+      digitalWrite(TAKE_PIC, LOW);
+    }
+    Serial.println("Alt");
+    Serial.println(currAltitude);
+  }
+
+  //State check
+  if(recv == 3){
+    SPDR = currState;
+    //Serial.println("State");
+    //Serial.println(currState);
   }
 }// end of interrupt service routine (ISR) SPI_STC_vect
 
@@ -195,7 +212,28 @@ void takePic(){
 /*  Accelerometer Readings and Min/Max Values  */
 void loop()
 {
- //Accelerometer - Determine launch
+  if (Serial.available() > 0) {
+    // read the incoming byte:
+    byte incomingByte;
+    incomingByte = Serial.read();
+
+    if(incomingByte == '1'){
+      currState = (currState + 1)%5;
+      Serial.print("State:");
+      Serial.println(currState, DEC);
+    }
+
+    if(incomingByte == '2' && currState != 0 && currState != 4){
+      takePic();
+      Serial.print("Taking picture");
+    }
+    
+    // say what you got:
+    Serial.print("I received: ");
+    Serial.println(incomingByte, DEC);
+  }
+
+ /*//Accelerometer - Determine launch
  int x,y,z; 
  
  if(currState == WAIT_FOR_LAUNCH)
@@ -291,6 +329,6 @@ void loop()
 
  if(currState == RECOVERY){
   
- }
+ }*/
  
 }

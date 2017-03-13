@@ -12601,8 +12601,8 @@ You are welcome to use this library for commercial purposes. For attribution, we
 <net name="SCL" class="0">
 <segment>
 <pinref part="U4" gate="G$1" pin="SCL"/>
-<wire x1="5.08" y1="0" x2="15.24" y2="0" width="0.1524" layer="91"/>
-<label x="15.24" y="0" size="1.27" layer="95" xref="yes"/>
+<wire x1="5.08" y1="0" x2="12.7" y2="0" width="0.1524" layer="91"/>
+<label x="12.7" y="0" size="1.27" layer="95" xref="yes"/>
 </segment>
 <segment>
 <pinref part="U3" gate="G$1" pin="SCL"/>

@@ -2135,6 +2135,8 @@ Please make sure your boards conform to these design rules.</description>
 <attribute name="NAME" x="55.88" y="15.24" size="0.6096" layer="25" rot="R270"/>
 <attribute name="VALUE" x="59.055" y="15.875" size="0.6096" layer="27" rot="R180"/>
 </element>
+<element name="SW4" library="special" package="EDG-01" value="RESET" x="1.27" y="6.35"/>
+<element name="R6" library="SparkFun-Passives" package="1206" value="10k" x="-7.62" y="-1.27"/>
 </elements>
 <signals>
 <signal name="GND-ISO" class="2">
@@ -2481,6 +2483,8 @@ Please make sure your boards conform to these design rules.</description>
 <via x="63.5508" y="13.7922" extent="1-16" drill="0.3302"/>
 <via x="22.86" y="50.9778" extent="1-16" drill="0.3302"/>
 <via x="33.2232" y="10.7442" extent="1-16" drill="0.3302"/>
+<contactref element="R6" pad="1"/>
+<wire x1="-9.02" y1="-1.27" x2="16.4592" y2="9.0678" width="0" layer="19" extent="1-1"/>
 </signal>
 <signal name="SS">
 <contactref element="JP2" pad="1"/>
@@ -2614,6 +2618,8 @@ Please make sure your boards conform to these design rules.</description>
 <wire x1="40.1574" y1="38.6334" x2="40.1574" y2="40.0812" width="0.1524" layer="1"/>
 <via x="40.4622" y="45.1866" extent="1-16" drill="0.3302"/>
 <via x="40.1574" y="40.0812" extent="1-16" drill="0.3302"/>
+<contactref element="SW4" pad="1"/>
+<wire x1="1.27" y1="2.54" x2="29.2608" y2="22.9362" width="0" layer="19" extent="1-1"/>
 </signal>
 <signal name="SCL">
 <contactref element="U4" pad="8"/>
@@ -3582,6 +3588,11 @@ Please make sure your boards conform to these design rules.</description>
 <wire x1="71.3232" y1="10.8204" x2="71.5518" y2="11.049" width="0.1524" layer="1"/>
 <wire x1="71.5518" y1="13.9446" x2="71.6" y2="13.97" width="0.1524" layer="1"/>
 <wire x1="71.3232" y1="10.8204" x2="71.25" y2="10.795" width="0.1524" layer="1"/>
+</signal>
+<signal name="N$3">
+<contactref element="R6" pad="2"/>
+<contactref element="SW4" pad="2"/>
+<wire x1="-6.22" y1="-1.27" x2="1.27" y2="10.16" width="0" layer="19" extent="1-1"/>
 </signal>
 </signals>
 </board>

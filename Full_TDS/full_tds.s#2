@@ -13184,9 +13184,6 @@ You are welcome to use this library for commercial purposes. For attribution, we
 <wire x1="-175.26" y1="162.56" x2="-154.94" y2="162.56" width="0.1524" layer="91"/>
 <junction x="-175.26" y="162.56"/>
 </segment>
-<segment>
-<wire x1="-25.4" y1="195.58" x2="-22.86" y2="195.58" width="0.1524" layer="91"/>
-</segment>
 </net>
 <net name="PI_N_DRAIN" class="0">
 <segment>
