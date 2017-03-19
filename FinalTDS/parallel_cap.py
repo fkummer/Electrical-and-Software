@@ -29,9 +29,12 @@ else:
     rval = False
     
 clearBuffer()
-
+stateFile = open("state.txt", "w")
 while True:
+    time.sleep(.05)
     val = stateCheck()
+    stateFile.seek(0)
+    stateFile.write(str(val))
     print(val)
 
     if val == WAIT:
@@ -50,8 +53,6 @@ while True:
 
 
     if val == LANDING:
-        print("ending parallel cap")
-        sys.exit()
         rval, frame = vc.read()
 
         if (GPIO.input(scm_pin)):
@@ -61,6 +62,12 @@ while True:
             picAck()
 
     if val == RECOVERY:
+        pass
+        #COMMENTED OUT FOR DROP TESTING
+        stateFile.seek(0)
+        stateFile.write(" ")
         vc.release()
         GPIO.cleanup()
-        #call("sudo shutdown -h now", shell = True)
+        stateFile.close()
+        #sys.exit()
+        call("sudo shutdown -h now", shell = True)

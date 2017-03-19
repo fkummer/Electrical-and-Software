@@ -4,6 +4,7 @@ from math import *
 import spidev
 import time
 
+
 spi = spidev.SpiDev()
 spi.open(0,0)
 spi.max_speed_hz = 500000
@@ -115,7 +116,7 @@ def targetDetection(targetsImage, alt, imgNum):
     return
 
 def altitude():
-    to_send = 2
+    to_send = 5
     alt_lsb = spi.xfer2([to_send])
     alt_msb = spi.xfer2([to_send])
     test_combo = 0
@@ -125,12 +126,14 @@ def altitude():
     return test_combo
 
 def stateCheck():
-    to_send = 3
+    to_send = 6
     count = 0
-    stateVal = spi.xfer2([to_send])
+    spi.xfer2([to_send])
+    time.sleep(.05)
+    stateVal = spi.xfer2([1])
+    '''
     prevState = [-1]
-    
-    while( count < 4):
+    while( count < 7):
         #print(stateVal)
         if(stateVal[0] != prevState[0]):
             count = 0
@@ -138,12 +141,13 @@ def stateCheck():
             count += 1
         prevState[0] = stateVal[0]
         stateVal = spi.xfer2([to_send])
-        time.sleep(.04)
+        time.sleep(.03)
+        '''
     
-    return prevState[0]
-
+    return stateVal[0]
+    
 def picAck():
-    to_send = 4
+    to_send = 7
     stateVal = spi.xfer2([to_send])
     return stateVal[0]
 

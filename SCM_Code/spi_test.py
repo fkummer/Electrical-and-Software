@@ -34,7 +34,7 @@ try:
                 print bin(test_combo)
                 
 except KeyboardInterrupt:
-        spi.close()import time
+        spi.close()
 import sys
 import spidev
 

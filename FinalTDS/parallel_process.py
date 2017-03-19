@@ -13,12 +13,17 @@ RECOVERY = 4
 
 cap_num = 0
 
-clearBuffer()
+stateFile = open("state.txt", "r")
 
 while True:
-    
-    val = stateCheck()
+    time.sleep(.05)
+    stateFile.seek(0)
+    val = stateFile.read(1)
+    while(val == '' or val == " "):
+        stateFile.seek(0)
+        val = stateFile.read(1)
     print(val)
+    val = int(val)
     if val == WAIT:
         pass
 
@@ -28,7 +33,8 @@ while True:
 
         #If it equals none, that file does not exist yet, so keep waiting for it
         if targetsImage != None:
-            time.sleep(.3)
+            time.sleep(2)
+            targetsImage = imread("/home/pi/Desktop/vid_cap/img" + str(cap_num) + ".jpeg", 1)
             alt = altitude()
             targetDetection(targetsImage, alt, cap_num)
             imwrite("/home/pi/Desktop/vid_cap/processed/img" + str(cap_num) + ".jpeg", targetsImage)
@@ -40,6 +46,9 @@ while True:
                 break
 
     if val == LANDING or val == RECOVERY:
+        pass
+        #COMMENTED OUT FOR DROP TESTING
         print("ending parallel process")
+        stateFile.close()
         sys.exit()
         
