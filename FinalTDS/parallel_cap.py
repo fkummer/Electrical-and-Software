@@ -29,13 +29,13 @@ else:
     rval = False
     
 clearBuffer()
-stateFile = open("state.txt", "w")
+stateFile = open("/home/pi/Electrical-and-software/FinalTDS/state.txt", "w")
 while True:
     time.sleep(.05)
     val = stateCheck()
     stateFile.seek(0)
     stateFile.write(str(val))
-    print(val)
+    #print(val)
 
     if val == WAIT:
         pass
@@ -69,5 +69,6 @@ while True:
         vc.release()
         GPIO.cleanup()
         stateFile.close()
+        #print("parallel_cap closing")
         #sys.exit()
         call("sudo shutdown -h now", shell = True)

@@ -13,7 +13,7 @@ RECOVERY = 4
 
 cap_num = 0
 
-stateFile = open("state.txt", "r")
+stateFile = open("/home/pi/Electrical-and-software/FinalTDS/state.txt", "r")
 
 while True:
     time.sleep(.05)
@@ -22,7 +22,7 @@ while True:
     while(val == '' or val == " "):
         stateFile.seek(0)
         val = stateFile.read(1)
-    print(val)
+    #print(val)
     val = int(val)
     if val == WAIT:
         pass
@@ -38,17 +38,17 @@ while True:
             alt = altitude()
             targetDetection(targetsImage, alt, cap_num)
             imwrite("/home/pi/Desktop/vid_cap/processed/img" + str(cap_num) + ".jpeg", targetsImage)
-            imwrite("/media/pi/9464-D88A/proc_img" + str(cap_num) + ".jpeg", targetsImage)
+            imwrite("/media/pi/9464-D88A/processed/proc_img" + str(cap_num) + ".jpeg", targetsImage)
             cap_num += 1
                 
             key = waitKey(1)
-            if key == 27: # exit on ESC
-                break
+            #if key == 27: # exit on ESC
+                #break
 
     if val == LANDING or val == RECOVERY:
         pass
         #COMMENTED OUT FOR DROP TESTING
-        print("ending parallel process")
+        #print("ending parallel process")
         stateFile.close()
         sys.exit()
         

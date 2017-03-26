@@ -11,9 +11,9 @@ spi.max_speed_hz = 500000
 
 def colorMaskThreshold(color):
 
-    if color == "yellow": # hsv = [25, 255, 255]
-        lowerMask = np.array([21,230,230])
-        upperMask = np.array([26,255,255])
+    if color == "yellow": # hsv = [25(20), 255, 255]
+        lowerMask = np.array([20,20,100])
+        upperMask = np.array([50,255,255])
         
         
     elif color == "blue": #hsv = [109, 255, 91]
@@ -21,8 +21,8 @@ def colorMaskThreshold(color):
         upperMask = np.array([140,255,255])
         
     else: #red color --> hsv = [170, 241, 166]
-        lowerMask = np.array([140,200,130])
-        upperMask = np.array([200,255,175])
+        lowerMask = np.array([140,50,130])
+        upperMask = np.array([200,255,255])
 
     return lowerMask, upperMask
 
@@ -41,20 +41,20 @@ def colorThreshold(color):
     return lowerThreshold, upperThreshold
 
 def convert2BW(targetsImage, imgNum):
-    hsv = cvtColor(targetsImage, COLOR_BGR2HSV)
-
+    hsv = cvtColor(targetsImage, COLOR_BGR2HSV) #converts target image into hsv
+    #creates the mask ranges for each color
     lowerMaskYellow, upperMaskYellow = colorMaskThreshold("yellow")
     lowerMaskBlue, upperMaskBlue = colorMaskThreshold("blue")
     lowerMaskRed, upperMaskRed = colorMaskThreshold("red")
-
+    
     lowerYellow, upperYellow = colorThreshold("yellow")
     lowerBlue, upperBlue = colorThreshold("blue")
     lowerRed, upperRed = colorThreshold("red")
-
-    mask = inRange(hsv, lowerMaskYellow, upperMaskYellow)
-    resYellow = bitwise_and(targetsImage, targetsImage, mask = mask)
-    greyYellow = cvtColor(resYellow, COLOR_BGR2GRAY)
-    ret, imgBWY = threshold(greyYellow, lowerYellow, upperYellow, THRESH_BINARY)
+    #checks bit by bit if the image contains the colors in the range of the mask
+    mask = inRange(hsv, lowerMaskYellow, upperMaskYellow)#the part of the photo which matches the color is identified
+    resYellow = bitwise_and(targetsImage, targetsImage, mask = mask) # compares the images and applies the mask using an and function
+    greyYellow = cvtColor(resYellow, COLOR_BGR2GRAY) #converts to grey scale
+    ret, imgBWY = threshold(greyYellow, lowerYellow, upperYellow, THRESH_BINARY) #
     
     
     mask = inRange(hsv, lowerMaskBlue, upperMaskBlue)
@@ -69,7 +69,7 @@ def convert2BW(targetsImage, imgNum):
 
 
     imwrite("/home/pi/Desktop/vid_cap/color/imgInColor" + str(imgNum) + ".jpeg", resBlue + resYellow + resRed)
-
+    imwrite("/home/pi/Desktop/vid_cap/color/imgGrey" + str(imgNum) + ".jpeg", greyYellow + greyBlue + greyRed)
     imwrite("/home/pi/Desktop/vid_cap/color/img" + str(imgNum) + ".jpeg", imgBWY + imgBWB + imgBWR)
 
     resultArr = [resBlue, resYellow, resRed, imgBWY, imgBWB, imgBWR]
