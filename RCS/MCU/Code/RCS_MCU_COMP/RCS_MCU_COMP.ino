@@ -20,10 +20,11 @@
 
 //Some constants for flight calculations
 #define DEG_TO_RAD 0.017453//Conversion factor for degree to radian conversion
-#define LAUNCH_THRESHOLD 4.5 //Accleration in Gs that indicates a launch
+#define LAUNCH_THRESHOLD 3.5 //Accleration in Gs that indicates a launch
 
 //Pins used on the ATmega
 #define LED_PIN 3
+#define ERROR_LED 4
 #define MOTOR_PIN 9
 #define FEEDBACK_PIN A3
 
@@ -58,14 +59,15 @@ boolean burnout = false; //true if motor burnout is detected
 boolean apogee = false; //true of rocket has reached apogee
 int altDebounce = 0; //debounce variable used to detect apogee
 
+float accelMag = 0;
 float spinRate = 0;
 float currentAlt = 0;
 float prevAlt = 0;
 float velocity = 0;
-
+float deflection = 0.0;
 float initialRate = 0.0;
 float desiredRate = 360.0;
-boolean controlInit = false;
+boolean controlInit = true;
 
 
 ///////////////////////////////////////////////////////
@@ -83,6 +85,9 @@ String logData(String dataString) {
     storeEE.writeEEPROM(memAddress, data, stringSize); //Find length of String later
     memAddress += stringSize;
     return data;
+  }else{
+    digitalWrite(ERROR_LED, HIGH);
+    while(true);
   }
 }
 
@@ -128,7 +133,8 @@ float updateIMUData() {
     // This depends on scale being set
     myIMU.gx = (float)myIMU.gyroCount[0] * myIMU.gRes;
     myIMU.gy = (float)myIMU.gyroCount[1] * myIMU.gRes;
-    myIMU.gz = (float)myIMU.gyroCount[2] * myIMU.gRes; 
+    myIMU.gz = (float)myIMU.gyroCount[2] * myIMU.gRes;
+    accelMag = sqrt((myIMU.ax * myIMU.ax) + (myIMU.ay * myIMU.ay) +  (myIMU.az * myIMU.az));
   }
 }
 
@@ -192,7 +198,7 @@ void intializeSensors(){
    * Initalizes and calibrates the altimeter and IMU
    */
   //Intialize MPU 9250
-  myIMU.MPU9250SelfTest(myIMU.SelfTest);
+  myIMU.MPU9250SelfTest(myIMU.selfTest);
   myIMU.calibrateMPU9250(myIMU.gyroBias, myIMU.accelBias);
   myIMU.initMPU9250();
   myIMU.getAres(); //Get acclerometer resolution
@@ -214,17 +220,19 @@ boolean detectLaunch(){
   int debounce = 0;
   while(!launch){
     updateIMUData();
-    if(myIMU.az > LAUNCH_THRESHOLD){
+    //Serial.println(accelMag);
+    if(accelMag >= LAUNCH_THRESHOLD){
       debounce++;
     }else{
       debounce = 0;
     }
-    if(debounce > 10){
-      startTime = millis();
+    if(debounce >= 10){
+      
       launch = true;
+      //Serial.println(10);
       return true;
     }
-    delay(50);
+    delay(10);
   }
   return true;
 }
@@ -239,7 +247,7 @@ boolean detectApogee(){
    }else{
     altDebounce = 0;
    }
-   if(altDebounce > 10){
+   if(altDebounce > 50){
     apogee = true;
    }
 }
@@ -253,7 +261,8 @@ boolean detectBurnout(){
    int debounce = 0;
    while(!burnout){
     updateIMUData();
-    if(myIMU.az < 0.0){
+    //Serial.println(accelMag);
+    if(accelMag < LAUNCH_THRESHOLD){
       debounce++;
     }else{
       debounce = 0;
@@ -261,9 +270,11 @@ boolean detectBurnout(){
     if(debounce > 10){
       burnout = true;
       initialRate = myIMU.gy;
+      //Serial.println(100);
+      
       return true;
     }
-    delay(50);
+    delay(10);
   }
   return true;
 }
@@ -286,39 +297,41 @@ void setup() {
   Wire.begin();
   memAddress = 0;
   digitalWrite(LED_PIN, HIGH);
+  updateIMUData();
+  Serial.println("Acclerometer" + String(accelMag));
 }
 
 
 int LED = HIGH;
-float deflection = 0.0;
+//float deflection = 0.0;
 void loop() {
-  digitalWrite(LED_PIN, LED);
+   digitalWrite(LED_PIN, LED);
   while(!detectLaunch()); //Wait for launch detection
   digitalWrite(LED_PIN, !LED);
-  
   //Main control loop
   while(detectBurnout() && !apogee){ //Wait for burnout detection
     //Blink LED and get time elapsed since launch was detected
     LED = !LED;
     digitalWrite(LED_PIN, LED);
-    currTime = millis() - startTime;
-    
     //Set initial roll rate and burnout detection time on first iteration
     if(controlInit){
-      burnoutTime = currTime;
+      burnoutTime = millis();
+      Serial.println(burnoutTime);
       //Adjust desired rate to be in same direction as initial rate
       if(initialRate < 0){ 
         desiredRate = -desiredRate;
       }else{
         desiredRate = desiredRate;
       }
+      //currTime = 0;
+      //currTime = millis() - burnoutTime;
       controlInit = false;
     }
-
-    if(currTime - burnoutTime > 7000){ //Revert to initial roll rate 7 seconds after burnout
+    currTime = millis() - burnoutTime;
+    if(currTime > 7000){ //Revert to initial roll rate 7 seconds after burnout
       desiredRate = initialRate;
     }
-    if((currTime - burnoutTime) > 3000){ //Start control algo 3 seconds after burnout
+    if(currTime > 3000){ //Start control algo 3 seconds after burnout
       deflection = controlAlgo(desiredRate);
     }else{
       getAltitude();
@@ -327,11 +340,22 @@ void loop() {
     }
     
     //Log data to EEPROM
-    dataString = (String)currTime + ":" + (String)myIMU.az + "," + (String)myIMU.gy + "," + (String)currentAlt + "," + (String)deflection + "\n";
+    dataString = (String)currTime + ":" + (String)accelMag + "," + (String)myIMU.gy + "," + (String)currentAlt + "," + (String)deflection + "\n";
+    //Serial.println((String)accelMag + "," + (String)myIMU.gy + "," + (String)currentAlt + "," + (String)deflection);
     Serial.println(dataString);
     logData(dataString);
     detectApogee();
-    endTime = millis() - currTime;
-    delay(100-endTime);
+    
+    endTime = (millis() - burnoutTime) - currTime;
+    Serial.println(100-endTime);
+    if(endTime > 100){
+      endTime = 0;
+    }
+    delay(100 - endTime);
   }
+  digitalWrite(ERROR_LED, LED);
+  delay(100);
+  LED = !LED;
+  
+  
 }

@@ -103,10 +103,10 @@ ISR (SPI_STC_vect)
 {
   //Serial.println("Received");
   recv = SPDR;
-  //Serial.println(recv);
+  Serial.println(recv);
 
   //Alt check
-  if(recv == 2){
+  if(recv == 5){
     
     
     if(send_lsb){
@@ -124,12 +124,12 @@ ISR (SPI_STC_vect)
   }
 
   //State check
-  if(recv == 3){
+  if(recv == 6){
     SPDR = currState;
-    //Serial.println("State");
-    //Serial.println(currState);
+   Serial.println("State");
+    Serial.println(currState);
   }
-  if(recv == 4){
+  if(recv == 7){
     SPDR = currState;
     //Serial.println("State");
     //Serial.println(currState);
