@@ -38,7 +38,7 @@ while True:
             alt = altitude()
             targetDetection(targetsImage, alt, cap_num)
             imwrite("/home/pi/Desktop/vid_cap/processed/img" + str(cap_num) + ".jpeg", targetsImage)
-            imwrite("/media/pi/9464-D88A/processed/proc_img" + str(cap_num) + ".jpeg", targetsImage)
+            #imwrite("/media/pi/9464-D88A/processed/proc_img" + str(cap_num) + ".jpeg", targetsImage)
             cap_num += 1
                 
             key = waitKey(1)

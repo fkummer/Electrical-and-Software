@@ -45,7 +45,7 @@ while True:
 
         if (GPIO.input(scm_pin)):
             imwrite("/home/pi/Desktop/vid_cap/img" + str(cap_num) + ".jpeg", frame)
-            imwrite("/media/pi/9464-D88A/img" + str(cap_num) + ".jpeg", frame)
+            #imwrite("/media/pi/9464-D88A/img" + str(cap_num) + ".jpeg", frame)
             cap_num += 1
             picAck()
             
@@ -57,7 +57,7 @@ while True:
 
         if (GPIO.input(scm_pin)):
             imwrite("/home/pi/Desktop/vid_cap/landing/img" + str(land_num) + ".jpeg", frame)
-            imwrite("/media/pi/9464-D88A/landing/img" + str(land_num) + ".jpeg", frame)
+            #imwrite("/media/pi/9464-D88A/landing/img" + str(land_num) + ".jpeg", frame)
             land_num += 1
             picAck()
 
