@@ -51,10 +51,10 @@ def colorThreshold(color):
 def convert2BW(targetsImage, imgNum):
 
     hsv = cvtColor(targetsImage, COLOR_BGR2HSV) #converts target image into hsv
-    print(imgNum)
-    print("***")
-    print(hsv)
-    print("***")
+    #print(imgNum)
+    #print("***")
+    #print(hsv)
+    #print("***")
 
     #creates the mask ranges for each color
     lowerMaskYellow, upperMaskYellow = colorMaskThreshold("yellow")
@@ -90,22 +90,20 @@ def convert2BW(targetsImage, imgNum):
 
 
     imwrite("/home/pi/Desktop/vid_cap/color/imgInColor" + str(imgNum) + ".jpeg", resBlue + resYellow + resRed + reslowRed)
-    imwrite("/home/pi/Desktop/vid_cap/color/imgGrey" + str(imgNum) + ".jpeg", greyYellow + greyBlue + greyRed + greylowRed)
-    imwrite("/home/pi/Desktop/vid_cap/color/img" + str(imgNum) + ".jpeg", imgBWY + imgBWB + imgBWR + imgBWlR)
+    imwrite("/media/pi/9464-D88A/color/imgInColor"+ str(imgNum) + ".jpeg", resBlue + resYellow + resRed + reslowRed)
+    #imwrite("/home/pi/Desktop/vid_cap/color/imgGrey" + str(imgNum) + ".jpeg", greyYellow + greyBlue + greyRed + greylowRed)
+    #imwrite("/home/pi/Desktop/vid_cap/color/img" + str(imgNum) + ".jpeg", imgBWY + imgBWB + imgBWR + imgBWlR)
 
     picture = imread("/home/pi/Desktop/vid_cap/color/imgInColor" + str(imgNum) + ".jpeg",1)
-    #picture = imread("/home/pi/Desktop/vid_cap/img" + str(imgNum) + ".jpeg",1)
     shapeFilter(picture, imgNum)
+    
     resultArr = [resBlue, resYellow, resRed, imgBWY, imgBWB, imgBWR]
     return resultArr
-    return 0
 
 def convert2Edged(imgBW):
     filtered = GaussianBlur(imgBW, (7,7), 0)
 
     edged = Canny(filtered, 50, 150)
-
-    #imshow("edged", edged)
 
     return edged    
 
@@ -141,13 +139,12 @@ def targetDetection(targetsImage, alt, imgNum):
     return
 
 def shapeFilter(targetsImage, imgNum):
-    print("IMAGE:"+str(imgNum))
+    #print("IMAGE:"+str(imgNum))
     grey = cvtColor(targetsImage, COLOR_BGR2GRAY)
     blurred = GaussianBlur(grey, (15, 15), 0)
-    imwrite("/home/pi/Desktop/vid_cap/Shapes/imgBlur" + str(imgNum) + ".jpeg", blurred)
-    #if imgNum >= 14:
-        #imshow("blur",blurred)
-        #waitKey(0)
+    
+    #imwrite("/home/pi/Desktop/vid_cap/Shapes/imgBlur" + str(imgNum) + ".jpeg", blurred)
+
     thresh = threshold(blurred, 20, 255, THRESH_BINARY)[1]
     cnts = findContours(thresh.copy(), RETR_EXTERNAL, CHAIN_APPROX_SIMPLE)
     cnts = cnts[1]
@@ -193,22 +190,23 @@ def shapeFilter(targetsImage, imgNum):
         #Draw convex hull
         drawContours(targetsImage, [hull], 0, (255,0,255),2)
         
-        shape = shapeDetection(c, targetsImage)
-
-        if shape != "unidentified":
-            M = moments(c)
-
-            #avoid division by zero
-            if M["m00"] != 0:
-                cX = int(M["m10"]/M["m00"])
-                cY = int(M["m01"]/M["m00"])
-                c = c.astype("float")
-                c = c.astype("int")
-                #drawContours(targetsImage, [c], -1, (0,255,0),2)
-                
-                putText(targetsImage, shape, (cX, cY), FONT_HERSHEY_SIMPLEX, 0.5, (255, 255, 255), 2)
+##        shape = shapeDetection(c, targetsImage)
+##
+##        if shape != "unidentified":
+##            M = moments(c)
+##
+##            #avoid division by zero
+##            if M["m00"] != 0:
+##                cX = int(M["m10"]/M["m00"])
+##                cY = int(M["m01"]/M["m00"])
+##                c = c.astype("float")
+##                c = c.astype("int")
+##                #drawContours(targetsImage, [c], -1, (0,255,0),2)
+##                
+##                putText(targetsImage, shape, (cX, cY), FONT_HERSHEY_SIMPLEX, 0.5, (255, 255, 255), 2)
 
     imwrite("/home/pi/Desktop/vid_cap/Shapes/img" + str(imgNum) + ".jpeg", targetsImage)
+    imwrite("/media/pi/9464-D88A/Shapes/img" + str(imgNum) + ".jpeg", targetsImage)
 
 
 def shapeDetection(c, targetsImage):

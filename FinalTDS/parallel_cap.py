@@ -35,7 +35,6 @@ while True:
     val = stateCheck()
     stateFile.seek(0)
     stateFile.write(str(val))
-    #print(val)
 
     if val == WAIT:
         pass
@@ -45,7 +44,7 @@ while True:
 
         if (GPIO.input(scm_pin)):
             imwrite("/home/pi/Desktop/vid_cap/img" + str(cap_num) + ".jpeg", frame)
-            #imwrite("/media/pi/9464-D88A/img" + str(cap_num) + ".jpeg", frame)
+            imwrite("/media/pi/9464-D88A/img" + str(cap_num) + ".jpeg", frame)
             cap_num += 1
             picAck()
             
@@ -57,18 +56,14 @@ while True:
 
         if (GPIO.input(scm_pin)):
             imwrite("/home/pi/Desktop/vid_cap/landing/img" + str(land_num) + ".jpeg", frame)
-            #imwrite("/media/pi/9464-D88A/landing/img" + str(land_num) + ".jpeg", frame)
+            imwrite("/media/pi/9464-D88A/landing/img" + str(land_num) + ".jpeg", frame)
             land_num += 1
             picAck()
 
     if val == RECOVERY:
-        pass
-        #COMMENTED OUT FOR DROP TESTING
         stateFile.seek(0)
         stateFile.write(" ")
         vc.release()
         GPIO.cleanup()
         stateFile.close()
-        #print("parallel_cap closing")
-        #sys.exit()
         call("sudo shutdown -h now", shell = True)
