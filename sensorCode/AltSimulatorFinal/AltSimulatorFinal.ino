@@ -70,7 +70,7 @@ void requestEvent(){
           }
         }else{
           if(Altitude > 0){
-            Altitude -= 3;
+            Altitude -= 1;
           }
         }
         

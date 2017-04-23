@@ -1,7 +1,3 @@
-
-
-
-
 /*  *****************************************
  *  ADXL345_Calibration
  *  ADXL345 Hook Up Guide Calibration Example 
@@ -22,7 +18,7 @@
  *  Arduino Uno
  *  *****************************************/
 #include <SparkFunMPL3115A2.h>
-//#include <SparkFun_ADXL345.h>
+#include <SparkFun_ADXL345.h>
 #include <SPI.h>
 #include <Wire.h>
 #define MPL3115A2_ADDRESS 0x60
@@ -31,7 +27,7 @@
 MPL3115A2 measPressure;
 
 /*********** COMMUNICATION SELECTION ***********/
-//ADXL345 adxl = ADXL345();             // USE FOR I2C COMMUNICATION
+ADXL345 adxl = ADXL345();             // USE FOR I2C COMMUNICATION
 
 /****************** VARIABLES ******************/
 
@@ -62,7 +58,7 @@ volatile byte send_lsb = 1;
 #define SS 10
 #define TAKE_PIC A0
 
-#define LAUNCH_ACCEL 1.5
+#define LAUNCH_ACCEL 1.3
 
 #define WAIT_FOR_LAUNCH 0
 #define ASCENT 1
@@ -78,8 +74,12 @@ float currAltitude = 0;
 
 volatile byte currState = WAIT_FOR_LAUNCH;
 
-float asc[] = {2500, 3000, 3500, 4000, 4500}; //5 elements, hard coded but that can be changed
-float dec[] = {4750, 4250, 3750, 3250, 2750, 2250, 1750, 1250}; //8 elements, same deal, numbers changed
+
+int asc[] = {2500, 3000, 3500, 4000, 4500}; //5 elements, hard coded but that can be changed
+int dec[] = {4750, 4500, 4250, 4000, 3750, 3500, 3250, 3000, 2750, 2500, 2375, 2250, 2125, 2000, 1875, 1750, 1625, 1500, 1450, 1400, 1350, 1300, 1250, 1200, 1150, 1100, 1050, 1000, 975, 950, 925, 900, 875, 850, 825, 800, 775, 750, 700, 650, 600, 550, 500}; //43 elements, same deal, numbers
+ 
+//float asc[] = {2500, 3000, 3500, 4000, 4500}; //5 elements, hard coded but that can be changed
+//float dec[] = {4750, 4250, 3750, 3250, 2750, 2250, 1750, 1250}; //8 elements, same deal, numbers changed
 
 int asc_ptr = 0;
 int dec_ptr = 0;
@@ -182,9 +182,9 @@ void setup()
   SPCR |= _BV(SPIE);
 
   //Accelerometer
-//  adxl.powerOn();                     // Power on the ADXL345
+ adxl.powerOn();                     // Power on the ADXL345
 
-//  adxl.setRangeSetting(8);           // Give the range settings
+ adxl.setRangeSetting(8);           // Give the range settings
                                       // Accepted values are 2g, 4g, 8g or 16g
                                       // Higher Values = Wider Measurement Range
                                       // Lower Values = Greater Sensitivity
@@ -204,6 +204,9 @@ void setup()
   IIC_Write(OFF_H, offset);
   initAltitude = measPressure.readAltitudeFt();
   delay(5);
+
+  currState = 0;
+  
   if(currState == WAIT_FOR_LAUNCH){
     Serial.println("WAIT_FOR_LAUNCH");
   }
@@ -214,11 +217,15 @@ void takePic(){
   digitalWrite(TAKE_PIC, HIGH);
 }
 
+ int waitCntr = 0;
+
+ 
+
 /****************** MAIN CODE ******************/
 /*  Accelerometer Readings and Min/Max Values  */
 void loop()
 {
-  if (Serial.available() > 0) {
+  /*if (Serial.available() > 0) {
     // read the incoming byte:
     byte incomingByte;
     incomingByte = Serial.read();
@@ -237,13 +244,14 @@ void loop()
     // say what you got:
     Serial.print("I received: ");
     Serial.println(incomingByte, DEC);
-  }
+  }*/
 
- /*//Accelerometer - Determine launch
+ /*Accelerometer - Determine launch*/
  int x,y,z; 
  
  if(currState == WAIT_FOR_LAUNCH)
- {                         // init variables hold results
+ {
+    //init variables hold results
   adxl.readAccel(&x, &y, &z);         // Read the accelerometer values and store in variables x,y,z
   accX = (x - offsetX)/gainX;         // Calculating New Values for X, Y and Z
   accY = (y - offsetY)/gainY;
@@ -269,6 +277,9 @@ void loop()
  if(currState == ASCENT){
   currAltitude = measPressure.readAltitudeFt() - initAltitude;
   Serial.println(currAltitude);
+
+  //Determine if our altitude is increasing consistently.
+  //Make sure we are actually flying though, thats what max_alt is for!
   if(currAltitude > max_alt | max_alt < 750 ){
     max_alt = currAltitude;
     asc_count = 0;
@@ -296,15 +307,16 @@ void loop()
 
  if(currState == DESCENT){
   currAltitude = measPressure.readAltitudeFt() - initAltitude;
-  
-  if(currAltitude <= 1000){
+
+  //If we drop below 400 ft, we are about to land!
+  if(currAltitude <= 400){
    currState = LANDING;
    Serial.println("LANDING");
   }
 
   
-  //If we're at one of our target picture altitudes
-  if(currAltitude <= dec[dec_ptr] && dec_ptr < 8){
+  //If we're at one of our target picture altitudes, take a pic
+  if(currAltitude <= dec[dec_ptr] && dec_ptr < (sizeof(dec)/sizeof(int))){
    takePic();
    Serial.print("Picture captured at:");
    Serial.println((int)currAltitude);
@@ -316,16 +328,16 @@ void loop()
  if(currState == LANDING){
   currAltitude = measPressure.readAltitudeFt() - initAltitude;
 
-  if(currAltitude <= 50){
+  if(currAltitude <= 100){
     
      Serial.println("Waiting to confirm landing...");
+     delay(200000);
+     takePic();
+     Serial.println("Landing picture captured");
      delay(10000);
      takePic();
      Serial.println("Landing picture captured");
-     delay(5000);
-     takePic();
-     Serial.println("Landing picture captured");
-     delay(5000);
+     delay(10000);
      takePic();
      Serial.println("Landing picture captured");
      currState = RECOVERY;
@@ -335,6 +347,6 @@ void loop()
 
  if(currState == RECOVERY){
   
- }*/
+ }
  
 }
